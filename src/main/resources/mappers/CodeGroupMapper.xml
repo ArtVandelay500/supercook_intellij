@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  전체 매퍼 중 유일한 값을 사용하여야 한다.
+ 해서 관계적으로 해당 파일의 path와 file_name(확장자 제외)
+ 그리고 dao 에서 namespace와 일치하여야 된다. -->
+
+<mapper namespace="CodeGroup">
+    <!--select 결과를 받을 객채-->
+<!--    <resultMap id="resultMapObj" type="com.vandelay.app.codegroup.CodeGroup"></resultMap>-->
+
+    <select id="selectList" resultType="codegroup">
+        SELECT
+            seq,
+            code_seq,
+            name,
+            delNy
+        FROM
+            code
+
+    </select>
+
+
+    <update id="update">
+        UPDATE codeGroup
+        SET
+            name = #{name},
+            delNy = #{delNy}
+        WHERE
+            seq = #{seq}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM codeGroup WHERE seq = #{seq}
+    </delete>
+
+    <insert id="insert">
+        INSERT INTO codeGroup (type,name,delNy)
+        VALUES(
+                  #{type},
+                  #{name},
+                  #{delNy}
+              )
+    </insert>
+
+
+</mapper>

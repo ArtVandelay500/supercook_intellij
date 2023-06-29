@@ -1,4 +1,4 @@
-package com.vandelay.app.infra.codegroup.dto;
+package com.vandelay.app.infra.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.vandelay.app.infra.codegroup.vo;
+package com.vandelay.app.infra.vo;
 
 public class CodeGroupVo {
 }
