@@ -8,10 +8,13 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 데이터베이스 이름 및 계정 확인 -->
+
+<!--    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://database-1.cl9nvrrke5cl.ap-northeast-2.rds.amazonaws.com:33066/vandelay_db" />-->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://database-1.cl9nvrrke5cl.ap-northeast-2.rds.amazonaws.com:33066/vandelay_db" />
+        <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+        <property name="url" value="jdbc:log4jdbc:mysql://database-1.cl9nvrrke5cl.ap-northeast-2.rds.amazonaws.com:33066/vandelay_db" />
         <property name="username" value="adminXX"/>
         <property name="password" value="Bu95311Le2#"/>
     </bean>

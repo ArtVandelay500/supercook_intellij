@@ -1,5 +1,6 @@
 package com.vandelay.app.infra.repository;
 
+
 import com.vandelay.app.infra.dto.CodeGroupDTO;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,8 +13,10 @@ import java.util.List;
 public class CodeGroupRepository {
     private final SqlSessionTemplate sqlSession;
 
-    public List<CodeGroupDTO> selectList(){
+    public List<CodeGroupDTO> selectList() {
         return sqlSession.selectList("CodeGroup.selectList");
     }
 
+
 }
+

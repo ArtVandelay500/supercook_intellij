@@ -3,6 +3,7 @@ package com.vandelay.app.infra.controller;
 import com.vandelay.app.infra.dto.CodeGroupDTO;
 import com.vandelay.app.infra.service.CodeGroupService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

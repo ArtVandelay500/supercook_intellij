@@ -1,0 +1,15 @@
+2023-06-30 11:48:00.500 [main] DEBUG com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:48:00.501 [main] INFO  com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:48:00.501 [main] WARN  com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:48:00.501 [main] ERROR com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:48:00.501 [main] FATAL com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:54:33.568 [main] DEBUG com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:54:33.569 [main] INFO  com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:54:33.569 [main] WARN  com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:54:33.569 [main] ERROR com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:54:33.569 [main] FATAL com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:57:28.545 [main] DEBUG com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:57:28.546 [main] INFO  com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:57:28.546 [main] WARN  com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:57:28.546 [main] ERROR com.vandelay.app.infra.controller.Logger - We've just greeted the user!
+2023-06-30 11:57:28.546 [main] FATAL com.vandelay.app.infra.controller.Logger - We've just greeted the user!
