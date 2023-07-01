@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CodeGroupController {
     private final CodeGroupService codeGroupService;
-    @GetMapping("/view")
+    @GetMapping("/list")
     public String selectList(Model model){
         List<CodeGroupDTO> codeGroupDTOList = codeGroupService.selectList();
         model.addAttribute("list",codeGroupDTOList);

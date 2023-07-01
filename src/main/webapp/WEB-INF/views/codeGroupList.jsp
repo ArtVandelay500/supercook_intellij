@@ -5,70 +5,107 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-</head>
+    <link rel="stylesheet" href="/resources/css/prj_1/admin/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /></head>
+<link rel="stylesheet" href="https://cdn.jsdel¬øivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<script src="/resources/js/jquery-3.6.4.min.js"></script>
 <body>
-<form name="formList" action="" method="" display="flex">
-    <select style="width:auto;" class="form-select mb-1" aria-label="Default select example" name="shOption">
-        <option value="">사용여부</option>
-        <option value="1">사용</option>
-        <option value="0">미사용</option>
-    </select>
+<div>
+    <header>
+        <div class="headerBox">
+            <div class="logo"><img src="/resources/img/prj_1/admin/img.png" alt=""></div>
+            <div class="nav">
+                <ul class="navList">
+                    <a class="itemBox" href=""><li>재료관리</li></a>
+                    <a class="itemBox" href=""><li>레시피관리</li></a>
+                    <a class="itemBox" href=""><li>사용자관리</li></a>
+                    <a class="itemBox" href=""><li>조리법관리</li></a>
+                    <a class="itemBox" href=""><li>조리도구관리</li></a>
+                    <a class="itemBox" href=""><li>테마관리</li></a>
+                </ul>
+            </div>
+            <div class="outBtn">
+                    <span class="material-symbols-outlined">
+                    power_settings_new</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="mainBox">
+            <div class="mainContainer">
+                <div class="mainLabelBox">
+                    <h2 class="tableLabel">공통코드 관리</h2>
+                    <div class="addBox">
+                        <h3 class="tableSubLabel">공통코드 추가</h3>
+                        <span class="material-symbols-outlined">add_box</span>
+                    </div>
 
 
-    <input type="text" name="shKeyword"/>
-    <button  id="btn">Search</button>
-    <button id="xxxBtn">xxx</button>
-
-</form>
-<script type="text/javascript">
-    $("#btn").on("click",function(){
-        // 자기 자신을 호출할 때
-        console.log("hey");
-        $("form[name=formList]").attr("action","/dddd");
-    });
-
-
+                </div>
+                <div class="searchBox">
+                    <select name="codeGroup">
+                        <option value="">코드그룹</option>
+                        <option value="1">조리법</option>
+                        <option value="2">조리도구</option>
+                        <option value="3">음식류</option>
+                        <option value="4">기념일</option>
+                        <option value="5">테마</option>
+                    </select>
+                    <select name="delNy">
+                        <option value="">삭제여부</option>
+                        <option value="1">삭제</option>
+                        <option value="0">미삭제</option>
+                    </select>
+                    <div class="inputBox">
+                        <input class="searchInput" type="text">
+                        <span id="magGlass"class="material-symbols-outlined">
+                                search
+                                </span>
+                    </div>
+                </div>
+                <div class="tableBox">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>분류코드</th>
+                            <th>코드이름</th>
+                            <th></th>
+                            <th>삭제여부</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:choose>
+                            <c:when test="${fn:length(list) eq 0}">
+                                <h1 class="text-center" colspan="9">There is no data!</h1>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach items="${list}" var="list" varStatus="status">
+                                    <tr>
+                                        <td ><c:out value="${list.a.seq}"></c:out></td>
+                                        <td><c:out value="${list.aname}"></c:out></td>
+                                        <td><a href="/codeGroupForm?seq=<c:out value = '${list.a.seq}'/>"><c:out value="${list.a.name}"></c:out></a></td>
+                                        <td><button value="<c:out value = '${list.a.seq}'/>" class="detailBtn">상세</button></td>
+                                        <td><c:if test="${list.a.delNy == 0}">N</c:if></td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+<script>
 
 </script>
-
-
-<table class="table table-bordered" >
-    <thead class="table-primary">
-    <th style="width:1%" scope="col">#</th>
-    <th style="width:1%" scope="col">type</th>
-    <th style="width:10%" scope="col">name</th>
-    <th style="width:1%" scope="col">사용여부</th>
-    </thead >
-    <tbody>
-    <c:choose>
-        <c:when test="${fn:length(list) eq 0}">
-            <h1 class="text-center" colspan="9">There is no data!</h1>
-        </c:when>
-        <c:otherwise>
-            <c:forEach items="${list}" var="list" varStatus="status">
-                <tr>
-                    <td ><c:out value="${list.seq}"></c:out></td>
-                    <td><c:out value="${list.code_seq}"></c:out></td>
-                    <td><a href="/codeGroupForm?seq=<c:out value = '${list.seq}'/>"><c:out value="${list.name}"></c:out></a></td>
-                    <td><c:out value="${list.delNy}"></c:out></td>
-                </tr>
-            </c:forEach>
-        </c:otherwise>
-    </c:choose>
-    </tbody>
-</table>
-
-
-</body>
 </html>

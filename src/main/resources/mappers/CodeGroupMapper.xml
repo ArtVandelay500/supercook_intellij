@@ -13,12 +13,14 @@
 
     <select id="selectList" resultType="codegroup">
         SELECT
-            seq,
-            code_seq,
-            name,
-            delNy
+            a.seq,
+            a.codeGroup_seq,
+            a.name AS aname,
+            a.delNy,
+            b.name
         FROM
-            code
+            code1 AS a
+        LEFT JOIN codeGroup1 AS b ON a.codeGroup_seq = b.seq
 
     </select>
 
