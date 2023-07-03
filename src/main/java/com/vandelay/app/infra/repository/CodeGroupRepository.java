@@ -30,5 +30,7 @@ public class CodeGroupRepository {
     public int insert(CodeGroupDTO dto) {
         return sqlSession.insert("CodeGroup.insert",dto);
     }
+
+    public int delete(CodeGroupVo vo) { return sqlSession.delete("CodeGroup.delete",vo);}
 }
 

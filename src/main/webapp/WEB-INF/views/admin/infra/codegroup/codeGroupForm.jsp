@@ -95,6 +95,7 @@
                                             <th>코드이름</th>
                                             <th>삭제여부</th>
                                             <th></th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -102,7 +103,7 @@
                                             <form name="updateForm">
                                                 <td><input readonly class="searchInput_formSeq" name="seq" value="<c:out value="${item.seq}"></c:out>"/></td>
                                                 <td>
-                                                    <select name="">
+                                                    <select name="codeGroup_seq">
                                                         <option value="1" <c:if test="${item.codeGroup_seq == 1}">selected</c:if>>조리법</option>
                                                         <option value="2" <c:if test="${item.codeGroup_seq == 2}">selected</c:if>>조리도구</option>
                                                         <option value="3" <c:if test="${item.codeGroup_seq == 3}">selected</c:if>>음식종류</option>
@@ -118,6 +119,7 @@
                                                     </select>
                                                 </td>
                                                 <td><button class="updateBtn btn">수정</button></td>
+                                                <td><button class="deleteBtn btn">삭제</button></td>
                                             </form>
                                         </tr>
                                     </tbody>
@@ -146,6 +148,10 @@
         /*생성버튼 이벤트*/
         $(".insertBtn").on("click",function(){
             $("form[name=insertForm]").attr("action","/codeGroupForm/insert").submit();
+        });
+        /*삭제버튼 이벤트*/
+        $(".deleteBtn").on("click",function(){
+            $("form[name=updateForm]").attr("action","/codeGroupForm/delete").submit();
         });
 
     </script>

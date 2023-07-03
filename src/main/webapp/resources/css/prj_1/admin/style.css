@@ -450,7 +450,7 @@ select[name='delNy']{
 }
 .tableBox_form>table>thead>tr>th,.tableBox_form>table>tbody>tr>td{
     border-bottom: 0px solid rgba(0,0,0,0.1);
-    padding: 10px 20px;
+    padding: 10px 5px;
     letter-spacing: 0;
     white-space: nowrap;
 }
@@ -482,7 +482,7 @@ select[name='delNy']{
     cursor: pointer;
     transition: all .3s ease-in-out;
     font-weight: 500;
-    margin: 0 15px;
+    margin: 0 5px;
     white-space: nowrap;
     transition: all .3s ease-in-out;
 }
@@ -497,6 +497,12 @@ select[name='delNy']{
 }
 .updateBtn:hover{
     background-color: rgba(106, 90, 205, 0.75);
+}
+.deleteBtn{
+    background-color: rgba(255, 0, 0, 0.48);
+}
+.deleteBtn:hover{
+    background-color: rgba(255, 0, 0, 0.98);
 }
 #back2list{
     text-align: center;

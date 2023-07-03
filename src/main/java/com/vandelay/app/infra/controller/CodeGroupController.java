@@ -50,5 +50,10 @@ public class CodeGroupController {
         return "redirect:/codeGroupList/list";
     }
 
+    @RequestMapping("/codeGroupForm/delete")
+    public String codeDelete(CodeGroupVo vo){
+        codeGroupService.delete(vo);
+        return "redirect:/codeGroupList/list";
+    }
 
 }

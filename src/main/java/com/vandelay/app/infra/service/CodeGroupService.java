@@ -28,4 +28,6 @@ public class CodeGroupService {
     public int insert(CodeGroupDTO dto) {
         return codeGroupRepository.insert(dto);
     }
+
+    public int delete(CodeGroupVo vo) { return codeGroupRepository.delete(vo);}
 }
