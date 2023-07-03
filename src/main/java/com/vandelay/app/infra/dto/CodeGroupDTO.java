@@ -10,7 +10,7 @@ public class CodeGroupDTO {
     private String seq;
     private String codeGroup_seq;
     private String name;
-    private String aname;
+    private String codeName;
     private int delNy;
 
 

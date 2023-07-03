@@ -15,18 +15,35 @@
         SELECT
             a.seq,
             a.codeGroup_seq,
-            a.name AS aname,
+            a.name,
             a.delNy,
-            b.name
+            b.codeName
         FROM
             code1 AS a
         LEFT JOIN codeGroup1 AS b ON a.codeGroup_seq = b.seq
+        WHERE 1+1
+        <if test="shKey != null and !shKey.equals('')">
+          AND b.codeName LIKE CONCAT('%',#{shKey},'%')
+        </if>
 
+    </select>
+
+    <select id="selectOne" resultType="codegroup">
+        SELECT
+            a.seq,
+            a.codeGroup_seq,
+            a.name,
+            a.delNy,
+            b.codeName
+        FROM
+            code1 AS a
+                LEFT JOIN codeGroup1 AS b ON a.codeGroup_seq = b.seq
+        WHERE a.seq = #{seq}
     </select>
 
 
     <update id="update">
-        UPDATE codeGroup
+        UPDATE code1
         SET
             name = #{name},
             delNy = #{delNy}
@@ -39,9 +56,9 @@
     </delete>
 
     <insert id="insert">
-        INSERT INTO codeGroup (type,name,delNy)
+        INSERT INTO code1 (name,codeGroup_seq,delNy)
         VALUES(
-                  #{type},
+                  #{codeGroup_seq},
                   #{name},
                   #{delNy}
               )
