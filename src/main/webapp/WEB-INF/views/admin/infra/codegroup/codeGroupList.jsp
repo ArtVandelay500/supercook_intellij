@@ -71,7 +71,7 @@
                                         <td><c:out value="${list.seq}"></c:out></td>
                                         <td><c:out value="${list.codeName}"></c:out></td>
                                         <td><c:out value="${list.name}"></c:out></td>
-                                        <td><button class="detailBtn" onclick="location.href='/codeGroupForm?seq=<c:out value = '${list.seq}'/>'">상세</button></td>
+                                        <td><button class="detailBtn" onclick="location.href='/codeGroupForm?seq=<c:out value = '${list.seq}'/>'">수정</button></td>
                                         <td>
                                             <c:choose>
                                                 <c:when test="${list.delNy eq '1'}">

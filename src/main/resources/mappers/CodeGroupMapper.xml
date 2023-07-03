@@ -56,7 +56,7 @@
     </delete>
 
     <insert id="insert">
-        INSERT INTO code1 (name,codeGroup_seq,delNy)
+        INSERT INTO code1 (codeGroup_seq,name,delNy)
         VALUES(
                   #{codeGroup_seq},
                   #{name},

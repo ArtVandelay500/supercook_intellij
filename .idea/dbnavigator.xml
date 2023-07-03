@@ -20,9 +20,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" object-ref="schemas/vandelay_db/tables/codeGroup" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" dataset="vandelay_db.code1" active-filter-id="EMPTY_FILTER" />
