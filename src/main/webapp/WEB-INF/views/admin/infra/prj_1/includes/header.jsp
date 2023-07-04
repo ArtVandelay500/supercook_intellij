@@ -4,7 +4,19 @@
         <div class="logo"><img src="/resources/img/prj_1/admin/img.png" alt=""></div>
         <div class="nav">
             <ul class="navList">
-                <a class="itemBox" href=""><li>재료관리</li></a>
+                <a class="itemBox" href="#">
+                    <li>공통코드관리</li>
+                        <div class="">
+                            <ul>
+                                <a href="/codeList/list">
+                                    <li>공통코드</li>
+                                </a>
+                                <a href="/codeGroupList/list">
+                                    <li>공통코드그룹</li>
+                                </a>
+                            </ul>
+                        </div>
+                </a>
                 <a class="itemBox" href=""><li>레시피관리</li></a>
                 <a class="itemBox" href=""><li>사용자관리</li></a>
                 <a class="itemBox" href=""><li>조리법관리</li></a>

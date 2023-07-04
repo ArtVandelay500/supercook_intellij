@@ -6,32 +6,24 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<%@include file="includes/head.jsp"%>
+<%@include file="../includes/head.jsp"%>
 <body>
 <div>
-    <%@include file="includes/header.jsp"%>
+    <%@include file="../includes/header.jsp"%>
     <main>
         <div class="mainBox">
             <div class="mainContainer">
-            <%--FORM CONTENT STARTS FROM HERE!!--%>
-            <%--FORM CONTENT STARTS FROM HERE!!--%>
+                <%--FORM CONTENT STARTS FROM HERE!!--%>
+                <%--FORM CONTENT STARTS FROM HERE!!--%>
                 <div class="mainLabelBox">
-                    <h2 class="tableLabel">공통코드 관리</h2>
+                    <h2 class="tableLabel">공통코드그룹 관리</h2>
                     <div class="addBox" onclick="location.href='/codeGroupForm'">
-                        <h3 class="tableSubLabel">공통코드 추가</h3>
+                        <h3 class="tableSubLabel">공통코드그룹 추가</h3>
                         <span class="material-symbols-outlined">add_box</span></a>
                     </div>
                 </div>
                 <form name="search">
                     <div class="searchBox">
-                        <select name="optCodeName">
-                            <option value="">코드그룹</option>
-                            <option value="1">조리법</option>
-                            <option value="2">조리도구</option>
-                            <option value="3">음식류</option>
-                            <option value="4">기념일</option>
-                            <option value="5">테마</option>
-                        </select>
                         <select name="optDelNy">
                             <option value="">삭제여부</option>
                             <option value="1">삭제</option>
@@ -48,7 +40,6 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>분류코드</th>
                             <th>코드이름</th>
                             <th></th>
                             <th>삭제여부</th>
@@ -58,7 +49,6 @@
                         <c:choose>
                             <c:when test="${fn:length(list) eq 0}">
                                 <tr>
-                                    <td></td>
                                     <td></td>
                                     <td><h4 id="nodata">There is no data!</h4></td>
                                     <td></td>
@@ -70,7 +60,6 @@
                                     <tr>
                                         <td><c:out value="${list.seq}"></c:out></td>
                                         <td><c:out value="${list.codeName}"></c:out></td>
-                                        <td><c:out value="${list.name}"></c:out></td>
                                         <td><button class="detailBtn" onclick="location.href='/codeGroupForm?seq=<c:out value = '${list.seq}'/>'">수정</button></td>
                                         <td>
                                             <c:choose>
@@ -90,8 +79,8 @@
                     </table>
                 </div>
 
-        <%--FORM CONTENT ENDS FROM HERE!!--%>
-        <%--FORM CONTENT ENDS FROM HERE!!--%>
+                <%--FORM CONTENT ENDS FROM HERE!!--%>
+                <%--FORM CONTENT ENDS FROM HERE!!--%>
             </div>
         </div>
     </main>
@@ -100,26 +89,26 @@
 </body>
 <script type="text/javascript">
 
-   $("select[name=optCodeName],select[name=optDelNy]").on("change",function(){
-       /*$("form[name=search]").attr("action","/codeGroupList/list").submit();*/
-       $.ajax({
-           type: "post",
-           url: "codeGroupList/list",
-           dataType:"text",
-           data:{
-               "optCodeName" : $("select[name=optCodeName]").val(),
-               "optDelNy" : $("select[name=optDelNy]").val()
-           },
-           success: function() {
-               alert("hey");
-           },
-           error: function (request, status, error) {
-               console.log("code: " + request.status)
-               console.log("message: " + request.responseText)
-               console.log("error: " + error);
-           }
-       });
-   });
+    $("select[name=optCodeName],select[name=optDelNy]").on("change",function(){
+        /*$("form[name=search]").attr("action","/codeList/list").submit();*/
+        $.ajax({
+            type: "post",
+            url: "codeList/list",
+            dataType:"text",
+            data:{
+                "optCodeName" : $("select[name=optCodeName]").val(),
+                "optDelNy" : $("select[name=optDelNy]").val()
+            },
+            success: function() {
+                alert("hey");
+            },
+            error: function (request, status, error) {
+                console.log("code: " + request.status)
+                console.log("message: " + request.responseText)
+                console.log("error: " + error);
+            }
+        });
+    });
 
 </script>
 </html>

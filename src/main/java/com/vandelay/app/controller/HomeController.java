@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     @GetMapping("/")
     public String index(){
-        return "index";
+        return "user/infra/biography/biographyUserView";
     }
+
+    @GetMapping("/indexAdminView")
+    public String indexAdminView(){ return "admin/infra/prj_1/index/indexAdminView";}
 }

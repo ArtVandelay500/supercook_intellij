@@ -16,18 +16,4 @@ public class CodeGroupService {
     public List<CodeGroupDTO> selectList(CodeGroupVo vo) {
         return codeGroupRepository.selectList(vo);
     }
-
-    public CodeGroupDTO selectOne(CodeGroupVo vo) {
-        return codeGroupRepository.selectOne(vo);
-    }
-
-    public int update(CodeGroupDTO dto) {
-         return codeGroupRepository.update(dto);
-    }
-
-    public int insert(CodeGroupDTO dto) {
-        return codeGroupRepository.insert(dto);
-    }
-
-    public int delete(CodeGroupVo vo) { return codeGroupRepository.delete(vo);}
 }

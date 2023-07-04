@@ -9,61 +9,25 @@
 
 <mapper namespace="CodeGroup">
     <!--select 결과를 받을 객채-->
-<!--    <resultMap id="resultMapObj" type="com.vandelay.app.codegroup.CodeGroup"></resultMap>-->
+    <!--mybatis-config에서 alias를 사용중-->
 
     <select id="selectList" resultType="codegroup">
         SELECT
-            a.seq,
-            a.codeGroup_seq,
-            a.name,
-            a.delNy,
-            b.codeName
+            *
         FROM
-            code AS a
-        LEFT JOIN codeGroup AS b ON a.codeGroup_seq = b.seq
-        WHERE 1+1
-        <if test="shKey != null and !shKey.equals('')">
-          AND b.codeName LIKE CONCAT('%',#{shKey},'%')
-        </if>
-
+            codeGroup
     </select>
 
     <select id="selectOne" resultType="codegroup">
         SELECT
-            a.seq,
-            a.codeGroup_seq,
-            a.name,
-            a.delNy,
-            b.codeName
+            seq,
+            codeName,
+            delNy,
         FROM
-            code AS a
-                LEFT JOIN codeGroup AS b ON a.codeGroup_seq = b.seq
+            codeGroup
         WHERE a.seq = #{seq}
     </select>
 
-
-    <update id="update">
-        UPDATE code
-        SET
-            name = #{name},
-            codeGroup_seq = #{codeGroup_seq},
-            delNy = #{delNy}
-        WHERE
-            seq = #{seq}
-    </update>
-
-    <delete id="delete">
-        DELETE FROM code WHERE seq = #{seq}
-    </delete>
-
-    <insert id="insert">
-        INSERT INTO code (codeGroup_seq,name,delNy)
-        VALUES(
-                  #{codeGroup_seq},
-                  #{name},
-                  #{delNy}
-              )
-    </insert>
 
 
 </mapper>

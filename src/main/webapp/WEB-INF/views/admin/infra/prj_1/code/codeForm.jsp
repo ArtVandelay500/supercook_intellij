@@ -6,10 +6,10 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="includes/head.jsp"%>
+<%@include file="../includes/head.jsp"%>
 <body>
     <div>
-        <%@include file="includes/header.jsp"%>
+        <%@include file="../includes/header.jsp"%>
         <main>
             <div class="mainBox">
                 <div class="mainContainer">
@@ -24,7 +24,7 @@
                  <c:when test="${empty item.seq }">
                     <div class="mainLabelBox">
                         <h2 class="tableLabel">공통코드 추가</h2>
-                        <div class="addBox" onclick="location.href='/codeGroupList/list'">
+                        <div class="addBox" onclick="location.href='/codeList/list'">
                            <h3 class="tableSubLabel">공통코드 목록</h3>
                             <span id="back2list" class="material-symbols-outlined">clear_all</span>
                         </div>
@@ -81,7 +81,7 @@
                                 <c:otherwise>
                                 <div class="mainLabelBox">
                                     <h2 class="tableLabel">공통코드 수정</h2>
-                                    <div class="addBox" onclick="location.href='/codeGroupList/list'">
+                                    <div class="addBox" onclick="location.href='/codeList/list'">
                                         <h3 class="tableSubLabel">공통코드 목록</h3>
                                         <span id="back2list" class="material-symbols-outlined">clear_all</span>
                                     </div>
@@ -143,15 +143,15 @@
     <script>
         /*수정 버튼 이벤트*/
         $(".updateBtn").on("click",function(){
-            $("form[name=updateForm]").attr("action","/codeGroupForm/update").submit();
+            $("form[name=updateForm]").attr("action","/codeForm/update").submit();
         });
         /*생성버튼 이벤트*/
         $(".insertBtn").on("click",function(){
-            $("form[name=insertForm]").attr("action","/codeGroupForm/insert").submit();
+            $("form[name=insertForm]").attr("action","/codeForm/insert").submit();
         });
         /*삭제버튼 이벤트*/
         $(".deleteBtn").on("click",function(){
-            $("form[name=updateForm]").attr("action","/codeGroupForm/delete").submit();
+            $("form[name=updateForm]").attr("action","/codeForm/delete").submit();
         });
 
     </script>

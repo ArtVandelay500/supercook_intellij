@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
+        <typeAlias type="com.vandelay.app.infra.dto.CodeDTO" alias="code"></typeAlias>
         <typeAlias type="com.vandelay.app.infra.dto.CodeGroupDTO" alias="codegroup"></typeAlias>
     </typeAliases>
 </configuration>
