@@ -54,6 +54,7 @@ header{
     z-index: 9999;
     top: 0;
     background-color: coral;
+    transition: all .3s ease-in-out;
 }
 .headerBox{
     width: 100%;
@@ -71,17 +72,65 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+.navListBox{
+    position: relative;
+}
+.mouseon{
+    box-shadow: 0px 60px 0px 0px coral;
+}
+
+/*SubNavList css*/
+/*SubNavList css*/
+
+.subNavList{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom:15px;
+
+}
+.fade{
+    opacity: 1;
+}
+.subNavList>a{
+    width: 100%;
+    text-align: center;
+    transition: all .3s ease-in-out;
+    margin: 0 15px;
+    font-size: 17px;
+    color: white;
+    transition: all .3s ease-in-out;
+}
+.subNavList>a:hover{
+    letter-spacing: 0;
+}
+.subNavList>a>li{
+    white-space: nowrap;
+}
+.curtain{
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    background-color: coral;
+    z-index: -1;
+    height: 50px;
+}
+/*SubNavList css*/
+/*SubNavList css*/
 .itemBox{
     display: flex;
-    align-items: center;
-    margin: 0 30px;
     transition: all .3s ease-in-out;
     text-decoration: none;
+    padding: 80px 15px;
 }
 .itemBox>li{
     font-size: 18px;
     font-weight: 700;
     color: white;
+    margin: 0 30px;
     white-space: nowrap;
 }
 .itemBox:hover{
@@ -124,6 +173,8 @@ header{
     object-fit: cover;
     transition: all .3s ease-in-out;
 }
+
+
 /*메인 로고에 써있는 '관리자' css*/
 .adminTitle{
     display: block;

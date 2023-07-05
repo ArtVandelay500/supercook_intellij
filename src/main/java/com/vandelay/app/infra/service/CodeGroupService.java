@@ -16,4 +16,8 @@ public class CodeGroupService {
     public List<CodeGroupDTO> selectList(CodeGroupVo vo) {
         return codeGroupRepository.selectList(vo);
     }
+
+    public CodeGroupDTO selectOne(CodeGroupVo vo) {
+        return codeGroupRepository.selectOne(vo);
+    }
 }

@@ -11,21 +11,27 @@
     <!--select 결과를 받을 객채-->
     <!--mybatis-config에서 alias를 사용중-->
 
+
+    <sql id="selectField">
+        seq,
+        codeName,
+        delNy
+    </sql>
+
+
     <select id="selectList" resultType="codegroup">
         SELECT
-            *
+            <include refid="selectField" />
         FROM
             codeGroup
     </select>
 
     <select id="selectOne" resultType="codegroup">
         SELECT
-            seq,
-            codeName,
-            delNy,
+            <include refid="selectField" />
         FROM
             codeGroup
-        WHERE a.seq = #{seq}
+        WHERE seq = #{seq}
     </select>
 
 

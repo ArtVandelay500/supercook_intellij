@@ -23,9 +23,9 @@
                 <c:choose>
                     <c:when test="${empty item.seq }">
                         <div class="mainLabelBox">
-                            <h2 class="tableLabel">공통코드 추가</h2>
-                            <div class="addBox" onclick="location.href='/codeList/list'">
-                                <h3 class="tableSubLabel">공통코드 목록</h3>
+                            <h2 class="tableLabel">코드그룹 추가</h2>
+                            <div class="addBox" onclick="location.href='/codeGroupList/list'">
+                                <h3 class="tableSubLabel">코드그룹 목록</h3>
                                 <span id="back2list" class="material-symbols-outlined">clear_all</span>
                             </div>
                         </div>
@@ -33,7 +33,6 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th>분류코드</th>
                                     <th>코드이름</th>
                                     <th>삭제여부</th>
                                     <th></th>
@@ -42,17 +41,8 @@
                                 <tbody>
                                 <tr>
                                     <form name="insertForm">
-                                        <td>
-                                            <select name="codeGroup_seq">
-                                                <option value="">:: 코드그룹 ::</option>
-                                                <option value="1" <c:if test="${item.codeGroup_seq == 1}">selected</c:if>>조리법</option>
-                                                <option value="2" <c:if test="${item.codeGroup_seq == 2}">selected</c:if>>조리도구</option>
-                                                <option value="3" <c:if test="${item.codeGroup_seq == 3}">selected</c:if>>음식종류</option>
-                                                <option value="4" <c:if test="${item.codeGroup_seq == 4}">selected</c:if>>기념일</option>
-                                                <option value="5" <c:if test="${item.codeGroup_seq == 5}">selected</c:if>>테마</option>
-                                            </select>
-                                        </td>
-                                        <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
+
+                                        <td><input name="codeName" class="searchInput_form" placeholder="코드그룹명"></td>
                                         <td>
                                             <select name="delNy">
                                                 <option value="0" <c:if test="${item.delNy == 0}">selected</c:if>>N</option>
@@ -80,9 +70,9 @@
                     </c:when>
                     <c:otherwise>
                         <div class="mainLabelBox">
-                            <h2 class="tableLabel">공통코드 수정</h2>
-                            <div class="addBox" onclick="location.href='/codeList/list'">
-                                <h3 class="tableSubLabel">공통코드 목록</h3>
+                            <h2 class="tableLabel">코드그룹 수정</h2>
+                            <div class="addBox" onclick="location.href='/codeGroupList/list'">
+                                <h3 class="tableSubLabel">코드그룹 목록</h3>
                                 <span id="back2list" class="material-symbols-outlined">clear_all</span>
                             </div>
                         </div>
@@ -91,8 +81,7 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>분류코드</th>
-                                    <th>코드이름</th>
+                                    <th>코드그룹 이름</th>
                                     <th>삭제여부</th>
                                     <th></th>
                                     <th></th>
@@ -102,16 +91,7 @@
                                 <tr>
                                     <form name="updateForm">
                                         <td><input readonly class="searchInput_formSeq" name="seq" value="<c:out value="${item.seq}"></c:out>"/></td>
-                                        <td>
-                                            <select name="codeGroup_seq">
-                                                <option value="1" <c:if test="${item.codeGroup_seq == 1}">selected</c:if>>조리법</option>
-                                                <option value="2" <c:if test="${item.codeGroup_seq == 2}">selected</c:if>>조리도구</option>
-                                                <option value="3" <c:if test="${item.codeGroup_seq == 3}">selected</c:if>>음식종류</option>
-                                                <option value="4" <c:if test="${item.codeGroup_seq == 4}">selected</c:if>>기념일</option>
-                                                <option value="5" <c:if test="${item.codeGroup_seq == 5}">selected</c:if>>테마</option>
-                                            </select>
-                                        </td>
-                                        <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
+                                        <td><input name="codeName" class="searchInput_form" value="<c:out value="${item.codeName}"></c:out>"></td>
                                         <td>
                                             <select name="delNy">
                                                 <option value="0" <c:if test="${item.delNy == 0}">selected</c:if>>N</option>
@@ -143,15 +123,15 @@
 <script>
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(){
-        $("form[name=updateForm]").attr("action","/codeForm/update").submit();
+        $("form[name=updateForm]").attr("action","/codeGroupForm/update").submit();
     });
     /*생성버튼 이벤트*/
     $(".insertBtn").on("click",function(){
-        $("form[name=insertForm]").attr("action","/codeForm/insert").submit();
+        $("form[name=insertForm]").attr("action","/codeGroupForm/insert").submit();
     });
     /*삭제버튼 이벤트*/
     $(".deleteBtn").on("click",function(){
-        $("form[name=updateForm]").attr("action","/codeForm/delete").submit();
+        $("form[name=updateForm]").attr("action","/codeGroupForm/delete").submit();
     });
 
 </script>

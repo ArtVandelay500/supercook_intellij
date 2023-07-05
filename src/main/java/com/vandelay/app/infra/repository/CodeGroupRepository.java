@@ -16,4 +16,8 @@ public class CodeGroupRepository {
     public List<CodeGroupDTO> selectList(CodeGroupVo vo) {
         return sqlSession.selectList("CodeGroup.selectList",vo);
     }
+
+    public CodeGroupDTO selectOne(CodeGroupVo vo) {
+        return sqlSession.selectOne("CodeGroup.selectOne",vo);
+    }
 }
