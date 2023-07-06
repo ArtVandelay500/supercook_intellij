@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
                         required
                         id="user-id"
                         type="text"
-                        placeholder="Enter Your ID..."
+                        placeholder="아이디를 입력해주세요"
                 />
                 <label id="pwd-label" for="user-pwd">PWD: </label>
                 <input
@@ -31,13 +32,12 @@
                         maxlength="15"
                         id="user-pwd"
                         type="password"
-                        placeholder="Enter Your Password..."
+                        placeholder="비밀번호를 입력해주세요"
                 />
-                <div class="btns">
-                    <button class="login">In</button>
-                    <button class="signup">Sign Up</button>
+                <div class="btnBox">
+                    <button id="b1" onclick="location.href='/member/login'" class="login btn">로그인</button>
+                    <button id="b2" onclick="location.href='/loginForm'" class="signup btn">회원가입</button>
                 </div>
-                <a class="forget" href="">Or Perhaps, You Have Forgotten Both?</a>
             </form>
         </div>
     </div>

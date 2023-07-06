@@ -25,7 +25,7 @@
 /*HTML Body*/
 /*HTML Body*/
 *{
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'KBO-Dia-Gothic_bold';
 }
 
 html,body{
@@ -71,9 +71,12 @@ body{
     align-items: center;
     font-weight: 400;
 }
+.welcome-header>img{
+    width: 100%;
+    object-fit: fill;
+}
 .welcome-header{
-    font-weight: 700;
-    font-size: 50px;
+    width: 30%;
     animation: disappear 2s ease-in-out forwards;
 }
 .welcome-form{
@@ -118,70 +121,60 @@ body{
     border-style: none;
     margin-bottom: 20px;
     font-size: 17px;
-    font-family: 'Oswald', sans-serif;
+    outline: none;
+    padding: 0 15px;
     background-color: rgba(0, 0, 0, 0);
 }
 #user-pwd{
     font-size: 17px;
+    outline: none;
+    padding: 0 15px;
     border-style: none;
     background-color: rgba(0, 0, 0, 0);
 }
 #id-label{
+    letter-spacing: 1px;
+    font-family: 'KBO-Dia-Gothic_bold';
     transition: all .5s ease-in-out;
+    color: coral;
 }
 #pwd-label{
+    letter-spacing: 1px;
+    color: coral;
+    font-family: 'KBO-Dia-Gothic_bold';
     transition: all .5s ease-in-out;
     transition-delay: .1s;
 
 }
-form:hover .btns {
-    opacity: 1;
-}
-form:hover .forget {
+form:hover .btnBox {
     opacity: 1;
 }
 
+
 form:hover #id-label {
     transform: scale(1.3)translateY(18px)translateX(-5px);
-    color: rgba(92, 88, 84,0.8);
+    color: white;
 }
 form:hover #pwd-label{
     transform: scale(1.3)translateY(18px)translateX(-20px);
-    color: rgba(104, 97, 91,0.8);
+    color: white;
 }
-.login:hover {
-    box-shadow: 0 0 .8em .3em rgb(232, 214, 214);
-    color: rgb(130, 120, 111);
-    transform: scale(1.05);
-    font-size: 17px;
-    width: 65px;
-    border-radius: 10px;
-}
-.signup:hover {
-    box-shadow: 0 0 .8em .3em rgb(233, 230, 230);
-    color: rgb(130, 120, 111);
-    transform: scale(1.05);
-    font-size: 17px;
-    width: 80px;
-    border-radius: 10px;
-}
-.signup:hover .login{
-    transform: scale(.3);
-}
-.login:hover .signup{
-    transform: scale(.3);
-}
-.login:active{
-    transform: scale(0);
-}
-#user-id::placeholder{
+
+
+#user-id::placeholder {
+    color: white;
     opacity: .5;
     transition: all .5s ease-in-out;
-    font-family: 'Oswald', sans-serif;}
+    text-align: center;
+    font-family: 'KBO-Dia-Gothic_bold';
+}
 #user-pwd::placeholder{
-    opacity: .5;
+    color: white;
+    text-align: center;
+    opacity: .5
+;
     transition: all .5s ease-in-out;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'KBO-Dia-Gothic_bold';
 }
 #user-id:hover::placeholder{
     opacity: 0;
@@ -189,21 +182,42 @@ form:hover #pwd-label{
 #user-pwd:hover::placeholder{
     opacity: 0;
 }
-.forget{
-    margin-top: 15px;
-    opacity: 0;
-    transition: all 0.2s ease-in-out,opacity .5s ease-in-out;
-    transition-delay: .1s;
-}
-.forget:hover{
-    color: coral;
-}
-.btns{
+
+.btnBox{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 30px;
     opacity: 0;
     transition: all 0.2s ease-in-out,opacity .5s ease-in-out;
+}
 
+.btn{
+    width: 70px;
+    height: 35px;
+    background-color: coral;
+    color: white;
+    white-space: nowrap;
+    font-family: 'KBO-Dia-Gothic_bold';
+}
+.login:hover {
+    transform: scale(1.05);
+    font-size: 16px;
+    border-radius: 10px;
+}
+.signup:hover {
+    transform: scale(1.05);
+    font-size: 16px;
+    border-radius: 10px;
+}
+#b2:hover * #b1{
+    transform: scale(.3);
+    opacity: .2;
+}
+#b1:hover +#b2{
+    opacity: .2;
+    transform: scale(.3);
+}
+.login:active{
+    transform: scale(0);
 }
