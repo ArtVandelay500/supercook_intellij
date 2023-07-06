@@ -20,4 +20,23 @@ public class CodeGroupService {
     public CodeGroupDTO selectOne(CodeGroupVo vo) {
         return codeGroupRepository.selectOne(vo);
     }
+
+    public int update(CodeGroupDTO dto) {
+        return codeGroupRepository.update(dto);
+    }
+
+    public int insert(CodeGroupDTO dto) {
+        return codeGroupRepository.insert(dto);
+    }
+
+    public int delete(CodeGroupDTO dto) {
+        return codeGroupRepository.delete(dto);
+    }
+
+//    getting int for total number of rows of data
+//    getting int for total number of rows of data
+//    getting int for total number of rows of data
+    public int selectOneCount(CodeGroupVo vo) {
+        return codeGroupRepository.selectOneCount(vo);
+    }
 }

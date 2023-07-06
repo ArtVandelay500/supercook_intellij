@@ -93,7 +93,16 @@
                 </div>
                 <%--pagination include--%>
                 <%--pagination include--%>
-                <%@include file="../includes/pagination.jsp"%>
+                <c:choose>
+                    <c:when test="${vo.totalPages eq 1}">
+
+                    </c:when>
+                    <c:otherwise>
+
+                        <%@include file="../includes/pagination.jsp"%>
+
+                    </c:otherwise>
+                </c:choose>
                 <%--pagination include--%>
                 <%--pagination include--%>
               

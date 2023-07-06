@@ -12,4 +12,7 @@ public class HomeController {
 
     @GetMapping("/indexAdminView")
     public String indexAdminView(){ return "admin/infra/prj_1/index/indexAdminView";}
+
+    @GetMapping("/login")
+    public String indexLogin(){ return "login/infra/prj_1/login";}
 }

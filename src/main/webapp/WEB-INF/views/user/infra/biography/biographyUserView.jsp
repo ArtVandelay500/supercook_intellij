@@ -38,7 +38,7 @@
                         <h3>Project 1</h3>
                         <ul>
                             <li><a href="#">User</a></li>
-                            <li><a href="indexAdminView">Admin</a></li>
+                            <li><a href="login">Admin</a></li>
                         </ul>
                     </div>
                 </div>

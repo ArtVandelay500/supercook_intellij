@@ -16,13 +16,15 @@
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
                 <div class="mainLabelBox">
-                    <h2 class="tableLabel">공통코드그룹 관리</h2>
+                    <h2 class="tableLabel">코드그룹 관리</h2>
                     <div class="addBox" onclick="location.href='/codeGroupForm'">
-                        <h3 class="tableSubLabel">공통코드그룹 추가</h3>
+                        <h3 class="tableSubLabel">코드그룹 추가</h3>
                         <span class="material-symbols-outlined">add_box</span></a>
                     </div>
                 </div>
                 <form name="search">
+                    <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+                    <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
                     <div class="searchBox">
                         <select name="optDelNy">
                             <option value="">삭제여부</option>
@@ -78,6 +80,21 @@
                         </tbody>
                     </table>
                 </div>
+                <%--pagination include--%>
+                <%--pagination include--%>
+                    <c:choose>
+                        <c:when test="${vo.totalPages eq 1}">
+
+                        </c:when>
+                        <c:otherwise>
+
+                            <%@include file="../includes/pagination.jsp"%>
+
+                        </c:otherwise>
+                    </c:choose>
+                <%--pagination include--%>
+                <%--pagination include--%>
+
 
                 <%--FORM CONTENT ENDS FROM HERE!!--%>
                 <%--FORM CONTENT ENDS FROM HERE!!--%>
@@ -88,6 +105,29 @@
 
 </body>
 <script type="text/javascript">
+    <%--pagination js function--%>
+    <%--pagination js function--%>
+
+    goList = function(thisPage) {
+        if(thisPage == 0) {
+            console.log("function 1st");
+            $("input:hidden[name=thisPage]").val(1);
+            $("form[name=search]").attr("action", "/codeGroupList/list").submit();
+
+        } else if(thisPage > ${vo.totalPages}){
+            console.log("function 2nd");
+            $("input:hidden[name=thisPage]").val(thisPage - 1);
+            $("form[name=search]").attr("action", "/codeGroupList/list").submit();
+        }else{
+            console.log("function 3rd");
+            $("input:hidden[name=thisPage]").val(2);
+            $("form[name=search]").attr("action", "/codeGroupList/list").submit();
+
+        }
+    }
+    <%--pagination js function--%>
+    <%--pagination js function--%>
+
 
     $("select[name=optCodeName],select[name=optDelNy]").on("change",function(){
         /*$("form[name=search]").attr("action","/codeList/list").submit();*/

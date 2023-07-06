@@ -1,0 +1,209 @@
+@import url("../../reset.css");
+/*login animation*/
+/*login animation*/
+@import url("loginAnimation.css");
+/*login animation*/
+/*login animation*/
+/* font */
+/* font-family: 'Montserrat', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* font */
+@font-face {
+    font-family: 'KBO-Dia-Gothic_bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+/*HTML Body*/
+/*HTML Body*/
+/*HTML Body*/
+/*HTML Body*/
+*{
+    font-family: 'LINESeedKR-Bd';
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+html{
+    overflow: hidden;
+}
+body{
+    overflow: auto;
+    font-family: 'LINESeedKR-Bd';
+    letter-spacing: -2px;
+}
+
+/*HTML Body*/
+/*HTML Body*/
+/*HTML Body*/
+/*HTML Body*/
+
+/*Login background*/
+/*Login background*/
+/*Login background*/
+.loginContainer{
+    width: 100%;
+    height: 100vh;
+    background-color: coral;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/*Login background*/
+/*Login background*/
+/*Login background*/
+
+
+
+.welcome-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+}
+.welcome-header{
+    font-weight: 700;
+    font-size: 50px;
+    animation: disappear 2s ease-in-out forwards;
+}
+.welcome-form{
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    animation-delay: 5s;
+    animation:appear 3s ease-in-out;
+
+}
+.login{
+    width: 60px;
+    height: 30px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 5px;
+    border-style: none;
+    font-family: 'Oswald', sans-serif;
+    transition: all .3s ease-in-out ,scale .5s ease-in-out;
+
+}
+.signup{
+    width: 75px;
+    height: 35px;
+    font-size: 15px;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 5px;
+    margin-left: 40px;
+    border-style: none;
+    transition: all .3s ease-in-out ;
+
+
+}
+#user-id{
+    border-style: none;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+}
+#user-pwd{
+    font-size: 17px;
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+#id-label{
+    transition: all .5s ease-in-out;
+}
+#pwd-label{
+    transition: all .5s ease-in-out;
+    transition-delay: .1s;
+
+}
+form:hover .btns {
+    opacity: 1;
+}
+form:hover .forget {
+    opacity: 1;
+}
+
+form:hover #id-label {
+    transform: scale(1.3)translateY(18px)translateX(-5px);
+    color: rgba(92, 88, 84,0.8);
+}
+form:hover #pwd-label{
+    transform: scale(1.3)translateY(18px)translateX(-20px);
+    color: rgba(104, 97, 91,0.8);
+}
+.login:hover {
+    box-shadow: 0 0 .8em .3em rgb(232, 214, 214);
+    color: rgb(130, 120, 111);
+    transform: scale(1.05);
+    font-size: 17px;
+    width: 65px;
+    border-radius: 10px;
+}
+.signup:hover {
+    box-shadow: 0 0 .8em .3em rgb(233, 230, 230);
+    color: rgb(130, 120, 111);
+    transform: scale(1.05);
+    font-size: 17px;
+    width: 80px;
+    border-radius: 10px;
+}
+.signup:hover .login{
+    transform: scale(.3);
+}
+.login:hover .signup{
+    transform: scale(.3);
+}
+.login:active{
+    transform: scale(0);
+}
+#user-id::placeholder{
+    opacity: .5;
+    transition: all .5s ease-in-out;
+    font-family: 'Oswald', sans-serif;}
+#user-pwd::placeholder{
+    opacity: .5;
+    transition: all .5s ease-in-out;
+    font-family: 'Oswald', sans-serif;
+}
+#user-id:hover::placeholder{
+    opacity: 0;
+}
+#user-pwd:hover::placeholder{
+    opacity: 0;
+}
+.forget{
+    margin-top: 15px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out,opacity .5s ease-in-out;
+    transition-delay: .1s;
+}
+.forget:hover{
+    color: coral;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out,opacity .5s ease-in-out;
+
+}

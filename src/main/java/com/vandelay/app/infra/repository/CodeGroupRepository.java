@@ -20,4 +20,25 @@ public class CodeGroupRepository {
     public CodeGroupDTO selectOne(CodeGroupVo vo) {
         return sqlSession.selectOne("CodeGroup.selectOne",vo);
     }
+
+    public int update(CodeGroupDTO dto) {
+        return sqlSession.update("CodeGroup.update",dto);
+    }
+
+
+    public int insert(CodeGroupDTO dto) {
+        return sqlSession.insert("CodeGroup.insert",dto);
+    }
+
+
+    public int delete(CodeGroupDTO dto) {
+        return sqlSession.delete("CodeGroup.delete",dto);
+    }
+
+//    getting int for total number of rows of data
+//    getting int for total number of rows of data
+//    getting int for total number of rows of data
+    public int selectOneCount(CodeGroupVo vo) {
+        return sqlSession.selectOne("CodeGroup.selectOneCount",vo);
+    }
 }

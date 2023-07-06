@@ -11,20 +11,64 @@
     <!--select 결과를 받을 객채-->
     <!--mybatis-config에서 alias를 사용중-->
 
-
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
     <sql id="selectField">
         seq,
         codeName,
         delNy
     </sql>
+    <sql id="selectCommon">
+        FROM
+        codeGroup
+        WHERE 1+1
+        <if test="shKey != null and !shKey.equals('')">
+            AND codeName LIKE CONCAT('%',#{shKey},'%')
+        </if>
+    </sql>
 
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
+    </select>
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+
+
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
 
     <select id="selectList" resultType="codegroup">
         SELECT
+            codeGroupList.*
+        FROM (
+            SELECT
+                <include refid="selectField"/>
+                <include refid="selectCommon"/>
+             ) AS codeGroupList
+        LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--
+    <select id="selectList" resultType="codegroup">
+        SELECT
             <include refid="selectField" />
+            <include refid="selectCommon"/>
         FROM
             codeGroup
-    </select>
+    </select>-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
 
     <select id="selectOne" resultType="codegroup">
         SELECT
@@ -34,6 +78,28 @@
         WHERE seq = #{seq}
     </select>
 
+    <update id="update">
+        UPDATE codeGroup
+        SET
+            codeName = #{codeName},
+            delNy = #{delNy}
+        WHERE
+            seq = #{seq}
+    </update>
+
+    <insert id="insert">
+        INSERT INTO codeGroup(
+            codeName,
+            delNy
+        )VALUES(
+            #{codeName},
+            #{delNy}
+        )
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM codeGroup WHERE seq = #{seq}
+    </delete>
 
 
 </mapper>

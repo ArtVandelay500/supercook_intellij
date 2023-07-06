@@ -417,12 +417,13 @@ select[name='delNy']{
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
     font-weight: 500;
 }
 .detailBtn:hover{
-    transform: scale(1.1);
-    color: rgba(0, 0, 0, 0.69);
+    transform: scale(1.2);
+    color:white;
+    background-color: darksalmon;
 }
 #nodata{
     color: rgba(0,0,0,0.5) !important;
