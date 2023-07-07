@@ -20,4 +20,8 @@ public class HomeController {
     public String indexLoginForm(){
         return "login/infra/prj_1/loginForm";
     }
+    @GetMapping("/indexUserView")
+    public String indexUserView(){
+        return "user/infra/prj_1/indexUserView";
+    }
 }

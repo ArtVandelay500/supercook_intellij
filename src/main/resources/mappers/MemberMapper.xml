@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  전체 매퍼 중 유일한 값을 사용하여야 한다.
+ 해서 관계적으로 해당 파일의 path와 file_name(확장자 제외)
+ 그리고 dao 에서 namespace와 일치하여야 된다. -->
+
+<mapper namespace="Member">
+    <!--select 결과를 받을 객채-->
+    <!--mybatis-config에서 alias를 사용중-->
+
+    <sql id="selectField">
+       seq,
+       email,
+        pwd
+    </sql>
+
+
+    <select id="selectList" resultType="member">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            member
+    </select>
+
+    <insert id="insert">
+        INSERT INTO member (email,pwd)
+        VALUES(
+                  #{email},
+                  #{pwd}
+              )
+    </insert>
+
+
+</mapper>

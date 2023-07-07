@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <header>
     <div class="headerBox">
-        <div class="logo"><img src="/resources/img/prj_1/admin/img.png" alt=""></div>
+        <div class="logo" onclick="location.href='/indexAdminView'" ><img src="/resources/img/prj_1/admin/img.png" alt=""></div>
         <div class="nav">
             <div class="curtain"></div>
             <ul class="navList">
@@ -44,7 +44,7 @@
                 <a class="itemBox" href=""><li>테마관리</li></a>
             </ul>
         </div>
-        <div class="outBtn">
+        <div onclick="location.href='/login'" class="outBtn">
             <span class="material-symbols-outlined">power_settings_new</span>
         </div>
     </div>

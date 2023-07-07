@@ -68,6 +68,7 @@ header{
 }
 .navList{
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -125,12 +126,13 @@ header{
     transition: all .3s ease-in-out;
     text-decoration: none;
     padding: 80px 15px;
+    box-sizing: border-box;
 }
 .itemBox>li{
-    font-size: 18px;
+    font-size: 1.5vw;
     font-weight: 700;
     color: white;
-    margin: 0 30px;
+    margin: 0 3%;
     white-space: nowrap;
 }
 .itemBox:hover{
@@ -162,7 +164,7 @@ header{
     transform: scale(1.1) rotate(-5deg);
 }
 .logo{
-    width: 150px;
+    width: 10%;
     display: flex;
     align-items: center;
     position: relative;
@@ -625,3 +627,172 @@ pagination_ul>li{
 /*CodeGroupForm CSS*/
 /*CodeGroupForm CSS*/
 
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 768px: responsive @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+@media (max-width: 780px) and (min-width: 360px) {
+
+
+    /*Header*/
+    /*Header*/
+    /*Header*/
+    /*Header*/
+    header{
+        width: 100%;
+        height: 100px;
+        padding: 20px 50px;
+        box-sizing: border-box;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        background-color: coral;
+        transition: all .3s ease-in-out;
+    }
+    .headerBox{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav{
+        width: 70%;
+        height: 100%;
+    }
+    .navList{
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .navListBox{
+        position: relative;
+    }
+    .mouseon{
+        box-shadow: 0px 60px 0px 0px coral;
+    }
+
+    /*SubNavList css*/
+    /*SubNavList css*/
+
+    .subNavList{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        bottom:15px;
+
+    }
+    .fade{
+        opacity: 1;
+    }
+    .subNavList>a{
+        width: 100%;
+        text-align: center;
+        transition: all .3s ease-in-out;
+        margin: 0 15px;
+        font-size: 17px;
+        color: white;
+        transition: all .3s ease-in-out;
+    }
+    .subNavList>a:hover{
+        letter-spacing: 0;
+    }
+    .subNavList>a>li{
+        white-space: nowrap;
+    }
+    .curtain{
+        position: absolute;
+        left: 0;
+        top: 100px;
+        width: 100%;
+        background-color: coral;
+        z-index: -1;
+        height: 50px;
+    }
+    /*SubNavList css*/
+    /*SubNavList css*/
+    .itemBox{
+        display: flex;
+        transition: all .3s ease-in-out;
+        text-decoration: none;
+        padding: 80px 15px;
+    }
+    .itemBox>li{
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        margin: 0 30px;
+        white-space: nowrap;
+    }
+    .itemBox:hover{
+        transform: scale(1.1);
+        letter-spacing: 0;
+        color: antiquewhite;
+    }
+    .outBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1%;
+        height: 100%;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .outBtn>span{
+        font-size: 30px;
+        font-weight: 900;
+        color: floralwhite;
+        transition: all .3s ease-in-out;
+    }
+    .outBtn>span:hover{
+        transform: scale(1.1);
+        color: rgb(255, 255, 255);
+    }
+    .logo>img:hover{
+        transform: scale(1.1) rotate(-5deg);
+    }
+    .logo{
+        width: 8%;
+        margin-left: -2%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+    .logo>img{
+        width: 100%;
+        object-fit: cover;
+        transition: all .3s ease-in-out;
+    }
+
+
+    /*메인 로고에 써있는 '관리자' css*/
+    .adminTitle{
+        display: block;
+        font-family: 'KBO-Dia-Gothic_bold';
+        font-weight: 500;
+        padding: 1px 8px;
+        bottom: -10%;
+        right: 20%;
+        font-size: .8vw;
+        box-sizing: border-box;
+        border-radius: 15px;
+        font-style: unset;
+        color: rgb(112, 112, 112);
+        position: absolute;
+        background-color: white;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+    /*메인 로고에 써있는 '관리자' css*/
+
+    /*Header*/
+    /*Header*/
+    /*Header*/
+    /*Header*/
+
+
+}

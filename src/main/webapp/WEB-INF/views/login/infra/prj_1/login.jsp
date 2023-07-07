@@ -17,7 +17,7 @@
     <div class="loginContainer">
         <div class="welcome-container">
             <div class="welcome-header"><img src="/resources/img/prj_1/admin/yummy_white.png"></div>
-            <form class="welcome-form" action="friends.html">
+            <form name="loginForm" class="welcome-form" action="/member/login" method="post">
                 <label id="id-label" for="user-id">ID: </label>
                 <input
                         required
@@ -35,11 +35,14 @@
                         placeholder="비밀번호를 입력해주세요"
                 />
                 <div class="btnBox">
-                    <button id="b1" onclick="location.href='/member/login'" class="login btn">로그인</button>
-                    <button id="b2" onclick="location.href='/loginForm'" class="signup btn">회원가입</button>
+                    <button id="b2" onclick="location.href='/indexUserView'" class="login btn">로그인</button>
+                    <button id="b1" onclick="location.href='/loginForm'" class="signup btn">회원가입</button>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+
+    </script>
 </body>
 </html>
