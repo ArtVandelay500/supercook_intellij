@@ -25,21 +25,20 @@
                 <div class="navListBox">
                     <a class="itemBox" href="#">
                         <li>
-                            레시피관리
+                            재료관리
                         </li>
                     </a>
                     <ul class="subNavList">
                         <a href="#"><li>
-                            레시피 그룹
+                            재료 대 카테고리
                         </li></a>
                         <a href="#"><li>
-                            레시피그룹
+                            재료 중 카테고리
                         </li></a>
                     </ul>
-
                 </div>
-                <a class="itemBox" href=""><li>사용자관리</li></a>
-                <a class="itemBox" href=""><li>조리법관리</li></a>
+                <a class="itemBox" href=""><li>레시피관리</li></a>
+                <a class="itemBox" href="/member/list"><li>멤버관리</li></a>
                 <a class="itemBox" href=""><li>조리도구관리</li></a>
                 <a class="itemBox" href=""><li>테마관리</li></a>
             </ul>

@@ -88,7 +88,7 @@ header{
     transform: scale(1.1) rotate(-5deg);
 }
 .logo{
-    width: 17%;
+    width: 12%;
     display: flex;
     align-items: center;
     position: relative;
@@ -163,6 +163,7 @@ main{
     align-items: flex-start;
     background-color: white;
     padding: 50px;
+    margin: 20px 0;
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 0px 0px 20px 1px  rgba(0, 0, 0, 0.068);

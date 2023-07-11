@@ -25,6 +25,19 @@
             member
     </select>
 
+    <select id="selectOne" resultType="member">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            member
+        WHERE
+            seq = #{seq}
+    </select>
+
+
+
+
+
     <insert id="insert">
         INSERT INTO member (email,pwd)
         VALUES(

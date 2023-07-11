@@ -7,6 +7,9 @@ $(function(){
     $(".navList").on("mouseenter mouseleave",function(){
         $(".curtain").stop().slideToggle();
     });
+
+
+
     $('.itemBox, .subNavList').on({
         mouseenter: function(e) {
             if ($(this).hasClass("subNavList")) {

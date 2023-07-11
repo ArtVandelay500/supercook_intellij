@@ -19,4 +19,8 @@ public class MemberRepository {
     public List<MemberDTO> selectList() {
         return sqlSession.selectList("Member.selectList");
     }
+
+    public MemberDTO selectOne(MemberDTO dto) {
+        return sqlSession.selectOne("Member.selectOne",dto);
+    }
 }

@@ -33,6 +33,12 @@ public class MemberController {
         return "redirect:/login";
     }
 
+    @RequestMapping("/memberForm")
+    public String memberForm(MemberDTO dto, Model model){
+        MemberDTO memberDTO = memberService.selectOne(dto);
+        model.addAttribute("item",memberDTO);
+        return "admin/infra/prj_1/member/memberForm";
+    }
 
 
 

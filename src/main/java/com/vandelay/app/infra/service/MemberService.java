@@ -19,4 +19,8 @@ public class MemberService {
     public List<MemberDTO> selectList() {
         return memberRepository.selectList();
     }
+
+    public MemberDTO selectOne(MemberDTO dto) {
+        return memberRepository.selectOne(dto);
+    }
 }

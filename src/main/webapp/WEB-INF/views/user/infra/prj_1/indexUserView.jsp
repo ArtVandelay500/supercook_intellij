@@ -13,6 +13,33 @@
     <main>
         <div class="mainBox">
             <div class="mainContainer">
+                <%--SEARCH FILTER STARTS FROM HERE--%>
+                <%--SEARCH FILTER STARTS FROM HERE--%>
+                    <div class="catRow">
+                        <h4>요리별</h4>
+                        <ul class="catList">
+
+                        </ul>
+                    </div>
+                    <div class="catRow">
+                        <h4>테마별</h4>
+                        <ul class="catList">
+                        </ul>
+                    </div>
+                    <div class="catRow">
+                        <h4>재료별</h4>
+                        <ul class="catList">
+                        </ul>
+                    </div>
+                    <div class="catRow">
+                        <h4>조리법별</h4>
+                        <ul class="catList">
+                        </ul>
+                    </div>
+                <%--SEARCH FILTER ENDS FROM HERE--%>
+                <%--SEARCH FILTER ENDS FROM HERE--%>
+            </div>
+            <div class="mainContainer">
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
 
