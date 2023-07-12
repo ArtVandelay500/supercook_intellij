@@ -23,4 +23,20 @@ public class MemberRepository {
     public MemberDTO selectOne(MemberDTO dto) {
         return sqlSession.selectOne("Member.selectOne",dto);
     }
+
+    public int update(MemberDTO dto) {
+        return sqlSession.update("Member.update",dto);
+    }
+
+    public int insert(MemberDTO dto) {
+        return sqlSession.insert("Member.insert",dto);
+    }
+
+    public int delete(MemberDTO dto) {
+        return sqlSession.delete("Member.delete",dto);
+    }
+
+    public MemberDTO login(MemberDTO dto) {
+        return sqlSession.selectOne("Member.login",dto);
+    }
 }

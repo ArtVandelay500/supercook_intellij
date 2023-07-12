@@ -16,6 +16,9 @@ public class HomeController {
     @GetMapping("/login")
     public String indexLogin(){ return "login/infra/prj_1/login";}
 
+    @GetMapping("/loginAdmin")
+    public String indexAdminLogin(){ return "login/infra/prj_1/loginAdmin";}
+
     @GetMapping("/loginForm")
     public String indexLoginForm(){
         return "login/infra/prj_1/loginForm";

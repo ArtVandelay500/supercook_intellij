@@ -5,6 +5,7 @@ import com.vandelay.app.infra.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Member;
 import java.util.List;
 
 @Service
@@ -22,5 +23,26 @@ public class MemberService {
 
     public MemberDTO selectOne(MemberDTO dto) {
         return memberRepository.selectOne(dto);
+    }
+
+    public int update(MemberDTO dto) {
+       return memberRepository.update(dto);
+    }
+
+    public int insert(MemberDTO dto) {
+       return memberRepository.insert(dto);
+    }
+
+    public int delete(MemberDTO dto) {
+        return memberRepository.delete(dto);
+    }
+
+    public boolean login(MemberDTO memberDTO) {
+        MemberDTO loginMember = memberRepository.login(memberDTO);
+        if(loginMember != null){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

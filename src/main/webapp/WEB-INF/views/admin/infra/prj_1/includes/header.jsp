@@ -30,10 +30,10 @@
                     </a>
                     <ul class="subNavList">
                         <a href="#"><li>
-                            재료 대 카테고리
+                            재료코드
                         </li></a>
                         <a href="#"><li>
-                            재료 중 카테고리
+                            재료코드그룹
                         </li></a>
                     </ul>
                 </div>

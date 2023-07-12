@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.lang.reflect.Member;
 import java.util.List;
 
@@ -40,9 +41,33 @@ public class MemberController {
         return "admin/infra/prj_1/member/memberForm";
     }
 
+    @RequestMapping("/memberForm/update")
+    public String memberUpdate(MemberDTO dto){
+        memberService.update(dto);
+        return "redirect:/member/list";
+    }
 
+    @RequestMapping("/memberForm/insert")
+    public String memberInsert(MemberDTO dto){
+        memberService.insert(dto);
+        return "redirect:/member/list";
+    }
 
+    @RequestMapping("/memberForm/delete")
+    public String memberDelete(MemberDTO dto){
+        memberService.delete(dto);
+        return "redirect:/member/list";
+    }
 
-
+    @RequestMapping("/member/login")
+    public String memberLogin(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+        boolean loginResult = memberService.login(memberDTO);
+        if(loginResult){
+            session.setAttribute("email",memberDTO.getEmail());
+            return "admin/infra/prj_1/index/indexAdminView";
+        }else{
+            return "redirect:/loginAdmin";
+        }
+    }
 
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Ing">
+
+    <sql id="selectField">
+        a.seq,
+        a.name AS codeName,
+        a.ingredient_seq,
+        a.useNy,
+        b.name
+    </sql>
+
+
+    <select id="selectList" resultType="ing">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            ingredient AS a
+        LEFT JOIN ingredientGroup AS b ON b.seq = a.ingredient_seq
+    </select>
+
+</mapper>

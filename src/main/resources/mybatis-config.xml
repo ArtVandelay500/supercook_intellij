@@ -6,5 +6,7 @@
         <typeAlias type="com.vandelay.app.infra.dto.CodeDTO" alias="code"></typeAlias>
         <typeAlias type="com.vandelay.app.infra.dto.CodeGroupDTO" alias="codegroup"></typeAlias>
         <typeAlias type="com.vandelay.app.infra.dto.MemberDTO" alias="member"></typeAlias>
+        <typeAlias type="com.vandelay.app.infra.dto.IngDTO" alias="ing"></typeAlias>
+        <typeAlias type="com.vandelay.app.infra.dto.IngGroupDTO" alias="inggroup"></typeAlias>
     </typeAliases>
 </configuration>

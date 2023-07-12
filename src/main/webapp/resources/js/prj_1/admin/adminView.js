@@ -4,7 +4,7 @@ $(function(){
     $(".curtain").hide();
     $(".subNavList").hide();
 
-    $(".navList").on("mouseenter mouseleave",function(){
+    $(".navListBox").on("mouseenter mouseleave",function(){
         $(".curtain").stop().slideToggle();
     });
 
@@ -27,6 +27,8 @@ $(function(){
     window.onresize = function(event) {
         console.log("x: " + window.innerWidth+"      y: " + window.innerHeight);
     }
+
+
 
 
 });

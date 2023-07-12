@@ -119,7 +119,7 @@
 
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(){
-        if(check(objName) == false){
+        if(checkEmail(objName) == false){
             $(objName).css({
                 outline:"3px dotted rgba(255, 0, 0, 0.38)",
                 borderRadius:"5px",
@@ -140,7 +140,7 @@
     /*생성버튼 이벤트*/
     $(".insertBtn").on("click",function(e){
         e.preventDefault();
-        if(check(objName) == false) {
+        if(checkEmail(objName) == false) {
             $(objName).css({
                 outline:"3px dotted rgba(255, 0, 0, 0.38)",
                 borderRadius:"5px",

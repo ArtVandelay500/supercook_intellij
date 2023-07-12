@@ -34,6 +34,22 @@
             seq = #{seq}
     </select>
 
+<!--    login session -->
+<!--    login session -->
+
+    <select id="login" resultType="member">
+        SELECT
+        <include refid="selectField"/>
+        FROM
+        member
+        WHERE 1+1
+        AND email = #{email}
+        AND pwd = #{pwd}
+
+    </select>
+
+<!--    login session -->
+<!--    login session -->
 
 
 
@@ -45,6 +61,19 @@
                   #{pwd}
               )
     </insert>
+
+    <update id="update">
+        UPDATE member
+        SET
+            email = #{email},
+            pwd = #{pwd}
+        WHERE
+            seq = #{seq}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM member WHERE seq = #{seq}
+    </delete>
 
 
 </mapper>
