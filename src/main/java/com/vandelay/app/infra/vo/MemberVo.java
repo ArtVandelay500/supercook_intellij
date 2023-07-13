@@ -11,4 +11,6 @@ public class MemberVo {
     private String optDelNy;
     private String shKey;
     private String seq;
+    private String email;
+    private String pwd;
 }

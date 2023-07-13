@@ -123,6 +123,9 @@ body{
     outline: none;
     padding: 0 25px;
     color: white;
+    position: relative;
+    z-index: 50;
+
     background-color: rgba(0, 0, 0, 0);
 }
 #user-pwd{
@@ -133,6 +136,9 @@ body{
     padding: 0 25px;
     border-style: none;
     background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    z-index: 50;
+
 }
 #id-label{
     letter-spacing: 1px;
@@ -266,6 +272,18 @@ form:hover #repwd-label{
 .signupId{
     margin-bottom: 0!important;
     padding: 0 55px!important;
+}
+.redPlaceholder::-webkit-input-placeholder {
+    color: #e70000 !important;
+}
+.id_already,.id_ok{
+    display: none;
+}
+.id_ok{
+    color: limegreen;
+}
+.id_already{
+    color: red;
 }
 /*SIGN UP*/
 /*SIGN UP*/

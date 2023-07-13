@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdel¬øivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="/resources/js/jquery-3.6.4.min.js"></script>
     <script src="/resources/js/prj_1/login/login.js"></script>
+    <script src="/resources/js/validation/validation.js"></script>
     <title>Please Log In</title>
 </head>
 <body>
     <div class="loginContainer">
         <div class="welcome-container">
             <div style="width:50%" class="welcome-header"><img src="/resources/img/prj_1/admin/img.png"></div>
-            <form name="loginForm" class="welcome-form" action="/member/login" method="post">
+            <form name="loginForm" class="welcome-form" action="" >
                 <label id="id-label" for="user-id">ID: </label>
                 <input
                         value = "adminXX@gmail.com"
@@ -39,12 +40,49 @@
                         placeholder="비밀번호를 입력해주세요"
                 />
                 <div class="btnBox">
-                    <button id="b2" type="submit" class="login btn">로그인</button>
+                    <button id="b2" type="button" class="login btn">로그인</button>
                 </div>
             </form>
         </div>
     </div>
     <script>
+        $("#b2").on("click", function(e){
+            if(( validationNull($("input[name=email]")) || validationNull($("input[name=pwd]") ))){
+
+                alert("hey");
+            }else{
+                alert("true");
+                $.ajax({
+                    async: true
+                    ,cache: false
+                    ,type: "post"
+                    /* ,dataType:"json" */
+                    ,url: "/member/login"
+                    /* ,data : $("#formLogin").serialize() */
+                    ,data : {
+                        "email" : $("input[name=email]").val(),
+                        "pwd" : $("input[name=pwd]").val()
+                    }
+                    ,success: function(response) {
+
+                        if(response.rt == "success") {
+                            alert(response.rtMemberDTO.email);
+                            location.href = "/indexAdminView";
+                        } else {
+                            alert("그런 회원 없습니다.");
+                        }
+                    }
+                    ,error : function(jqXHR, textStatus, errorThrown){
+                        alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                    }
+
+
+                }); //AJAX tag
+            } //else tag
+
+        }); // click event tag
+
+
 
     </script>
 </body>

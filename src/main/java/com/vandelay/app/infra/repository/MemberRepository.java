@@ -1,6 +1,7 @@
 package com.vandelay.app.infra.repository;
 
 import com.vandelay.app.infra.dto.MemberDTO;
+import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -36,7 +37,14 @@ public class MemberRepository {
         return sqlSession.delete("Member.delete",dto);
     }
 
-    public MemberDTO login(MemberDTO dto) {
-        return sqlSession.selectOne("Member.login",dto);
+
+    public MemberDTO selectOneAJAX(MemberVo vo) {
+        return sqlSession.selectOne("Member.loginCheck",vo);
     }
+
+
+    public int selectOneCheckId(MemberVo vo) { return sqlSession.selectOne("Member.idCheck",vo);
+    }
+
+
 }

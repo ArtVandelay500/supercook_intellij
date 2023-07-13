@@ -2,22 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Ing">
-
     <sql id="selectField">
         a.seq,
-        a.name AS codeName,
+        a.name,
         a.ingredient_seq,
         a.useNy,
-        b.name
+        b.catName,
+        b.level
+    </sql>
+
+    <sql id="selectCommon">
+        FROM
+        ingredient AS a
+        LEFT JOIN ingredientGroup AS b ON b.seq = a.ingredient_seq
+        WHERE 1+1
+        <if test="shKey != null and !shKey.equals('')">
+            AND (b.catName LIKE CONCAT('%',#{shKey},'%')
+            OR a.name LIKE CONCAT('%',#{shKey},'%'))
+        </if>
+        <if test="optCodeName != null and !optCodeName.equals('')">
+            AND a.ingredient_seq = #{optCodeName}
+        </if>
     </sql>
 
 
-    <select id="selectList" resultType="ing">
-        SELECT
-            <include refid="selectField"/>
-        FROM
-            ingredient AS a
-        LEFT JOIN ingredientGroup AS b ON b.seq = a.ingredient_seq
+    <!--PAGING SELECT QUERY-->
+    <!--PAGING SELECT QUERY-->
+
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
     </select>
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+
+    <select id="selectList" resultType="ing">
+
+        SELECT aa.* FROM (
+        SELECT
+        <include refid="selectField" />
+        <include refid="selectCommon" />
+        ) AS aa
+        LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+
+    <!--PAGING SELECT QUERY-->
+    <!--PAGING SELECT QUERY-->
+
+
+
 
 </mapper>

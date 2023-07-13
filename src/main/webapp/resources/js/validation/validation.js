@@ -127,7 +127,7 @@ let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\
 
 
 
-    check = function (obj){
+    checkKorean = function (obj){
         // 한글
         myRe = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 
@@ -139,6 +139,8 @@ let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\
          }
     }
 
+
+
     checkEmail = function (obj){
        myRe = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
 
@@ -148,3 +150,70 @@ let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\
             true;
         }
     }
+
+
+
+    validationNull = function(obj) {
+        // 실제 체킹하는 소스가 들어가는 부분
+        if($.trim(obj.val()) ==  "" || $.trim(obj.val()) == null) {
+            obj.addClass("redPlaceholder");
+            obj.css({
+                animation: "horizontal-shaking .2s 2 ease"
+            });
+            obj.focus();
+            return false;
+        } else {
+            true;
+        }
+    }
+    // DUPLICATE CHECK
+    // DUPLICATE CHECK
+        checkId = function() {
+        if($.trim($("#user-id").val()) ==  "" & $.trim($("#user-id").val()) == null) {
+            $('.id_ok').css("display", 'none');
+            $('.id_already').css("display", 'none');
+        }
+
+            var email = $("input[name=email]").val();
+            $.ajax({
+                async: true,
+                cache: false,
+                url: "/idCheck",
+                type: 'post',
+                data: {"email": email},
+                success: function(response) {
+                    if(response.rt == "available") {
+                        $('.id_ok').css("display", 'inline-block');
+                        $('.id_already').css("display", "none");
+                    } else {
+                        $('.id_ok').css("display", 'none');
+                        $('.id_already').css("display", "inline-block");
+                    }
+                }, error: function() { $(email).focus(); }
+            });
+        }
+    // DUPLICATE CHECK
+    // DUPLICATE CHECK
+
+        logOut = function(){
+            $.ajax({
+                async: true
+                ,cache: false
+                ,type: "post"
+                /* ,dataType:"json" */
+                ,url: "/member/logout"
+                /* ,data : $("#formLogin").serialize() */
+                ,success: function(response) {
+                    alert("success");
+                    if(response.rt == "success") {
+                        alert("로그아웃 되었습니다");
+                        location.href = "/indexAdminView";
+                    } else {
+                    }
+                }
+
+                ,error : function(jqXHR, textStatus, errorThrown){
+                    alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                }
+            });
+        }

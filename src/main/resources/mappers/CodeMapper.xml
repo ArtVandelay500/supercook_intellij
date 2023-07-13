@@ -55,7 +55,11 @@
 <!--PAGING SELECT QUERY-->
 <!--PAGING SELECT QUERY-->
 
+<!--AJAX DATA SORTING MAPPER-->
+<!--AJAX DATA SORTING MAPPER-->
 
+<!--AJAX DATA SORTING MAPPER-->
+<!--AJAX DATA SORTING MAPPER-->
 
 
     <select id="selectOne" resultType="code">

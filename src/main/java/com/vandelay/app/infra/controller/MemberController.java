@@ -2,19 +2,20 @@ package com.vandelay.app.infra.controller;
 
 import com.vandelay.app.infra.dto.MemberDTO;
 import com.vandelay.app.infra.service.MemberService;
+import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Member;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
+
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
@@ -59,15 +60,72 @@ public class MemberController {
         return "redirect:/member/list";
     }
 
-    @RequestMapping("/member/login")
-    public String memberLogin(@ModelAttribute MemberDTO memberDTO, HttpSession session){
-        boolean loginResult = memberService.login(memberDTO);
-        if(loginResult){
-            session.setAttribute("email",memberDTO.getEmail());
-            return "admin/infra/prj_1/index/indexAdminView";
+//SIGNUP ID DUPLICATION CHECK
+//SIGNUP ID DUPLICATION CHECK
+//    @ResponseBody
+//    @RequestMapping(value= "/idCheck", method = RequestMethod.POST)
+//    public Map<String,Object> idCheck(MemberVo vo){
+//        Map<String,Object> returnMap = new HashMap<String, Object>();
+//        MemberDTO rtMemberDTO = memberService.selectOneID(vo);
+//        if(rtMemberDTO != null){
+//            returnMap.put("rtMemberDTO",rtMemberDTO);
+//            returnMap.put("rt","unavailable");
+//        }else{
+//            returnMap.put("rt","available");
+//        }
+//        return returnMap;
+//    }
+
+    @ResponseBody
+    @RequestMapping(value= "/idCheck", method = RequestMethod.POST)
+    public Map<String,Object> idCheck(MemberVo vo){
+        Map<String,Object> returnMap = new HashMap<String, Object>();
+        int rtNum = memberService.selectOneCheckId(vo);
+        if (rtNum == 0) {
+            returnMap.put("rt","available");
         }else{
-            return "redirect:/loginAdmin";
+            returnMap.put("rt","unavailable");
         }
+        return returnMap;
     }
+
+//SIGNUP ID DUPLICATION CHECK
+//SIGNUP ID DUPLICATION CHECK
+
+//LOGIN ID AND PWD CHECK
+//LOGIN ID AND PWD CHECK
+
+    @ResponseBody
+    @RequestMapping(value = "/member/login", method = RequestMethod.POST)
+    public Map<String, Object> login(MemberVo vo, HttpSession httpSession){
+        Map<String,Object> returnMap = new HashMap<String,Object>();
+
+        MemberDTO rtMemberDTO = memberService.selectOneAJAX(vo);
+        if(rtMemberDTO != null){
+            httpSession.setMaxInactiveInterval(60*60);
+            httpSession.setAttribute("sessionId",vo.getEmail());
+            returnMap.put("rtMemberDTO",rtMemberDTO);
+            returnMap.put("rt","success");
+        }else{
+            returnMap.put("rt","fail");
+        }
+        System.out.println(vo.getEmail());
+        return returnMap;
+    }
+    @ResponseBody
+    @RequestMapping("/member/logout")
+    public Map<String, Object> logoutUsrProc(MemberVo vo, HttpSession httpSession) {
+        Map<String, Object> returnMap = new HashMap<String, Object>();
+
+        httpSession.invalidate();
+        returnMap.put("rt", "success");
+
+        return returnMap;
+    }
+
+//LOGIN ID AND PWD CHECK
+//LOGIN ID AND PWD CHECK
+
+
 
 }

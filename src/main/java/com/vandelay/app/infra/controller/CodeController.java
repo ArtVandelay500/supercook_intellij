@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -66,5 +68,28 @@ public class CodeController {
         codeService.delete(vo);
         return "redirect:/codeList/list";
     }
+
+//    AJAX DATA TOSSING AND RECEIVING
+//    AJAX DATA TOSSING AND RECEIVING
+//    @ResponseBody
+//    @RequestMapping("/codeList/sort")
+//    public Map<String, Object> codeListSort(CodeVo vo){
+//        Map<String, Object> returnMap = new HashMap<String,Object>();
+//        CodeDTO rtCodeDTO = codeService.selectListAJAX(vo);
+//
+//        if(rtCodeDTO != null){
+//            returnMap.put("rtCodeDTO",rtCodeDTO);
+//            returnMap.put("rt","success");
+//        }else{
+//            returnMap.put("rt","fail");
+//        }
+//        return returnMap;
+//    }
+
+//    AJAX DATA TOSSING AND RECEIVING
+//    AJAX DATA TOSSING AND RECEIVING
+
+
+
 
 }

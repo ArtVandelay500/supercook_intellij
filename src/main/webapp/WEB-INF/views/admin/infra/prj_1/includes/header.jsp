@@ -29,10 +29,10 @@
                         </li>
                     </a>
                     <ul class="subNavList">
-                        <a href="#"><li>
+                        <a href="/ingList/list"><li>
                             재료코드
                         </li></a>
-                        <a href="#"><li>
+                        <a href="/ingGroupList/list"><li>
                             재료코드그룹
                         </li></a>
                     </ul>
@@ -43,8 +43,20 @@
                 <a class="itemBox" href=""><li>테마관리</li></a>
             </ul>
         </div>
-        <div onclick="location.href='/login'" class="outBtn">
-            <span class="material-symbols-outlined">power_settings_new</span>
-        </div>
+
+            <c:choose>
+                <c:when test="${not empty sessionId }">
+                    <div onclick="logOut()" class="outBtn">
+                        <span class="material-symbols-outlined">power_settings_new</span>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div onclick="location.href='/loginAdmin'" class="outBtn">
+                        <span class="material-symbols-outlined">login</span>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
+
     </div>
 </header>

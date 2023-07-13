@@ -2,6 +2,7 @@ package com.vandelay.app.infra.service;
 
 import com.vandelay.app.infra.dto.MemberDTO;
 import com.vandelay.app.infra.repository.MemberRepository;
+import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -37,12 +38,14 @@ public class MemberService {
         return memberRepository.delete(dto);
     }
 
-    public boolean login(MemberDTO memberDTO) {
-        MemberDTO loginMember = memberRepository.login(memberDTO);
-        if(loginMember != null){
-            return true;
-        }else{
-            return false;
-        }
+
+    public MemberDTO selectOneAJAX(MemberVo vo) {
+        return memberRepository.selectOneAJAX(vo);
     }
+
+
+    public int selectOneCheckId(MemberVo vo) {
+        return memberRepository.selectOneCheckId(vo);
+    }
+
 }

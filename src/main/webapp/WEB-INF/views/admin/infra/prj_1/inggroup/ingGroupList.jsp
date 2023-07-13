@@ -1,4 +1,4 @@
-<%--
+<%-
   Created by IntelliJ IDEA.
   User: biqui
   Date: 2023/07/12
@@ -11,11 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-seq,
-big_cat,
-name,
-level,
-useNy
+
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

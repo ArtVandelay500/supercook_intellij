@@ -1,10 +1,13 @@
 package com.vandelay.app.infra.controller;
 
+import com.vandelay.app.infra.dto.CodeDTO;
 import com.vandelay.app.infra.dto.IngDTO;
 import com.vandelay.app.infra.service.IngService;
+import com.vandelay.app.infra.vo.IngVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -15,10 +18,20 @@ public class IngController {
     private final IngService ingService;
 
     @RequestMapping("/ingList/list")
-    public String selectList(Model model){
+    public String selectList(@ModelAttribute("vo") IngVo vo, Model model){
 
-        List<IngDTO> ingDTOList = ingService.selectList();
-        model.addAttribute("list",ingDTOList);
+        vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
+        vo.setOptCodeName(vo.getOptCodeName() == null ? "" : vo.getOptCodeName());
+        vo.setParamsPaging(ingService.selectOneCount(vo));
+
+        if(vo.getTotalRows() > 0) {
+
+            List<IngDTO> list = ingService.selectList(vo);
+            model.addAttribute("list", list);
+
+        } else {
+//			by pass
+        }
         return "admin/infra/prj_1/ing/ingList";
     }
 

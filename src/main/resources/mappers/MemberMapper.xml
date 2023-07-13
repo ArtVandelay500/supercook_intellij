@@ -34,23 +34,47 @@
             seq = #{seq}
     </select>
 
-<!--    login session -->
-<!--    login session -->
 
-    <select id="login" resultType="member">
+
+<!--LOGIN SIGNUP MAPPERS-->
+<!--LOGIN SIGNUP MAPPERS-->
+    <!--LOGIN SESSION-->
+    <select id="loginCheck" resultType="member">
         SELECT
-        <include refid="selectField"/>
+            <include refid="selectField"/>
         FROM
-        member
+            member
         WHERE 1+1
-        AND email = #{email}
-        AND pwd = #{pwd}
+            AND email = #{email}
+            AND pwd = #{pwd}
+    </select>
+    <!--LOGIN SESSION-->
+    <!--SIGNUP ID CHECK-->
+    <!--SIGNUP ID CHECK-->
+    <select id="signupIdCheck" resultType="member">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            member
+        WHERE 1+1
+            AND email = #{email}
+    </select>
+    <!--SIGNUP ID CHECK-->
+    <!--SIGNUP ID CHECK-->
 
+    <select id="idCheck" resultType="integer">
+        SELECT
+            COUNT(seq)
+        FROM
+            member
+        WHERE 1=1
+            AND email = #{email}
     </select>
 
-<!--    login session -->
-<!--    login session -->
 
+
+<!--LOGIN SIGNUP MAPPERS-->
+<!--LOGIN SIGNUP MAPPERS-->
 
 
 

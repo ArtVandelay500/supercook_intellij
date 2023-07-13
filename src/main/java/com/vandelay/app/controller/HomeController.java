@@ -27,4 +27,7 @@ public class HomeController {
     public String indexUserView(){
         return "user/infra/prj_1/indexUserView";
     }
+
+    @GetMapping("/indexUsrView")
+    public String  indexUsrView(){return "team/usr/index/indexUsrView";}
 }

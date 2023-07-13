@@ -146,8 +146,9 @@
    $("select[name=optCodeName],select[name=optDelNy]").on("change",function(){
        /*$("form[name=search]").attr("action","/codeList/list").submit();*/
        $.ajax({
+           async : true,
            type: "post",
-           url: "codeList/list",
+           url: "codeList/sort",
            dataType:"text",
            data:{
                "optCodeName" : $("select[name=optCodeName]").val(),
