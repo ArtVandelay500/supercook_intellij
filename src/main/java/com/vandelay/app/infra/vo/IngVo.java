@@ -11,7 +11,8 @@ public class IngVo {
     private String seq;
     private String optDelNy;
     private String shKey;
-    private String optCodeName;
+    private String optCatName;
+    private String optCatName2;
     private String big_cat;
     private String level;
     private String catName;

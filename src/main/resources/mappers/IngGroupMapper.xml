@@ -6,7 +6,7 @@
     <sql id="selectField">
         seq,
         big_cat,
-        name,
+        catName,
         level,
         useNy
     </sql>
@@ -18,5 +18,29 @@
         FROM
             ingredientGroup
     </select>
+
+    <!--THIS FOR ingForm select options    -->
+    <!--THIS FOR ingForm select options    -->
+    <select id="selectLvlOne" resultType="inggroup">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            ingredientGroup
+        WHERE
+            level = '1'
+    </select>
+
+    <select id="selectLvlTwo" resultType="inggroup">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            ingredientGroup
+        WHERE 1+1
+            AND level = '2'
+            AND big_cat = #{optCatName}
+    </select>
+    <!--THIS FOR ingForm select options    -->
+    <!--THIS FOR ingForm select options    -->
+
 
 </mapper>

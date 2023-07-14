@@ -1,7 +1,9 @@
 package com.vandelay.app.infra.controller;
 
-import com.vandelay.app.infra.dto.CodeDTO;
+
 import com.vandelay.app.infra.dto.IngDTO;
+import com.vandelay.app.infra.dto.IngGroupDTO;
+import com.vandelay.app.infra.service.IngGroupService;
 import com.vandelay.app.infra.service.IngService;
 import com.vandelay.app.infra.vo.IngVo;
 import lombok.RequiredArgsConstructor;
@@ -16,12 +18,24 @@ import java.util.List;
 @Controller
 public class IngController {
     private final IngService ingService;
+    private final IngGroupService ingGroupService;
 
+    @ModelAttribute("ingGroup")
+    public List<IngGroupDTO> ingGroupDTOList(@ModelAttribute("vo") IngVo vo){
+        vo.setOptCatName(vo.getOptCatName() == null ? "" : vo.getOptCatName());
+        return ingGroupService.selectLvlOne(vo);
+    }
+    @ModelAttribute("ingGroup2")
+    public List<IngGroupDTO> ingGroupDTOList2(@ModelAttribute("vo") IngVo vo){
+        vo.setOptCatName(vo.getOptCatName() == null ? "" : vo.getOptCatName());
+        vo.setOptCatName2(vo.getOptCatName2() == null ? "" : vo.getOptCatName2());
+        return ingGroupService.selectLvlTwo(vo);
+    }
     @RequestMapping("/ingList/list")
     public String selectList(@ModelAttribute("vo") IngVo vo, Model model){
 
         vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
-        vo.setOptCodeName(vo.getOptCodeName() == null ? "" : vo.getOptCodeName());
+        vo.setOptCatName(vo.getOptCatName() == null ? "" : vo.getOptCatName());
         vo.setParamsPaging(ingService.selectOneCount(vo));
 
         if(vo.getTotalRows() > 0) {

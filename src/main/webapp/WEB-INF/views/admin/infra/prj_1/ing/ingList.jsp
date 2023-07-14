@@ -28,10 +28,30 @@
                     <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
                     <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
                     <div class="searchBox">
-                        <select name="optCodeName">
-                            <option value="">재료코드그룹</option>
-                                <option value=""></option>
+                        <select name="optCatName">
+                            <option value="">재료그룹</option>
+                                <c:forEach var="item" items="${ingGroup}">
+                                    <option value="<c:out value="${item.seq}"></c:out>"
+                                        <c:if test="${item.seq == vo.optCatName}">selected</c:if>>
+                                        <c:out value="${item.catName}"></c:out>
+                                    </option>
+                                </c:forEach>
                         </select>
+                        <c:choose>
+                            <c:when test="${not empty param.optCatName}">
+                                <select name="optCatName2">
+
+                                    <c:forEach var="item" items="${ingGroup2}">
+                                        <option value="<c:out value="${item.seq}"></c:out>"
+                                            <c:if test="${item.seq == vo.optCatName2}">selected</c:if>>
+                                            <c:out value="${item.catName}"></c:out>
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </c:when>
+                            <c:otherwise>
+                            </c:otherwise>
+                        </c:choose>
                         <select name="optDelNy">
                             <option value="">삭제여부</option>
                             <option value="1">삭제</option>

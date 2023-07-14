@@ -19,5 +19,6 @@
                 <%--FORM CONTENT ENDS FROM HERE!!--%>
             </div>
         </div>
+    <%@include file="../include/footer.jsp"%>
     </main>
 </div>

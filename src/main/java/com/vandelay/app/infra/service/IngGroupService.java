@@ -2,6 +2,7 @@ package com.vandelay.app.infra.service;
 
 import com.vandelay.app.infra.dto.IngGroupDTO;
 import com.vandelay.app.infra.repository.IngGroupRepository;
+import com.vandelay.app.infra.vo.IngVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,4 +15,7 @@ public class IngGroupService {
     public List<IngGroupDTO> selectList() {
         return ingGroupRepository.selectList();
     }
+
+    public List<IngGroupDTO> selectLvlOne(IngVo vo){return ingGroupRepository.selectLvlOne(vo);}
+    public List<IngGroupDTO> selectLvlTwo(IngVo vo){return ingGroupRepository.selectLvlTwo(vo);}
 }

@@ -9,7 +9,8 @@
         a.ingredient_seq,
         a.useNy,
         b.catName,
-        b.level
+        b.level,
+        b.big_cat
     </sql>
 
     <sql id="selectCommon">
@@ -21,9 +22,17 @@
             AND (b.catName LIKE CONCAT('%',#{shKey},'%')
             OR a.name LIKE CONCAT('%',#{shKey},'%'))
         </if>
-        <if test="optCodeName != null and !optCodeName.equals('')">
-            AND a.ingredient_seq = #{optCodeName}
-        </if>
+        <choose>
+            <when test="optCatName2 != null and !optCatName2.equals('')">
+                AND a.ingredient_seq = #{optCatName2}
+
+            </when>
+            <otherwise>
+                <if test="optCatName != null and !optCatName.equals('')">
+                    AND a.ingredient_seq = #{optCatName}
+                </if>
+            </otherwise>
+        </choose>
     </sql>
 
 
