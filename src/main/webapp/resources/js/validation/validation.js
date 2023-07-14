@@ -152,27 +152,84 @@ let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\
     }
 
 
+// FORM NULLCHECK
+// FORM NULLCHECK
+// FORM NULLCHECK
 
-    validationNull = function(obj) {
-        // 실제 체킹하는 소스가 들어가는 부분
-        if($.trim(obj.val()) ==  "" || $.trim(obj.val()) == null) {
+validationNull = function(form) {
+    var inputs = form.find("input");
+    var isValid = true;
+
+    inputs.each(function() {
+        var obj = $(this);
+
+        if ($.trim(obj.val()) === "") {
             obj.addClass("redPlaceholder");
             obj.css({
                 animation: "horizontal-shaking .2s 2 ease"
             });
             obj.focus();
-            return false;
+            isValid = false;
+            setTimeout(function() {
+                obj.removeClass("redPlaceholder");
+                obj.css({animation: ""});
+            }, 700);
         } else {
-            true;
+            obj.removeClass("redPlaceholder");
+            obj.css({
+                animation: ""
+            });
         }
-    }
+    });
+
+    return isValid;
+}
+// FORM NULLCHECK
+// FORM NULLCHECK
+
+// INPUT NULLCHECK
+// INPUT NULLCHECK
+//     validationNull = function(obj) {
+//         // 실제 체킹하는 소스가 들어가는 부분
+//         if ($.trim(obj.val()) == "" || $.trim(obj.val()) == null) {
+//             obj.addClass("redPlaceholder");
+//             obj.css({
+//                 animation: "horizontal-shaking .2s 2 ease"
+//             });
+//             obj.focus();
+//
+//             // Remove the shaking effect after a delay
+//             setTimeout(function() {
+//                 obj.removeClass("redPlaceholder");
+//                 obj.css({
+//                     animation: ""
+//                 });
+//             }, 400); // Adjust the delay time if needed
+//
+//             return false;
+//
+//         } else {
+//
+//             return true;
+//         }
+//     }
+
+    // INPUT NULLCHECK
+    // INPUT NULLCHECK
+
+
+
+
     // DUPLICATE CHECK
     // DUPLICATE CHECK
-        checkId = function() {
-        if($.trim($("#user-id").val()) ==  "" & $.trim($("#user-id").val()) == null) {
-            $('.id_ok').css("display", 'none');
-            $('.id_already').css("display", 'none');
-        }
+        checkId = function(e) {
+            var userId = $("#user-id").val().trim();
+
+            if (userId === "") {
+                $('.id_ok').css("display", 'none');
+                $('.id_already').css("display", 'none');
+                return;
+            }
 
             var email = $("input[name=email]").val();
             $.ajax({
@@ -194,6 +251,9 @@ let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\
         }
     // DUPLICATE CHECK
     // DUPLICATE CHECK
+
+    // LOGOUT
+    // LOGOUT
 
         logOut = function(){
             $.ajax({
@@ -217,3 +277,5 @@ let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\
                 }
             });
         }
+    // LOGOUT
+    // LOGOUT

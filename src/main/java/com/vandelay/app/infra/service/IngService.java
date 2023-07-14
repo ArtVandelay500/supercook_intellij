@@ -23,5 +23,14 @@ public class IngService {
     public int selectOneCount(IngVo vo) { return ingRepository.selectOneCount(vo);
     }
 
+    //FORM W/ seq
+    public IngDTO selectOne(IngVo vo) {return ingRepository.selectOne(vo);}
+    //FORM W/ seq
 
+    //UPDATE
+    public int update(IngDTO dto){return ingRepository.update(dto);}
+    //UPDATE
+    //DELETE
+    public int delete(IngVo vo){return ingRepository.delete(vo);}
+    //DELETE
 }

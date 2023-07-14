@@ -35,4 +35,29 @@ public class IngController {
         return "admin/infra/prj_1/ing/ingList";
     }
 
-}
+    //FORM W/ seq
+    @RequestMapping("/ingForm")
+    public String ingForm(IngVo vo, Model model){
+        IngDTO ingDTO = ingService.selectOne(vo);
+        model.addAttribute("item",ingDTO);
+        return "admin/infra/prj_1/ing/ingForm";
+    }
+    //FORM W/ seq
+
+    //UPDATE&DELETE
+    @RequestMapping("/ingForm/update")
+    public String ingUpdate(IngDTO dto){
+        ingService.update(dto);
+        return "redirect:/ingList/list";
+    }
+    @RequestMapping("/ingForm/delete")
+    public String ingDelete(IngVo vo){
+        ingService.delete(vo);
+        return"redirect:/ingList/list";
+    }
+    //UPDATE&DELETE
+
+
+
+
+}//END OF THE CONTROLLER

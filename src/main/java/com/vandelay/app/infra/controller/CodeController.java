@@ -21,16 +21,15 @@ public class CodeController {
 
         vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
         vo.setParamsPaging(codeService.selectOneCount(vo));
-// Pagination pre-import code
-// Pagination pre-import code
-    //        vo.setShKey(vo.getShKey() == null ? "조리법" : vo.getShKey());
-    //        List<CodeDTO> codeDTOList = codeService.selectList(vo);
-    //        model.addAttribute("list", codeDTOList);
-    //        /*        model.addAttribute("vo",vo); <--- @ModelAttribute("vo")와 동일 */
-    //        return "admin/infra/prj_1/code/codeList";
-// Pagination pre-import code
-// Pagination pre-import code
-
+        // Pagination pre-import code
+        // Pagination pre-import code
+            //        vo.setShKey(vo.getShKey() == null ? "조리법" : vo.getShKey());
+            //        List<CodeDTO> codeDTOList = codeService.selectList(vo);
+            //        model.addAttribute("list", codeDTOList);
+            //        /*        model.addAttribute("vo",vo); <--- @ModelAttribute("vo")와 동일 */
+            //        return "admin/infra/prj_1/code/codeList";
+        // Pagination pre-import code
+        // Pagination pre-import code
 
         if(vo.getTotalRows() > 0) {
             List<CodeDTO> list = codeService.selectList(vo);
@@ -40,7 +39,6 @@ public class CodeController {
 //			by pass
         }
         return "admin/infra/prj_1/code/codeList";
-
     }
 
 

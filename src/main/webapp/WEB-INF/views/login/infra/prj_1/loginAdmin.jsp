@@ -18,7 +18,7 @@
     <div class="loginContainer">
         <div class="welcome-container">
             <div style="width:50%" class="welcome-header"><img src="/resources/img/prj_1/admin/img.png"></div>
-            <form name="loginForm" class="welcome-form" action="" >
+            <form id="loginForm" class="welcome-form" action="" >
                 <label id="id-label" for="user-id">ID: </label>
                 <input
                         value = "adminXX@gmail.com"
@@ -39,6 +39,7 @@
                         name="pwd"
                         placeholder="비밀번호를 입력해주세요"
                 />
+                <span class="login_no">아이디 혹은 비밀번호가 일치하지 않습니다.</span>
                 <div class="btnBox">
                     <button id="b2" type="button" class="login btn">로그인</button>
                 </div>
@@ -46,41 +47,33 @@
         </div>
     </div>
     <script>
-        $("#b2").on("click", function(e){
-            if(( validationNull($("input[name=email]")) || validationNull($("input[name=pwd]") ))){
+        $("#b2").on("click", function(e) {
+            var form = $("#loginForm");
 
-                alert("hey");
-            }else{
-                alert("true");
+            if (validationNull(form)) {
                 $.ajax({
-                    async: true
-                    ,cache: false
-                    ,type: "post"
-                    /* ,dataType:"json" */
-                    ,url: "/member/login"
-                    /* ,data : $("#formLogin").serialize() */
-                    ,data : {
-                        "email" : $("input[name=email]").val(),
-                        "pwd" : $("input[name=pwd]").val()
-                    }
-                    ,success: function(response) {
+                    async: true,
+                    cache: false,
+                    type: "post",
+                    url: "/member/login",
+                    data: {
+                        "email": form.find("input[name=email]").val(),
+                        "pwd": form.find("input[name=pwd]").val()
+                    },
+                    success: function(response) {
+                        if (response.rt == "success") {
 
-                        if(response.rt == "success") {
-                            alert(response.rtMemberDTO.email);
                             location.href = "/indexAdminView";
                         } else {
-                            alert("그런 회원 없습니다.");
+                            $('.login_no').css("opacity", "1");
                         }
-                    }
-                    ,error : function(jqXHR, textStatus, errorThrown){
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
                         alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
                     }
-
-
                 }); //AJAX tag
-            } //else tag
-
-        }); // click event tag
+            }
+        });
 
 
 

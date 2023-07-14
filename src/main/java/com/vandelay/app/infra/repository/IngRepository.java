@@ -12,13 +12,26 @@ import java.util.List;
 @RequiredArgsConstructor
 public class IngRepository {
     private final SqlSessionTemplate sqlSession;
+    //LIST W/ PAGINATION
     public List<IngDTO> selectList(IngVo vo) {
         return sqlSession.selectList("Ing.selectList",vo);
     }
-
     public int selectOneCount(IngVo vo) {
         return sqlSession.selectOne("Ing.selectOneCount",vo);
     }
+    //LIST W/ PAGINATION
+
+    //FORM W/ ONE seq
+    public IngDTO selectOne(IngVo vo) {return sqlSession.selectOne("Ing.selectOne",vo);}
+    //FORM W/ ONE seq
+
+    //UPDATE
+    public int update(IngDTO dto){return sqlSession.update("ing.update",dto);}
+    //UPDATE
+
+    //DELETE
+    public int delete(IngVo vo){return sqlSession.delete("ing.delete",vo);}
+    //DELETE
 
 
-}
+}//END OF REPOSITORY

@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;

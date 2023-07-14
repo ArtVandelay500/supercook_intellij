@@ -56,9 +56,10 @@
 <script>
 
 
-        $("#b1").on("click", function(){
+        $("#b1").on("click", function() {
 
-            if($("#user-pwd").val() != $("#user-repwd").val()) {
+
+        if($("#user-pwd").val() != $("#user-repwd").val()) {
 
                 $("#repwd-label").css({
                     color: "red",

@@ -18,23 +18,23 @@
     <div class="loginContainer">
         <div class="welcome-container">
             <div class="welcome-header"><img src="/resources/img/prj_1/admin/yummy_white.png"></div>
-            <form name="loginForm" class="welcome-form" action="/member/login" method="post">
+            <form id="loginForm" class="welcome-form">
                 <label id="id-label" for="user-id">ID: </label>
                 <input
-                        required
                         id="user-id"
                         type="text"
+                        name="email"
                         placeholder="아이디를 입력해주세요"
                 />
+                <span class="id_already">아이디를 입력해주세요</span>
                 <label id="pwd-label" for="user-pwd">PWD: </label>
                 <input
-                        required
-                        minlength="5"
-                        maxlength="15"
                         id="user-pwd"
+                        name="pwd"
                         type="password"
                         placeholder="비밀번호를 입력해주세요"
                 />
+                <span class="login_no">아이디 혹은 비밀번호가 일치하지 않습니다.</span>
                 <div class="btnBox">
                     <button id="b2" onclick="location.href='/indexUserView'" class="login btn">로그인</button>
                     <button id="b1" onclick="location.href='/loginForm'" class="signup btn">회원가입</button>
@@ -43,6 +43,35 @@
         </div>
     </div>
     <script>
+        $("#b2").on("click", function(e) {
+            var form = $("#loginForm");
+
+            if (validationNull(form)) {
+                $.ajax({
+                    async: true,
+                    cache: false,
+                    type: "post",
+                    url: "/member/login",
+                    data: {
+                        "email": form.find("input[name=email]").val(),
+                        "pwd": form.find("input[name=pwd]").val()
+                    },
+                    success: function(response) {
+                        if (response.rt == "success") {
+                            alert(response.rtMemberDTO.email);
+                            location.href = "/indexAdminView";
+                        } else {
+                            $('.login_no').css("display", "inline-block");
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                    }
+                }); //AJAX tag
+            }
+        });
+
+
 
     </script>
 </body>
