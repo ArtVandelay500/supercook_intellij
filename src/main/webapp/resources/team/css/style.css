@@ -232,7 +232,7 @@ footer{
     color: black;
     justify-content: space-around;
     align-items: center;
-}∂
+}
 /*FOOTER DIV 1*/
 .teamLogoBox{
     width: 15%;
@@ -268,7 +268,7 @@ footer{
 }
 .teammatesInfo>a:hover span{
     letter-spacing: 0px;
-    color: rgba(37, 7, 255, 0.55);
+    color: rgba(26, 103, 26, 0.95);
 }
 
 .teammatesInfo>a:not(:last-of-type)::after{
