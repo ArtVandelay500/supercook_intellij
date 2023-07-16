@@ -13,7 +13,9 @@ public class IngVo {
     private String shKey;
     private String optCatName;
     private String optCatName2;
+    private String optBigCat;
     private String big_cat;
+    private String big_cat_ing;
     private String level;
     private String catName;
 

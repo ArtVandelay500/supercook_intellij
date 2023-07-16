@@ -31,20 +31,21 @@
                         <select name="optCatName">
                             <option value="">재료그룹</option>
                                 <c:forEach var="item" items="${ingGroup}">
-                                    <option value="<c:out value="${item.seq}"></c:out>"
-                                        <c:if test="${item.seq == vo.optCatName}">selected</c:if>>
-                                        <c:out value="${item.catName}"></c:out>
+                                    <option value="<c:out value="${item.seq}"/>"
+                                        <c:if test="${item.seq == vo.optCatName}">selected
+                                        </c:if>>
+                                        <c:out value="${item.catName}"/>
                                     </option>
                                 </c:forEach>
                         </select>
                         <c:choose>
                             <c:when test="${not empty param.optCatName}">
                                 <select name="optCatName2">
-
+                                    <option value="">재료소그룹</option>
                                     <c:forEach var="item" items="${ingGroup2}">
-                                        <option value="<c:out value="${item.seq}"></c:out>"
+                                        <option value="<c:out value="${item.seq}"/>"
                                             <c:if test="${item.seq == vo.optCatName2}">selected</c:if>>
-                                            <c:out value="${item.catName}"></c:out>
+                                            <c:out value="${item.catName}"/>
                                         </option>
                                     </c:forEach>
                                 </select>

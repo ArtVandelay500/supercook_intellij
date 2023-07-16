@@ -11,6 +11,9 @@ public class IngDTO {
     private String seq;
     private String name;
     private String catName;
+    private String big_cat_ing;
+    private String level;
+    private String big_cat;
     private String ingredient_seq;
     private String useNy;
 

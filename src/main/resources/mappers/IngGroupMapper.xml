@@ -19,8 +19,8 @@
             ingredientGroup
     </select>
 
-    <!--THIS FOR ingForm select options    -->
-    <!--THIS FOR ingForm select options    -->
+    <!--THIS FOR ingList select options    -->
+    <!--THIS FOR ingList select options    -->
     <select id="selectLvlOne" resultType="inggroup">
         SELECT
             <include refid="selectField"/>
@@ -39,8 +39,22 @@
             AND level = '2'
             AND big_cat = #{optCatName}
     </select>
-    <!--THIS FOR ingForm select options    -->
-    <!--THIS FOR ingForm select options    -->
+    <!--THIS FOR ingList select options    -->
+    <!--THIS FOR ingList select options    -->
 
+    <!--THIS FOR ingForm UPDATE options    -->
+    <!--THIS FOR ingForm UPDATE options    -->
+
+    <select id="selectLvlTwoForm" resultType="inggroup">
+        SELECT
+        <include refid="selectField"/>
+        FROM
+            ingredientGroup
+        WHERE 1+1
+            AND level = '2'
+
+    </select>
+    <!--THIS FOR ingForm UPDATE options    -->
+    <!--THIS FOR ingForm UPDATE options    -->
 
 </mapper>

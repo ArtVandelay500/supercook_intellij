@@ -34,7 +34,8 @@
                                 <thead>
                                 <tr>
                                     <th>재료명</th>
-                                    <th>재료그룹명</th>
+                                    <th>대그룹</th>
+                                    <th>소그룹</th>
                                     <th>삭제여부</th>
                                     <th></th>
                                 </tr>
@@ -42,6 +43,16 @@
                                 <tbody>
                                 <tr>
                                     <form name="insertForm">
+                                        <td>
+                                            <select name="optCatName2">
+                                                <c:forEach var="item" items="${ingGroup2}">
+                                                    <option value="<c:out value="${item.seq}"/>"
+                                                            <c:if test="${item.seq == vo.optCatName2}">selected</c:if>>
+                                                        <c:out value="${item.catName}"/>
+                                                    </option>
+                                                </c:forEach>
+                                            </select>
+                                        </td>
                                         <td>
                                             <select name="ingredient_seq">
                                                 <c:forEach var="item" items="${ingGroup}">
@@ -51,9 +62,9 @@
                                         </td>
                                         <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
                                         <td>
-                                            <select name="delNy">
-                                                <option value="0" <c:if test="${item.delNy == 0}">selected</c:if>>N</option>
-                                                <option value="1" <c:if test="${item.delNy == 1}">selected</c:if>>Y</option>
+                                            <select name="useNy">
+                                                <option value="0" <c:if test="${item.useNy == 0}">selected</c:if>>N</option>
+                                                <option value="1" <c:if test="${item.useNy == 1}">selected</c:if>>Y</option>
                                             </select>
                                         </td>
                                         <td><button class="insertBtn btn">생성</button></td>
@@ -78,7 +89,7 @@
                     <c:otherwise>
                         <div class="mainLabelBox">
                             <h2 class="tableLabel">공통코드 수정</h2>
-                            <div class="addBox" onclick="location.href='/codeList/list'">
+                            <div class="addBox" onclick="location.href='/ingList/list'">
                                 <h3 class="tableSubLabel">공통코드 목록</h3>
                                 <span id="back2list" class="material-symbols-outlined">clear_all</span>
                             </div>
@@ -88,8 +99,15 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>분류코드</th>
-                                    <th>코드이름</th>
+                                    <th>재료명</th>
+                                    <th>대그룹</th>
+                                    <c:choose>
+                                        <c:when test="${item.level == 2}">
+                                            <th>소그룹</th>
+                                        </c:when>
+                                        <c:otherwise>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <th>삭제여부</th>
                                     <th></th>
                                     <th></th>
@@ -99,20 +117,37 @@
                                 <tr>
                                     <form name="updateForm">
                                         <td><input readonly class="searchInput_formSeq" name="seq" value="<c:out value="${item.seq}"></c:out>"/></td>
+                                        <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"/>"></td>
                                         <td>
-                                            <select name="codeGroup_seq">
-                                                <option value="1" <c:if test="${item.codeGroup_seq == 1}">selected</c:if>>조리법</option>
-                                                <option value="2" <c:if test="${item.codeGroup_seq == 2}">selected</c:if>>조리도구</option>
-                                                <option value="3" <c:if test="${item.codeGroup_seq == 3}">selected</c:if>>음식종류</option>
-                                                <option value="4" <c:if test="${item.codeGroup_seq == 4}">selected</c:if>>기념일</option>
-                                                <option value="5" <c:if test="${item.codeGroup_seq == 5}">selected</c:if>>테마</option>
+                                            <select name="big_cat_ing">
+                                                <c:forEach var="inggroup" items="${ingGroup}">
+                                                    <option value="<c:out value="${inggroup.seq}"/>"
+                                                            <c:if test="${inggroup.seq == item.big_cat_ing}">selected</c:if>>
+                                                        <c:out value="${inggroup.catName}"/>
+                                                    </option>
+                                                </c:forEach>
                                             </select>
                                         </td>
-                                        <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
+                                        <c:choose>
+                                            <c:when test="${item.level == 2}">
+                                                <td>
+                                                    <select name="ingredient_seq">
+                                                        <c:forEach var="inggroup2" items="${ingGroupForm}">
+                                                            <option value="<c:out value="${inggroup2.seq}"/>"
+                                                                    <c:if test="${inggroup2.seq == item.ingredient_seq}">selected</c:if>>
+                                                                <c:out value="${inggroup2.catName}"/>
+                                                            </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </td>
+                                            </c:when>
+                                            <c:otherwise>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <td>
-                                            <select name="delNy">
-                                                <option value="0" <c:if test="${item.delNy == 0}">selected</c:if>>N</option>
-                                                <option value="1" <c:if test="${item.delNy == 1}">selected</c:if>>Y</option>
+                                            <select name="useNy">
+                                                <option value="0" <c:if test="${item.useNy == 0}">selected</c:if>>N</option>
+                                                <option value="1" <c:if test="${item.useNy == 1}">selected</c:if>>Y</option>
                                             </select>
                                         </td>
                                         <td><button class="updateBtn btn">수정</button></td>

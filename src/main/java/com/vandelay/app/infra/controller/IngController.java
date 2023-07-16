@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -26,25 +27,36 @@ public class IngController {
         return ingGroupService.selectLvlOne(vo);
     }
     @ModelAttribute("ingGroup2")
-    public List<IngGroupDTO> ingGroupDTOList2(@ModelAttribute("vo") IngVo vo){
+    public List<IngGroupDTO> ingGroupDTOList2(@ModelAttribute("vo") IngVo vo) {
         vo.setOptCatName(vo.getOptCatName() == null ? "" : vo.getOptCatName());
         vo.setOptCatName2(vo.getOptCatName2() == null ? "" : vo.getOptCatName2());
+
         return ingGroupService.selectLvlTwo(vo);
+    }
+    @ModelAttribute("ingGroupForm")
+    public List<IngGroupDTO> ingGroupDTOForm(@ModelAttribute("vo") IngVo vo) {
+
+        return ingGroupService.selectLvlTwoForm(vo);
     }
     @RequestMapping("/ingList/list")
     public String selectList(@ModelAttribute("vo") IngVo vo, Model model){
 
         vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
         vo.setOptCatName(vo.getOptCatName() == null ? "" : vo.getOptCatName());
+        vo.setOptCatName2(vo.getOptCatName2() == null ? "" : vo.getOptCatName2());
         vo.setParamsPaging(ingService.selectOneCount(vo));
+
+        System.out.println("####### Value:" + vo.getOptCatName());
+        System.out.println("####### Value:" +vo.getOptCatName2());
+        System.out.println("####### Value:" +vo.getShKey());
 
         if(vo.getTotalRows() > 0) {
 
             List<IngDTO> list = ingService.selectList(vo);
             model.addAttribute("list", list);
 
-        } else {
-//			by pass
+        } else{
+            System.out.println("there is none");
         }
         return "admin/infra/prj_1/ing/ingList";
     }
@@ -54,6 +66,7 @@ public class IngController {
     public String ingForm(IngVo vo, Model model){
         IngDTO ingDTO = ingService.selectOne(vo);
         model.addAttribute("item",ingDTO);
+        System.out.println("####### Value:" + vo.getLevel());
         return "admin/infra/prj_1/ing/ingForm";
     }
     //FORM W/ seq

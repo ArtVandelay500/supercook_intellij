@@ -50,8 +50,7 @@
     </select>
     <!--LOGIN SESSION-->
     <!--SIGNUP ID CHECK-->
-    <!--SIGNUP ID CHECK-->
-    <select id="signupIdCheck" resultType="member">
+    <!--SIGNUP ID CHECK-->    <select id="signupIdCheck" resultType="member">
         SELECT
             <include refid="selectField"/>
         FROM

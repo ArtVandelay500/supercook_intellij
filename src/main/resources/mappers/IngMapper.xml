@@ -8,6 +8,7 @@
         a.name,
         a.ingredient_seq,
         a.useNy,
+        a.big_cat_ing,
         b.catName,
         b.level,
         b.big_cat
@@ -18,21 +19,16 @@
         ingredient AS a
         LEFT JOIN ingredientGroup AS b ON b.seq = a.ingredient_seq
         WHERE 1+1
-        <if test="shKey != null and !shKey.equals('')">
-            AND (b.catName LIKE CONCAT('%',#{shKey},'%')
-            OR a.name LIKE CONCAT('%',#{shKey},'%'))
-        </if>
-        <choose>
-            <when test="optCatName2 != null and !optCatName2.equals('')">
+            <if test="shKey != null and !shKey.equals('')">
+                AND (b.catName LIKE CONCAT('%',#{shKey},'%')
+                OR a.name LIKE CONCAT('%',#{shKey},'%'))
+            </if>
+            <if test="optCatName != null and !optCatName.equals('')">
+                AND a.big_cat_ing = #{optCatName}
+            </if>
+            <if test="optCatName2 != null and !optCatName2.equals('')">
                 AND a.ingredient_seq = #{optCatName2}
-
-            </when>
-            <otherwise>
-                <if test="optCatName != null and !optCatName.equals('')">
-                    AND a.ingredient_seq = #{optCatName}
-                </if>
-            </otherwise>
-        </choose>
+            </if>
     </sql>
 
 
@@ -68,9 +64,10 @@
         SELECT
             <include refid="selectField"/>
         FROM
-            ingredient
+            ingredient AS a
+        LEFT JOIN ingredientGroup AS b ON b.seq = a.ingredient_seq
         WHERE
-            seq = #{seq}
+            a.seq = #{seq}
     </select>
     <!--FORM W/ seq-->
     <!--FORM W/ seq-->
