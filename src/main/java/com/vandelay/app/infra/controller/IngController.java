@@ -3,17 +3,24 @@ package com.vandelay.app.infra.controller;
 
 import com.vandelay.app.infra.dto.IngDTO;
 import com.vandelay.app.infra.dto.IngGroupDTO;
+import com.vandelay.app.infra.dto.MemberDTO;
 import com.vandelay.app.infra.service.IngGroupService;
 import com.vandelay.app.infra.service.IngService;
 import com.vandelay.app.infra.vo.IngVo;
+import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Controller
@@ -35,9 +42,26 @@ public class IngController {
     }
     @ModelAttribute("ingGroupForm")
     public List<IngGroupDTO> ingGroupDTOForm(@ModelAttribute("vo") IngVo vo) {
-
+        System.out.println(vo.getOptBigCat());
         return ingGroupService.selectLvlTwoForm(vo);
     }
+    @ResponseBody
+    @RequestMapping(value = "/ingGroupForm", method = RequestMethod.POST)
+    public Map<String, Object> selectOpt(IngVo vo){
+        Map<String,Object> returnMap = new HashMap<String,Object>();
+
+        List<IngGroupDTO> list = ingGroupService.selectLvlTwoForm(vo);
+        if(list != null){
+
+            returnMap.put("list",list);
+            returnMap.put("rt","success");
+        }else{
+            returnMap.put("rt","fail");
+        }
+        return returnMap;
+    }
+
+
     @RequestMapping("/ingList/list")
     public String selectList(@ModelAttribute("vo") IngVo vo, Model model){
 

@@ -28,6 +28,7 @@
                     <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
                     <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
                     <div class="searchBox">
+
                         <select name="optCatName">
                             <option value="">재료그룹</option>
                                 <c:forEach var="item" items="${ingGroup}">
@@ -38,21 +39,17 @@
                                     </option>
                                 </c:forEach>
                         </select>
-                        <c:choose>
-                            <c:when test="${not empty param.optCatName}">
-                                <select name="optCatName2">
-                                    <option value="">재료소그룹</option>
-                                    <c:forEach var="item" items="${ingGroup2}">
-                                        <option value="<c:out value="${item.seq}"/>"
-                                            <c:if test="${item.seq == vo.optCatName2}">selected</c:if>>
-                                            <c:out value="${item.catName}"/>
-                                        </option>
-                                    </c:forEach>
-                                </select>
-                            </c:when>
-                            <c:otherwise>
-                            </c:otherwise>
-                        </c:choose>
+
+                        <select name="optCatName2">
+                            <option value="">전체</option>
+                            <c:forEach var="item" items="${ingGroup2}">
+                                <option value="<c:out value="${item.seq}"/>"
+                                    <c:if test="${item.seq == vo.optCatName2}">selected</c:if>>
+                                    <c:out value="${item.catName}"/>
+                                </option>
+                            </c:forEach>
+                        </select>
+
                         <select name="optDelNy">
                             <option value="">삭제여부</option>
                             <option value="1">삭제</option>
@@ -139,6 +136,47 @@
 
 </body>
 <script type="text/javascript">
+    //LIST SELECT APPEDING AJAX
+    //LIST SELECT APPEDING AJAX
+
+
+    $("select[name=optCatName]").change(function() {
+        const optBigCat = $("select[name=optCatName]").val();
+        const selectTag = $("select[name=optCatName2]");
+
+        $.ajax({
+            async: true,
+            cache: false,
+            type: "post",
+            url: "/ingGroupForm",
+            data: {
+                "optBigCat": optBigCat
+            },
+            success: function (response) {
+                if (response.rt == "success") {
+                    selectTag.empty();
+                    selectTag.append($("<option>").val("").text("전체"))
+                    $.each(response.list, function(index, item) {
+                        const option = $("<option>").val(item.seq).text(item.catName);
+                        selectTag.append(option);
+                    });
+
+
+                } else {
+                    alert("failed");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+            }
+        }); //AJAX tag
+    }); // EVENT tag
+
+
+
+    //LIST SELECT APPEDING AJAX
+    //LIST SELECT APPEDING AJAX
+
     <%--pagination js function--%>
     <%--pagination js function--%>
 

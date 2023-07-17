@@ -77,6 +77,7 @@
         UPDATE ingredient
         SET
             name = #{name},
+            big_cat_ing = #{big_cat_ing},
             ingredient_seq = #{ingredient_seq},
             useNy = #{useNy}
         WHERE

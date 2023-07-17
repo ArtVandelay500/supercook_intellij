@@ -43,24 +43,23 @@
                                 <tbody>
                                 <tr>
                                     <form name="insertForm">
+
+                                        <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
                                         <td>
-                                            <select name="optCatName2">
-                                                <c:forEach var="item" items="${ingGroup2}">
-                                                    <option value="<c:out value="${item.seq}"/>"
-                                                            <c:if test="${item.seq == vo.optCatName2}">selected</c:if>>
-                                                        <c:out value="${item.catName}"/>
+                                            <select name="big_cat_ing">
+                                                <option value="">::선택해주세요</option>
+                                                <c:forEach var="inggroup" items="${ingGroup}">
+                                                    <option value="<c:out value="${inggroup.seq}"/>">
+                                                        <c:out value="${inggroup.catName}"/>
                                                     </option>
                                                 </c:forEach>
                                             </select>
                                         </td>
                                         <td>
                                             <select name="ingredient_seq">
-                                                <c:forEach var="item" items="${ingGroup}">
-                                                    <option value="${ingGroup.seq}">${ingGroup.catName}</option>
-                                                </c:forEach>
+                                                <option value="">::대그룹을 선택해주세요</option>
                                             </select>
                                         </td>
-                                        <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
                                         <td>
                                             <select name="useNy">
                                                 <option value="0" <c:if test="${item.useNy == 0}">selected</c:if>>N</option>
@@ -173,32 +172,63 @@
 </div>
 <%--script code--%>
 <script>
-    /*validation js*/
-    const objName = $("input[name=name]");
-    const objSelect = $("select[name=codeGroup_seq]")
+    //INSERT SELECT APPEDING AJAX
+    //INSERT SELECT APPEDING AJAX
+
+
+        $("select[name=big_cat_ing]").change(function() {
+            const optBigCat = $("select[name=big_cat_ing]").val();
+            const selectTag = $("select[name=ingredient_seq]");
+
+            $.ajax({
+                async: true,
+                cache: false,
+                type: "post",
+                url: "/ingGroupForm",
+                data: {
+                    "optBigCat": optBigCat
+                },
+                success: function (response) {
+                    if (response.rt == "success") {
+                            selectTag.empty();
+                        $.each(response.list, function(index, item) {
+                            const option = $("<option>").val(item.seq).text(item.catName);
+                            selectTag.append(option);
+                        });
+
+
+                    } else {
+                        alert("failed");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                }
+            }); //AJAX tag
+        }); // EVENT tag
+
+
+
+    //INSERT SELECT APPEDING AJAX
+    //INSERT SELECT APPEDING AJAX
 
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(e){
         e.preventDefault();
-        if(check(objName) == false) {
-            $(objName).css({
-                outline: "3px dotted rgba(255, 0, 0, 0.38)",
-                borderRadius: "5px",
-                backgroundColor: "rgba(255, 0, 0, 0.08)",
-                animation: "horizontal-shaking .3s 1 ease-in-out"
-            });
-        }else {
-            $("form[name=updateForm]").attr("action", "/codeForm/update").submit();
+        var input = $("input[name=name]");
+        /*validation js*/
+        if(validationNullEach(input)) {
+            $("form[name=updateForm]").attr("action", "/ingForm/update").submit();
         }
 
     });
     /*생성버튼 이벤트*/
     $(".insertBtn").on("click",function(){
-        $("form[name=insertForm]").attr("action","/codeForm/insert").submit();
+        $("form[name=insertForm]").attr("action","/ingForm/insert").submit();
     });
     /*삭제버튼 이벤트*/
     $(".deleteBtn").on("click",function(){
-        $("form[name=updateForm]").attr("action","/codeForm/delete").submit();
+        $("form[name=updateForm]").attr("action","/ingForm/delete").submit();
     });
 
 </script>

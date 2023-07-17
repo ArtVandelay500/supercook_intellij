@@ -26,11 +26,11 @@ public class IngRepository {
     //FORM W/ ONE seq
 
     //UPDATE
-    public int update(IngDTO dto){return sqlSession.update("ing.update",dto);}
+    public int update(IngDTO dto){return sqlSession.update("Ing.update",dto);}
     //UPDATE
 
     //DELETE
-    public int delete(IngVo vo){return sqlSession.delete("ing.delete",vo);}
+    public int delete(IngVo vo){return sqlSession.delete("Ing.delete",vo);}
     //DELETE
 
 

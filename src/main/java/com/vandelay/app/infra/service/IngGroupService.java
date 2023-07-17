@@ -19,4 +19,5 @@ public class IngGroupService {
     public List<IngGroupDTO> selectLvlOne(IngVo vo){return ingGroupRepository.selectLvlOne(vo);}
     public List<IngGroupDTO> selectLvlTwo(IngVo vo){return ingGroupRepository.selectLvlTwo(vo);}
     public List<IngGroupDTO> selectLvlTwoForm(IngVo vo){return ingGroupRepository.selectLvlTwoForm(vo);}
+
 }

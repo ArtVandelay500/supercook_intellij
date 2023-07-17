@@ -187,32 +187,34 @@ validationNull = function(form) {
 // FORM NULLCHECK
 // FORM NULLCHECK
 
+//  IF THERE IS ONE INPUT IN THE FORM, TRYING USING validationNull would return TRUE under no circumstances.
+
 // INPUT NULLCHECK
 // INPUT NULLCHECK
-//     validationNull = function(obj) {
-//         // 실제 체킹하는 소스가 들어가는 부분
-//         if ($.trim(obj.val()) == "" || $.trim(obj.val()) == null) {
-//             obj.addClass("redPlaceholder");
-//             obj.css({
-//                 animation: "horizontal-shaking .2s 2 ease"
-//             });
-//             obj.focus();
-//
-//             // Remove the shaking effect after a delay
-//             setTimeout(function() {
-//                 obj.removeClass("redPlaceholder");
-//                 obj.css({
-//                     animation: ""
-//                 });
-//             }, 400); // Adjust the delay time if needed
-//
-//             return false;
-//
-//         } else {
-//
-//             return true;
-//         }
-//     }
+    validationNullEach = function(obj) {
+        // 실제 체킹하는 소스가 들어가는 부분
+        if ($.trim(obj.val()) == "" || $.trim(obj.val()) == null) {
+            obj.addClass("redPlaceholder");
+            obj.css({
+                animation: "horizontal-shaking .2s 2 ease"
+            });
+            obj.focus();
+
+            // Remove the shaking effect after a delay
+            setTimeout(function() {
+                obj.removeClass("redPlaceholder");
+                obj.css({
+                    animation: ""
+                });
+            }, 400); // Adjust the delay time if needed
+
+            return false;
+
+        } else {
+
+            return true;
+        }
+    }
 
     // INPUT NULLCHECK
     // INPUT NULLCHECK

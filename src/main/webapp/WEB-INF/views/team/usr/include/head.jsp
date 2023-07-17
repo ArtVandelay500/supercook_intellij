@@ -10,4 +10,5 @@
   <script src="/resources/team/js/jquery-3.6.4.min.js"></script>
   <script src="/resources/team/js/adminView.js"></script>
   <script src="/resources/team/js/footer.js"></script>
+  <script src="/resources/team/js/modal.js"></script>
 </head>

@@ -9,9 +9,19 @@
         <div class="teammatesInfo">
             <h4>Developers</h4>
 
-            <a class="song" href="#"><span>송재윤</span></a>
-            <a class="lee" href="#"><span>이승민</span></a>
-            <a class="hong" href="#"><span>홍현욱</span></a>
+            <div class="infoBox">
+                <a class="song teamName" href="#"><span>송재윤</span></a>
+                <a href="#" class="songA git"><span>123@github.com</span></a>
+            </div>
+            <div class="infoBox">
+                <a class="lee teamName" href="#"><span>이승민</span></a>
+                <a href="#" class="leeA git"><span>123@github.com</span></a>
+            </div>
+            <div class="infoBox">
+                <a class="hong teamName" href="#"><span>홍현욱</span></a>
+                <a href="#" class="hongA git"><span>123@github.com</span></a>
+            </div>
+
 
         </div>
     </div>
@@ -41,8 +51,8 @@
             </p>
         </div>
         <div class="personalPrjEach leee">
-            <div class="footerLogo personalLogo">
-                <img src="/resources/team/img/yummy_color.png" alt="'JOIN' Team Logo image located"/>
+            <div id="leeImg" class="footerLogo personalLogo">
+                <img src="/resources/team/img/leeSm.png" alt="'JOIN' Team Logo image located"/>
             </div>
             <p>
                 나는 이승민입니다
