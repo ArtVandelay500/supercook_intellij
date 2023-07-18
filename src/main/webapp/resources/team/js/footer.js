@@ -8,7 +8,7 @@ $(function(){
     // 홍현욱
     $(".hong").on("click",function(){
         // all indented li reset
-        $(this).parents("div").siblings("div").children(".git").fadeIn();
+        $(this).siblings(".git").fadeIn();
         $(this).parents("div").siblings("div").children("a").css({
             letterSpacing : "-1px",
             color: "black"
@@ -18,7 +18,7 @@ $(function(){
             letterSpacing : "0px",
             color:"rgba(26, 103, 26, 0.95)",
         });
-        $(this).siblings(".git").fadeOut();
+        $(this).parents("div").siblings("div").children(".git").fadeOut();
         // if any of each sections inside of the "main container" is currently opened, close it
         $(".personalPrj").children("div").each(function(index,item){
             if($(item).is(":visible")){
@@ -34,7 +34,7 @@ $(function(){
 
     // 송재윤
     $(".song").on("click",function(){
-        $(this).parents("div").siblings("div").children(".git").fadeIn();
+        $(this).siblings(".git").fadeIn();
         // all indented li reset
         $(this).parents("div").siblings("div").children("a").css({
             letterSpacing : "-1px",
@@ -45,7 +45,7 @@ $(function(){
             letterSpacing : "0px",
             color:"rgba(26, 103, 26, 0.95)",
         });
-        $(this).siblings(".git").fadeOut();
+        $(this).parents("div").siblings("div").children(".git").fadeOut();
         // if any of each sections inside of the "main container" is currently opened, close it
         $(".personalPrj").children("div").each(function(index,item){
             if($(item).is(":visible")){
@@ -61,7 +61,7 @@ $(function(){
 
     // 이승민
     $(".lee").on("click",function(){
-        $(this).parents("div").siblings("div").children(".git").fadeIn();
+        $(this).siblings(".git").fadeIn();
         // all indented li reset
         $(this).parents("div").siblings("div").children("a").css({
             letterSpacing : "-1px",
@@ -72,7 +72,7 @@ $(function(){
             letterSpacing : "0px",
             color:"rgba(26, 103, 26, 0.95)",
         });
-        $(this).siblings(".git").fadeOut();
+        $(this).parents("div").siblings("div").children(".git").fadeOut();
         // if any of each sections inside of the "main container" is currently opened, close it
         $(".personalPrj").children("div").each(function(index,item){
             if($(item).is(":visible")){

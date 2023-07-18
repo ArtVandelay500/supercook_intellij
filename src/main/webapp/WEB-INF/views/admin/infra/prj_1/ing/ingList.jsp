@@ -51,9 +51,9 @@
                         </select>
 
                         <select name="optDelNy">
-                            <option value="">삭제여부</option>
-                            <option value="1">삭제</option>
-                            <option value="0">미삭제</option>
+                            <option value="">사용여부</option>
+                            <option value="1">사용</option>
+                            <option value="0">미사용</option>
                         </select>
                         <div class="inputBox">
                             <input id="srcGo" name="shKey" class="searchInput" type="text" value="<c:out value="${vo.shKey}"/>">

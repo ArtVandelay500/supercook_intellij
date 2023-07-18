@@ -1,7 +1,9 @@
 $(function(){
     $("#modal").hide();
     $(".heyheyhey").hide();
-    $(".yoyoyo").hide();
+    $(".modalRecommend").hide();
+    $(".modalReport").hide();
+    $(".modalBuild").hide();
 
 
 
@@ -23,7 +25,7 @@ $(function(){
     $("#b").on("click",function(){
         $("#modal").fadeIn();
         setTimeout(function() {
-            $(".yoyoyo").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
+            $(".modalRecommend").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
         }, 200);
     });
 
@@ -32,8 +34,43 @@ $(function(){
         setTimeout(function() {
             $("#modal").fadeOut(); // FadeOut the #modal w/ .2 delay
         }, 200);
-        $(".yoyoyo").fadeOut();
+        $(".modalRecommend").fadeOut();
     });
+
+
+    $("#c").on("click",function(){
+        $("#modal").fadeIn();
+        setTimeout(function() {
+            $(".modalReport").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
+        }, 200);
+    });
+
+    $(".modalClose").on("click",function(e){
+        console.log(e);
+        setTimeout(function() {
+            $("#modal").fadeOut(); // FadeOut the #modal w/ .2 delay
+        }, 200);
+        $(".modalReport").fadeOut();
+    });
+
+
+
+    $("#buildParty").on("click",function(){
+        $("#modal").fadeIn();
+        setTimeout(function() {
+            $(".modalBuild").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
+        }, 200);
+    });
+
+    $(".modalClose").on("click",function(e){
+        console.log(e);
+        setTimeout(function() {
+            $("#modal").fadeOut(); // FadeOut the #modal w/ .2 delay
+        }, 200);
+        $(".modalBuild").fadeOut();
+    });
+
+
 
 
 

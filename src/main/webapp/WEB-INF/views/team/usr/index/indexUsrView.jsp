@@ -17,8 +17,9 @@
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
                     <buton id="a" class="modalBtn">추천창</buton>
                     <buton id="b" class="modalBtn">추천</buton>
-                    <buton id="c" class="modalBtn">신고</buton>
-                    <buton id="d" class="modalBtn">차단</buton>
+                    <buton id="c" class="report modalBtn">신고</buton>
+                    <buton id="d" class="block modalBtn">차단</buton>
+                    <buton id="e" class="build modalBtn">생성</buton>
 
 
                     <%--모달 검은 창--%>
@@ -86,36 +87,78 @@
 
                     <%--모달 추천--%>
                     <%--모달 추천--%>
-                    <div class="yoyoyo modalWindow">
+                    <div class="modalRecommend modalWindow">
                         <div class="modalHead">
-                            <h1>신고</h1>
+                            <h1>추천</h1>
                             <a class="modalClose"><span class="material-symbols-outlined">close</span></a>
                         </div>
                         <div class="modalBody">
-                            <div class="userBox">
-                                <div class="userImg">
-                                    <img src="/resources/team/img/yummy_color.png"/>
-                                    <div class="crown"><img src="/resources/team/img/crown.png"/></div>
+                            <div class="recommendBox">
+                                <div class="userRecommend">
+                                    <div class="userImg">
+                                        <img src="/resources/team/img/yummy_color.png"/>
+                                    </div>
+                                    <div class="userInfo">
+                                        <h4 class="nickname">닉네임: 아무개</h4>
+                                        <h5>매너온도: 39.9</h5>
+                                    </div>
                                 </div>
-                                <div class="userInfo">
-                                    <h4 class="nickname">닉네임: 아무개</h4>
-                                    <h5>매너온도: 39.9</h5>
-                                </div>
-                                <div class="userBtns">
-                                    <button class="userBtn recommend">추천</button>
-                                    <button class="userBtn report">신고</button>
-                                    <button class="userBtn block">차단</button>
-                                </div>
+                                <h3>추천사유</h3>
+                                <textarea>
+
+                                </textarea>
                             </div>
+
+
+
 
                         </div>
                         <div class="modalFooter">
-                            <button class="modalOk">확인</button>
+                            <button class="modalOk">추천</button>
                         </div>
                     </div>
                     <%--모달 추천--%>
                     <%--모달 추천--%>
 
+                    <%--모달 신고--%>
+                    <%--모달 신고--%>
+                    <div class="modalReport modalWindow">
+                        <div class="modalHead report">
+                            <h1>신고</h1>
+                            <a class="modalClose"><span class="material-symbols-outlined">close</span></a>
+                        </div>
+                        <div class="modalBody">
+                            <div class="recommendBox">
+                                <div class="userRecommend">
+                                    <div class="userImg">
+                                        <img src="/resources/team/img/yummy_color.png"/>
+                                    </div>
+                                    <div class="userInfo">
+                                        <h4 class="nickname">닉네임: 아무개</h4>
+                                        <h5>매너온도: 39.9</h5>
+                                    </div>
+                                </div>
+                                <div class="modalBox">
+                                    <h3>신고사유</h3>
+                                    <select>
+                                        <option>::선택하세요</option>
+                                    </select>
+                                </div>
+                                <div class="modalBox">
+                                    <h3>신고내용</h3>
+                                    <textarea></textarea>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="modalFooter">
+                            <button class="modalBad">신고</button>
+                        </div>
+                    </div>
+                    <%--모달 신고--%>
+                    <%--모달 신고--%>
 
 
 

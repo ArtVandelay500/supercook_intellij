@@ -27,6 +27,9 @@
         <if test="shKey != null and !shKey.equals('')">
             AND codeName LIKE CONCAT('%',#{shKey},'%')
         </if>
+        <if test="optDelNy != null">
+            AND useNy = #{optDelNy}
+        </if>
     </sql>
 
     <!--PAGING TOTAL COUNT-->

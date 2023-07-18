@@ -12,11 +12,14 @@
                         </li>
                     </a>
                     <ul class="subNavList">
-                        <a href="#"><li>
+                        <a href="/partyApproved"><li>
                             참가 중
                         </li></a>
-                        <a href=""><li>
+                        <a href="/partyPending"><li>
                             참가 신청
+                        </li></a>
+                        <a href="/partyEvaluate"><li>
+                            참가 완료
                         </li></a>
                     </ul>
 

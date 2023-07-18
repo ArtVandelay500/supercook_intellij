@@ -1,6 +1,7 @@
 package com.vandelay.app.infra.repository;
 
 import com.vandelay.app.infra.dto.IngGroupDTO;
+import com.vandelay.app.infra.vo.IngGroupVo;
 import com.vandelay.app.infra.vo.IngVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,13 +13,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class IngGroupRepository {
     private final SqlSessionTemplate sqlSession;
-    public List<IngGroupDTO> selectList() {
-        return sqlSession.selectList("IngGroup.selectList");
 
-    }
-
+    //SELECT OPTION
+    //SELECT OPTION
     public List<IngGroupDTO> selectLvlOne(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlOne",vo);}
     public List<IngGroupDTO> selectLvlTwo(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlTwo",vo);}
     public List<IngGroupDTO> selectLvlTwoForm(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlTwoForm",vo);}
     public List<IngGroupDTO> selectLvlTwoFormUpdate(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlTwoFormUpdate",vo);}
+    //SELECT OPTION
+    //SELECT OPTION
+
+    public List<IngGroupDTO> selectList(IngGroupVo vo) {
+        return sqlSession.selectList("IngGroup.selectList",vo);
+    }
+    public int selectOneCount(IngGroupVo vo) {
+        return sqlSession.selectOne("IngGroup.selectOneCount",vo);
+    }
 }

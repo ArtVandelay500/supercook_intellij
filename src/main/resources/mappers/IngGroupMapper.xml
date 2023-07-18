@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="IngGroup">
-
+    <!--SETTING -->
+    <!--SETTING -->
     <sql id="selectField">
         seq,
         big_cat,
@@ -11,13 +12,99 @@
         useNy
     </sql>
 
+    <sql id="selectCommon">
+        FROM
+            ingredientGroup
+        WHERE 1+1
+            <if test="shKey != null and !shKey.equals('')">
+                AND catName LIKE CONCAT('%',#{shKey},'%')
+            </if>
+            <if test="optDelNy != null and !optDelNy.equals('')">
+                AND useNy = #{optDelNy}
+            </if>
+    </sql>
+    <!--SETTING -->
+    <!--SETTING -->
+
 
     <select id="selectList" resultType="inggroup">
         SELECT
-            <include refid="selectField"/>
+            ingredientGroup.*
+        FROM (
+            SELECT
+                <include refid="selectField"/>
+                <include refid="selectCommon"/>
+            ) AS ingredientGroup
+        LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+    <!--SELECT QUERY BEFORE PAGINATION-->
+    <!--SELECT QUERY BEFORE PAGINATION-->
+    <!--SELECT QUERY BEFORE PAGINATION-->
+
+    <select id="selectOne" resultType="inggroup">
+        SELECT
+            <include refid="selectField" />
         FROM
             ingredientGroup
+        WHERE
+            seq = #{seq}
     </select>
+
+    <update id="update">
+        UPDATE ingredientGroup
+        SET
+            big_cat = #{big_cat},
+            catName = #{catName},
+            level = #{level},
+            useNy = #{useNy}
+        WHERE
+            seq = #{seq}
+    </update>
+
+    <insert id="insert">
+        INSERT INTO codeGroup(
+            big_cat,
+            catName,
+            level,
+            useNy
+        )VALUES(
+                   #{big_cat},
+                   #{catName},
+                   #{level},
+                   #{useNy}
+               )
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM ingredientGroup WHERE seq = #{seq}
+    </delete>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
+    </select>
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+
+
 
     <!--THIS FOR ingList select options    -->
     <!--THIS FOR ingList select options    -->

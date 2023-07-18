@@ -5,16 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<c:forEach items="${list}" var="list" varStatus="status">
-    <c:out value="${list.seq}"></c:out>
-    <c:out value="${list.big_cat}"></c:out>
-    <c:out value="${list.name}"></c:out>
-    <c:out value="${list.level}"></c:out>
-    <c:out value="${list.useNy}"></c:out>
-</c:forEach>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <%@include file="../includes/head.jsp"%>
@@ -38,9 +28,9 @@
                     <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
                     <div class="searchBox">
                         <select name="optDelNy">
-                            <option value="">삭제여부</option>
-                            <option value="1">삭제</option>
-                            <option value="0">미삭제</option>
+                            <option value="">사용여부</option>
+                            <option value="1">사용</option>
+                            <option value="0">미사용</option>
                         </select>
                         <div class="inputBox">
                             <input id="srcGo" name="shKey" class="searchInput" type="text" value="<c:out value="${vo.shKey}"/>">
@@ -55,9 +45,9 @@
                             <th>#</th>
                             <th>재료그룹명</th>
                             <th>대그룹</th>
+                            <th>LEVEL</th>
                             <th></th>
-                            <th></th>
-                            <th>삭제여부</th>
+                            <th>사용여부</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -65,7 +55,9 @@
                             <c:when test="${fn:length(list) eq 0}">
                                 <tr>
                                     <td></td>
+                                    <td></td>
                                     <td><h4 id="nodata">There is no data!</h4></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -74,11 +66,19 @@
                                 <c:forEach items="${list}" var="list" varStatus="status">
                                     <tr>
                                         <td><c:out value="${list.seq}"></c:out></td>
-                                        <td><c:out value="${list.codeName}"></c:out></td>
-                                        <td><button class="detailBtn" onclick="location.href='/codeGroupForm?seq=<c:out value = '${list.seq}'/>'">수정</button></td>
+                                        <td><c:out value="${list.catName}"></c:out></td>
+                                        <td>
+                                            <c:forEach var="item" items="${ingGroup}">
+                                                <c:if test="${item.seq == list.big_cat}">
+                                                    <c:out value="${item.catName}"/>
+                                                </c:if>
+                                            </c:forEach>
+                                        </td>
+                                        <td><c:out value="${list.level}"></c:out></td>
+                                        <td><button class="detailBtn" onclick="location.href='/ingGroupForm?seq=<c:out value = '${list.seq}'/>'">수정</button></td>
                                         <td>
                                             <c:choose>
-                                                <c:when test="${list.delNy eq '1'}">
+                                                <c:when test="${list.useNy eq '1'}">
                                                     Y
                                                 </c:when>
                                                 <c:otherwise>
@@ -125,16 +125,16 @@
         if(thisPage == 0) {
             console.log("function 1st");
             $("input:hidden[name=thisPage]").val(1);
-            $("form[name=search]").attr("action", "/codeGroupList/list").submit();
+            $("form[name=search]").attr("action", "/ingGroupList/list").submit();
 
         } else if(thisPage > ${vo.totalPages}){
             console.log("function 2nd");
             $("input:hidden[name=thisPage]").val(thisPage - 1);
-            $("form[name=search]").attr("action", "/codeGroupList/list").submit();
+            $("form[name=search]").attr("action", "/ingGroupList/list").submit();
         }else{
             console.log("function 3rd");
             $("input:hidden[name=thisPage]").val(2);
-            $("form[name=search]").attr("action", "/codeGroupList/list").submit();
+            $("form[name=search]").attr("action", "/ingGroupList/list").submit();
 
         }
     }
@@ -142,26 +142,3 @@
     <%--pagination js function--%>
 
 
-    $("select[name=optCodeName],select[name=optDelNy]").on("change",function(){
-        /*$("form[name=search]").attr("action","/codeList/list").submit();*/
-        $.ajax({
-            type: "post",
-            url: "codeList/list",
-            dataType:"text",
-            data:{
-                "optCodeName" : $("select[name=optCodeName]").val(),
-                "optDelNy" : $("select[name=optDelNy]").val()
-            },
-            success: function() {
-                alert("hey");
-            },
-            error: function (request, status, error) {
-                console.log("code: " + request.status)
-                console.log("message: " + request.responseText)
-                console.log("error: " + error);
-            }
-        });
-    });
-
-</script>
-</html>

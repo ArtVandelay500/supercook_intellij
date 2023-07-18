@@ -302,6 +302,7 @@ main{
     height: 350px;
     margin-top: 60px;
     padding: 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -369,6 +370,92 @@ main{
 }
 .block{background-color: rgba(30, 30, 30, 0.64)
 }
+.modalBox{
+    letter-spacing: 0;
+    width: 60%;
+    margin: 10px 0;
+    display: flex;
+    align-items: flex-start;
+}
+.modalBox>h3{
+    margin-right: 10px;
+}
+.modalBox>select{
+    font-size: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+/*Modal Recommend*/
+/*Modal Recommend*/
+.recommendBox{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    background-color: whitesmoke;
+}
+.userRecommend{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.recommendBox>h3{
+    margin: 20px 0;
+    font-size: 20px;
+}
+textarea{
+    width: 60%;
+    height: 100px;
+}
+/*Modal Recommend*/
+/*Modal Recommend*/
+
+/*Modal Report*/
+/*Modal Report*/
+.modalWindowlonger{
+    height: 700px;
+}
+/*Modal Report*/
+/*Modal Report*/
+
+/*Modal Build*/
+/*Modal Build*/
+
+.formBox{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    background-color: whitesmoke;
+}
+.formBox{
+}
+.formBox>form{
+    display: flex;
+    flex-direction: column;
+}
+.labelBox{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+label{
+    margin-right: 10px;
+    white-space: nowrap;
+}
+#partyName{
+    width: 100%;
+    font-size: 15px;
+}
+/*Modal Build*/
+/*Modal Build*/
+
+
 /*Modal Body*/
 /*Modal Body*/
 
@@ -388,6 +475,18 @@ main{
     color: white;
     border-radius: 10px;
     background-color: mediumseagreen;
+    cursor: pointer;
+}
+.modalBad{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    font-size: 20px;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.67);
     cursor: pointer;
 }
 /*Modal Footer*/
@@ -506,3 +605,186 @@ footer{
 /*FOOTER*/
 /*FOOTER*/
 /*FOOTER*/
+
+/* Table Label CSS*/
+/* Table Label CSS*/
+
+.mainLabelBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+
+.addBox{
+    margin: 20px 0 20px 0 ;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20%;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    transform-origin: left;
+}
+.addBox:hover{
+    transform: scale(1.1);
+    color: rgb(91, 168, 92);
+}
+.addBox>span{
+    color: rgba(0, 0, 0, 0.461);
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 28px;
+
+}
+h3{
+    width: fit-content;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: start;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+h2{
+    width: fit-content;
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: 0px;
+    text-align: start;
+    width: 50%;
+    white-space: nowrap;
+}
+.mainLabelBox>span{
+    position: absolute;
+    left: 120px;
+    bottom: 13px;
+}
+/* Table Label CSS*/
+/* Table Label CSS*/
+
+/*@@@@@  Table Filter CSS @@@@@*/
+/*@@@@@  Table Filter CSS @@@@@*/
+.searchBox{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    margin: 20px;
+    width: max-content;
+    height: fit-content;
+}
+.searchInput:focus +span{
+    transform: scale(1.2);
+    opacity: 1;
+}
+.searchInput:focus{
+    opacity: 1;
+}
+.searchInput{
+    margin-left: 20px;
+    height: 25px;
+    border: none;
+    outline: none;
+    transition: all .2s ease-in-out;
+    border-bottom: 1px solid rgb(77, 72, 72);
+    color: rgb(77, 72, 72);
+    opacity: .2;
+    font-size: 20px;
+    padding: 15px 30px 15px 10px;
+    box-sizing: border-box;
+}
+.inputBox>span:hover{transform: scale(1.1);}
+.inputBox>span{
+    position: absolute;
+    right: 0;
+    opacity: .2;
+    color: rgb(77, 72, 72);
+    font-weight: 900;
+    transition: .2s all ease-in-out;
+    cursor:pointer;
+}
+.inputBox{
+    position: relative;
+}
+select{
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 5px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    color: rgb(77, 72, 72);
+    padding: 5px 15px;
+    background-color: rgba(220, 250, 159, 0.36);
+}
+
+
+/*@@@@@  Table Filter CSS @@@@@*/
+/*@@@@@  Table Filter CSS @@@@@*/
+
+
+/*@@@@@@@@@@@@@@  Table  CSS @@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@  Table  CSS @@@@@@@@@@@@@@*/
+
+.tableBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+.tableBox>table{
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 15px;
+    border-collapse: collapse;
+    border-style: hidden;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.068);
+}
+.tableBox>table>thead{
+    font-weight: 700;
+    letter-spacing: 0;
+    border-radius: 15px;
+    background-color: rgba(159, 255, 80, 0.1);
+
+}
+.tableBox>table>thead>tr>th:first-of-type{
+    border-top-left-radius: 15px;
+}
+.tableBox>table>thead>tr>th:last-of-type{
+    border-top-right-radius: 15px;
+}
+.tableBox>table>thead>tr>th,
+.tableBox>table>tbody>tr>td{
+    border-bottom: 0px solid rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+.tableBox>table>tbody>tr>td{
+    font-size: 15px;
+}
+.detailBtn {
+    font-size: 12px;
+    background-color: rgba(243, 243, 243, 0.83);
+    border: 1px rgb(146, 146, 146);
+    border-radius: 5px;
+    padding: 5px 5px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    font-weight: 500;
+}
+.detailBtn:hover{
+    transform: scale(1.2);
+    color:white;
+    background-color: #b0e97a;
+}
+#nodata{
+    color: rgba(0,0,0,0.5) !important;
+    padding: 10px;
+}
+
+/*@@@@@@@@@@@@@@  Table  CSS @@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@  Table  CSS @@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@  Table  CSS @@@@@@@@@@@@@@*/

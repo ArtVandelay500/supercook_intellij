@@ -70,6 +70,7 @@ public class IngController {
     public String selectList(@ModelAttribute("vo") IngVo vo, Model model){
 
         vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
+        vo.setOptDelNy(vo.getOptDelNy() == null ? "" : vo.getOptDelNy());
         vo.setOptCatName(vo.getOptCatName() == null ? "" : vo.getOptCatName());
         vo.setOptCatName2(vo.getOptCatName2() == null ? "" : vo.getOptCatName2());
         vo.setParamsPaging(ingService.selectOneCount(vo));
