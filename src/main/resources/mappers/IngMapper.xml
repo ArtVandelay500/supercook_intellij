@@ -91,4 +91,14 @@
     </delete>
     <!--DELETE-->
 
+    <insert id="insert">
+        INSERT INTO ingredient
+        (name,ingredient_seq,big_cat_ing,useNy)
+        VALUES(
+            #{name},
+            #{ingredient_seq},
+            #{big_cat_ing},
+            #{useNy}
+        )
+    </insert>
 </mapper>

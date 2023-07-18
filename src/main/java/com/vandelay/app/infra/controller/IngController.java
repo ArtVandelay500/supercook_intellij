@@ -45,6 +45,10 @@ public class IngController {
         System.out.println(vo.getOptBigCat());
         return ingGroupService.selectLvlTwoForm(vo);
     }
+    @ModelAttribute("ingGroupFormUpdate")
+    public List<IngGroupDTO> ingGroupDTOFormUpdate(@ModelAttribute("vo") IngVo vo) {
+        return ingGroupService.selectLvlTwoFormUpdate(vo);
+    }
     @ResponseBody
     @RequestMapping(value = "/ingGroupForm", method = RequestMethod.POST)
     public Map<String, Object> selectOpt(IngVo vo){
@@ -108,6 +112,11 @@ public class IngController {
     }
     //UPDATE&DELETE
 
+    @RequestMapping("/ingForm/insert")
+    public String ingInsert(IngDTO dto){
+        ingService.insert(dto);
+        return "redirect:/ingList/list";
+    }
 
 
 

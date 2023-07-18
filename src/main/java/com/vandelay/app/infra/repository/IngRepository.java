@@ -31,7 +31,9 @@ public class IngRepository {
 
     //DELETE
     public int delete(IngVo vo){return sqlSession.delete("Ing.delete",vo);}
-    //DELETE
+
+    public int insert(IngDTO dto) {return sqlSession.insert("Ing.insert",dto);
+    }
 
 
 }//END OF REPOSITORY

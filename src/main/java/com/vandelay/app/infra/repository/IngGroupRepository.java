@@ -20,4 +20,5 @@ public class IngGroupRepository {
     public List<IngGroupDTO> selectLvlOne(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlOne",vo);}
     public List<IngGroupDTO> selectLvlTwo(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlTwo",vo);}
     public List<IngGroupDTO> selectLvlTwoForm(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlTwoForm",vo);}
+    public List<IngGroupDTO> selectLvlTwoFormUpdate(IngVo vo) {return sqlSession.selectList("IngGroup.selectLvlTwoFormUpdate",vo);}
 }

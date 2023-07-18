@@ -42,8 +42,8 @@
     <!--THIS FOR ingList select options    -->
     <!--THIS FOR ingList select options    -->
 
-    <!--THIS FOR ingForm UPDATE options    -->
-    <!--THIS FOR ingForm UPDATE options    -->
+    <!--THIS FOR ingForm INSERT options    -->
+    <!--THIS FOR ingForm INSERT options    -->
 
     <select id="selectLvlTwoForm" resultType="inggroup">
         SELECT
@@ -53,6 +53,24 @@
         WHERE 1+1
             AND level = '2'
             AND big_cat = #{optBigCat}
+    </select>
+    <!--THIS FOR ingForm INSERT options    -->
+    <!--THIS FOR ingForm INSERT options    -->
+    <!--the VO for UPDATE cannot be #{optBigCat} since its field name should be
+    #{ingredient_seq}-->
+
+
+    <!--THIS FOR ingForm UPDATE options    -->
+    <!--THIS FOR ingForm UPDATE options    -->
+
+    <select id="selectLvlTwoFormUpdate" resultType="inggroup">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            ingredientGroup
+        WHERE 1+1
+            AND level = '2'
+            AND big_cat = #{big_cat_ing}
     </select>
     <!--THIS FOR ingForm UPDATE options    -->
     <!--THIS FOR ingForm UPDATE options    -->

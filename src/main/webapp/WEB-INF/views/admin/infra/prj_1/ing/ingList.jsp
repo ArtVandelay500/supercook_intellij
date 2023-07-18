@@ -90,7 +90,7 @@
                                         <td><c:out value="${list.name}"></c:out></td>
                                         <td><c:out value="${list.catName}"></c:out></td>
                                         <td>
-                                            <button class="detailBtn" onclick="location.href='/ingForm?seq=<c:out value = '${list.seq}'/>'">
+                                            <button class="detailBtn" onclick="location.href='/ingForm?seq=<c:out value = '${list.seq}'/>&big_cat_ing=<c:out value = '${list.big_cat_ing}'/>'">
                                                 수정
                                             </button>
                                         </td>

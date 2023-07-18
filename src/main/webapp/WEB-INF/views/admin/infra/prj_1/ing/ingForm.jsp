@@ -46,7 +46,7 @@
 
                                         <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
                                         <td>
-                                            <select name="big_cat_ing">
+                                            <select id="insertSel" name="big_cat_ing">
                                                 <option value="">::선택해주세요</option>
                                                 <c:forEach var="inggroup" items="${ingGroup}">
                                                     <option value="<c:out value="${inggroup.seq}"/>">
@@ -87,9 +87,9 @@
                     </c:when>
                     <c:otherwise>
                         <div class="mainLabelBox">
-                            <h2 class="tableLabel">공통코드 수정</h2>
+                            <h2 class="tableLabel">재료코드 수정</h2>
                             <div class="addBox" onclick="location.href='/ingList/list'">
-                                <h3 class="tableSubLabel">공통코드 목록</h3>
+                                <h3 class="tableSubLabel">재료코드 목록</h3>
                                 <span id="back2list" class="material-symbols-outlined">clear_all</span>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                                         <td><input readonly class="searchInput_formSeq" name="seq" value="<c:out value="${item.seq}"></c:out>"/></td>
                                         <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"/>"></td>
                                         <td>
-                                            <select name="big_cat_ing">
+                                            <select id="updateSel" name="big_cat_ing">
                                                 <c:forEach var="inggroup" items="${ingGroup}">
                                                     <option value="<c:out value="${inggroup.seq}"/>"
                                                             <c:if test="${inggroup.seq == item.big_cat_ing}">selected</c:if>>
@@ -131,7 +131,7 @@
                                             <c:when test="${item.level == 2}">
                                                 <td>
                                                     <select name="ingredient_seq">
-                                                        <c:forEach var="inggroup2" items="${ingGroupForm}">
+                                                        <c:forEach var="inggroup2" items="${ingGroupFormUpdate}">
                                                             <option value="<c:out value="${inggroup2.seq}"/>"
                                                                     <c:if test="${inggroup2.seq == item.ingredient_seq}">selected</c:if>>
                                                                 <c:out value="${inggroup2.catName}"/>
@@ -175,8 +175,8 @@
     //INSERT SELECT APPEDING AJAX
     //INSERT SELECT APPEDING AJAX
 
-
-        $("select[name=big_cat_ing]").change(function() {
+    optMaker = function(obj){
+        $(obj).change(function() {
             const optBigCat = $("select[name=big_cat_ing]").val();
             const selectTag = $("select[name=ingredient_seq]");
 
@@ -190,7 +190,9 @@
                 },
                 success: function (response) {
                     if (response.rt == "success") {
-                            selectTag.empty();
+                        selectTag.empty();
+                        const optionDefault = $("<option>").val(optBigCat).text("없음");
+                        selectTag.append(optionDefault);
                         $.each(response.list, function(index, item) {
                             const option = $("<option>").val(item.seq).text(item.catName);
                             selectTag.append(option);
@@ -206,8 +208,9 @@
                 }
             }); //AJAX tag
         }); // EVENT tag
-
-
+    }
+    optMaker($("#insertSel"));
+    optMaker($("#updateSel"));
 
     //INSERT SELECT APPEDING AJAX
     //INSERT SELECT APPEDING AJAX

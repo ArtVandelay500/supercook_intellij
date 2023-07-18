@@ -15,11 +15,21 @@
             <div class="mainContainer">
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
-                    <buton class="modalBtn">MCDONALDS</buton>
+                    <buton id="a" class="modalBtn">추천창</buton>
+                    <buton id="b" class="modalBtn">추천</buton>
+                    <buton id="c" class="modalBtn">신고</buton>
+                    <buton id="d" class="modalBtn">차단</buton>
+
+
+                    <%--모달 검은 창--%>
                     <div id="modal"></div>
-                    <div id="modalWindow">
+                    <%--모달 검은 창--%>
+
+                    <%--모달 추천/신고창--%>
+                    <%--모달 추천/신고창--%>
+                    <div class="heyheyhey modalWindow">
                         <div class="modalHead">
-                            <h1>너신고!</h1>
+                            <h1>파티원</h1>
                             <a class="modalClose"><span class="material-symbols-outlined">close</span></a>
                         </div>
                         <div class="modalBody">
@@ -41,7 +51,6 @@
                             <div class="userBox">
                                 <div class="userImg">
                                     <img src="/resources/team/img/yummy_color.png"/>
-                                    <div class="crown"><img src="/resources/team/img/crown.png"/></div>
                                 </div>
                                 <div class="userInfo">
                                     <h4 class="nickname">닉네임: 아무개</h4>
@@ -53,6 +62,36 @@
                                     <button class="userBtn block">차단</button>
                                 </div>
                             </div>
+                            <div class="userBox">
+                                <div class="userImg">
+                                    <img src="/resources/team/img/yummy_color.png"/>
+                                </div>
+                                <div class="userInfo">
+                                    <h4 class="nickname">닉네임: 아무개</h4>
+                                    <h5>매너온도: 39.9</h5>
+                                </div>
+                                <div class="userBtns">
+                                    <button class="userBtn recommend">추천</button>
+                                    <button class="userBtn report">신고</button>
+                                    <button class="userBtn block">차단</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button class="modalOk">확인</button>
+                        </div>
+                    </div>
+                    <%--모달 추천/신고창--%>
+                    <%--모달 추천/신고창--%>
+
+                    <%--모달 추천--%>
+                    <%--모달 추천--%>
+                    <div class="yoyoyo modalWindow">
+                        <div class="modalHead">
+                            <h1>신고</h1>
+                            <a class="modalClose"><span class="material-symbols-outlined">close</span></a>
+                        </div>
+                        <div class="modalBody">
                             <div class="userBox">
                                 <div class="userImg">
                                     <img src="/resources/team/img/yummy_color.png"/>
@@ -68,9 +107,18 @@
                                     <button class="userBtn block">차단</button>
                                 </div>
                             </div>
+
                         </div>
-                        <div class="modalFooter"></div>
+                        <div class="modalFooter">
+                            <button class="modalOk">확인</button>
+                        </div>
                     </div>
+                    <%--모달 추천--%>
+                    <%--모달 추천--%>
+
+
+
+
 
 
                 <%--FORM CONTENT ENDS FROM HERE!!--%>

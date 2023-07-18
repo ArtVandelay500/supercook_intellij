@@ -1,20 +1,42 @@
 $(function(){
     $("#modal").hide();
-    $("#modalWindow").hide();
+    $(".heyheyhey").hide();
+    $(".yoyoyo").hide();
 
-    $(".modalBtn").on("click",function(){
+
+
+    $("#a").on("click",function(){
         $("#modal").fadeIn();
         setTimeout(function() {
-            $("#modalWindow").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
+            $(".heyheyhey").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
         }, 200);
-        $("body").style.overflow = "hidden";//스크롤바 제거
     });
 
     $(".modalClose").on("click",function(){
         setTimeout(function() {
             $("#modal").fadeOut(); // FadeOut the #modal w/ .2 delay
         }, 200);
-        $("#modalWindow").fadeOut();
-        $("body").style.overflow = "auto";//스크롤바 보이기
+        $(".heyheyhey").fadeOut();
     });
+
+
+    $("#b").on("click",function(){
+        $("#modal").fadeIn();
+        setTimeout(function() {
+            $(".yoyoyo").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
+        }, 200);
+    });
+
+    $(".modalClose").on("click",function(e){
+        console.log(e);
+        setTimeout(function() {
+            $("#modal").fadeOut(); // FadeOut the #modal w/ .2 delay
+        }, 200);
+        $(".yoyoyo").fadeOut();
+    });
+
+
+
+
+
 });

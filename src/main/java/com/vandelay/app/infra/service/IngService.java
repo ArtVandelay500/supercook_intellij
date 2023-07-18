@@ -30,7 +30,11 @@ public class IngService {
     //UPDATE
     public int update(IngDTO dto){return ingRepository.update(dto);}
     //UPDATE
+
     //DELETE
     public int delete(IngVo vo){return ingRepository.delete(vo);}
-    //DELETE
+
+    public int insert(IngDTO dto) {
+        return ingRepository.insert(dto);
+    }
 }
