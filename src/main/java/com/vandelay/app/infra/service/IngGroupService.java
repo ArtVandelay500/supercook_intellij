@@ -29,4 +29,20 @@ public class IngGroupService {
     public int selectOneCount(IngGroupVo vo) {
         return ingGroupRepository.selectOneCount(vo);
     }
+
+    public IngGroupDTO selectOne(IngGroupVo vo) {
+        return ingGroupRepository.selectOne(vo);
+    }
+
+    public int update(IngGroupDTO dto) {
+        return ingGroupRepository.update(dto);
+    }
+
+    public int insert(IngGroupVo vo) {
+        return ingGroupRepository.insert(vo);
+    }
+
+    public int delete(IngGroupVo vo) {
+        return ingGroupRepository.delete(vo);
+    }
 }

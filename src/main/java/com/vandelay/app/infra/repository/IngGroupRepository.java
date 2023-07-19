@@ -29,4 +29,18 @@ public class IngGroupRepository {
     public int selectOneCount(IngGroupVo vo) {
         return sqlSession.selectOne("IngGroup.selectOneCount",vo);
     }
+
+    public IngGroupDTO selectOne(IngGroupVo vo) {
+        return sqlSession.selectOne("IngGroup.selectOne",vo);
+    }
+
+    public int update(IngGroupDTO dto) {
+        return sqlSession.update("IngGroup.update",dto);
+    }
+
+    public int insert(IngGroupVo vo) {
+    }
+
+    public int delete(IngGroupVo vo) {
+    }
 }

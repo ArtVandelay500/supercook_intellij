@@ -25,6 +25,7 @@
                         type="text"
                         name="email"
                         placeholder="아이디를 입력해주세요"
+                        value="adminXX@gmail.com"
                 />
                 <span class="id_already">아이디를 입력해주세요</span>
                 <label id="pwd-label" for="user-pwd">PWD: </label>
@@ -32,11 +33,12 @@
                         id="user-pwd"
                         name="pwd"
                         type="password"
+                        value="password"
                         placeholder="비밀번호를 입력해주세요"
                 />
                 <span class="login_no">아이디 혹은 비밀번호가 일치하지 않습니다.</span>
                 <div class="btnBox">
-                    <button id="b2" onclick="location.href='/indexUserView'" class="login btn">로그인</button>
+                    <button id="b2" type="button" class="login btn">로그인</button>
                     <button id="b1" onclick="location.href='/loginForm'" class="signup btn">회원가입</button>
                 </div>
             </form>
@@ -58,10 +60,9 @@
                     },
                     success: function(response) {
                         if (response.rt == "success") {
-                            alert(response.rtMemberDTO.email);
-                            location.href = "/indexAdminView";
+                            location.href = "/indexUserView";
                         } else {
-                            $('.login_no').css("display", "inline-block");
+                            $('.login_no').css("opacity", "1");
                         }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {

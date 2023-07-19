@@ -18,6 +18,10 @@ import java.util.List;
 public class IngGroupController {
     private final IngGroupService ingGroupService;
 
+    @ModelAttribute("ingGroup")
+    public List<IngGroupDTO> ingGroupDTOList(@ModelAttribute("vo") IngVo vo){
+        return ingGroupService.selectLvlOne(vo);
+    }
     @RequestMapping("/ingGroupList/list")
     public String selectList(IngGroupVo vo, Model model){
         vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
@@ -34,9 +38,30 @@ public class IngGroupController {
     }
 
 
-
-    @ModelAttribute("ingGroup")
-    public List<IngGroupDTO> ingGroupDTOList(@ModelAttribute("vo") IngVo vo){
-        return ingGroupService.selectLvlOne(vo);
+    @RequestMapping("/ingGroupForm")
+    public String ingGroupForm(IngGroupVo vo,Model model){
+        IngGroupDTO ingGroupDTO = ingGroupService.selectOne(vo);
+        model.addAttribute("item",ingGroupDTO);
+        return "admin/infra/prj_1/inggroup/ingGroupForm";
     }
+
+    @RequestMapping("/ingGroupForm/update")
+    public String ingGroupFormUpdate(IngGroupDTO dto){
+        ingGroupService.update(dto);
+        return "redirect:/ingGroupList/list";
+    }
+
+    @RequestMapping("/ingGroupForm/insert")
+    public String ingGroupFormInsert(IngGroupVo vo){
+        ingGroupService.insert(vo);
+        return "redirect:/ingGroupList/list";
+    }
+
+    @RequestMapping("/ingGroupForm/delete")
+    public String ingGroupFormDelete(IngGroupVo vo){
+        ingGroupService.delete(vo);
+        return "redirect:/ingGroupList/list";
+    }
+
+
 }

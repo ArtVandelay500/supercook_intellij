@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <%--모달 생성--%>
@@ -6,10 +7,9 @@
         <h1>생성하기</h1>
         <a class="modalClose"><span class="material-symbols-outlined">close</span></a>
     </div>
-    <div class="modalBody">
+    <div class="modalBodyLong">
         <div class="formBox">
             <form>
-
                 <div class="labelBox">
                     <label for="partyName">파티명</label>
                     <input id="partyName" placeholder="파티명"/>
@@ -25,16 +25,40 @@
                     </select>
                 </div>
                 <div class="labelBox">
-                    <select>
+                    <label for="time">시간</label>
+                    <select id="time">
                         <option>17:00</option>
                     </select>
+                    ~
                     <select>
                         <option>21:00</option>
                     </select>
                 </div>
-                <select>
-                    <option>::</option>
-                </select>
+                <div class="labelBox">
+                    <label>성별</label>
+                    <label for="man">남</label>
+                    <input type="checkbox" value="1" id="man">
+                    <label for="woman">여</label>
+                    <input type="checkbox" value="0" id="woman">
+                </div>
+                <div class="labelBox">
+                    <div class="inputBox short">
+                        <label for="srcGo">지역</label>
+                        <input id="srcGo" name="shKey" class="searchInput short" type="text" value="<c:out value="${vo.shKey}"/>">
+                        <span id="magGlass"class="shortSpan material-symbols-outlined">search</span>
+                    </div>
+                </div>
+                <div class="labelBox">
+                    <label>장비</label>
+                    <label for="y">필요</label>
+                    <input type="radio" name="equip" value="1" id="y">
+                    <label for="n">필요없음</label>
+                    <input type="radio" name="equip" value="0" id="n">
+                </div>
+                <div class="textArea">
+                    <label for="partyDesc">파티소개</label>
+                    <textarea id="partyDesc"></textarea>
+                </div>
             </form>
         </div>
     </div>
