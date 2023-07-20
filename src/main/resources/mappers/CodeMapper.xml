@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  전체 매퍼 중 유일한 값을 사용하여야 한다.
+ 해서 관계적으로 해당 파일의 path와 file_name(확장자 제외)
+ 그리고 dao 에서 namespace와 일치하여야 된다. -->
+
+<mapper namespace="Code">
+    <!--select 결과를 받을 객채-->
+    <!--mybatis-config에서 alias를 사용중-->
+
+    <sql id="selectField">
+            a.seq,
+            a.codeGroup_seq,
+            a.name,
+            a.delNy,
+            b.codeName
+    </sql>
+
+    <sql id="selectCommon">
+        FROM
+        code AS a
+        LEFT JOIN codeGroup AS b ON a.codeGroup_seq = b.seq
+        WHERE 1+1
+        <if test="shKey != null and !shKey.equals('')">
+            AND (b.codeName LIKE CONCAT('%',#{shKey},'%')
+            OR a.name LIKE CONCAT('%',#{shKey},'%'))
+        </if>
+    </sql>
+
+<!--PAGING TOTAL COUNT-->
+<!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
+    </select>
+<!--PAGING TOTAL COUNT-->
+<!--PAGING TOTAL COUNT-->
+
+<!--PAGING SELECT QUERY-->
+<!--PAGING SELECT QUERY-->
+
+    <select id="selectList" resultType="code">
+
+        SELECT aa.* FROM (
+            SELECT
+                <include refid="selectField" />
+                <include refid="selectCommon" />
+        ) AS aa
+        LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+
+<!--PAGING SELECT QUERY-->
+<!--PAGING SELECT QUERY-->
+
+<!--AJAX DATA SORTING MAPPER-->
+<!--AJAX DATA SORTING MAPPER-->
+
+<!--AJAX DATA SORTING MAPPER-->
+<!--AJAX DATA SORTING MAPPER-->
+
+
+    <select id="selectOne" resultType="code">
+        SELECT
+            a.seq,
+            a.codeGroup_seq,
+            a.name,
+            a.delNy,
+            b.codeName
+        FROM
+            code AS a
+                LEFT JOIN codeGroup AS b ON a.codeGroup_seq = b.seq
+        WHERE a.seq = #{seq}
+    </select>
+
+
+    <update id="update">
+        UPDATE code
+        SET
+            name = #{name},
+            codeGroup_seq = #{codeGroup_seq},
+            delNy = #{delNy}
+        WHERE
+            seq = #{seq}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM code WHERE seq = #{seq}
+    </delete>
+
+    <insert id="insert">
+        INSERT INTO code (codeGroup_seq,name,delNy)
+        VALUES(
+                  #{codeGroup_seq},
+                  #{name},
+                  #{delNy}
+              )
+    </insert>
+
+    <select id="selectListCachedCodeArrayList" resultType="code">
+        SELECT
+            seq,
+            name,
+            codeGroup_seq
+        FROM
+            code
+    </select>
+
+</mapper>

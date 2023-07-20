@@ -13,7 +13,16 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="bb64d47c-098f-42f6-8592-f9a678c2014b">
-      <console name="Connection" type="STANDARD" schema="vandelay_db" session="Main"><![CDATA[use vandelay_db;]]></console>
+      <console name="Connection" type="STANDARD" schema="vandelay_db" session="Main"><![CDATA[use vandelay_db;
+ SELECT
+        a.seq,
+        a.name AS codeName,
+        a.ingredient_seq,
+        a.useNy,
+        b.name
+        FROM
+            ingredient AS a
+        LEFT JOIN ingredientGroup AS b ON b.seq = a.ingredient_seq]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -25,6 +34,7 @@
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" dataset="vandelay_db.code1" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" dataset="vandelay_db.code" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" dataset="vandelay_db.ingredientGroup" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" dataset="vandelay_db.codeGroup1" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" dataset="vandelay_db.ingredient" active-filter-id="" />
     <filter-actions connection-id="bb64d47c-098f-42f6-8592-f9a678c2014b" dataset="vandelay_db.ingredient_Category" active-filter-id="EMPTY_FILTER" />

@@ -9,60 +9,114 @@
 
 <mapper namespace="CodeGroup">
     <!--select 결과를 받을 객채-->
-<!--    <resultMap id="resultMapObj" type="com.vandelay.app.codegroup.CodeGroup"></resultMap>-->
+    <!--mybatis-config에서 alias를 사용중-->
+
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+    <sql id="selectField">
+        seq,
+        codeName,
+        delNy
+    </sql>
+    <sql id="selectCommon">
+        FROM
+        codeGroup
+        WHERE 1+1
+        <if test="shKey != null and !shKey.equals('')">
+            AND codeName LIKE CONCAT('%',#{shKey},'%')
+        </if>
+        <if test="optDelNy != null">
+            AND delNy = #{optDelNy}
+        </if>
+    </sql>
+
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
+    </select>
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+
+
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
 
     <select id="selectList" resultType="codegroup">
         SELECT
-            a.seq,
-            a.codeGroup_seq,
-            a.name,
-            a.delNy,
-            b.codeName
-        FROM
-            code1 AS a
-        LEFT JOIN codeGroup1 AS b ON a.codeGroup_seq = b.seq
-        WHERE 1+1
-        <if test="shKey != null and !shKey.equals('')">
-          AND b.codeName LIKE CONCAT('%',#{shKey},'%')
-        </if>
-
+            codeGroupList.*
+        FROM (
+            SELECT
+                <include refid="selectField"/>
+                <include refid="selectCommon"/>
+             ) AS codeGroupList
+        LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
     </select>
+
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--
+    <select id="selectList" resultType="codegroup">
+        SELECT
+            <include refid="selectField" />
+            <include refid="selectCommon"/>
+        FROM
+            codeGroup
+    </select>-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
 
     <select id="selectOne" resultType="codegroup">
         SELECT
-            a.seq,
-            a.codeGroup_seq,
-            a.name,
-            a.delNy,
-            b.codeName
+            <include refid="selectField" />
         FROM
-            code1 AS a
-                LEFT JOIN codeGroup1 AS b ON a.codeGroup_seq = b.seq
-        WHERE a.seq = #{seq}
+            codeGroup
+        WHERE seq = #{seq}
     </select>
 
-
     <update id="update">
-        UPDATE code1
+        UPDATE codeGroup
         SET
-            name = #{name},
+            codeName = #{codeName},
             delNy = #{delNy}
         WHERE
             seq = #{seq}
     </update>
 
+    <insert id="insert">
+        INSERT INTO codeGroup(
+            codeName,
+            delNy
+        )VALUES(
+            #{codeName},
+            #{delNy}
+        )
+    </insert>
+
     <delete id="delete">
         DELETE FROM codeGroup WHERE seq = #{seq}
     </delete>
 
-    <insert id="insert">
-        INSERT INTO code1 (codeGroup_seq,name,delNy)
-        VALUES(
-                  #{codeGroup_seq},
-                  #{name},
-                  #{delNy}
-              )
-    </insert>
+
+
+    <!--THIS FOR codeList select options    -->
+    <!--THIS FOR codeList select options    -->
+    <select id="selectOpt" resultType="codegroup">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            codeGroup
+    </select>
+
+
+
 
 
 </mapper>
