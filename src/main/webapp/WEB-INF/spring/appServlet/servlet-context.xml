@@ -39,6 +39,7 @@
             <exclude-mapping path="/loginAdmin" />
             <exclude-mapping path="/member/login" />
             <exclude-mapping path="/member/save" />
+            <exclude-mapping path="/partyApproved" />
             <beans:bean id="checkLoginSessionInterception" class="com.vandelay.app.common.interceptor.CheckLoginSessionInterception"/>
         </interceptor>
     </interceptors>

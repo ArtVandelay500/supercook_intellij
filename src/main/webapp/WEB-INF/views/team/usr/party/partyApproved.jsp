@@ -18,6 +18,7 @@
         <%--FORM CONTENT STARTS FROM HERE!!--%>
           <div id="modal"></div>
           <%@include file="../include/partyBuild.jsp"%>
+          <%@include file="../include/partyInfo.jsp"%>
           <div class="mainLabelBox">
             <h2 class="tableLabel">방찾기</h2>
             <div id="buildParty" class="addBox" onclick="">
@@ -54,8 +55,8 @@
               <tr>
                 <th>No.</th>
                 <th>종목</th>
-                <th>파티명</th>
                 <th>인원수</th>
+                <th>파티명</th>
                 <th>날짜</th>
                 <th>시간</th>
                 <th>성별</th>
@@ -65,17 +66,17 @@
               </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr id="partyInfo" onclick="">
                   <td>156</td>
                   <td>러닝</td>
                   <td>1/2</td>
-                  <td>구래동 우사인볼트 찾습니다</td>
+                  <td><a href="#">구래동 우사인볼트 찾습니다</a></td>
                   <td>07/22</td>
                   <td>18:00</td>
                   <td>무관</td>
                   <td>구래동</td>
                   <td>
-                    <button class="detailBtn">
+                    <button class="detailBtn" onclick="location.href='http://www.naver.com'">
                       <span class="material-symbols-outlined">send</span>
                     </button>
                   </td>
@@ -99,3 +100,8 @@
     <%@include file="../include/footer.jsp"%>
   </main>
 </div>
+</body>
+</html>
+<script>
+
+</script>

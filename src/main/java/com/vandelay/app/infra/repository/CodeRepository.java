@@ -35,6 +35,10 @@ public class CodeRepository {
 
     public int selectOneCount(CodeVo vo){ return sqlSession.selectOne("Code.selectOneCount", vo); }
 
-
+//    LIST CODE VO
+    public List<CodeDTO> selectListCachedCodeArrayList(){
+        return sqlSession.selectList("Code.selectListCachedCodeArrayList",null);
+    }
+//    LIST CODE VO
 }
 

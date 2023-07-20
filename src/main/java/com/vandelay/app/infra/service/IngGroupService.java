@@ -38,8 +38,8 @@ public class IngGroupService {
         return ingGroupRepository.update(dto);
     }
 
-    public int insert(IngGroupVo vo) {
-        return ingGroupRepository.insert(vo);
+    public int insert(IngGroupDTO dto) {
+        return ingGroupRepository.insert(dto);
     }
 
     public int delete(IngGroupVo vo) {

@@ -1,8 +1,12 @@
 package com.vandelay.app.infra.controller;
 
 import com.vandelay.app.infra.dto.CodeDTO;
+import com.vandelay.app.infra.dto.IngGroupDTO;
+import com.vandelay.app.infra.service.CodeGroupService;
 import com.vandelay.app.infra.service.CodeService;
+import com.vandelay.app.infra.vo.CodeGroupVo;
 import com.vandelay.app.infra.vo.CodeVo;
+import com.vandelay.app.infra.vo.IngVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +20,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CodeController {
     private final CodeService codeService;
+    private final CodeGroupService codeGroupService;
     @RequestMapping("/codeList/list")
     public String selectList(@ModelAttribute("vo") CodeVo vo, Model model){
 
@@ -86,6 +91,15 @@ public class CodeController {
 
 //    AJAX DATA TOSSING AND RECEIVING
 //    AJAX DATA TOSSING AND RECEIVING
+
+    //CodeGroup SELECT OPTION
+    //CodeGroup SELECT OPTION
+    @ModelAttribute("codeGroup")
+    public List<IngGroupDTO> ingGroupDTOList(CodeGroupVo vo){
+        return codeGroupService.selectOpt(vo);
+    }
+    //CodeGroup SELECT OPTION
+    //CodeGroup SELECT OPTION
 
 
 

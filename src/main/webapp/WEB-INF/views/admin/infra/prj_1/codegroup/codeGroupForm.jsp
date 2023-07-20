@@ -128,28 +128,14 @@
 
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(){
-        if(check(objName) == false){
-            $(objName).css({
-                outline:"3px dotted rgba(255, 0, 0, 0.38)",
-                borderRadius:"5px",
-                backgroundColor:"rgba(255, 0, 0, 0.08)",
-                animation:"horizontal-shaking .3s 1 ease-in-out"
-            });
-        }else{
+        if(validationNullEach(objName)){
             $("form[name=updateForm]").attr("action","/codeGroupForm/update").submit();
         }
     });
     /*생성버튼 이벤트*/
     $(".insertBtn").on("click",function(e){
         e.preventDefault();
-        if(check(objName) == false) {
-            $(objName).css({
-                outline:"3px dotted rgba(255, 0, 0, 0.38)",
-                borderRadius:"5px",
-                backgroundColor:"rgba(255, 0, 0, 0.08)",
-                animation:"horizontal-shaking .3s 1 ease-in-out"
-            });
-        }else{
+        if(validationNullEach(objName)) {
             $("form[name=insertForm]").attr("action","/codeGroupForm/insert").submit();
         }
     });

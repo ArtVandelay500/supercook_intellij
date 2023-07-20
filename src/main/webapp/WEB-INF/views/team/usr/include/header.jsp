@@ -28,6 +28,9 @@
             </ul>
         </div>
         <div onclick="location.href=" class="outBtn">
+            <span class="material-symbols-outlined">account_circle</span>
+        </div>
+        <div onclick="location.href=" class="outBtn">
             <span class="material-symbols-outlined">login</span>
         </div>
     </div>

@@ -99,5 +99,13 @@
               )
     </insert>
 
+    <select id="selectListCachedCodeArrayList" resultType="code">
+        SELECT
+            seq,
+            name,
+            codeGroup_seq
+        FROM
+            code
+    </select>
 
 </mapper>

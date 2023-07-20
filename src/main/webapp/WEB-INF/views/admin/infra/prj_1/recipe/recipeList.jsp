@@ -4,7 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<jsp:useBean id="CodeService" class="com.vandelay.app.infra.service.CodeService"/>
 <!DOCTYPE html>
 <html lang="en">
 <%@include file="../includes/head.jsp"%>
@@ -14,16 +13,12 @@
     <main>
         <div class="mainBox">
             <div class="mainContainer">
-            <%--FORM CONTENT STARTS FROM HERE!!--%>
-            <%--FORM CONTENT STARTS FROM HERE!!--%>
-                <c:set var="codeService" value="${CodeService.selectListCachedCode('5')}"></c:set>
-                <c:forEach items="${codeService}" var="abc">
-                    <c:out value="${abc.name}"></c:out>
-                </c:forEach>
+                <%--FORM CONTENT STARTS FROM HERE!!--%>
+                <%--FORM CONTENT STARTS FROM HERE!!--%>
                 <div class="mainLabelBox">
-                    <h2 class="tableLabel">공통코드 관리</h2>
-                    <div class="addBox" onclick="location.href='/codeForm'">
-                        <h3 class="tableSubLabel">공통코드 추가</h3>
+                    <h2 class="tableLabel">레시피 관리</h2>
+                    <div class="addBox" onclick="location.href='/recipeForm'">
+                        <h3 class="tableSubLabel">레시피 추가</h3>
                         <span class="material-symbols-outlined">add_box</span></a>
                     </div>
                 </div>
@@ -31,18 +26,10 @@
                     <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
                     <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
                     <div class="searchBox">
-                        <select name="optCodeName">
-                            <option value="">코드그룹</option>
-                            <option value="1">조리법</option>
-                            <option value="2">조리도구</option>
-                            <option value="3">음식류</option>
-                            <option value="4">기념일</option>
-                            <option value="5">테마</option>
-                        </select>
                         <select name="optDelNy">
-                            <option value="">삭제여부</option>
-                            <option value="1">삭제</option>
-                            <option value="0">미삭제</option>
+                            <option value="">사용여부</option>
+                            <option value="1">사용</option>
+                            <option value="0">미시용</option>
                         </select>
                         <div class="inputBox">
                             <input id="srcGo" name="shKey" class="searchInput" type="text" value="<c:out value="${vo.shKey}"/>">
@@ -55,10 +42,13 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>분류코드</th>
-                            <th>코드이름</th>
+                            <th>레시피명</th>
+                            <th>레시피평점</th>
+                            <th>소요시간</th>
+                            <th>조회수</th>
+                            <th>레시피사이트</th>
                             <th></th>
-                            <th>삭제여부</th>
+                            <th>사용여부</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -67,25 +57,32 @@
                                 <tr>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td><h4 id="nodata">There is no data!</h4></td>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
+
                                 </tr>
                             </c:when>
                             <c:otherwise>
                                 <c:forEach items="${list}" var="list" varStatus="status">
                                     <tr>
                                         <td><c:out value="${list.seq}"></c:out></td>
-                                        <td><c:out value="${list.codeName}"></c:out></td>
-                                        <td><c:out value="${list.name}"></c:out></td>
+                                        <td><c:out value="${list.recipeName}"></c:out></td>
+                                        <td><c:out value="${list.recipeRating}"></c:out></td>
+                                        <td><c:out value="${list.recipePrepTime}"></c:out></td>
+                                        <td><c:out value="${list.recipeView}"></c:out></td>
+                                        <td><c:out value="${list.recipeSource}"></c:out></td>
                                         <td>
-                                            <button class="detailBtn" onclick="location.href='/codeForm?seq=<c:out value = '${list.seq}'/>'">
-                                                수정
+                                            <button class="detailBtn" onclick="location.href='/recipeForm?seq=<c:out value = '${list.seq}'/>'">
+                                                상세
                                             </button>
                                         </td>
                                         <td>
                                             <c:choose>
-                                                <c:when test="${list.delNy eq '1'}">
+                                                <c:when test="${list.useNy eq '1'}">
                                                     Y
                                                 </c:when>
                                                 <c:otherwise>
@@ -114,10 +111,10 @@
                 </c:choose>
                 <%--pagination include--%>
                 <%--pagination include--%>
-              
 
-        <%--FORM CONTENT ENDS FROM HERE!!--%>
-        <%--FORM CONTENT ENDS FROM HERE!!--%>
+
+                <%--FORM CONTENT ENDS FROM HERE!!--%>
+                <%--FORM CONTENT ENDS FROM HERE!!--%>
             </div>
         </div>
     </main>
@@ -125,50 +122,30 @@
 
 </body>
 <script type="text/javascript">
-<%--pagination js function--%>
-<%--pagination js function--%>
+    <%--pagination js function--%>
+    <%--pagination js function--%>
 
     goList = function(thisPage) {
         if(thisPage == 0) {
 
             $("input:hidden[name=thisPage]").val(1);
-            $("form[name=search]").attr("action", "/codeList/list").submit();
+            $("form[name=search]").attr("action", "/recipeList/list").submit();
 
         } else if(thisPage > ${vo.totalPages}){
 
             $("input:hidden[name=thisPage]").val(thisPage - 1);
-            $("form[name=search]").attr("action", "/codeList/list").submit();
+            $("form[name=search]").attr("action", "/recipeList/list").submit();
         }else{
 
-                $("input:hidden[name=thisPage]").val(thisPage);
-                $("form[name=search]").attr("action", "/codeList/list").submit();
+            $("input:hidden[name=thisPage]").val(thisPage);
+            $("form[name=search]").attr("action", "/recipeList/list").submit();
 
-            }
+        }
     }
-<%--pagination js function--%>
-<%--pagination js function--%>
+    <%--pagination js function--%>
+    <%--pagination js function--%>
 
-   $("select[name=optCodeName],select[name=optDelNy]").on("change",function(){
-       /*$("form[name=search]").attr("action","/codeList/list").submit();*/
-       $.ajax({
-           async : true,
-           type: "post",
-           url: "codeList/sort",
-           dataType:"text",
-           data:{
-               "optCodeName" : $("select[name=optCodeName]").val(),
-               "optDelNy" : $("select[name=optDelNy]").val()
-           },
-           success: function() {
-               alert("hey");
-           },
-           error: function (request, status, error) {
-               console.log("code: " + request.status)
-               console.log("message: " + request.responseText)
-               console.log("error: " + error);
-           }
-       });
-   });
+
 
 </script>
 </html>

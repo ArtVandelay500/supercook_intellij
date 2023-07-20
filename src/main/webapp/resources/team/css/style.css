@@ -224,6 +224,7 @@ main{
     border-radius: 10px;
     cursor: pointer;
     color: white;
+    white-space: nowrap;
     letter-spacing: 0;
 }
 .modalBtn:first-of-type{
@@ -423,6 +424,7 @@ textarea{
 
 /*Modal Build*/
 /*Modal Build*/
+
 .modalBodyLong{
     width: 100%;
     height: 550px;
@@ -451,6 +453,7 @@ textarea{
     padding: 20px 10px;
     background-color: whitesmoke;
 }
+
 .formBox>form{
     display: flex;
     flex-direction: column;
@@ -472,6 +475,53 @@ label{
 /*Modal Build*/
 
 
+/*Modal Info*/
+/*Modal Info*/
+.modalBodyLongInfo{
+    width: 100%;
+    height: auto;
+    margin: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}
+.formBoxInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    background-color: white;
+}
+.formBoxInfo>form{
+    display: flex;
+    flex-direction: column;
+}
+.partyInfoImg>img{
+    width:100%;
+    object-fit: cover;
+}
+.partyInfoImg{
+    width: 100%;
+}
+.partyInfoImgBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+
+}
+.partyInfoImgBox>h3{
+    margin: 10px;
+}
+/*Modal Info*/
+/*Modal Info*/
+
 /*Modal Body*/
 /*Modal Body*/
 
@@ -487,11 +537,13 @@ label{
     justify-content: center;
     width: 12%;
     font-size: 20px;
-    padding: 10px 15px;
+    padding: 10px 55px;
+    box-sizing: border-box;
     color: white;
     border-radius: 10px;
     background-color: mediumseagreen;
     cursor: pointer;
+    white-space: nowrap;
 }
 .modalBad{
     display: flex;
@@ -504,6 +556,7 @@ label{
     border-radius: 10px;
     background-color: rgba(255, 0, 0, 0.67);
     cursor: pointer;
+    white-space: nowrap;
 }
 /*Modal Footer*/
 
@@ -712,10 +765,11 @@ h2{
     background-color: rgba(0,0,0,0);
 }
 .short{
-    width: 50%;
+    width: 60%;
+    font-size: 15px;
 }
 .shortSpan{
-    right: -50px;
+    right: 30px!important;
 }
 .inputBox>span:hover{transform: scale(1.1);}
 .inputBox>span:hover{transform: scale(1.1);}
@@ -786,7 +840,9 @@ select{
     letter-spacing: 0;
     white-space: nowrap;
 }
-
+.tableBox>table>tbody>tr{
+    transition: all .3s ease-in-out;
+}
 .tableBox>table>tbody>tr>td{
     font-size: 15px;
 }
@@ -808,6 +864,10 @@ select{
 #nodata{
     color: rgba(0,0,0,0.5) !important;
     padding: 10px;
+}
+tbody>tr:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
 }
 
 /*@@@@@@@@@@@@@@  Table  CSS @@@@@@@@@@@@@@*/

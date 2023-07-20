@@ -28,7 +28,7 @@
             AND codeName LIKE CONCAT('%',#{shKey},'%')
         </if>
         <if test="optDelNy != null">
-            AND useNy = #{optDelNy}
+            AND delNy = #{optDelNy}
         </if>
     </sql>
 
@@ -103,6 +103,20 @@
     <delete id="delete">
         DELETE FROM codeGroup WHERE seq = #{seq}
     </delete>
+
+
+
+    <!--THIS FOR codeList select options    -->
+    <!--THIS FOR codeList select options    -->
+    <select id="selectOpt" resultType="codegroup">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            codeGroup
+    </select>
+
+
+
 
 
 </mapper>

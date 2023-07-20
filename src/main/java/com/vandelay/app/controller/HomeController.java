@@ -27,6 +27,9 @@ public class HomeController {
     public String indexUserView(){
         return "user/infra/prj_1/indexUserView";
     }
+
+
+
 //TEAMM
 //TEAMM
 //TEAMM

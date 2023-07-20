@@ -11,6 +11,7 @@ public class CodeVo {
    private String optDelNy;
    private String shKey;
    private String seq;
+   private String codeName;
    //	paging
    //	paging
    //	paging

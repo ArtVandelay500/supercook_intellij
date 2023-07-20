@@ -19,15 +19,15 @@ public class IngGroupController {
     private final IngGroupService ingGroupService;
 
     @ModelAttribute("ingGroup")
-    public List<IngGroupDTO> ingGroupDTOList(@ModelAttribute("vo") IngVo vo){
+    public List<IngGroupDTO> ingGroupDTOList(IngVo vo){
         return ingGroupService.selectLvlOne(vo);
     }
     @RequestMapping("/ingGroupList/list")
-    public String selectList(IngGroupVo vo, Model model){
+    public String selectList(@ModelAttribute("vo") IngGroupVo vo, Model model){
         vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
         vo.setOptDelNy(vo.getOptDelNy() == null ? "" : vo.getOptDelNy());
         vo.setParamsPaging(ingGroupService.selectOneCount(vo));
-        model.addAttribute("vo", vo);
+
         if(vo.getTotalRows() > 0) {
             List<IngGroupDTO> list = ingGroupService.selectList(vo);
             model.addAttribute("list", list);
@@ -52,8 +52,8 @@ public class IngGroupController {
     }
 
     @RequestMapping("/ingGroupForm/insert")
-    public String ingGroupFormInsert(IngGroupVo vo){
-        ingGroupService.insert(vo);
+    public String ingGroupFormInsert(IngGroupDTO dto){
+        ingGroupService.insert(dto);
         return "redirect:/ingGroupList/list";
     }
 

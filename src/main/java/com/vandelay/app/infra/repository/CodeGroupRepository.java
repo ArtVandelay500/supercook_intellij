@@ -1,6 +1,8 @@
 package com.vandelay.app.infra.repository;
 
+import com.vandelay.app.infra.dto.CodeDTO;
 import com.vandelay.app.infra.dto.CodeGroupDTO;
+import com.vandelay.app.infra.dto.IngGroupDTO;
 import com.vandelay.app.infra.vo.CodeGroupVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -41,4 +43,11 @@ public class CodeGroupRepository {
     public int selectOneCount(CodeGroupVo vo) {
         return sqlSession.selectOne("CodeGroup.selectOneCount",vo);
     }
+
+    public List<IngGroupDTO> selectOpt(CodeGroupVo vo) {
+        return sqlSession.selectList("CodeGroup.selectOpt",vo);
+    }
+
+
+
 }

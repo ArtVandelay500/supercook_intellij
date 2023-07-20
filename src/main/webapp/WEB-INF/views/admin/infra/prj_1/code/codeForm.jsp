@@ -43,13 +43,14 @@
                                     <tr>
                                         <form name="insertForm">
                                             <td>
+
                                                 <select name="codeGroup_seq">
-                                                    <option value="">:: 코드그룹 ::</option>
-                                                    <option value="1" <c:if test="${item.codeGroup_seq == 1}">selected</c:if>>조리법</option>
-                                                    <option value="2" <c:if test="${item.codeGroup_seq == 2}">selected</c:if>>조리도구</option>
-                                                    <option value="3" <c:if test="${item.codeGroup_seq == 3}">selected</c:if>>음식종류</option>
-                                                    <option value="4" <c:if test="${item.codeGroup_seq == 4}">selected</c:if>>기념일</option>
-                                                    <option value="5" <c:if test="${item.codeGroup_seq == 5}">selected</c:if>>테마</option>
+                                                    <option value="">코드그룹</option>
+                                                    <c:forEach var="item" items="${codeGroup}">
+                                                        <option value="<c:out value="${item.seq}"/>">
+                                                            <c:out value="${item.codeName}"/>
+                                                        </option>
+                                                    </c:forEach>
                                                 </select>
                                             </td>
                                             <td><input name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
@@ -149,10 +150,9 @@
             var form = $("form[name=updateForm]");
 
             if(validationNull(form)) {
-                alert("hey");
                 $("form[name=updateForm]").attr("action", "/codeForm/update").submit();
             }else{
-                alert("wahit");
+                alert("뭔가가 잘못되었다.");
 
             }
 

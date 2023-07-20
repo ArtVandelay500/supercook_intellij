@@ -62,7 +62,7 @@
     </update>
 
     <insert id="insert">
-        INSERT INTO codeGroup(
+        INSERT INTO ingredientGroup(
             big_cat,
             catName,
             level,

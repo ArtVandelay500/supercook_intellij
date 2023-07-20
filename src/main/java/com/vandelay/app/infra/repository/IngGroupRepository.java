@@ -34,13 +34,16 @@ public class IngGroupRepository {
         return sqlSession.selectOne("IngGroup.selectOne",vo);
     }
 
+
     public int update(IngGroupDTO dto) {
         return sqlSession.update("IngGroup.update",dto);
     }
 
-    public int insert(IngGroupVo vo) {
+    public int insert(IngGroupDTO dto) {
+        return sqlSession.insert("IngGroup.insert",dto);
     }
 
     public int delete(IngGroupVo vo) {
+        return sqlSession.delete("IngGroup.delete",vo);
     }
 }
