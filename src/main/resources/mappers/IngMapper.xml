@@ -101,4 +101,19 @@
             #{useNy}
         )
     </insert>
+
+<!--Recipe page searching for Ing with ShKeyword-->
+<!--Recipe page searching for Ing with ShKeyword-->
+    <select id="selectOneShKey" resultType="ing">
+        SELECT
+            seq,
+            name
+        FROM
+            ingredient
+        WHERE
+            name = #{shKey}
+    </select>
+<!--Recipe page searching for Ing with ShKeyword-->
+<!--Recipe page searching for Ing with ShKeyword-->
+
 </mapper>

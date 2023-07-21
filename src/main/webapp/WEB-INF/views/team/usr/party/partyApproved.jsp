@@ -20,7 +20,7 @@
           <%@include file="../include/partyBuild.jsp"%>
           <%@include file="../include/partyInfo.jsp"%>
           <div class="mainLabelBox">
-            <h2 class="tableLabel">방찾기</h2>
+            <h2 class="tableLabel">참가중</h2>
             <div id="buildParty" class="addBox" onclick="">
               <h3 class="tableSubLabel">방생성</h3>
               <span class="material-symbols-outlined">add_box</span></a>
@@ -61,7 +61,7 @@
                 <th>시간</th>
                 <th>성별</th>
                 <th>지역</th>
-                <th>참가</th>
+                <th>나가기</th>
                 <th>방장톡</th>
               </tr>
               </thead>
@@ -76,8 +76,8 @@
                   <td>무관</td>
                   <td>구래동</td>
                   <td>
-                    <button class="detailBtn" onclick="location.href='http://www.naver.com'">
-                      <span class="material-symbols-outlined">send</span>
+                    <button class="detailBtn exitBtn" onclick="location.href='http://www.naver.com'">
+                      <span class="material-symbols-outlined">logout</span>
                     </button>
                   </td>
                   <td>

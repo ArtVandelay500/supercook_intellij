@@ -76,7 +76,9 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">재료함</h5>
-                                                    <div class="recipeBox"></div>
+                                                    <div class="recipeBox">
+
+                                                    </div>
                                                     <!-- Bootstrap button inside the box -->
                                                     <button type="button" id="modalBtn" class="btn btn-primary">재료 추가</button>
                                                 </div>
@@ -133,7 +135,10 @@
     </main>
 </div>
 <%--script code--%>
-<script>
+<script type="text/javascript">
+
+
+
     /*validation js*/
 
 
@@ -158,6 +163,11 @@
     $(".deleteBtn").on("click",function(){
         $("form[name=updateForm]").attr("action","/recipeForm/delete").submit();
     });
+
+
+
+
+
 
 </script>
 <%--script code--%>

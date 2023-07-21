@@ -26,7 +26,10 @@ public class RecipeService {
         return recipeRepository.selectOne(vo);
     }
     public int insert(RecipeDTO dto){
-        return recipeRepository.insert(dto);
+
+
+        recipeRepository.insert(dto);
+        return 1;
     }
 
     public int update(RecipeDTO dto) {

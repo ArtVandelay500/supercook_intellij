@@ -18,4 +18,5 @@ public class RecipeDTO {
     private String recipeView;
     private String recipeSource;
     private String useNy;
+    private String ingredient_seq;
 }

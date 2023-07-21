@@ -3,6 +3,7 @@ package com.vandelay.app.infra.service;
 import com.vandelay.app.infra.dto.IngDTO;
 import com.vandelay.app.infra.repository.IngRepository;
 import com.vandelay.app.infra.vo.IngVo;
+import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -37,4 +38,6 @@ public class IngService {
     public int insert(IngDTO dto) {
         return ingRepository.insert(dto);
     }
+
+    public List<IngDTO> selectOneShKey(RecipeVo vo) {return ingRepository.selectOneShKey(vo);}
 }

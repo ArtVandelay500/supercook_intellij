@@ -75,10 +75,6 @@ public class IngController {
         vo.setOptCatName2(vo.getOptCatName2() == null ? "" : vo.getOptCatName2());
         vo.setParamsPaging(ingService.selectOneCount(vo));
 
-        System.out.println("####### Value:" + vo.getOptCatName());
-        System.out.println("####### Value:" +vo.getOptCatName2());
-        System.out.println("####### Value:" +vo.getShKey());
-
         if(vo.getTotalRows() > 0) {
 
             List<IngDTO> list = ingService.selectList(vo);
@@ -118,6 +114,8 @@ public class IngController {
         ingService.insert(dto);
         return "redirect:/ingList/list";
     }
+
+
 
 
 

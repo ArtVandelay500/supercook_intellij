@@ -254,30 +254,3 @@ validationNull = function(form) {
     // DUPLICATE CHECK
     // DUPLICATE CHECK
 
-    // LOGOUT
-    // LOGOUT
-
-        logOut = function(){
-            $.ajax({
-                async: true
-                ,cache: false
-                ,type: "post"
-                /* ,dataType:"json" */
-                ,url: "/member/logout"
-                /* ,data : $("#formLogin").serialize() */
-                ,success: function(response) {
-                    alert("success");
-                    if(response.rt == "success") {
-                        alert("로그아웃 되었습니다");
-                        location.href = "/indexAdminView";
-                    } else {
-                    }
-                }
-
-                ,error : function(jqXHR, textStatus, errorThrown){
-                    alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-                }
-            });
-        }
-    // LOGOUT
-    // LOGOUT

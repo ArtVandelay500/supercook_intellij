@@ -144,8 +144,5 @@
     }
     <%--pagination js function--%>
     <%--pagination js function--%>
-
-
-
 </script>
 </html>

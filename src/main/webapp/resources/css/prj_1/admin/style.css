@@ -640,6 +640,7 @@ pagination_ul>li{
 .recipeBox{
     width: 100%;
     height: max-content;
+    display: flex;
     padding: 15px 10px;
     box-sizing: border-box;
     background-color: rgba(245, 245, 245, 0.65);

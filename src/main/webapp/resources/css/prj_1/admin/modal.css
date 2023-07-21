@@ -245,7 +245,16 @@ select{
 select[name='delNy']{
     margin-left:15px;
 }
-
+.login_no{
+    opacity: 0;
+    font-size: 13px;
+    position: relative;
+    left: 20px;
+    top: 15px;
+    color: rgba(255, 0, 0, 0.68);
+    transition: all .3s ease-in-out;
+    letter-spacing: 0px;
+}
 /*@@@@@ CodeGroupList Table Filter CSS @@@@@*/
 /*@@@@@ CodeGroupList Table Filter CSS @@@@@*/
 
@@ -312,6 +321,45 @@ select[name='delNy']{
     color: rgba(0,0,0,0.5) !important;
     padding: 10px;
 }
+.basket{
+    width: 80%;
+    height: auto;
+    margin: 15px 0;
+    padding: 20px 20px;
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: rgba(255, 127, 80, 0.1);
+}
+.basketItem{
+    width: fit-content;
+    height: auto;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 5px;
+    background-color: white;
+    margin: 5px 10px;
+}
+.closeBox>span{
+    font-weight: 900;
+    font-size: 15px!important;
+}
+.closeBox{
+    position: absolute;
+    top: -10px;
+    display: flex;
+    padding: 1px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    right: -9px;
+    cursor: pointer;
+}
+
 
 /*@@@@@@@@@@@@@@ CodeGroupList Table  CSS @@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@ CodeGroupList Table  CSS @@@@@@@@@@@@@@*/

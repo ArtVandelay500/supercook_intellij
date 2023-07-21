@@ -1,21 +1,27 @@
 package com.vandelay.app.infra.controller;
 
 import com.vandelay.app.infra.dto.CodeDTO;
+import com.vandelay.app.infra.dto.IngDTO;
+import com.vandelay.app.infra.dto.IngGroupDTO;
 import com.vandelay.app.infra.dto.RecipeDTO;
+import com.vandelay.app.infra.service.IngService;
 import com.vandelay.app.infra.service.RecipeService;
+import com.vandelay.app.infra.vo.IngVo;
 import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
 public class RecipeController {
     private final RecipeService recipeService;
+    private final IngService ingService;
 
     @RequestMapping("/recipeList/list")
     public String recipeList(@ModelAttribute("vo") RecipeVo vo, Model model){
@@ -34,13 +40,15 @@ public class RecipeController {
     }
 
     @RequestMapping("/recipeForm")
-    public String recipeForm(RecipeVo vo,Model model){
+    public String recipeForm(RecipeVo vo, Model model){
         RecipeDTO recipeDTO = recipeService.selectOne(vo);
         return "admin/infra/prj_1/recipe/recipeForm";
     }
 
     @RequestMapping("/recipeForm/insert")
     public String insert(RecipeDTO dto){
+        System.out.println(dto);
+        System.out.println(dto.getIngredient_seq());
         recipeService.insert(dto);
         return "redirect:/recipeList/list";
     }
@@ -55,4 +63,28 @@ public class RecipeController {
         recipeService.delete(vo);
         return "redirect:/recipeList/list";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/searchIng", method = RequestMethod.POST)
+    public Map<String, Object> selectOneShKey(RecipeVo vo){
+        Map<String,Object> returnMap = new HashMap<String,Object>();
+
+        List<IngDTO> listShKey = ingService.selectOneShKey(vo);
+        if(listShKey != null){
+
+            returnMap.put("listShKey",listShKey);
+            returnMap.put("rt","success");
+        }else{
+            returnMap.put("rt","fail");
+        }
+        System.out.println(listShKey);
+        System.out.println(returnMap.get("listShKey"));
+        System.out.println(returnMap.get("rt"));
+        System.out.println(returnMap);
+        return returnMap;
+    }
+
+
+
+
 }

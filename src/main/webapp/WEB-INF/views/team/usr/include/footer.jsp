@@ -31,7 +31,7 @@
                 <img src="/resources/team/img/yummy_color.png" alt="'JOIN' Team Logo image located"/>
             </div>
             <p>
-                인덱스 입니다
+                개발자의 이름을 클릭해주세요!
             </p>
         </div>
         <div class="personalPrjEach hongg">

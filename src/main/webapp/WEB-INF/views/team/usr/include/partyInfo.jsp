@@ -71,7 +71,7 @@
 
     </div>
     <div class="modalFooter">
-        <button class="modalOk">파티 참가</button>
+        <button class="modalBad">나가기</button>
     </div>
 </div>
 <%--모달 생성--%>

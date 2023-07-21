@@ -2,6 +2,7 @@ package com.vandelay.app.infra.repository;
 
 import com.vandelay.app.infra.dto.IngDTO;
 import com.vandelay.app.infra.vo.IngVo;
+import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -36,4 +37,5 @@ public class IngRepository {
     }
 
 
+    public List<IngDTO> selectOneShKey(RecipeVo vo) {return sqlSession.selectList("Ing.selectOneShKey",vo);}
 }//END OF REPOSITORY
