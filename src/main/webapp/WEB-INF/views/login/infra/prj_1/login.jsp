@@ -38,7 +38,7 @@
                 />
                 <span class="login_no">아이디 혹은 비밀번호가 일치하지 않습니다.</span>
                 <div class="btnBox">
-                    <button id="b2" type="button" class="login btn">로그인</button>
+                    <button id="login" type="button" class="login btn">로그인</button>
                     <button id="b1" type="button" onclick="location.href='/loginForm'" class="signup btn">회원가입</button>
                 </div>
             </form>

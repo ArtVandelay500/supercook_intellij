@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.lang.reflect.Array;
+
 @Getter
 @Setter
 @ToString
@@ -19,4 +21,6 @@ public class RecipeDTO {
     private String recipeSource;
     private String useNy;
     private String ingredient_seq;
+    private String[] ingredient_seqArray;
+    private String recipe_seq;
 }

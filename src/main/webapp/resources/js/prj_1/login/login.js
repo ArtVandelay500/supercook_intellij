@@ -1,5 +1,5 @@
 $(function(){
-    $("#b2").on("click", function(e) {
+    $("#login").on("click", function(e) {
         var form = $("#loginForm");
 
         if (validationNull(form)) {

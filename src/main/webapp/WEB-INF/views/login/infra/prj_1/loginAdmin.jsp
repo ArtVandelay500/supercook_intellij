@@ -41,13 +41,13 @@
                 />
                 <span class="login_no">아이디 혹은 비밀번호가 일치하지 않습니다.</span>
                 <div class="btnBox">
-                    <button id="b2" type="button" class="login btn">로그인</button>
+                    <button id="loginAdmin" type="button" class="login btn">로그인</button>
                 </div>
             </form>
         </div>
     </div>
     <script>
-        $("#b2").on("click", function(e) {
+        $("#loginAdmin").on("click", function(e) {
             var form = $("#loginForm");
 
             if (validationNull(form)) {

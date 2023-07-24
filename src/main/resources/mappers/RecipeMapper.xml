@@ -101,7 +101,21 @@
             #{recipeSource},
             '1'
             )
+
+        <selectKey resultType="String" keyProperty="seq" order="AFTER">
+            SELECT last_insert_id()
+        </selectKey>
     </insert>
+
+    <insert id="insertIng">
+        INSERT INTO recipeIngredient
+        (recipe_seq, ingredient_seq)
+        VALUES(
+           #{seq},
+           #{ingredient_seq}
+           )
+    </insert>
+
 
 
     <delete id="delete">

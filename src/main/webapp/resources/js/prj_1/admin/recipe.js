@@ -21,7 +21,6 @@ $(function(){
 // search ingredient and append it to the divBox
 // search ingredient and append it to the divBox
 // search ingredient and append it to the divBox
-
     $("input[name=shKey]").keyup(function() {
         const shKey = $("input[name=shKey]").val();
 
@@ -35,7 +34,6 @@ $(function(){
             },
             success: function (response) {
                 if (response.rt == "success") {
-
 
 
                     console.log("드디어 뭔가가 찍혀요!");
@@ -85,6 +83,10 @@ $(function(){
             }
         }); //AJAX tag
     }); // EVENT tag
+
+
+
+
 
 // search ingredient and append it to the divBox
 // search ingredient and append it to the divBox
