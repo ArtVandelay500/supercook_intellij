@@ -23,6 +23,7 @@
                 <thead>
                 <tr>
                     <th>재료명</th>
+                    <th>수량</th>
                     <th></th>
                 </tr>
                 </thead>

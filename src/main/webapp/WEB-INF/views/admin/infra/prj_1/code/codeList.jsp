@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<jsp:useBean id="CodeService" class="com.vandelay.app.infra.service.CodeService"/>
+<%--<jsp:useBean id="CodeService" class="com.vandelay.app.infra.service.CodeService"/>--%>
 <!DOCTYPE html>
 <html lang="en">
 <%@include file="../includes/head.jsp"%>
@@ -16,10 +16,10 @@
             <div class="mainContainer">
             <%--FORM CONTENT STARTS FROM HERE!!--%>
             <%--FORM CONTENT STARTS FROM HERE!!--%>
-                <c:set var="codeService" value="${CodeService.selectListCachedCode('5')}"></c:set>
-                <c:forEach items="${codeService}" var="abc">
-                    <c:out value="${abc.name}"></c:out>
-                </c:forEach>
+<%--                <c:set var="codeService" value="${CodeService.selectListCachedCode('5')}"></c:set>--%>
+<%--                <c:forEach items="${codeService}" var="abc">--%>
+<%--                    <c:out value="${abc.name}"></c:out>--%>
+<%--                </c:forEach>--%>
                 <div class="mainLabelBox">
                     <h2 class="tableLabel">공통코드 관리</h2>
                     <div class="addBox" onclick="location.href='/codeForm'">

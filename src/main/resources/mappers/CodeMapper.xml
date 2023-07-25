@@ -99,6 +99,24 @@
               )
     </insert>
 
+    <select id="selectOneShKeyCode" resultType="code">
+        SELECT
+            seq,
+            name,
+            codeGroup_seq,
+            delNy
+        FROM
+            code
+        WHERE
+            name = #{shKeyCode}
+    </select>
+
+
+
+
+
+<!--jsp usebean shit for having code arrayList ready to use but couldn't figure out in intellij
+       ****This query works tho...-->
     <select id="selectListCachedCodeArrayList" resultType="code">
         SELECT
             seq,
@@ -107,5 +125,10 @@
         FROM
             code
     </select>
+<!--jsp usebean shit for having code arrayList ready to use but couldn't figure out in intellij-->
+
+
+
+
 
 </mapper>

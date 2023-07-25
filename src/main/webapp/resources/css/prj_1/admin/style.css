@@ -641,6 +641,7 @@ pagination_ul>li{
     width: 100%;
     height: max-content;
     display: flex;
+    flex-wrap: wrap;
     padding: 15px 10px;
     box-sizing: border-box;
     background-color: rgba(245, 245, 245, 0.65);

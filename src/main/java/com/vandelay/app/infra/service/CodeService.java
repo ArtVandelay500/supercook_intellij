@@ -3,6 +3,7 @@ package com.vandelay.app.infra.service;
 import com.vandelay.app.infra.dto.CodeDTO;
 import com.vandelay.app.infra.repository.CodeRepository;
 import com.vandelay.app.infra.vo.CodeVo;
+import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -83,6 +84,7 @@ public class CodeService {
     }
 
 
-
-
+    public List<CodeDTO> selectOneShKeyCode(RecipeVo vo) {
+        return codeRepository.selectOneShKeyCode(vo);
+    }
 }

@@ -64,6 +64,21 @@
         WHERE seq = #{seq}
     </select>
 
+    <select id="selectIngList" resultType="recipe">
+        SELECT
+            a.ingredient_seq,
+            a.ingredientAmount,
+            b.name
+        FROM
+            recipeIngredient AS a
+        LEFT JOIN ingredient AS b ON b.seq = a.ingredient_seq
+        WHERE
+            recipe_seq = #{seq}
+
+    </select>
+
+
+
 
     <update id="update">
         UPDATE recipe
@@ -80,6 +95,7 @@
         WHERE
             seq = #{seq}
     </update>
+
 
 
     <insert id="insert">
@@ -108,19 +124,29 @@
     </insert>
 
     <insert id="insertIng">
-        INSERT INTO recipeIngredient
-        (recipe_seq, ingredient_seq)
-        VALUES(
-           #{seq},
-           #{ingredient_seq}
-           )
+        INSERT INTO recipeIngredient(
+         recipe_seq,
+         ingredient_seq,
+         ingredientAmount,
+         ingredientBigCat
+         )VALUES(
+            #{seq},
+            #{ingredient_seq},
+            #{ingredientAmount},
+            #{ingredientBigCat}
+        )
     </insert>
 
 
-
+<!--deleting from recipe table and recipeList table-->
+<!--deleting from recipe table and recipeList table-->
     <delete id="delete">
         DELETE FROM recipe WHERE seq = #{seq}
     </delete>
-
+    <delete id="deleteList">
+        DELETE FROM recipeIngredient WHERE recipe_seq = #{seq}
+    </delete>
+<!--deleting from recipe table and recipeList table-->
+<!--deleting from recipe table and recipeList table-->
 
 </mapper>

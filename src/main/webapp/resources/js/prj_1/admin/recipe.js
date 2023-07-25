@@ -21,6 +21,10 @@ $(function(){
 // search ingredient and append it to the divBox
 // search ingredient and append it to the divBox
 // search ingredient and append it to the divBox
+    // removing clicked div from the divs
+    $(".closeBox").click(function(e){
+        $(e.target.parentNode.offsetParent).remove();
+    });
     $("input[name=shKey]").keyup(function() {
         const shKey = $("input[name=shKey]").val();
 
@@ -38,38 +42,55 @@ $(function(){
 
                     console.log("드디어 뭔가가 찍혀요!");
                     const basketItem = $("<div>").addClass("basketItem");
+                    const input = $("<input class=\"searchInput_form\">");
                     const span = $("<span>").text(response.listShKey[0].name);
+                    const qty = $("<input>");
+                    qty.attr({
+                        name:"ingredientAmount",
+                        type:"hidden"
+                    });
+                    input.on("keyup", function() {
+                        span.text(response.listShKey[0].name + "  " + input.val());
+                        qty.val(input.val());
+                    });
                     const seq = $("<input>");
                     seq.attr({
                         name:"ingredient_seq",
                         type:"hidden",
                         value:response.listShKey[0].seq
                     });
+                    const ingBigCat = $("<input>");
+                    ingBigCat.attr({
+                        name:"ingredientBigCat",
+                        type:"hidden",
+                        value:response.listShKey[0].big_cat_ing
+                    });
+
                     const closeBox = $("<div>").addClass("closeBox");
                     const closeItem = $("<span>").addClass("material-symbols-outlined").text("close");
                     const addButton = $("<button>").attr("id", "basketDunk").addClass("detailBtn").text("추가");
                     closeBox.append(closeItem);
                     basketItem.append(span);
                     basketItem.append(seq);
+                    basketItem.append(ingBigCat);
+                    basketItem.append(qty);
                     basketItem.append(closeBox);
 
 
                     // removing clicked div from the divs
                     closeBox.click(function(e){
                         $(e.target.parentNode.offsetParent).remove();
-                        alert("delete");
                     });
                     // append clicked div to the divs
                     addButton.click(function(e){
                         $(".basket ,.recipeBox").append(basketItem);
                     });
 
-
-
                     $("#recipeIngRt").empty();
                     $("#recipeIngRt").empty().append(
                         $("<tr>").append(
                             $("<td id=hasName>").text(response.listShKey[0].name),
+                            $("<td id=hasAmount>").append(input),
                             $("<td>").append(addButton)
                         )
                     );
@@ -83,10 +104,6 @@ $(function(){
             }
         }); //AJAX tag
     }); // EVENT tag
-
-
-
-
 
 // search ingredient and append it to the divBox
 // search ingredient and append it to the divBox

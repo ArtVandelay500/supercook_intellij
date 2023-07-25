@@ -107,7 +107,8 @@
     <select id="selectOneShKey" resultType="ing">
         SELECT
             seq,
-            name
+            name,
+            big_cat_ing
         FROM
             ingredient
         WHERE

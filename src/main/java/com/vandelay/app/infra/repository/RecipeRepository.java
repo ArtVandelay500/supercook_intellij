@@ -36,11 +36,22 @@ public class RecipeRepository {
     }
 
     public int delete(RecipeVo vo) {
+        sqlSession.delete("Recipe.deleteList",vo);
         return sqlSession.delete("Recipe.delete", vo);
+    }
+
+    public int deleteUpdate(RecipeDTO dto){
+        return sqlSession.delete("Recipe.deleteList",dto);
     }
 
 
     public int insertIng(RecipeDTO dto) {
          { return sqlSession.insert("Recipe.insertIng",dto);}
     }
+
+    public List<RecipeDTO> selectIngList(RecipeDTO dto) {
+        return sqlSession.selectList("Recipe.selectIngList",dto);
+    }
+
+
 }

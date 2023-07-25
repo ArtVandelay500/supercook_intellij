@@ -16,6 +16,9 @@ public class CodeDTO {
     private String name;
     private String codeName;
     private int delNy;
+    private String recipe_seq;
+    private String code_seq;
+
     public static List<CodeDTO> cachedCodeArrayList = new ArrayList<CodeDTO>();
 
 }

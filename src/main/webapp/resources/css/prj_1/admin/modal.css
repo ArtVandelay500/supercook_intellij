@@ -336,6 +336,7 @@ select[name='delNy']{
     height: auto;
     padding: 5px 15px;
     box-sizing: border-box;
+    white-space: nowrap;
     position: relative;
     border-radius: 5px;
     background-color: white;

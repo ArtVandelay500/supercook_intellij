@@ -3,6 +3,7 @@ package com.vandelay.app.infra.repository;
 
 import com.vandelay.app.infra.dto.CodeDTO;
 import com.vandelay.app.infra.vo.CodeVo;
+import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -40,5 +41,13 @@ public class CodeRepository {
         return sqlSession.selectList("Code.selectListCachedCodeArrayList",null);
     }
 //    LIST CODE VO
+
+    /**
+     * @param vo: vo from recipeForm input "shKeyCode"
+     * @return: returns a set of data matches with the given 'shKeyCode' to code name
+     */
+    public List<CodeDTO> selectOneShKeyCode(RecipeVo vo) {
+    return sqlSession.selectOne("Code.selectOneShKeyCode",vo);
+}
 }
 

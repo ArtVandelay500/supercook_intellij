@@ -30,11 +30,27 @@ public class RecipeService {
     public int insert(RecipeDTO dto){
         recipeRepository.insert(dto);
         System.out.println("레시피 seq는:  " + dto.getSeq());
+
+        String[] ingredientSeqArray = dto.getIngredient_seqArray();
+        String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array
+        String[] ingredientBigCatArray = dto.getIngredientBigCatArray();
 //        재료 넣기
-        for(String item:dto.getIngredient_seqArray()){
+        for (int i = 0; i < ingredientSeqArray.length; i++) {
+            String item = ingredientSeqArray[i];
+            String ingredientAmount = ingredientAmountArray[i];
+            String ingredientBigCat = ingredientBigCatArray[i];
+
             System.out.println("아이템은: " + item);
-            dto.setIngredient_seq(item);
+            System.out.println("수량은: " + ingredientAmount);
+            System.out.println("재료 카테고리는: " + ingredientBigCat);
+
             dto.setSeq(dto.getSeq());
+
+            // Assuming you have a method to set ingredientAmount in your DTO
+            dto.setIngredient_seq(item);
+            dto.setIngredientAmount(ingredientAmount);
+            dto.setIngredientBigCat(ingredientBigCat);
+
             recipeRepository.insertIng(dto);
         }
 
@@ -43,15 +59,48 @@ public class RecipeService {
     }
 
 
-
+    /**
+     *
+     * @param dto 레시피 dto
+     * @return dummy return
+     */
     public int update(RecipeDTO dto) {
-        return recipeRepository.update(dto);
+        recipeRepository.update(dto);
+        recipeRepository.deleteUpdate(dto);
+
+        String[] ingredientSeqArray = dto.getIngredient_seqArray();
+        String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array
+        String[] ingredientBigCatArray = dto.getIngredientBigCatArray();
+
+        for (int i = 0; i < ingredientSeqArray.length; i++) {
+            String item = ingredientSeqArray[i];
+            String ingredientAmount = ingredientAmountArray[i];
+            String ingredientBigCat = ingredientBigCatArray[i];
+
+            System.out.println("아이템은: " + item);
+            System.out.println("수량은: " + ingredientAmount);
+
+            dto.setIngredient_seq(item);
+            dto.setSeq(dto.getSeq());
+
+            // Assuming you have a method to set ingredientAmount in your DTO
+            dto.setIngredientAmount(ingredientAmount);
+            dto.setIngredientBigCat(ingredientBigCat);
+
+            recipeRepository.insertIng(dto);
+        }
+
+
+        return 1;
     }
 
     public int delete(RecipeVo vo) {
         return recipeRepository.delete(vo);
     }
 
+    public List<RecipeDTO> selectIngList(RecipeDTO dto) {
+        return recipeRepository.selectIngList(dto);
+    }
 
 
 //    public void insertIng(String[] ingArray) {
