@@ -14,7 +14,6 @@ public class RecipeDTO {
     private String recipeName;
     private String recipeTitle;
     private String recipeUrl;
-    private String recipeImg;
     private String recipeRating;
     private String recipePrepTime;
     private String recipeView;
@@ -23,10 +22,16 @@ public class RecipeDTO {
     private String ingredient_seq;
     private String[] ingredient_seqArray;
     private String[] ingredientAmountArray;
-    private String[] ingredientBigCatArray;
     private String recipe_seq;
     private String name;
     private String ingredientAmount;
     private String ingredientType;
-    private String ingredientBigCat;
+    private String recipeTheme;
+    private String recipeTool;
+    private String recipeMethod;
+    private String recipeType;
+    private String recipeIng;
+    private String imgPath;
+    private String imgUuid;
+    private String imgName;
 }

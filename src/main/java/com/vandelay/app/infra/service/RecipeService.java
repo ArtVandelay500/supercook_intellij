@@ -33,23 +33,19 @@ public class RecipeService {
 
         String[] ingredientSeqArray = dto.getIngredient_seqArray();
         String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array
-        String[] ingredientBigCatArray = dto.getIngredientBigCatArray();
 //        재료 넣기
         for (int i = 0; i < ingredientSeqArray.length; i++) {
             String item = ingredientSeqArray[i];
             String ingredientAmount = ingredientAmountArray[i];
-            String ingredientBigCat = ingredientBigCatArray[i];
 
             System.out.println("아이템은: " + item);
             System.out.println("수량은: " + ingredientAmount);
-            System.out.println("재료 카테고리는: " + ingredientBigCat);
 
             dto.setSeq(dto.getSeq());
 
             // Assuming you have a method to set ingredientAmount in your DTO
             dto.setIngredient_seq(item);
             dto.setIngredientAmount(ingredientAmount);
-            dto.setIngredientBigCat(ingredientBigCat);
 
             recipeRepository.insertIng(dto);
         }
@@ -70,12 +66,10 @@ public class RecipeService {
 
         String[] ingredientSeqArray = dto.getIngredient_seqArray();
         String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array
-        String[] ingredientBigCatArray = dto.getIngredientBigCatArray();
 
         for (int i = 0; i < ingredientSeqArray.length; i++) {
             String item = ingredientSeqArray[i];
             String ingredientAmount = ingredientAmountArray[i];
-            String ingredientBigCat = ingredientBigCatArray[i];
 
             System.out.println("아이템은: " + item);
             System.out.println("수량은: " + ingredientAmount);
@@ -85,7 +79,6 @@ public class RecipeService {
 
             // Assuming you have a method to set ingredientAmount in your DTO
             dto.setIngredientAmount(ingredientAmount);
-            dto.setIngredientBigCat(ingredientBigCat);
 
             recipeRepository.insertIng(dto);
         }

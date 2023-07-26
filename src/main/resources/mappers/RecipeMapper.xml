@@ -12,12 +12,19 @@
         seq,
         recipeName,
         recipeTitle,
-        recipeUrl,
-        recipeImg,
         recipeRating,
+        recipeUrl,
         recipePrepTime,
         recipeView,
         recipeSource,
+        recipeTheme,
+        recipeTool,
+        recipeMethod,
+        recipeType,
+        recipeIng,
+        imgPath,
+        imgUuid,
+        imgName,
         useNy
     </sql>
     <sql id="selectCommon">
@@ -85,12 +92,17 @@
         SET
             recipeName = #{recipeName},
             recipeTitle = #{recipeTitle},
-            recipeUrl = #{recipeUrl},
-            recipeImg = #{recipeImg},
-            recipeRating = #{recipeRating},
             recipePrepTime = #{recipePrepTime},
-            recipeView = #{recipeView},
             recipeSource = #{recipeSource},
+            recipeUrl = #{recipeUrl},
+            recipeTheme = #{recipeTheme},
+            recipeTool = #{recipeTool},
+            recipeMethod = #{recipeMethod},
+            recipeType = #{recipeType},
+            recipeIng = #{recipeIng},
+            imgPath = #{imgPath},
+            imgUuid = #{imgUuid},
+            imgName = #{imgName},
             useNy = #{useNy}
         WHERE
             seq = #{seq}
@@ -102,19 +114,33 @@
         INSERT INTO recipe (
             recipeName,
             recipeTitle,
-            recipeUrl,
-            recipeImg,
             recipePrepTime,
+            recipeUrl,
             recipeSource,
+            recipeTheme,
+            recipeTool,
+            recipeMethod,
+            recipeType,
+            recipeIng,
+            imgPath,
+            imgUuid,
+            imgName,
             useNy
             )
         VALUES(
             #{recipeName},
             #{recipeTitle},
-            #{recipeUrl},
-            #{recipeImg},
             #{recipePrepTime},
+            #{recipeUrl},
             #{recipeSource},
+            #{recipeTheme},
+            #{recipeTool},
+            #{recipeMethod},
+            #{recipeType},
+            #{recipeIng},
+            #{imgPath},
+            #{imgUuid},
+            #{imgName},
             '1'
             )
 
@@ -127,13 +153,11 @@
         INSERT INTO recipeIngredient(
          recipe_seq,
          ingredient_seq,
-         ingredientAmount,
-         ingredientBigCat
+         ingredientAmount
          )VALUES(
             #{seq},
             #{ingredient_seq},
-            #{ingredientAmount},
-            #{ingredientBigCat}
+            #{ingredientAmount}
         )
     </insert>
 

@@ -40,8 +40,6 @@
                 </div>
                 <a class="itemBox" href="/recipeList/list"><li>레시피관리</li></a>
                 <a class="itemBox" href="/member/list"><li>멤버관리</li></a>
-                <a class="itemBox" href=""><li>조리도구관리</li></a>
-                <a class="itemBox" href=""><li>테마관리</li></a>
             </ul>
         </div>
 

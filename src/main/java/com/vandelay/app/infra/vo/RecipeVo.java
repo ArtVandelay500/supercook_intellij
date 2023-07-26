@@ -10,6 +10,8 @@ import lombok.ToString;
 public class RecipeVo {
     private String seq;
     private String shKey;
+    private String shKeyTheme;
+    private String shKeyTool;
     private String optDelNy;
 
 

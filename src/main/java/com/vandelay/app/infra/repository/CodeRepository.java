@@ -2,6 +2,7 @@ package com.vandelay.app.infra.repository;
 
 
 import com.vandelay.app.infra.dto.CodeDTO;
+import com.vandelay.app.infra.dto.RecipeDTO;
 import com.vandelay.app.infra.vo.CodeVo;
 import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
@@ -43,11 +44,36 @@ public class CodeRepository {
 //    LIST CODE VO
 
     /**
-     * @param vo: vo from recipeForm input "shKeyCode"
+     * @param vo: vo from recipeForm input "shKey" for themeCodes from codeList
      * @return: returns a set of data matches with the given 'shKeyCode' to code name
      */
-    public List<CodeDTO> selectOneShKeyCode(RecipeVo vo) {
-    return sqlSession.selectOne("Code.selectOneShKeyCode",vo);
+    public List<CodeDTO> selectOneShKeyTheme(RecipeVo vo) {
+        return sqlSession.selectOne("Code.selectOneShKeyTheme",vo);
 }
+
+    /**
+     *
+     * @param vo: vo from recipeForm input "shKey" for toolCodes from codeList
+     * @return: returns a set of data that are only tools
+     */
+    public List<CodeDTO> selectOneShKeyTool(RecipeVo vo) {
+        return sqlSession.selectOne("Code.selectOneShKeyTool",vo);
+    }
+
+    /**
+     * IN recipeForm
+     * @return : SELECT codes WHERE codegroup_seq = 음식종류
+     */
+    public List<CodeDTO> selectType() {
+        return sqlSession.selectList("Code.selectType");
+    }
+
+    /**
+     * IN recipeForm
+     * @return : SELECT codes WHERE codegroup_seq = 조리법
+     */
+    public List<CodeDTO> selectMethod() {
+        return sqlSession.selectList("Code.selectMethod");
+    }
 }
 

@@ -1,6 +1,7 @@
 package com.vandelay.app.infra.service;
 
 import com.vandelay.app.infra.dto.CodeDTO;
+import com.vandelay.app.infra.dto.RecipeDTO;
 import com.vandelay.app.infra.repository.CodeRepository;
 import com.vandelay.app.infra.vo.CodeVo;
 import com.vandelay.app.infra.vo.RecipeVo;
@@ -84,7 +85,26 @@ public class CodeService {
     }
 
 
-    public List<CodeDTO> selectOneShKeyCode(RecipeVo vo) {
-        return codeRepository.selectOneShKeyCode(vo);
+    public List<CodeDTO> selectOneShKeyTheme(RecipeVo vo) {
+        return codeRepository.selectOneShKeyTheme(vo);
+    }
+    public List<CodeDTO> selectOneShKeyTool(RecipeVo vo) {
+        return codeRepository.selectOneShKeyTool(vo);
+    }
+
+    /**
+     *
+     * @return SELECT codes WHERE codegroup_seq = 음식종류
+     */
+    public List<CodeDTO> selectType() {
+        return codeRepository.selectType();
+    }
+
+    /**
+     *
+     * @return SELECT codes WHERE codegroup_seq = 조리법
+     */
+    public List<CodeDTO> selectMethod() {
+        return codeRepository.selectMethod();
     }
 }

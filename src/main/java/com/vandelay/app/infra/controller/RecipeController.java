@@ -60,7 +60,6 @@ public class RecipeController {
     public String insert(RecipeDTO dto){
         dto.setIngredient_seqArray(dto.getIngredient_seq().split(","));
         dto.setIngredientAmountArray(dto.getIngredientAmount().split(","));
-        dto.setIngredientBigCatArray(dto.getIngredientBigCat().split(","));
         recipeService.insert(dto);
 
         //multi-insert as many as the number of the ingredient items
@@ -84,7 +83,6 @@ public class RecipeController {
     public String update(RecipeDTO dto){
         dto.setIngredient_seqArray(dto.getIngredient_seq().split(","));
         dto.setIngredientAmountArray(dto.getIngredientAmount().split(","));
-        dto.setIngredientBigCatArray(dto.getIngredientBigCat().split(","));
         recipeService.update(dto);
         return "redirect:/recipeList/list";
     }
@@ -116,33 +114,57 @@ public class RecipeController {
         return returnMap;
     }
 
-    /**
-     *
-     * @param vo: shKeyCode from recipeForm for searching 'code'
-     * @return: return set of data matches with the given 'shKeyCode'
-     */
-    @ResponseBody
-    @RequestMapping(value="/searchCode",method = RequestMethod.POST)
-    public Map<String, Object> selectOneShKeyCode(RecipeVo vo){
-        Map<String,Object> returnMap = new HashMap<String,Object>();
-
-        List<CodeDTO> listShKeyCode = codeService.selectOneShKeyCode(vo);
-        if(listShKeyCode != null){
-            returnMap.put("listShKeyCode", listShKeyCode);
-            returnMap.put("rt","success");
-        }else{
-            returnMap.put("rt","fail");
-        }
-        System.out.println(listShKeyCode);
-        System.out.println(returnMap.get("listShKeyCode"));
-        System.out.println(returnMap.get("rt"));
-        System.out.println(returnMap);
-
-        return returnMap;
-    }
-
-
-
+//    /**
+//     *
+//     * @param vo: shKeyCode from recipeForm for searching 'code'
+//     * @return: return set of data matches with the given 'shKeyCode'
+//     */
+//    @ResponseBody
+//    @RequestMapping(value="/searchTheme",method = RequestMethod.POST)
+//    public Map<String, Object> selectOneShKeyTheme(RecipeVo vo){
+//        Map<String,Object> returnMap = new HashMap<String,Object>();
+//
+//        List<CodeDTO> listShKeyTheme = codeService.selectOneShKeyTheme(vo);
+//        if(listShKeyTheme != null){
+//            returnMap.put("listShKeyTheme", listShKeyTheme);
+//            returnMap.put("rt","success");
+//        }else{
+//            returnMap.put("rt","fail");
+//        }
+//        System.out.println(listShKeyTheme);
+//        System.out.println(returnMap.get("listShKeyTheme"));
+//        System.out.println(returnMap.get("rt"));
+//        System.out.println(returnMap);
+//
+//        return returnMap;
+//    }
+//
+//    /**
+//     *
+//     * @param vo: search for cooking tools in codeList
+//     * @return : returns a set of data that are only cooking tools from codeList
+//     */
+//    @ResponseBody
+//    @RequestMapping(value="/searchTool",method = RequestMethod.POST)
+//    public Map<String, Object> selectOneShKeyTool(RecipeVo vo){
+//        Map<String,Object> returnMap = new HashMap<String,Object>();
+//
+//        List<CodeDTO> listShKeyTool = codeService.selectOneShKeyTool(vo);
+//        if(listShKeyTool != null){
+//            returnMap.put("listShKeyTool", listShKeyTool);
+//            returnMap.put("rt","success");
+//        }else{
+//            returnMap.put("rt","fail");
+//        }
+//        System.out.println(listShKeyTool);
+//        System.out.println(returnMap.get("listShKeyTool"));
+//        System.out.println(returnMap.get("rt"));
+//        System.out.println(returnMap);
+//
+//        return returnMap;
+//    }
+//
+//
 
 
 
@@ -157,6 +179,29 @@ public class RecipeController {
         System.out.println("ingredient_seq is : " + dto.getIngredient_seq());
         return recipeService.selectIngList(dto);
     }
+
+    //RecipeForm SELECT OPTION
+    //RecipeForm SELECT OPTION
+    @ModelAttribute("codeType")
+    public List<CodeDTO> codeTypeList(Model model){
+        List<CodeDTO> list = codeService.selectType();
+        model.addAttribute("codeType",list);
+        return codeService.selectType();
+    }
+    //RecipeForm SELECT OPTION
+    //RecipeForm SELECT OPTION
+
+    //RecipeForm SELECT OPTION
+    //RecipeForm SELECT OPTION
+    @ModelAttribute("codeMethod")
+    public List<CodeDTO> codeMethodList(Model model){
+        List<CodeDTO> list = codeService.selectMethod();
+        model.addAttribute("codeMethod",list);
+         return codeService.selectMethod();
+
+    }
+    //RecipeForm SELECT OPTION
+    //RecipeForm SELECT OPTION
 
 
 

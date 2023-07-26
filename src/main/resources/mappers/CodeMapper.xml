@@ -99,24 +99,38 @@
               )
     </insert>
 
-    <select id="selectOneShKeyCode" resultType="code">
-        SELECT
-            seq,
-            name,
-            codeGroup_seq,
-            delNy
-        FROM
-            code
-        WHERE
-            name = #{shKeyCode}
-    </select>
+<!--    <select id="selectOneShKeyTheme" resultType="code">-->
+<!--        SELECT-->
+<!--            seq,-->
+<!--            name,-->
+<!--            codeGroup_seq,-->
+<!--            delNy-->
+<!--        FROM-->
+<!--            code-->
+<!--        WHERE 1+1-->
+<!--          AND name = #{shKeyTheme}-->
+<!--          AND (codeGroup_seq = 4 OR codeGroup_seq = 5)-->
+<!--    </select>-->
+
+<!--    <select id="selectOneShKeyTool" resultType="code">-->
+<!--        SELECT-->
+<!--            seq,-->
+<!--            name,-->
+<!--            codeGroup_seq,-->
+<!--            delNy-->
+<!--        FROM-->
+<!--            code-->
+<!--        WHERE 1+1-->
+<!--            AND name = #{shKeyTool}-->
+<!--            AND codeGroup_seq = 2-->
+<!--    </select>-->
 
 
 
 
 
-<!--jsp usebean shit for having code arrayList ready to use but couldn't figure out in intellij
-       ****This query works tho...-->
+    <!--jsp usebean shit for having code arrayList ready to use but couldn't figure out in intellij
+           ****This query works tho...-->
     <select id="selectListCachedCodeArrayList" resultType="code">
         SELECT
             seq,
@@ -129,6 +143,25 @@
 
 
 
+<select id="selectType" resultType="code">
+    SELECT
+        seq,
+        name
+    FROM
+        code
+    WHERE
+        codeGroup_seq = 3
+</select>
+
+<select id="selectMethod" resultType="code">
+    SELECT
+        seq,
+        name
+    FROM
+        code
+    WHERE
+        codeGroup_seq = 1
+</select>
 
 
 </mapper>
