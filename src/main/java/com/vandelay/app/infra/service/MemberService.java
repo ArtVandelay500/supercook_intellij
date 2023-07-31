@@ -3,6 +3,7 @@ package com.vandelay.app.infra.service;
 import com.vandelay.app.controller.Constants;
 import com.vandelay.app.controller.UtilDateTime;
 import com.vandelay.app.infra.dto.MemberDTO;
+import com.vandelay.app.infra.dto.UploadDTO;
 import com.vandelay.app.infra.repository.MemberRepository;
 import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
@@ -31,14 +32,19 @@ public class MemberService {
         return memberRepository.selectOne(dto);
     }
 
-    public int update(MemberDTO dto) {
-       return memberRepository.update(dto);
+    public int update(MemberDTO dto) throws Exception {
+        memberRepository.update(dto);
+        memberRepository.deleteUpload(dto);
+        uploadFiles(dto.getUploadImgProfile(), dto, "uploadList", dto.getUploadImgProfileType(), dto.getUploadImgProfileMaxNumber());
+        return 1;
     }
 
 
 
     public int delete(MemberDTO dto) {
-        return memberRepository.delete(dto);
+        memberRepository.deleteUpload(dto);
+        memberRepository.delete(dto);
+        return 1;
     }
 
 
@@ -53,17 +59,15 @@ public class MemberService {
 
 
     public int insert(MemberDTO dto) throws Exception {
-
+        memberRepository.insert(dto);
         uploadFiles(dto.getUploadImgProfile(), dto, "uploadList", dto.getUploadImgProfileType(), dto.getUploadImgProfileMaxNumber());
-        return memberRepository.insert(dto);
+        return 1;
     }
 //MEMBER PROFILE IMAGE SERVICE
 //MEMBER PROFILE IMAGE SERVICE
 
 
 public void uploadFiles(MultipartFile[] multipartFiles, MemberDTO dto, String tableName, int type, int maxNumber) throws Exception {
-
-
 
     for(int i=0; i<multipartFiles.length; i++) {
 
@@ -77,14 +81,14 @@ public void uploadFiles(MultipartFile[] multipartFiles, MemberDTO dto, String ta
             String pathModule = className;
             String nowString = UtilDateTime.nowString();
             String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
-//            String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
-            String path = Constants.UPLOAD_PATH_PREFIX  + "/";
+            String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
+//          String path = Constants.UPLOAD_PATH_PREFIX  + "/";
             String pathForView = Constants.UPLOAD_PATH_PREFIX_FOR_VIEW + "/" + pathModule + "/" + pathDate + "/";
 
             File uploadPath = new File(path);
 
             if (!uploadPath.exists()) {
-                uploadPath.mkdir();
+                uploadPath.mkdirs();
             } else {
                 // by pass
             }
@@ -100,7 +104,7 @@ public void uploadFiles(MultipartFile[] multipartFiles, MemberDTO dto, String ta
             dto.setTableName(tableName);
             dto.setType(type);
             dto.setDefaultNy(dto.getDefaultNy());
-            dto.setSort(maxNumber + i);
+//          dto.setSort(maxNumber + i);
             dto.setPseq(dto.getSeq());
 
             memberRepository.insertUploaded(dto);
@@ -109,6 +113,10 @@ public void uploadFiles(MultipartFile[] multipartFiles, MemberDTO dto, String ta
         }
     }
 }
+
+    public List<UploadDTO> selectListUpload(MemberDTO dto) {
+        return memberRepository.selectListUpload(dto);
+    }
 
 
 //MEMBER PROFILE IMAGE SERVICE

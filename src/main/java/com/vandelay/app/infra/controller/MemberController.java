@@ -1,6 +1,7 @@
 package com.vandelay.app.infra.controller;
 
 import com.vandelay.app.infra.dto.MemberDTO;
+import com.vandelay.app.infra.dto.UploadDTO;
 import com.vandelay.app.infra.service.MemberService;
 import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
@@ -38,11 +39,14 @@ public class MemberController {
     public String memberForm(MemberDTO dto, Model model){
         MemberDTO memberDTO = memberService.selectOne(dto);
         model.addAttribute("item",memberDTO);
+
+        List<UploadDTO> uploadList = memberService.selectListUpload(dto);
+        model.addAttribute("listUploaded",uploadList);
         return "admin/infra/prj_1/member/memberForm";
     }
 
     @RequestMapping("/memberForm/update")
-    public String memberUpdate(MemberDTO dto){
+    public String memberUpdate(MemberDTO dto) throws Exception {
         memberService.update(dto);
         return "redirect:/member/list";
     }

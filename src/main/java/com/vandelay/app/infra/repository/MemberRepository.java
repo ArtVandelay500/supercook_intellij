@@ -1,6 +1,7 @@
 package com.vandelay.app.infra.repository;
 
 import com.vandelay.app.infra.dto.MemberDTO;
+import com.vandelay.app.infra.dto.UploadDTO;
 import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -48,4 +49,12 @@ public class MemberRepository {
 
 
     public int insertUploaded(MemberDTO dto) { return sqlSession.insert(  "Member.insertUploaded", dto); }
+
+    public int deleteUpload(MemberDTO dto) {
+        return sqlSession.delete("Member.deleteUpload",dto);
+    }
+
+    public List<UploadDTO> selectListUpload(MemberDTO dto) {
+        return sqlSession.selectList("Member.selectListUpload",dto);
+    }
 }

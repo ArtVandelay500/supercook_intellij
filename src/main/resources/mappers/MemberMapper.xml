@@ -101,6 +101,9 @@
     <delete id="delete">
         DELETE FROM member WHERE seq = #{seq}
     </delete>
+    <delete id="deleteUpload">
+        DELETE FROM uploadList WHERE pseq = #{seq}
+    </delete>
 
     <!-- uploaded s -->
     <insert id="insertUploaded">
@@ -126,7 +129,26 @@
         ,#{pseq}
         )
     </insert>
-
+<!--UPLOAD SELECT-->
+<!--UPLOAD SELECT-->
+<select id="selectListUpload" resultType="upload">
+    SELECT
+        type
+        ,path
+        ,originalName
+        ,uuidName
+        ,ext
+        ,size
+        ,delNy
+        ,pseq
+    FROM
+        uploadList
+    WHERE 1+1
+        AND path LIKE CONCAT('%memberdto%')
+        AND pseq = #{seq}
+</select>
+<!--UPLOAD SELECT-->
+<!--UPLOAD SELECT-->
 
 
 </mapper>
