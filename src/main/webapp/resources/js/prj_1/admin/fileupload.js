@@ -83,6 +83,9 @@ upload = function(objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowe
         var fileReader = new FileReader();
         fileReader.onload = function () {
             $("#uploadImgProfilePreview").attr("src", fileReader.result);		/* #-> */
+            $("#uploadImgProfilePreview").css({
+                objectFit : "cover"
+            });
         }
         fileReader.readAsDataURL($("#" + objName +"")[0].files[0]);
     } else {
@@ -99,8 +102,8 @@ addEventListenerCustom = function (objName, type, i, file, filePreview, maxNumbe
 
         var divImage = "";
         divImage += '<div id="imgDiv_'+type+'_'+ sort +'" style="display: inline-block; height: 95px;">';
-        divImage += '	<img src="'+ imageFile.result +'" class="rounded" width= "85px" height="85px">';
-        divImage += '	<div style="position: relative; top:-85px; left:5px"><span style="color: red; cursor:pointer;" onClick="delImgDiv(0,' + type +','+ sort +')">X</span></div>';
+        divImage += '	<img  src="'+ imageFile.result +'" class="rounded" width= "85px" height="85px">';
+        divImage += '	<div style="position: relative; top:-85px; left:5px"><span class="material-symbols-outlined" cursor:pointer;" onClick="delImgDiv(0,' + type +','+ sort +')">close</span></div>';
         divImage += '</div> ';
 
         filePreview.append(divImage);

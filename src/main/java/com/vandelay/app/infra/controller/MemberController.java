@@ -109,6 +109,7 @@ public class MemberController {
             httpSession.setMaxInactiveInterval(60*60);
             httpSession.setAttribute("sessionId",vo.getEmail());
             returnMap.put("rtMemberDTO",rtMemberDTO);
+
             returnMap.put("rt","success");
         }else{
             returnMap.put("rt","fail");

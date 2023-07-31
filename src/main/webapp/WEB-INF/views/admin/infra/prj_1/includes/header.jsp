@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
 <header>
     <div class="headerBox">
         <div class="logo" onclick="location.href='/indexAdminView'" ><img src="/resources/img/prj_1/admin/img.png" alt=""></div>
@@ -48,11 +47,15 @@
                     <div onclick="logOut()" class="outBtn">
                         <span class="material-symbols-outlined">power_settings_new</span>
                     </div>
+                    <%--Profile Picture--%>
+                    <%--Profile Picture--%>
+
                 </c:when>
                 <c:otherwise>
                     <div onclick="location.href='/loginAdmin'" class="outBtn">
                         <span class="material-symbols-outlined">login</span>
                     </div>
+
                 </c:otherwise>
             </c:choose>
 
