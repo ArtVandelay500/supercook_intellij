@@ -83,6 +83,10 @@
                   #{email},
                   #{pwd}
               )
+
+        <selectKey resultType="String" keyProperty="pseq" order="AFTER">
+            SELECT last_insert_id()
+        </selectKey>
     </insert>
 
     <update id="update">
@@ -97,6 +101,32 @@
     <delete id="delete">
         DELETE FROM member WHERE seq = #{seq}
     </delete>
+
+    <!-- uploaded s -->
+    <insert id="insertUploaded">
+        INSERT INTO ${tableName} (
+        type
+        ,defaultNy
+        ,path
+        ,originalName
+        ,uuidName
+        ,ext
+        ,size
+        ,delNy
+        ,pseq
+        ) values (
+        #{type}
+        ,#{defaultNy}
+        ,#{path}
+        ,#{originalName}
+        ,#{uuidName}
+        ,#{ext}
+        ,#{size}
+        ,0
+        ,#{pseq}
+        )
+    </insert>
+
 
 
 </mapper>

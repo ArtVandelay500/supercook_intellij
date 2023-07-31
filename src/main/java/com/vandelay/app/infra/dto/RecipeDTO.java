@@ -3,6 +3,7 @@ package com.vandelay.app.infra.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.lang.reflect.Array;
 
@@ -31,7 +32,10 @@ public class RecipeDTO {
     private String recipeMethod;
     private String recipeType;
     private String recipeIng;
-    private String imgPath;
-    private String imgUuid;
-    private String imgName;
+    private MultipartFile[] uploadImg;
+    private Integer uploadImgType;
+    private Integer uploadImgMaxNumber;
+    private String[] uploadImgDeleteSeq;
+    private String[] uploadImgDeletePathFile;
+
 }

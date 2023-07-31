@@ -73,7 +73,7 @@
                                         <input type="text" class="form-control" id="recipeSource" name="recipeSource">
                                     </div>
                                 </div>
-                                <div class="row mb-7">
+                                <div class="row mb-3">
                                     <div class="col-md-4">
                                         <label for="recipeRecipeTag" class="form-label">레시피 재료태그</label>
                                         <input type="text" class="form-control" id="recipeRecipeTag" name="recipeIng">
@@ -95,11 +95,12 @@
                                     </div>
                                     <div class="col-md-5 mb-3">
                                         <label for="formFile" class="form-label">레시피 썸네일</label>
+                                        <input class="form-control" type="file" id="formFile">
 <%--                                        <input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file"  style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">--%>
                                     </div>
                                     <div class="col-md-5 mb-3">
-                                        <label for="formFile" class="form-label">레시피 파일</label>
-                                        <input class="form-control" type="file" id="formFile">
+                                        <label for="formFile2" class="form-label">레시피 파일</label>
+                                        <input class="form-control" type="file" id="formFile2">
                                     </div>
                                 </div>
                                 <%--재료 등록 DIV --%>
@@ -192,7 +193,7 @@
                                             </c:forEach>
                                         </select>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
                                         <label for="recipeUrl" class="form-label">레시피 URL</label>
                                         <input type="text" class="form-control" id="recipeUrl" name="recipeUrl">
                                     </div>
@@ -204,15 +205,15 @@
                                 <%--레시피 테마&조리도구 태그--%>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <label for="recipeRecipeTag" class="form-label">레시피 재료태그</label>
+                                        <label for="recipeRecipeTag" class="form-label">레시피 재료 태그</label>
                                         <input type="text" class="form-control" id="recipeRecipeTag" name="recipeIng" value="<c:out value="${item.recipeIng}"/>" >
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="recipeThemeTag" class="form-label">레시피 테마태그</label>
+                                        <label for="recipeThemeTag" class="form-label">레시피 테마 태그</label>
                                         <input type="text" class="form-control" id="recipeThemeTag" name="recipeTheme" value="<c:out value="${item.recipeTheme}"/>" >
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="recipeToolTag" class="form-label">레시피 조리도구태그</label>
+                                        <label for="recipeToolTag" class="form-label">레시피 조리도구 태그</label>
                                         <input type="text" class="form-control" id="recipeToolTag" name="recipeTool" value="<c:out value="${item.recipeTool}"/>" >
                                     </div>
                                 </div>
@@ -224,7 +225,8 @@
                                     </div>
                                     <div class="col-md-5">
                                         <label for="formFile" class="form-label">레시피 썸네일</label>
-                                        <input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">
+                                        <input class="form-control" name="file" type="file" id="formFile">
+<%--                                        <input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">--%>
                                     </div>
                                     <div class="col-md-5">
                                         <label for="formFile2" class="form-label">레시피 파일</label>

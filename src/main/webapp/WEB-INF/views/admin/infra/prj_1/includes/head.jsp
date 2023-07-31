@@ -16,4 +16,8 @@
     <script src="/resources/js/validation/validation.js"></script>
     <script src="/resources/js/prj_1/admin/adminView.js"></script>
     <script src="/resources/js/prj_1/admin/recipe.js"></script>
+    <script src="/resources/js/prj_1/login/login.js"></script>
+    <script src="/resources/js/prj_1/admin/fileupload.js"></script>
+    <script src="/resources/js/prj_1/admin/constantsXdm.js"></script>
+    <script src="/resources/js/prj_1/admin/commonXdm.js"></script>
 </head>

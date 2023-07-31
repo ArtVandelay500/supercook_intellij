@@ -47,4 +47,5 @@ public class MemberRepository {
     }
 
 
+    public int insertUploaded(MemberDTO dto) { return sqlSession.insert(  "Member.insertUploaded", dto); }
 }

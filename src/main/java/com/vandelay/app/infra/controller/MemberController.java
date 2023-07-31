@@ -48,8 +48,9 @@ public class MemberController {
     }
 
     @RequestMapping("/memberForm/insert")
-    public String memberInsert(MemberDTO dto){
+    public String memberInsert(MemberDTO dto) throws Exception {
         memberService.insert(dto);
+        System.out.println("hey at least we are here!");
         return "redirect:/member/list";
     }
 

@@ -49,12 +49,12 @@
 
     <select id="selectList" resultType="codegroup">
         SELECT
-            codeGroupList.*
+            aa.*
         FROM (
             SELECT
                 <include refid="selectField"/>
                 <include refid="selectCommon"/>
-             ) AS codeGroupList
+             ) AS aa
         LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
     </select>
 

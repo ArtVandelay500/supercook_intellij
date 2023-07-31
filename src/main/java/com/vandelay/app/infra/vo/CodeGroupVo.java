@@ -17,11 +17,11 @@ public class CodeGroupVo {
 //    Paging
 //    Paging
 //    Paging
-private int thisPage = 1;									// 현재 페이지
+    private int thisPage = 1;									// 현재 페이지
 //	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;		// 화면에 보여줄 데이터 줄 갯수
 //	private int pageNumToShow = Constants.PAGE_NUM_TO_SHOW;		// 화면에 보여줄 페이징 번호 갯수
 
-    private int rowNumToShow = 5;		// 화면에 보여줄 데이터 줄 갯수
+    private int rowNumToShow = 10;		// 화면에 보여줄 데이터 줄 갯수
     private int pageNumToShow = 5;		// 화면에 보여줄 페이징 번호 갯수
 
     private int totalRows;										// 전체 데이터 갯수

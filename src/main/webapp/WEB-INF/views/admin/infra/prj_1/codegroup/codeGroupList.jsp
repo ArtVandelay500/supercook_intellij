@@ -26,11 +26,7 @@
                     <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
                     <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
                     <div class="searchBox">
-                        <select name="optDelNy">
-                            <option value="">삭제여부</option>
-                            <option value="1">삭제</option>
-                            <option value="0">미삭제</option>
-                        </select>
+
                         <select name="optDelNy">
                             <option value="">삭제여부</option>
                             <option value="1">삭제</option>
@@ -115,17 +111,17 @@
 
     goList = function(thisPage) {
         if(thisPage == 0) {
-            console.log("function 1st");
+
             $("input:hidden[name=thisPage]").val(1);
             $("form[name=search]").attr("action", "/codeGroupList/list").submit();
 
         } else if(thisPage > ${vo.totalPages}){
-            console.log("function 2nd");
+
             $("input:hidden[name=thisPage]").val(thisPage - 1);
             $("form[name=search]").attr("action", "/codeGroupList/list").submit();
         }else{
-            console.log("function 3rd");
-            $("input:hidden[name=thisPage]").val(2);
+
+            $("input:hidden[name=thisPage]").val(thisPage);
             $("form[name=search]").attr("action", "/codeGroupList/list").submit();
 
         }
@@ -133,27 +129,6 @@
     <%--pagination js function--%>
     <%--pagination js function--%>
 
-
-    $("select[name=optCodeName],select[name=optDelNy]").on("change",function(){
-        /*$("form[name=search]").attr("action","/codeList/list").submit();*/
-        $.ajax({
-            type: "post",
-            url: "codeList/list",
-            dataType:"text",
-            data:{
-                "optCodeName" : $("select[name=optCodeName]").val(),
-                "optDelNy" : $("select[name=optDelNy]").val()
-            },
-            success: function() {
-                alert("hey");
-            },
-            error: function (request, status, error) {
-                console.log("code: " + request.status)
-                console.log("message: " + request.responseText)
-                console.log("error: " + error);
-            }
-        });
-    });
 
 </script>
 </html>

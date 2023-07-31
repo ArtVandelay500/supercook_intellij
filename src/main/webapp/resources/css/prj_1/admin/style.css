@@ -110,6 +110,7 @@ header{
 }
 .subNavList>a>li{
     white-space: nowrap;
+    font-family:'LINESeedKR-Bd' !important;
 }
 .curtain{
     position: absolute;
@@ -128,6 +129,7 @@ header{
     text-decoration: none;
     padding: 80px 15px;
     box-sizing: border-box;
+    font-family: 'LINESeedKR-Bd';
 }
 .itemBox>li{
     font-size: 1.5vw;
@@ -727,6 +729,7 @@ pagination_ul>li{
     }
     .subNavList>a>li{
         white-space: nowrap;
+        font-family:'LINESeedKR-Bd' !important;
     }
     .curtain{
         position: absolute;

@@ -6,16 +6,20 @@ import com.vandelay.app.infra.repository.CodeRepository;
 import com.vandelay.app.infra.vo.CodeVo;
 import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class CodeService {
-    private final CodeRepository codeRepository;
+
+    @Autowired
+    CodeRepository codeRepository;
 
     public List<CodeDTO> selectList(CodeVo vo) {
         return codeRepository.selectList(vo);
@@ -72,17 +76,17 @@ public class CodeService {
         }
         return rt;
     }
-    public static String selectOneCachedCode(int code) throws Exception{
-        String rt="";
-        for(CodeDTO codeRow : CodeDTO.cachedCodeArrayList){
-            if(codeRow.getCodeGroup_seq().equals(Integer.toString(code))){
-                rt = codeRow.getName();
-            }else{
-                //bypass
-            }
-        }
-        return rt;
-    }
+//    public static String selectOneCachedCode(int code) throws Exception{
+//        String rt="";
+//        for(CodeDTO codeRow : CodeDTO.cachedCodeArrayList){
+//            if(codeRow.getCodeGroup_seq().equals(Integer.toString(code))){
+//                rt = codeRow.getName();
+//            }else{
+//                //bypass
+//            }
+//        }
+//        return rt;
+//    }
 
 
     public List<CodeDTO> selectOneShKeyTheme(RecipeVo vo) {

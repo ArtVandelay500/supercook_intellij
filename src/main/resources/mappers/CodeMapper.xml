@@ -44,7 +44,9 @@
 
     <select id="selectList" resultType="code">
 
-        SELECT aa.* FROM (
+        SELECT
+            aa.*
+        FROM (
             SELECT
                 <include refid="selectField" />
                 <include refid="selectCommon" />

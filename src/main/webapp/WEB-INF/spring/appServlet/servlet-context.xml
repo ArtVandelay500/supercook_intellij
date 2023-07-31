@@ -21,6 +21,22 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
+    <!-- fileUpload s 2022.03.30 -->
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <beans:property name="defaultEncoding" value="UTF-8"/>
+        <!-- <beans:property name="maxUploadSize" value="52428800"/> --> <!-- 50MB -->
+        <beans:property name="maxUploadSize" value="10485760"/> <!-- 10MB -->
+        <!-- <beans:property name="maxInMemorySize" value="1048576"/> --> <!-- 1MB -->
+    </beans:bean>
+    <!-- fileUpload e 2022.03.30 -->
+
+    <!--업로드 파일 경로 (admin img 파일)-->
+    <beans:bean id="uploadPath" class="java.lang.String">
+        <beans:constructor-arg value="/Users/biqui/IdeaProjects/maven_prj/src/main/webapp/resources/img/prj_1/admin">
+        </beans:constructor-arg>
+    </beans:bean>
+
+
     <!-- 프로젝트 패키지이름 확인 -->
     <context:component-scan base-package="com.vandelay.app" />
 
