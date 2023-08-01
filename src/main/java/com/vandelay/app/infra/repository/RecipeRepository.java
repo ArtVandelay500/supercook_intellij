@@ -36,14 +36,25 @@ public class RecipeRepository {
      * @param vo: recipe's seq
      * @return: a set of data matching with the seq
      */
-    public RecipeDTO selectOne(RecipeVo vo) {
-        return sqlSession.selectOne("Recipe.selectOne", vo);
-    }
+    public RecipeDTO selectOne(RecipeVo vo) {return sqlSession.selectOne("Recipe.selectOne", vo);}
+
+    /**
+     * @param dto: w/ 'recipe's seq, retrieve the data from 'recipeIngredient'
+     * @return: Retrieve the data matching with the given seq
+     */
+    public List<RecipeDTO> selectIngList(RecipeDTO dto) {return sqlSession.selectList("Recipe.selectIngList",dto);}
+
+    /**
+     * @param dto: recipe's seq
+     * @return: Retrieve the data matching between uploadList's pseq and recipe's seq
+     */
+    public List<UploadDTO> selectListUpload(RecipeDTO dto) {return sqlSession.selectList("Recipe.selectListUpload",dto);}
+
 
     /**
      * @param dto: a set of data from 'recipeForm'
      * @return: This not only updates 'recipe' table, but also those of 'recipeIngredient 'and 'uploadList'
-     * @info: From 'RecipeService', already called functions of 'delete' and 'insert' of new set of data from 'recipeIngredient' and 'uploadList'
+     * @info: 'RecipeService'already called functions of 'delete' and 'insert' of new set of data from 'recipeIngredient' and 'uploadList'
      */
     public int update(RecipeDTO dto) {
         return sqlSession.update("Recipe.update", dto);
@@ -51,18 +62,6 @@ public class RecipeRepository {
 
 
 
-
-
-    public List<RecipeDTO> selectIngList(RecipeDTO dto) {
-        return sqlSession.selectList("Recipe.selectIngList",dto);
-    }
-
-
-
-
-    public List<UploadDTO> selectListUpload(RecipeDTO dto) {
-        return sqlSession.selectList("Recipe.selectListUpload",dto);
-    }
 
     /**
      * @param dto: data from 'recipeForm'
