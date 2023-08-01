@@ -13,22 +13,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class IngGroupService {
     private final IngGroupRepository ingGroupRepository;
-    //SELECT OPTION
-    //SELECT OPTION
-    //SELECT OPTION
-    public List<IngGroupDTO> selectLvlOne(IngVo vo){return ingGroupRepository.selectLvlOne(vo);}
-    public List<IngGroupDTO> selectLvlTwo(IngVo vo){return ingGroupRepository.selectLvlTwo(vo);}
-    public List<IngGroupDTO> selectLvlTwoForm(IngVo vo){return ingGroupRepository.selectLvlTwoForm(vo);}
-    public List<IngGroupDTO> selectLvlTwoFormUpdate(IngVo vo){return ingGroupRepository.selectLvlTwoFormUpdate(vo);}
-    //SELECT OPTION
-    //SELECT OPTION
-    //SELECT OPTION
+
     public List<IngGroupDTO> selectList(IngGroupVo vo) {
         return ingGroupRepository.selectList(vo);
     }
-    public int selectOneCount(IngGroupVo vo) {
-        return ingGroupRepository.selectOneCount(vo);
-    }
+    public int selectOneCount(IngGroupVo vo) {return ingGroupRepository.selectOneCount(vo);}
 
     public IngGroupDTO selectOne(IngGroupVo vo) {
         return ingGroupRepository.selectOne(vo);
@@ -45,4 +34,16 @@ public class IngGroupService {
     public int delete(IngGroupVo vo) {
         return ingGroupRepository.delete(vo);
     }
-}
+
+    //SELECT OPTION
+    //SELECT OPTION
+    //SELECT OPTION
+    public List<IngGroupDTO> selectLvlOne(IngVo vo){return ingGroupRepository.selectLvlOne(vo);}
+    public List<IngGroupDTO> selectLvlTwo(IngVo vo){return ingGroupRepository.selectLvlTwo(vo);}
+    public List<IngGroupDTO> selectLvlTwoForm(IngVo vo){return ingGroupRepository.selectLvlTwoForm(vo);}
+    public List<IngGroupDTO> selectLvlTwoFormUpdate(IngVo vo){return ingGroupRepository.selectLvlTwoFormUpdate(vo);}
+    //SELECT OPTION
+    //SELECT OPTION
+    //SELECT OPTION
+
+}//END OF IngGroup SERVICE

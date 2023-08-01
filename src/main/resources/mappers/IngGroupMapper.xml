@@ -12,19 +12,31 @@
         useNy
     </sql>
 
+
     <sql id="selectCommon">
         FROM
-            ingredientGroup
-        WHERE 1+1
-            <if test="shKey != null and !shKey.equals('')">
-                AND catName LIKE CONCAT('%',#{shKey},'%')
-            </if>
-            <if test="optDelNy != null and !optDelNy.equals('')">
-                AND useNy = #{optDelNy}
-            </if>
+        ingredientGroup
+        WHERE 1=1
+        <if test="shKey != null and !shKey.equals('')">
+            AND catName LIKE CONCAT('%',#{shKey},'%')
+        </if>
+        <if test="optDelNy != null and !optDelNy.equals('')">
+            AND useNy = #{optDelNy}
+        </if>
     </sql>
     <!--SETTING -->
     <!--SETTING -->
+
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
+    </select>
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+
+
 
 
     <select id="selectList" resultType="inggroup">
@@ -94,15 +106,6 @@
 
 
 
-
-    <!--PAGING TOTAL COUNT-->
-    <!--PAGING TOTAL COUNT-->
-    <select id="selectOneCount" resultType="Integer">
-        SELECT count(*)
-        <include refid="selectCommon" />
-    </select>
-    <!--PAGING TOTAL COUNT-->
-    <!--PAGING TOTAL COUNT-->
 
 
 

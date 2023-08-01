@@ -27,7 +27,7 @@
         <if test="shKey != null and !shKey.equals('')">
             AND codeName LIKE CONCAT('%',#{shKey},'%')
         </if>
-        <if test="optDelNy != null">
+        <if test="optDelNy != null and !optDelNy.equals('')">
             AND delNy = #{optDelNy}
         </if>
     </sql>

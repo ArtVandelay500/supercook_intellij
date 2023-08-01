@@ -132,8 +132,7 @@
             $("input:hidden[name=thisPage]").val(thisPage - 1);
             $("form[name=search]").attr("action", "/ingGroupList/list").submit();
         }else{
-            console.log("function 3rd");
-            $("input:hidden[name=thisPage]").val(2);
+            $("input:hidden[name=thisPage]").val(thisPage);
             $("form[name=search]").attr("action", "/ingGroupList/list").submit();
 
         }
@@ -141,5 +140,5 @@
     <%--pagination js function--%>
     <%--pagination js function--%>
 </script>
-
+<html>
 

@@ -27,30 +27,8 @@ public class CodeGroupController {
 //MAIN SELECTLIST FUNCTION
     @RequestMapping("/codeGroupList/list")
     public String selectList(@ModelAttribute("vo")CodeGroupVo vo, Model model){
-        /*if the searchInput is empty we set "x"*/
-//        vo.setShKey(vo.getShKey() == null ? "x" : vo.getShKey());
-        /*if the searchInput is empty we set "x"*/
-
         vo.setShKey(vo.getShKey() == null ? "" : vo.getShKey());
         vo.setParamsPaging(codeGroupService.selectOneCount(vo));
-//         selectOneCount =  number of rows
-
-//          codeGroupService callback function before PAGINATION
-//          codeGroupService callback function before PAGINATION
-//          codeGroupService callback function before PAGINATION
-
-//        List<CodeGroupDTO> codeGroupDTOList = codeGroupService.selectList(vo);
-//        model.addAttribute("list",codeGroupDTOList);
-
-//          codeGroupService callback function before PAGINATION
-//          codeGroupService callback function before PAGINATION
-//          codeGroupService callback function before PAGINATION
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//          codeGroupService callback function after PAGINATION
-//          codeGroupService callback function after PAGINATION
-//          codeGroupService callback function after PAGINATION
 
         if(vo.getTotalRows() > 0) {
             List<CodeGroupDTO> list = codeGroupService.selectList(vo);
@@ -60,17 +38,9 @@ public class CodeGroupController {
 //			by pass
         }
 
-//          codeGroupService callback function after PAGINATION
-//          codeGroupService callback function after PAGINATION
-//          codeGroupService callback function after PAGINATION
         return "admin/infra/prj_1/codegroup/codeGroupList";
     }
-//MAIN SELECTLIST FUNCTION
-//MAIN SELECTLIST FUNCTION
-//MAIN SELECTLIST FUNCTION
-//MAIN SELECTLIST FUNCTION
-//MAIN SELECTLIST FUNCTION
-//MAIN SELECTLIST FUNCTION
+
     @RequestMapping("/codeGroupForm")
     public String codeGroupForm(CodeGroupVo vo, Model model){
         CodeGroupDTO codeGroupDTO =  codeGroupService.selectOne(vo);
