@@ -23,24 +23,42 @@ import java.util.UUID;
 public class RecipeService {
     private final RecipeRepository recipeRepository;
 
+    /**
+     * @param vo: pagination data
+     * @return: Total number of data rows
+     */
     public int selectOneCount(RecipeVo vo) {
         return recipeRepository.selectOneCount(vo);
     }
 
+    /**
+     * @param vo #{shKey}
+     * @return: Normal Select List from recipe w/ #{shKey}
+     */
     public List<CodeDTO> selectList(RecipeVo vo) {
         return recipeRepository.selectList(vo);
     }
 
+    /**
+     * @param vo: recipe's seq
+     * @return: selecting one set of data matching with the following vo value (seq)
+     */
     public RecipeDTO selectOne(RecipeVo vo) {
         return recipeRepository.selectOne(vo);
     }
+
+    /**
+     * @param dto: required dtos to insert data
+     * @return: insert into recipe and also insert into recipeIngredient using 'last_insert_id' from recipe.
+     */
     public int insert(RecipeDTO dto){
         recipeRepository.insert(dto);
         System.out.println("레시피 seq는:  " + dto.getSeq());
 
         String[] ingredientSeqArray = dto.getIngredient_seqArray();
         String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array
-//        재료 넣기
+
+        //재료 넣기
         for (int i = 0; i < ingredientSeqArray.length; i++) {
             String item = ingredientSeqArray[i];
             String ingredientAmount = ingredientAmountArray[i];
@@ -64,8 +82,8 @@ public class RecipeService {
 
     /**
      *
-     * @param dto 레시피 dto
-     * @return dummy return
+     * @param dto 레시피 dto (seq)
+     * @return: update recipe Table and, delete and re-insert recipeIngredient Array
      */
     public int update(RecipeDTO dto) {
         recipeRepository.update(dto);
@@ -90,11 +108,15 @@ public class RecipeService {
 
             recipeRepository.insertIng(dto);
         }
-
-
         return 1;
     }
 
+
+    /**
+     *
+     * @param vo: recipe's seq
+     * @return: This deletes data from the following: recipe,recipeIngredient and uploadList
+     */
     public int delete(RecipeVo vo) {
         recipeRepository.deleteUpload(vo);
         recipeRepository.delete(vo);
@@ -108,7 +130,16 @@ public class RecipeService {
 
 //RECIPE THUMBNAIL IMAGE UPLOAD
 //RECIPE THUMBNAIL IMAGE UPLOAD
-public void uploadFiles(MultipartFile[] multipartFiles, RecipeDTO dto, String tableName, int type, int maxNumber) throws Exception {
+
+    /**
+     * @param multipartFiles: The golden nugget of this whole process: list of files retrieved from the jsp
+     * @param dto: Recipe's dto and also UploadList's dto
+     * @param tableName: name of the table that would retrieve this data (in this case: uploadList)
+     * @param type: from recipeForm.jsp (whether this is profile/img/file
+     * @param maxNumber: from recipeForm.jsp
+     * @throws Exception: This function requires 'Throw/Exception'
+     */
+    public void uploadFiles(MultipartFile[] multipartFiles, RecipeDTO dto, String tableName, int type, int maxNumber) throws Exception {
 
     for(int i=0; i<multipartFiles.length; i++) {
 
@@ -153,6 +184,10 @@ public void uploadFiles(MultipartFile[] multipartFiles, RecipeDTO dto, String ta
     }
 }
 
+    /**
+     * @param dto: recipe's seq (uploadList's pseq)
+     * @return: returns a set of data macthing with that seq from 'uploadList' table
+     */
     public List<UploadDTO> selectListUpload(RecipeDTO dto) {
         return recipeRepository.selectListUpload(dto);
     }
