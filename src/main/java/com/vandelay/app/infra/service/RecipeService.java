@@ -51,14 +51,18 @@ public class RecipeService {
      * @param dto: required dtos to insert data
      * @return: insert into recipe and also insert into recipeIngredient using 'last_insert_id' from recipe.
      */
-    public int insert(RecipeDTO dto){
+    public int insert(RecipeDTO dto) throws Exception {
+        //Inserting data into 'recipe' table
         recipeRepository.insert(dto);
+        //Inserting data into 'uploadList' table
+        uploadFiles(dto.getUploadImg(), dto, "uploadList", dto.getUploadImgType(), dto.getUploadImgMaxNumber());
+
         System.out.println("레시피 seq는:  " + dto.getSeq());
 
         String[] ingredientSeqArray = dto.getIngredient_seqArray();
         String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array
 
-        //재료 넣기
+        //Inserting data into 'recipeIngredient' table
         for (int i = 0; i < ingredientSeqArray.length; i++) {
             String item = ingredientSeqArray[i];
             String ingredientAmount = ingredientAmountArray[i];
@@ -71,10 +75,8 @@ public class RecipeService {
             // Assuming you have a method to set ingredientAmount in your DTO
             dto.setIngredient_seq(item);
             dto.setIngredientAmount(ingredientAmount);
-
             recipeRepository.insertIng(dto);
         }
-
         return 1;
 
     }
@@ -85,10 +87,16 @@ public class RecipeService {
      * @param dto 레시피 dto (seq)
      * @return: update recipe Table and, delete and re-insert recipeIngredient Array
      */
-    public int update(RecipeDTO dto) {
+    public int update(RecipeDTO dto) throws Exception {
         recipeRepository.update(dto);
-        //Deleting pre-exisitng list of IngredientArray to overwrite with new Insert
+
+        //Deleting pre-existing list of IngredientArray to overwrite with new Insert
         recipeRepository.deleteUpdate(dto);
+
+        //Deleting pre-existing list of uploadLOst to overwrite with new Insert
+        recipeRepository.deleteUpload(dto);
+        //Inserting data into 'uploadList'
+        uploadFiles(dto.getUploadImg(), dto, "uploadList", dto.getUploadImgType(), dto.getUploadImgMaxNumber());
 
         String[] ingredientSeqArray = dto.getIngredient_seqArray();
         String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array
@@ -114,12 +122,12 @@ public class RecipeService {
 
     /**
      *
-     * @param vo: recipe's seq
+     * @param dto: recipe's seq
      * @return: This deletes data from the following: recipe,recipeIngredient and uploadList
      */
-    public int delete(RecipeVo vo) {
-        recipeRepository.deleteUpload(vo);
-        recipeRepository.delete(vo);
+    public int delete(RecipeDTO dto) {
+        recipeRepository.deleteUpload(dto);
+        recipeRepository.delete(dto);
         return 1;
     }
 

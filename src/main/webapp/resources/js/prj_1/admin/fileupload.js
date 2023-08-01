@@ -103,7 +103,7 @@ addEventListenerCustom = function (objName, type, i, file, filePreview, maxNumbe
         var divImage = "";
         divImage += '<div id="imgDiv_'+type+'_'+ sort +'" style="display: inline-block; height: 95px;">';
         divImage += '	<img style="object-fit: cover" src="'+ imageFile.result +'" class="rounded" width= "85px" height="85px">';
-        divImage += '	<div style="position: relative; top:-85px; left:5px"><div class="closeBox lefty"><span class="material-symbols-outlined" cursor:pointer;" onClick="delImgDiv(0,' + type +','+ sort +')">close</span></div></div>';
+        divImage += '	<div style="position: relative; top:-85px; left:5px"><div class="closeBox lefty"><span class="material-symbols-outlined" style="cursor:pointer;" onClick="delImgDiv(0,' + type +','+ sort +')">close</span></div></div>';
         divImage += '</div> ';
 
         // divImage.css({border: "1px dotted black"});

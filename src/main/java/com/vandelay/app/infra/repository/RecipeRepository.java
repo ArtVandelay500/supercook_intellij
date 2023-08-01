@@ -64,11 +64,11 @@ public class RecipeRepository {
     public int deleteUpdate(RecipeDTO dto){
         return sqlSession.delete("Recipe.deleteList",dto);
     }
-    public int delete(RecipeVo vo) {
-        sqlSession.delete("Recipe.deleteList",vo);
-        return sqlSession.delete("Recipe.delete", vo);
+    public int delete(RecipeDTO dto) {
+        sqlSession.delete("Recipe.deleteList",dto);
+        return sqlSession.delete("Recipe.delete", dto);
     }
-    public int deleteUpload(RecipeVo vo) {
-        return sqlSession.delete("Recipe.deleteUpload",vo);
+    public int deleteUpload(RecipeDTO dto) {
+        return sqlSession.delete("Recipe.deleteUpload",dto);
     }
 }

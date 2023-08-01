@@ -22,9 +22,6 @@
         recipeMethod,
         recipeType,
         recipeIng,
-        imgPath,
-        imgUuid,
-        imgName,
         useNy
     </sql>
     <sql id="selectCommon">
@@ -84,6 +81,21 @@
 
     </select>
 
+    <!--SELECTING FROM recipe WHILE LEFTJOIN uploadList-->
+    <select id="selectListUpload" resultType="recipe">
+        SELECT
+            a.seq,
+            b.path,
+            b.uuidName,
+            b.sort,
+            b.type
+        FROM
+            recipe AS a
+        LEFT JOIN uploadList AS b ON b.pseq = a.seq
+        WHERE 1=1
+            AND a.seq = #{seq}
+            AND b.path LIKE CONCAT('%recipedto%')
+    </select>
 
 
 
@@ -100,9 +112,6 @@
             recipeMethod = #{recipeMethod},
             recipeType = #{recipeType},
             recipeIng = #{recipeIng},
-            imgPath = #{imgPath},
-            imgUuid = #{imgUuid},
-            imgName = #{imgName},
             useNy = #{useNy}
         WHERE
             seq = #{seq}
@@ -122,9 +131,6 @@
             recipeMethod,
             recipeType,
             recipeIng,
-            imgPath,
-            imgUuid,
-            imgName,
             useNy
             )
         VALUES(
@@ -138,9 +144,6 @@
             #{recipeMethod},
             #{recipeType},
             #{recipeIng},
-            #{imgPath},
-            #{imgUuid},
-            #{imgName},
             '1'
             )
 

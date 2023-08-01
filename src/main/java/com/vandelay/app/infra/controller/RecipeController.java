@@ -1,9 +1,6 @@
 package com.vandelay.app.infra.controller;
 
-import com.vandelay.app.infra.dto.CodeDTO;
-import com.vandelay.app.infra.dto.IngDTO;
-import com.vandelay.app.infra.dto.IngGroupDTO;
-import com.vandelay.app.infra.dto.RecipeDTO;
+import com.vandelay.app.infra.dto.*;
 import com.vandelay.app.infra.service.CodeService;
 import com.vandelay.app.infra.service.IngService;
 import com.vandelay.app.infra.service.RecipeService;
@@ -48,16 +45,20 @@ public class RecipeController {
     }
 
     @RequestMapping("/recipeForm")
-    public String recipeForm(RecipeVo vo, Model model){
+    public String recipeForm(RecipeDTO dto,RecipeVo vo, Model model){
         RecipeDTO recipeDTO = recipeService.selectOne(vo);
         model.addAttribute("item" ,recipeDTO);
-        System.out.println(model.getAttribute("item"));
+
+        //SELECT data FROM uploadList WHERE pseq = #{seq}
+        List<UploadDTO> uploadList = recipeService.selectListUpload(dto);
+        model.addAttribute("listUploaded",uploadList);
+
         return "admin/infra/prj_1/recipe/recipeForm";
     }
 
 
     @RequestMapping("/recipeForm/insert")
-    public String insert(RecipeDTO dto){
+    public String insert(RecipeDTO dto) throws Exception {
         /**
          * split the String of texts by comma and Set those into Array
          */
@@ -69,15 +70,15 @@ public class RecipeController {
     }
 
     @RequestMapping("/recipeForm/update")
-    public String update(RecipeDTO dto){
+    public String update(RecipeDTO dto) throws Exception {
         dto.setIngredient_seqArray(dto.getIngredient_seq().split(","));
         dto.setIngredientAmountArray(dto.getIngredientAmount().split(","));
         recipeService.update(dto);
         return "redirect:/recipeList/list";
     }
     @RequestMapping("/recipeForm/delete")
-    public String delete(RecipeVo vo){
-        recipeService.delete(vo);
+    public String delete(RecipeDTO dto){
+        recipeService.delete(dto);
         return "redirect:/recipeList/list";
     }
 

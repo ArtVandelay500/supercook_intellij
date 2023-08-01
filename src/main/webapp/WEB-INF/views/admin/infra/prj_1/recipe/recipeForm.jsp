@@ -33,7 +33,7 @@
                         </div>
                         <div class="tableBox_form">
 
-                            <form class="row g-4" name="insertForm" enctype="multipart/form-data">
+                            <form class="row g-4" name="insertForm" method="post" enctype="multipart/form-data">
 
                                 <div class="row mb-3">
                                     <div class="col-md-4">
@@ -180,7 +180,7 @@
                             </div>
                         </div>
                         <div class="tableBox_form">
-                            <form class="row g-4" name="updateForm" enctype="multipart/form-data">
+                            <form class="row g-4" method="post" name="updateForm" enctype="multipart/form-data">
                                 <input type="hidden" name="seq" value="<c:out value="${item.seq}"/>"/>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
@@ -258,7 +258,7 @@
                                                     <c:if test="${listUploaded.type eq type }">
                                                         <div id="imgDiv_<c:out value="${type }"/>_<c:out value="${listUploaded.sort }"/>" style="display: inline-block; height: 95px;">
                                                             <img src="<c:out value="${listUploaded.path }"/><c:out value="${listUploaded.uuidName }"/>" class="rounded" width= "85px" height="85px" style="cursor:pointer;" onClick="openViewer(<c:out value="${listUploaded.type }"/>, <c:out value="${listUploaded. sort }"/>);">
-                                                            <div style="position: relative; top:-85px; left:5px"><span style="color: red; cursor:pointer;" onClick="delImgDiv('<c:out value="${name }"/>', <c:out value="${type }"/>,<c:out value="${listUploaded.sort }"/>, <c:out value="${listUploaded.seq }"/>, '<c:out value="${listUploaded.path }"/><c:out value="${listUploaded.uuidName }"/>')">X</span></div>
+                                                            <div style="position: relative; top:-85px; left:5px"><div class="closeBox lefty"><span class="material-symbols-outlined" style="cursor:pointer;" onClick="delImgDiv('<c:out value="${name }"/>', <c:out value="${type }"/>,<c:out value="${listUploaded.sort }"/>, <c:out value="${listUploaded.seq }"/>, '<c:out value="${listUploaded.path }"/><c:out value="${listUploaded.uuidName }"/>')">close</span></div></div>
                                                         </div>
                                                     </c:if>
                                                 </c:forEach>
