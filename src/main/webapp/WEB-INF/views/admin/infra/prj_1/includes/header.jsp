@@ -44,11 +44,18 @@
 
             <c:choose>
                 <c:when test="${not empty sessionId }">
-                    <div onclick="logOut()" class="outBtn">
-                        <span class="material-symbols-outlined">power_settings_new</span>
+                    <%--Profile Picture--%>
+                    <%--Profile Picture--%>
+
+                    <div class="dropdown">
+                        <a id="headerProfile" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img style="object-fit: cover; align-self: center" id="uploadImgProfilePreview" src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>" class="rounded-circle d-block" width="68" height="68">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" onclick="logOut()">로그아웃</a></li>
+                            <li><a class="dropdown-item" onclick="location.href='/memberForm?seq=<c:out value='${sessionSeq}'/>'">내 정보</a></li>
+                        </ul>
                     </div>
-                    <%--Profile Picture--%>
-                    <%--Profile Picture--%>
 
                 </c:when>
                 <c:otherwise>

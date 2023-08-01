@@ -54,7 +54,6 @@ public class MemberController {
     @RequestMapping("/memberForm/insert")
     public String memberInsert(MemberDTO dto) throws Exception {
         memberService.insert(dto);
-        System.out.println("hey at least we are here!");
         return "redirect:/member/list";
     }
 
@@ -108,8 +107,12 @@ public class MemberController {
         if(rtMemberDTO != null){
             httpSession.setMaxInactiveInterval(60*60);
             httpSession.setAttribute("sessionId",vo.getEmail());
+            httpSession.setAttribute("sessionProfilePath",rtMemberDTO.getPath());
+            httpSession.setAttribute("sessionProfileName",rtMemberDTO.getUuidName());
+            httpSession.setAttribute("sessionSeq",rtMemberDTO.getSeq());
             returnMap.put("rtMemberDTO",rtMemberDTO);
-
+            System.out.println(rtMemberDTO.getSeq());
+            System.out.println(rtMemberDTO.getUuidName());
             returnMap.put("rt","success");
         }else{
             returnMap.put("rt","fail");

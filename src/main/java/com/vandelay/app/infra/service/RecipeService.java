@@ -1,15 +1,22 @@
 package com.vandelay.app.infra.service;
 
+import com.vandelay.app.controller.Constants;
+import com.vandelay.app.controller.UtilDateTime;
 import com.vandelay.app.infra.dto.CodeDTO;
+import com.vandelay.app.infra.dto.MemberDTO;
 import com.vandelay.app.infra.dto.RecipeDTO;
+import com.vandelay.app.infra.dto.UploadDTO;
 import com.vandelay.app.infra.repository.RecipeRepository;
 import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -62,6 +69,7 @@ public class RecipeService {
      */
     public int update(RecipeDTO dto) {
         recipeRepository.update(dto);
+        //Deleting pre-exisitng list of IngredientArray to overwrite with new Insert
         recipeRepository.deleteUpdate(dto);
 
         String[] ingredientSeqArray = dto.getIngredient_seqArray();
@@ -96,13 +104,64 @@ public class RecipeService {
     }
 
 
-//    public void insertIng(String[] ingArray) {
-//        // Your logic to handle the array in the service method
-//        for (String item : ingArray) {
-//            recipeRepository.insertIng(item);
-//            // Perform any other operations on the array elements
-//        }
-//    }
+//RECIPE THUMBNAIL IMAGE UPLOAD
+//RECIPE THUMBNAIL IMAGE UPLOAD
+public void uploadFiles(MultipartFile[] multipartFiles, RecipeDTO dto, String tableName, int type, int maxNumber) throws Exception {
+
+    for(int i=0; i<multipartFiles.length; i++) {
+
+        if(!multipartFiles[i].isEmpty()) {
+
+            String className = dto.getClass().getSimpleName().toString().toLowerCase();
+            String fileName = multipartFiles[i].getOriginalFilename();
+            String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+            String uuid = UUID.randomUUID().toString();
+            String uuidFileName = uuid + "." + ext;
+            String pathModule = className;
+            String nowString = UtilDateTime.nowString();
+            String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
+            String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
+//          String path = Constants.UPLOAD_PATH_PREFIX  + "/";
+            String pathForView = Constants.UPLOAD_PATH_PREFIX_FOR_VIEW + "/" + pathModule + "/" + pathDate + "/";
+
+            File uploadPath = new File(path);
+
+            if (!uploadPath.exists()) {
+                uploadPath.mkdirs();
+            } else {
+                // by pass
+            }
+
+            multipartFiles[i].transferTo(new File(path + uuidFileName));
+
+            dto.setPath(pathForView);
+            dto.setOriginalName(fileName);
+            dto.setUuidName(uuidFileName);
+            dto.setExt(ext);
+            dto.setSize(multipartFiles[i].getSize());
+
+            dto.setTableName(tableName);
+            dto.setType(type);
+            dto.setDefaultNy(dto.getDefaultNy());
+            dto.setSort(maxNumber + i);
+            dto.setPseq(dto.getSeq());
+
+            recipeRepository.insertUploaded(dto);
+        }
+    }
+}
+
+    public List<UploadDTO> selectListUpload(RecipeDTO dto) {
+        return recipeRepository.selectListUpload(dto);
+    }
+//RECIPE THUMBNAIL IMAGE UPLOAD
+//RECIPE THUMBNAIL IMAGE UPLOAD
+
+
+
+
+
+
 
 
 

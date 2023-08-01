@@ -183,7 +183,7 @@
                                         <input type="text" class="form-control" id="email" name="email" value="<c:out value="${item.email}"/>" >
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="row mb-3 ">
                                     <div class="col-md-4">
                                         <label for="pwd" class="form-label">비밀번호</label>
                                         <input type="text" class="form-control" id="pwd" name="pwd" value="<c:out value="${item.pwd}"/>" >

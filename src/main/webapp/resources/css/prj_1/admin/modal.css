@@ -360,7 +360,10 @@ select[name='delNy']{
     right: -9px;
     cursor: pointer;
 }
-
+.lefty{
+    right: 1px;
+    top: -3px;
+}
 
 /*@@@@@@@@@@@@@@ CodeGroupList Table  CSS @@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@ CodeGroupList Table  CSS @@@@@@@@@@@@@@*/

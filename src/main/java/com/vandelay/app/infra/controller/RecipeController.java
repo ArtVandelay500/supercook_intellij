@@ -58,24 +58,13 @@ public class RecipeController {
 
     @RequestMapping("/recipeForm/insert")
     public String insert(RecipeDTO dto){
+        /**
+         * split the String of texts by comma and Set those into Array
+         */
         dto.setIngredient_seqArray(dto.getIngredient_seq().split(","));
         dto.setIngredientAmountArray(dto.getIngredientAmount().split(","));
-        recipeService.insert(dto);
-
-        //multi-insert as many as the number of the ingredient items
-        for (String item : dto.getIngredient_seqArray()) {
-            System.out.println("#########################");
-            System.out.println(item);
-            System.out.println("#########################");
-        }
-
         // Insert the ingredient_seq items using the modified insertIng method
-//        recipeService.insertIng(dto.getIngredient_seqArray());
-
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        System.out.println(dto);
-        System.out.println(dto.getIngredient_seqArray());
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        recipeService.insert(dto);
         return "redirect:/recipeList/list";
     }
 

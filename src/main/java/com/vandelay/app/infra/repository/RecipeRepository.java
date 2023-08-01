@@ -2,6 +2,7 @@ package com.vandelay.app.infra.repository;
 
 import com.vandelay.app.infra.dto.CodeDTO;
 import com.vandelay.app.infra.dto.RecipeDTO;
+import com.vandelay.app.infra.dto.UploadDTO;
 import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -54,4 +55,12 @@ public class RecipeRepository {
     }
 
 
+    public int insertUploaded(RecipeDTO dto) {
+        return sqlSession.insert("Recipe.insertUploaded",dto);
+    }
+
+    public List<UploadDTO> selectListUpload(RecipeDTO dto) {
+        return sqlSession.selectList("Recipe.selectListUpload",dto);
+
+    }
 }

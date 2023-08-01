@@ -13,16 +13,18 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="bb64d47c-098f-42f6-8592-f9a678c2014b">
-      <console name="Connection" type="STANDARD" schema="vandelay_db" session="Main"><![CDATA[use vandelay_db;
- SELECT
-        a.seq,
-        a.name AS codeName,
-        a.ingredient_seq,
-        a.useNy,
-        b.name
-        FROM
-            ingredient AS a
-        LEFT JOIN ingredientGroup AS b ON b.seq = a.ingredient_seq]]></console>
+      <console name="Connection" type="STANDARD" schema="vandelay_db" session="Main"><![CDATA[SELECT
+    a.seq,
+    a.email,
+    a.pwd,
+    b.path,
+    b.uuidName
+FROM
+    member AS a
+LEFT JOIN uploadList AS b ON b.pseq = a.seq
+WHERE 1=1
+    AND a.email = 'adminXX@gmail.com'
+    AND a.pwd = 'password']]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

@@ -38,4 +38,22 @@ public class RecipeDTO {
     private String[] uploadImgDeleteSeq;
     private String[] uploadImgDeletePathFile;
 
-}
+
+    //RECIPE IMG DTO
+    //RECIPE IMG DTO
+    private String tableName;
+    private Integer type;
+    private Integer defaultNy;
+    private Integer sort;
+    private String path;
+    private String originalName;
+    private String uuidName;
+    private String ext;
+    private long size;
+    private String pseq;
+    //RECIPE IMG DTO
+    //RECIPE IMG DTO
+
+
+
+}//END OF RECIPE DTO

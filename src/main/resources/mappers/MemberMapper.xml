@@ -41,12 +41,17 @@
     <!--LOGIN SESSION-->
     <select id="loginCheck" resultType="member">
         SELECT
-            <include refid="selectField"/>
+            a.seq,
+            a.email,
+            a.pwd,
+            b.path,
+            b.uuidName
         FROM
-            member
-        WHERE 1+1
-            AND email = #{email}
-            AND pwd = #{pwd}
+            member AS a
+        LEFT JOIN uploadList AS b ON b.pseq = a.seq
+        WHERE 1=1
+            AND a.email = #{email}
+            AND a.pwd = #{pwd}
     </select>
     <!--LOGIN SESSION-->
     <!--SIGNUP ID CHECK-->

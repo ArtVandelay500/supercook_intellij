@@ -178,7 +178,13 @@ header{
     object-fit: cover;
     transition: all .3s ease-in-out;
 }
-
+#headerProfile>img:hover{
+    transform: scale(1.1);
+    opacity:.85;
+}
+#headerProfile>img{
+    transition: all .3s ease-in-out;
+}
 
 /*메인 로고에 써있는 '관리자' css*/
 .adminTitle{
