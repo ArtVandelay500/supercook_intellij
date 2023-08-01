@@ -107,7 +107,10 @@
         DELETE FROM member WHERE seq = #{seq}
     </delete>
     <delete id="deleteUpload">
-        DELETE FROM uploadList WHERE pseq = #{seq}
+        DELETE FROM uploadList
+        WHERE 1=1
+            AND pseq = #{seq}
+            AND path LIKE CONCAT('%memberdto%')
     </delete>
 
     <!-- uploaded s -->

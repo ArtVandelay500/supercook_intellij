@@ -96,7 +96,9 @@ public class RecipeService {
     }
 
     public int delete(RecipeVo vo) {
-        return recipeRepository.delete(vo);
+        recipeRepository.deleteUpload(vo);
+        recipeRepository.delete(vo);
+        return 1;
     }
 
     public List<RecipeDTO> selectIngList(RecipeDTO dto) {

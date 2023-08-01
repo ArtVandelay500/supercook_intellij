@@ -161,15 +161,58 @@
         )
     </insert>
 
+    <!-- uploaded s -->
+    <insert id="insertUploaded">
+        INSERT INTO ${tableName} (
+            type
+            ,defaultNy
+            ,path
+            ,originalName
+            ,uuidName
+            ,ext
+            ,size
+            ,sort
+            ,delNy
+            ,pseq
+        ) values (
+            #{type}
+            ,#{defaultNy}
+            ,#{path}
+            ,#{originalName}
+            ,#{uuidName}
+            ,#{ext}
+            ,#{size}
+            ,#{sort}
+            ,0
+            ,#{pseq}
+        )
+    </insert>
+
+
+
 
 <!--deleting from recipe table and recipeList table-->
 <!--deleting from recipe table and recipeList table-->
+
     <delete id="delete">
         DELETE FROM recipe WHERE seq = #{seq}
     </delete>
+
+<!--deleting from recipeIngredient List -->
     <delete id="deleteList">
         DELETE FROM recipeIngredient WHERE recipe_seq = #{seq}
     </delete>
+<!--deleting from recipeIngredient List -->
+
+<!--deleting from uploadList-->
+    <delete id="deleteUpload">
+        DELETE FROM uploadList
+        WHERE 1=1
+        AND pseq = #{seq}
+        AND path LIKE CONCAT('%recipedto%')
+    </delete>
+<!--deleting from uploadList-->
+
 <!--deleting from recipe table and recipeList table-->
 <!--deleting from recipe table and recipeList table-->
 
