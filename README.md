@@ -30,12 +30,6 @@
 <br>
 
 
-<br>
-<div align=center>
-<p>🏆 Baekjoon solved rank 🏆</p>
-	
-[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=ArtVandelay500)](https://solved.ac/ArtVandelay500)
-</div>
-<br>
 
-![](./profile-3d-contrib/profile-season-animate.svg)
+
+[!](./profile-3d-contrib/profile-season-animate.svg)
