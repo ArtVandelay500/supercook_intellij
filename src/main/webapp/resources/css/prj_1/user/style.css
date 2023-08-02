@@ -7,17 +7,14 @@
 /*HTML Body*/
 *{
 }
-
 html,body{
     width: 100%;
     height: 100%;
-}
-html{
     overflow: hidden;
 }
 body{
-    overflow: auto;
     letter-spacing: -2px;
+
 }
 
 /*HTML Body*/
@@ -35,18 +32,144 @@ body{
 }
 /*CONTAINER*/
 
-/*SUBCONTAINER 1/2 of CONTAINER*/
-.sub_container{
-    width: 50%;
-    height:94vh;
-}
-/*SUBCONTAINER 1/2 of CONTAINER*/
+
 
 /*SEARCH BOX*/
 /*SEARCH BOX*/
 .srch_box{
-    background-color: purple;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    background-color: whitesmoke;
+    height:94vh;
 }
+form{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+input,
+span,
+label
+{
+    font-family: 'Ubuntu', sans-serif;
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    font-size: 22px;
+}
+
+input:focus {
+    outline: 0;
+}
+/* Question */
+
+input.question{
+    font-size: 48px;
+    font-weight: 300;
+    border-radius: 2px;
+    margin: 0;
+    border: none;
+    width: 80%;
+    background: rgba(0, 0, 0, 0);
+    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+}
+/* Underline and Placeholder */
+
+input.question + label{
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    width: 10%;
+    border-top: 1px solid red;
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 0px;
+}
+
+input.question:focus + label{
+    width: 80%;
+}
+
+input.question:focus,
+input.question:valid {
+    padding-top: 35px;
+}
+
+input.question:focus + label > span,
+input.question:valid + label > span {
+    top: -100px;
+    font-size: 22px;
+    color: #333;
+}
+
+input.question:valid + label{
+    border-color: green;
+}
+
+input.question:invalid{
+    box-shadow: none;
+}
+
+input.question + label > span{
+    font-weight: 300;
+    margin: 0;
+    position: absolute;
+    color: #8F8F8F;
+    font-size: 48px;
+    top: -66px;
+    left: 0px;
+    z-index: 0;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+input[type="submit"] {
+    -webkit-transition: opacity 0.2s ease, background 0.2s ease;
+    transition: opacity 0.2s ease, background 0.2s ease;
+    display: flex;
+    opacity: 0;
+    text-align: center;
+    background-color: indianred;
+    border-radius: 10px;
+    margin: 10px 0 0 0;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #EEE;
+}
+
+input[type="submit"]:active {
+    background: #999;
+}
+
+input.question:valid ~ input[type="submit"]{
+    -webkit-animation: appear 1s forwards;
+    animation: appear 1s forwards;
+}
+
+input.question:invalid ~ input[type="submit"]{
+    display: none;
+}
+
+@-webkit-keyframes appear { 100% {opacity: 1;} }
+
+@keyframes appear { 100% {opacity: 1;} }
+
 /*SEARCH BOX*/
 /*SEARCH BOX*/
 
@@ -54,182 +177,38 @@ body{
 /*RECIPE BOX*/
 /*RECIPE BOX*/
 .recipe_box{
-    background-color: blue;
+    padding: 30px;
+    box-sizing: border-box;
+    width:70%;
+    background-color: #a8a8c5;
+    height:94vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+}
+.resultInfo{
+
+}
+
+.resultBox{
+    width: 100%;
+    height: 700px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow-y:scroll;
+    background-color: red;
+}
+.result{
+    width: 100%;
 }
 /*RECIPE BOX*/
 /*RECIPE BOX*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 
-.wrap {
-    width:100%;
-    height:auto;
-}
-
-/* 기본 CSS 설정 */
-body { font-family: "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", Ngothic, sans-serif; font-size:1em; }
-* { box-sizing: border-box; margin:0; }
-div { display:inline-block; width:auto; height:auto; }
-
-/* 화면 전체를 감싸는 박스 */
-.wrap {
-    position:relative;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    overflow:hidden;
-}
-
-/* 라디오 인풋을 이용했으며 인풋에 라벨을 이어 버튼으로 사용하므로 인풋 자체는 보여질 필요가 없음, 인풋 자체는 보이지 않게 가림 */
-input.button {
-    display:none;
-}
-
-/* 라디오 인풋에 체크가 되면, 인접한 .contents 상자를 보이게 함 */
-input[type=radio]:checked + .contents {
-    visibility: visible;
-    max-height:500px;
-    -webkit-transform: scale(1,1);
-    -ms-transform: scale(1,1);
-    transform:scale(1,1);
-    opacity:1;
-}
-/* 라디오 인풋, 모두 닫는 버튼 */
-.closer {
-    position:absolute;
-    top:0;
-    right:0;
-    display:inline-block;
-    width:50px;
-    height:50px;
-    line-height:50px;
-    background:#ADB4B0;
-    text-align:center;
-    font-family:"Arial Black";
-    font-size:25px;
-    color:#fff;
-    -moz-box-shadow:1px 1px 3px 5px rgba(0,0,0,0.02);
-    -webkit-box-shadow:1px 1px 3px 5px rgba(0,0,0,0.02);
-    box-shadow:1px 1px 3px 5px rgba(0,0,0,0.02);
-    cursor:pointer;
-}
-
-/* 닫기 버튼 애니메이션 효과, 삭제시 기능상 무방함 */
-input[type=radio].close:checked + .closer {
-    transform:translate(0,-100%);
-    -webkit-transition:transform .2s ease;
-    transition:transform .2s ease;
-}
-input[type=radio].close:not(:checked) + .closer {
-    transform:translate(0,0);
-    -webkit-transition:transform .2s ease;
-    transition:transform .2s ease;
-}
-
-/* 메뉴 버튼 디자인 */
-.label {
-    height:50px;
-    line-height:50px;
-    width:100%;
-    display:inline-block;
-    float:left;
-    overflow:hidden;
-    cursor:pointer;
-}
-/*  메뉴 버튼에 들어갈 아이콘을 100px * 100px, 투명한 PNG 로 저장하여 아래의 경로에 연동해주면 됨
-    위쪽 코드 .label.a 부터 맨 아래코드 .label.e 까지가 메뉴버튼 오른쪽-> 왼쪽 순서 */
-.label.a {
-    background:#2E97B7;
-}
-.label.b {
-    background:#32B9BE;
-}
-.label.c {
-    background:#5BCEBF;
-}
-.label.d {
-    background:#74DCB9;
-}
-.label.e {
-    background:#94DCB9;
-}
-.label .rotate {
-    display:inline-block;
-}
-.label .rotate p {
-    position:relative;
-    font-size:1.5em;
-    white-space: nowrap;
-    left:40%;
-    font-family: "arial";
-    font-weight:600;
-    color:#fff;
-}
-
-/* 컨텐츠 본문 */
-.contents {
-    position:relative;
-    visibility: collapse;
-    float:left;
-    height:auto;
-    width:100%;
-    -webkit-transform: scale(1,0);
-    -ms-transform: scale(1,0);
-    transform:scale(1,0);
-    -ms-transform-origin:top;
-    -webkit-transform-origin:top;
-    transform-origin:top;
-    max-height:0;
-    -webkit-transition:transform 0.2s ease-out, opacity 0.2s ease-out, max-height 0.1s ease-out;
-    transition:transform 0.2s ease-out, opacity 0.2s ease-out, max-height 0.1s ease-out;
-    opacity:0;
-    z-index:-1;
-    overflow:hidden;
-    background: -moz-linear-gradient(-45deg, rgba(46,151,183,0.4) 0%, rgba(164,220,185,0.9) 100%);
-    background: -webkit-linear-gradient(-45deg, rgba(46,151,183,0.4) 0%, rgba(164,220,185,0.9) 100%);
-    background: linear-gradient(135deg, rgba(46,151,183,0.4) 0%, rgba(164,220,185,0.9) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66c0c60a', endColorstr='#59007c33',GradientType=1 );
-}
-.inner {
-    display: table;
-    width:340px;
-    height:100%;
-    margin:30px auto;
-    -moz-box-shadow:0px 0px 3px 3px rgba(0,0,0,0.05);
-    -webkit-box-shadow:0px 0px 3px 3px rgba(0,0,0,0.05);
-    box-shadow:0px 0px 3px 3px rgba(0,0,0,0.05);
-}
-.description {
-    display:table-cell;
-    vertical-align: middle;
-    padding: 5%;
-    background: rgba(0,0,0,0.04);
-}
-.description h3 {
-    width:100%;
-    text-overflow:ellipsis;
-    overflow:hidden;
-    font-size:30px;
-    color:#37a4ab;
-    line-height:1;
-    margin:0;
-    text-shadow: rgb(36, 127, 132) 2px 2px 0px;
-    margin-bottom:10px;
-}
-.description h3::first-letter {
-    font-size:50px;
-    color:#0f848c;
-}
-.description p {
-    font-size:19px;
-    line-height:1.7;
-    font-weight:600;
-    color:#4e6b61;
-    padding-left: 20px;
-    overflow:auto;
-    letter-spacing:-1px;
-}
