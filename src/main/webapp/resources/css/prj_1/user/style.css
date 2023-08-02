@@ -1,5 +1,33 @@
 /*RESET*/
 @import url("../../reset.css");
+/*폰트*/
+/*폰트*/
+@font-face {
+    font-family: 'neurimboGothicRegular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/neurimboGothicRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LOTTERIADDAG';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIADDAG.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TTTtangsbudaejjigaeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EF_cucumbersalad';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_cucumbersalad.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/*폰트*/
+/*폰트*/
 
 /*HTML Body*/
 /*HTML Body*/
@@ -59,7 +87,7 @@ input,
 span,
 label
 {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'EF_cucumbersalad';
     display: block;
     margin: 10px;
     padding: 5px;
@@ -219,6 +247,166 @@ input.question:invalid ~ input[type="submit"]{
 /*RECIPE BOX*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+.transition, ul li i:before, ul li i:after, p {
+    transition: all 0.25s ease-in-out;
+}
+
+.flipIn, ul li, h1 {
+    animation: flipdown 0.5s ease both;
+}
+h1, h2 {
+    color: #ff6873;
+    font-family: 'EF_cucumbersalad';
+    font-weight: 900;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 3px;
+    font-weight: 100;
+}
+
+h2 {
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: block;
+    background-color: #fefffa;
+    margin: 0;
+    cursor: pointer;
+}
+
+p {
+    color: rgba(48, 69, 92, 0.8);
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    max-height: 800px;
+    opacity: 1;
+    transform: translate(0, 0);
+    margin-top: 14px;
+    z-index: 2;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 0!important;
+    margin: 0;
+}
+ul li {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 4px;
+    padding-top: 18px;
+    border-top: 1px dotted #dce7eb;
+}
+ul li:nth-of-type(1) {
+    animation-delay: 0.5s;
+}
+ul li:nth-of-type(2) {
+    animation-delay: 0.75s;
+}
+ul li:nth-of-type(3) {
+    animation-delay: 1s;
+}
+ul li:last-of-type {
+    padding-bottom: 0;
+}
+ul li i {
+    position: absolute;
+    transform: translate(-6px, 0);
+    margin-top: 16px;
+    right: 0;
+}
+ul li i:before, ul li i:after {
+    content: "";
+    position: absolute;
+    background-color: #ff6873;
+    width: 3px;
+    height: 9px;
+}
+ul li i:before {
+    transform: translate(-2px, 0) rotate(45deg);
+}
+ul li i:after {
+    transform: translate(2px, 0) rotate(-45deg);
+}
+ul li input[type=checkbox] {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+}
+ul li input[type=checkbox]:checked ~ .imgBox {
+    margin-top: 0;
+    max-height: 0;
+    display: none;
+    transform: translate(0, 50%);
+}
+ul li input[type=checkbox]:checked ~ i:before {
+    transform: translate(2px, 0) rotate(45deg);
+}
+ul li input[type=checkbox]:checked ~ i:after {
+    transform: translate(-2px, 0) rotate(-45deg);
+}
+
+@keyframes flipdown {
+    0% {
+        opacity: 0;
+        transform-origin: top center;
+        transform: rotateX(-90deg);
+    }
+    5% {
+        opacity: 1;
+    }
+    80% {
+        transform: rotateX(8deg);
+    }
+    83% {
+        transform: rotateX(6deg);
+    }
+    92% {
+        transform: rotateX(-3deg);
+    }
+    100% {
+        transform-origin: top center;
+        transform: rotateX(0deg);
+    }
+}
+/*Content*/
+/*Content*/
+/*Content*/
+.imgBoxHover{
+    width: 30%;
+    right: 0;
+
+    position: absolute;
+}
+.imgBoxHover>img{
+    position: static;
+    z-index: 9999;
+    width: 100%;
+    object-fit: cover;
+}
+.imgBox{
+    width: 30%;
+}
+.imgBox>img{
+    width: 100%;
+    object-fit: cover;
+}
+/*Content*/
+/*Content*/
+/*Content*/
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
