@@ -23,7 +23,7 @@ body{
 /*HTML Body*/
 
 /*CONTAINER*/
-.container{
+.hugeContainer{
     padding: 25px;
     box-sizing: border-box;
 }
@@ -189,19 +189,31 @@ input.question:invalid ~ input[type="submit"]{
     border-bottom-right-radius: 10px;
 }
 .resultInfo{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
+.logoBox{
+    width: 30%;
+}
+.logoBox>img{
+    width: 100%;
+    object-fit: cover;
+}
 .resultBox{
     width: 100%;
     height: 700px;
     margin: 20px;
+    padding: 20px 15px;
+    box-sizing: border-box;
     border-radius: 10px;
     overflow-y:scroll;
     background-color: red;
 }
 .result{
     width: 100%;
+    height: 100%;
+    background-color: indianred;
 }
 /*RECIPE BOX*/
 /*RECIPE BOX*/
