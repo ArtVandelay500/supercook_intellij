@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UploadDTO {
     private String seq;
     private Integer type;
+    private Integer sort;
     private String defaultNy;
     private String path;
     private String originalName;
