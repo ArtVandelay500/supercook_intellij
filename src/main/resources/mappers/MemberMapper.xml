@@ -52,7 +52,7 @@
         WHERE 1=1
             AND a.email = #{email}
             AND a.pwd = #{pwd}
-            AND b.path LIKE CONCAT('%memberdto%')
+            AND (b.path IS NULL OR b.path LIKE CONCAT('%memberdto%'));
     </select>
     <!--LOGIN SESSION-->
     <!--SIGNUP ID CHECK-->
