@@ -29,11 +29,27 @@
 }
 .recipeHeader_imgBox{
     width: 30%;
-    border-radius: 10px;
+    border-radius: 15px;
     margin: 15px;
     overflow: hidden;
 }
 .recipeHeader_imgBox>img{
     width: 100%;
     object-fit: cover;
+}
+.recipeHeader_misc{
+    display: flex;
+    opacity: .6;
+    justify-content: space-around;
+    width: 50%;
+}
+.recipeHeader_misc-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.recipeHeader_misc-item span{
+    display: block;
+    margin: 0;
+    font-weight: 900;
 }
