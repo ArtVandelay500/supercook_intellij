@@ -57,6 +57,8 @@
             <exclude-mapping path="/member/save" />
             <exclude-mapping path="/partyApproved" />
             <exclude-mapping path="/covidTest" />
+            <exclude-mapping path="/rest/codeGroup" />
+            <exclude-mapping path="/rest/codeGroup/insert" />
             <beans:bean id="checkLoginSessionInterception" class="com.vandelay.app.common.interceptor.CheckLoginSessionInterception"/>
         </interceptor>
     </interceptors>

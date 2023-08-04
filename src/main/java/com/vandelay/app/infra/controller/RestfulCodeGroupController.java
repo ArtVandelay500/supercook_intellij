@@ -3,6 +3,7 @@ package com.vandelay.app.infra.controller;
 import com.vandelay.app.infra.dto.CodeGroupDTO;
 import com.vandelay.app.infra.service.CodeGroupService;
 import com.vandelay.app.infra.vo.CodeGroupVo;
+import jdk.jfr.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +27,12 @@ public class RestfulCodeGroupController {
         CodeGroupDTO item = codeGroupService.selectOne(vo);
         return item;
     }
-    @PostMapping("")
-    public String insert(@RequestBody CodeGroupDTO dto){
+    @PostMapping(value = "" )
+    public String insert(CodeGroupDTO dto) throws Exception{
+        System.out.println("heyheyhey");
         codeGroupService.insert(dto);
+        System.out.println(dto.getCodeName());
+        System.out.println(dto.getDelNy());
         return dto.getSeq();
     }
 

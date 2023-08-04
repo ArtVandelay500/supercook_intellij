@@ -1,0 +1,11 @@
+/*When click Accordion, changing the color of the border*/
+.accordion-button:focus {
+    box-shadow: none!important;
+    border-color: rgba(0,0,0,0) !important;
+}
+
+/*Background of the FOCUSED accordion */
+.accordion-button:not(.collapsed){
+    background-color: #ffddd9;
+    color:red;
+}
