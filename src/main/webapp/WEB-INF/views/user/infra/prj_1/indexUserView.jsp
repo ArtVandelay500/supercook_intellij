@@ -45,7 +45,9 @@
                                 <%--레시피 내용 시작--%>
                                     <div class="accordion-body">
                                         <div class="recipeBody">
-                                            <div class="recipeHeader">
+                                            <%--recipeBody_header--%>
+                                            <%--recipeBody_header--%>
+                                            <div class="recipeBody_header">
                                                 <div class="recipeHeader_imgBox"><img src="/resources/img/prj_1/user/부대찌개.jpeg"></div>
                                                 <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>
 
@@ -67,6 +69,24 @@
                                                 </div>
                                                 <%--recipeHeader_misc--%>
                                                 <%--recipeHeader_misc--%>
+                                            </div>
+                                            <%--recipeBody_header--%>
+                                            <%--recipeBody_header--%>
+                                            <hr/>
+                                            <%--recipeBody_body--%>
+                                            <%--recipeBody_body--%>
+                                            <div class="recipeBody_body">
+                                                <div class="recipeBody_body-ingredientList">
+                                                    <div class="ingredientList_head">
+                                                        <h4>재료</h4>
+                                                    </div>
+                                                    <div class="ingredientList_body">
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                                <div class="recipeBody_body-cookingToolList">
+
+                                                </div>
                                             </div>
 
 

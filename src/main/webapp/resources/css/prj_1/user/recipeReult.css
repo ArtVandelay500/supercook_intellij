@@ -21,7 +21,10 @@
     flex-direction: column;
     align-items: center;
 }
-.recipeHeader{
+
+/*RecipeBody HEADER*/
+/*RecipeBody HEADER*/
+.recipeBody_header{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,3 +56,21 @@
     margin: 0;
     font-weight: 900;
 }
+/*RecipeBody HEADER*/
+/*RecipeBody HEADER*/
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+/*RecipeBody BODY*/
+/*RecipeBody BODY*/
+.recipeBody_body{
+    width: 100%;
+}
+recipeBody_body-ingredientList{
+
+}
+.recipeBody_body-cookingToolList{
+
+}
+/*RecipeBody BODY*/
+/*RecipeBody BODY*/
