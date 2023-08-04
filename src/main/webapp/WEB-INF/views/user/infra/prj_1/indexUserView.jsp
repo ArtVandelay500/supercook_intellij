@@ -45,7 +45,10 @@
                                 <%--레시피 내용 시작--%>
                                     <div class="accordion-body">
                                         <div class="recipeBody">
-                                            <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>
+                                            <div class="recipeHeader">
+                                                <div class="recipeHeader_imgBox"><img src="/resources/img/prj_1/user/pepperoni-pizza.jpg"></div>
+                                                <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>
+                                            </div>
 
 
                                         </div>
@@ -88,6 +91,7 @@
                 </div> <%--Result--%>
             </div> <%--ResultBox--%>
         </div> <%--RecipeBox--%>
+
         <%--레시피 검색 결과 부분 끝--%>
         <%--레시피 검색 결과 부분 끝--%>
 
