@@ -19,6 +19,7 @@ public class RecipeDTO {
     private String recipePrepTime;
     private String recipeView;
     private String recipeSource;
+    private String recipeServing;
     private String useNy;
     private String ingredient_seq;
     private String[] ingredient_seqArray;
@@ -37,6 +38,7 @@ public class RecipeDTO {
     private Integer uploadImgMaxNumber;
     private String[] uploadImgDeleteSeq;
     private String[] uploadImgDeletePathFile;
+
 
 
     //RECIPE IMG DTO

@@ -2,29 +2,23 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yummy!</title>
-    <link rel="stylesheet" href="/resources/css/prj_1/user/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/resources/js/jquery-3.6.4.min.js"></script>
-    <script src="/resources/js/prj_1/user/index.js"></script>
-    <script src="/resources/css/prj_1/user/bootstrap.css"></script>
-</head>
+<%@include file="includes/headUser.jsp"%>
 <body>
 <div class="hugeContainer">
     <div class="border_box">
+        <%--검색 부분--%>
+        <%--검색 부분--%>
         <div class="srch_box">
             <form name-="search">
-                <input type="text" name="name" class="question" id="nme" required autocomplete="off" />
-                <label for="nme"><span>Are You Hungry?</span></label>
+                <input type="text" style="line-height: 0;  font-family: 'EF_cucumbersalad';" name="name" class="question" id="nme" required autocomplete="off" />
+                <label for="nme"><span style="font-family: 'EF_cucumbersalad';">Are You Hungry?</span></label>
             </form>
-
         </div>
+        <%--검색 부분--%>
+        <%--검색 부분--%>
+
+        <%--레시피 검색 결과 부분--%>
+        <%--레시피 검색 결과 부분--%>
         <div class="recipe_box">
             <div class="resultInfo">
                 <div class="logoBox">
@@ -35,17 +29,34 @@
                 <div class="result">
                     <%--ACCORDIAN--%>
                     <%--ACCORDIAN--%>
+
+                        <%--아이템 1--%>
+                        <%--아이템 1--%>
+                        <%--아이템 1--%>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Accordion Item #1
+                                        부대찌개
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                                <%--레시피 내용 시작--%>
+                                <%--레시피 내용 시작--%>
+                                    <div class="accordion-body">
+                                        <div class="recipeBody">
+                                            <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>
+
+
+                                        </div>
+                                    </div>
+                                <%--레시피 내용 끝--%>
+                                <%--레시피 내용 끝--%>
                                 </div>
                             </div>
+                            <%--아이템 1--%>
+                            <%--아이템 1--%>
+                            <%--아이템 1--%>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -56,6 +67,7 @@
                                     <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                                 </div>
                             </div>
+
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -70,10 +82,16 @@
 
                     <%--ACCORDIAN--%>
                     <%--ACCORDIAN--%>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
+                </div> <%--Result--%>
+            </div> <%--ResultBox--%>
+        </div> <%--RecipeBox--%>
+        <%--레시피 검색 결과 부분 끝--%>
+        <%--레시피 검색 결과 부분 끝--%>
+
+    </div> <%--BorderBox--%>
+</div> <%--hugeContainer--%>
 </body>
 </html>
