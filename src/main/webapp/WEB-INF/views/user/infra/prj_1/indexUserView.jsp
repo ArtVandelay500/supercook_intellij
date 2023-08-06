@@ -53,38 +53,36 @@
 <%--                                        부대찌개--%>
 <%--                                    </button>--%>
 <%--                                </h2>--%>
-
-
-                                <div id="0a" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+<%--                                <div id="0a" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">--%>
                                 <%--레시피 내용 시작--%>
                                 <%--레시피 내용 시작--%>
                                     <div class="accordion-body">
                                         <div class="recipeBody">
                                             <%--recipeBody_header--%>
                                             <%--recipeBody_header--%>
-                                            <div class="recipeBody_header">
-                                                <div class="recipeHeader_imgBox"><img src="/resources/img/prj_1/user/부대찌개.jpeg"></div>
-                                                <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>
+<%--                                            <div class="recipeBody_header">--%>
+<%--                                                <div class="recipeHeader_imgBox"><img src="/resources/img/prj_1/user/부대찌개.jpeg"></div>--%>
+<%--                                                <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>--%>
 
-                                                <%--recipeHeader_misc--%>
-                                                <%--recipeHeader_misc--%>
-                                                <div class="recipeHeader_misc">
-                                                    <div class="recipeHeader_misc-item recipeHeader_misc-serving">
-                                                        <span class="material-symbols-outlined">group</span>
-                                                        <span>3인분 이상</span>
-                                                    </div>
-                                                    <div class="recipeHeader_misc-item recipeHeader_misc-prepTime">
-                                                        <span class="material-symbols-outlined">alarm</span>
-                                                        <span>60분 이내</span>
-                                                    </div>
-                                                    <div class="recipeHeader_misc-item recipeHeader_misc-difficulty">
-                                                        <span class="material-symbols-outlined">hotel_class</span>
-                                                        <span>중급 이상</span>
-                                                    </div>
-                                                </div>
-                                                <%--recipeHeader_misc--%>
-                                                <%--recipeHeader_misc--%>
-                                            </div>
+<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
+<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
+<%--                                                <div class="recipeHeader_misc">--%>
+<%--                                                    <div class="recipeHeader_misc-item recipeHeader_misc-serving">--%>
+<%--                                                        <span class="material-symbols-outlined">group</span>--%>
+<%--                                                        <span>3인분 이상</span>--%>
+<%--                                                    </div>--%>
+<%--                                                    <div class="recipeHeader_misc-item recipeHeader_misc-prepTime">--%>
+<%--                                                        <span class="material-symbols-outlined">alarm</span>--%>
+<%--                                                        <span>60분 이내</span>--%>
+<%--                                                    </div>--%>
+<%--                                                    <div class="recipeHeader_misc-item recipeHeader_misc-difficulty">--%>
+<%--                                                        <span class="material-symbols-outlined">hotel_class</span>--%>
+<%--                                                        <span>중급 이상</span>--%>
+<%--                                                    </div>--%>
+<%--                                                </div>--%>
+<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
+<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
+<%--                                            </div>--%>
                                             <%--recipeBody_header--%>
                                             <%--recipeBody_header--%>
 
