@@ -24,9 +24,9 @@ public class RecipeController {
 
     /**
      *
-     * @param vo
-     * @param model
-     * @return
+     * @param vo: typed #{shKey} from recipeList' input
+     * @param model: list
+     * @return: list
      */
     @RequestMapping("/recipeList/list")
     public String recipeList(@ModelAttribute("vo") RecipeVo vo, Model model){
@@ -34,7 +34,7 @@ public class RecipeController {
         vo.setParamsPaging(recipeService.selectOneCount(vo));
 
         if(vo.getTotalRows() > 0) {
-            List<CodeDTO> list = recipeService.selectList(vo);
+            List<RecipeDTO> list = recipeService.selectList(vo);
             model.addAttribute("list", list);
 //			model.addAttribute("vo", vo);
         } else {
@@ -193,8 +193,37 @@ public class RecipeController {
     //RecipeForm SELECT OPTION
     //RecipeForm SELECT OPTION
 
+/**
+ * **********************************************************************************************************
+ * **********************************************************************************************************
+ * **********************************************************************************************************
+ * **********************************************************************************************************
+ * **********************************************************************************************************
+ * **********************************************************************************************************
+ * **********************************************************************************************************
+ */
 
+@ResponseBody
+@RequestMapping(value = "/searchRecipe", method = RequestMethod.POST)
+public Map<String, Object> selectListShKey(RecipeVo vo){
+    System.out.println("일단 여기까지");
+    Map<String,Object> returnMap = new HashMap<String,Object>();
+    vo.setResultCnt(recipeService.selectOneCount(vo));
+    List<RecipeDTO> listShKey = recipeService.selectList(vo);
+//    List<IngDTO> ingListShKey = recipeService.selectIngList(vo);
 
+    if(listShKey != null){
+
+        returnMap.put("listShKey",listShKey);
+        returnMap.put("resultCnt",vo.getResultCnt());
+        returnMap.put("shKey",vo.getShKey());
+        returnMap.put("rt","success");
+    }else{
+        returnMap.put("rt","fail");
+    }
+
+    return returnMap;
+}
 
 
 }//END OF THE CONTROLLER

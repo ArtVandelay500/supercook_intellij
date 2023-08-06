@@ -20,7 +20,7 @@ public class RecipeRepository {
      * @param vo: pagination values and #{shKey}
      * @return: Complete list from 'recipe' Table
      */
-    public List<CodeDTO> selectList(RecipeVo vo) {
+    public List<RecipeDTO> selectList(RecipeVo vo) {
         return sqlSession.selectList("Recipe.selectList", vo);
     }
 

@@ -13,6 +13,7 @@ public class RecipeVo {
     private String shKeyTheme;
     private String shKeyTool;
     private String optDelNy;
+    private int resultCnt;
 
 
     private int thisPage = 1;									// 현재 페이지

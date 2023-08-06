@@ -35,7 +35,7 @@ public class RecipeService {
      * @param vo #{shKey}
      * @return: Normal Select List from recipe w/ #{shKey}
      */
-    public List<CodeDTO> selectList(RecipeVo vo) {
+    public List<RecipeDTO> selectList(RecipeVo vo) {
         return recipeRepository.selectList(vo);
     }
 

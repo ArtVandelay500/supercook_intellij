@@ -16,5 +16,6 @@ public class IngDTO {
     private String big_cat;
     private String ingredient_seq;
     private String useNy;
+    private String ingredientAmount;
 
 }
