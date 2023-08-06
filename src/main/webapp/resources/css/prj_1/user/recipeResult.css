@@ -112,7 +112,7 @@ h4,h5,h6{
     padding: 7px;
     white-space: nowrap;
 }
-.ingredientList_body>ul>li>div{
+.ingredientList_body>ul>li>span{
     display: inline;
 }
 .recipeBody_body-cookingToolList{
@@ -140,7 +140,7 @@ h4,h5,h6{
     padding: 7px;
     white-space: nowrap;
 }
-.cookingToolList_body>ul>li>div{
+.cookingToolList_body>ul>li>span{
     display: inline;
 }
 /*RecipeBody BODY*/

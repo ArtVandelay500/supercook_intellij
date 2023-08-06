@@ -45,8 +45,8 @@ $(function(){
                             //Assembling div1
                             div1_h2.append(div1_button);
                             //To the main div
-                            // div1.append(div1_h2);
-                            $(".accordion-item").append(div1_h2);
+
+                            // $(".accordion-item").append(div1_h2);
 
                             //div2
                             const div2 = $("<div>", {
@@ -92,18 +92,77 @@ $(function(){
                                 div5.append(div7);
                             //RecipeHeader
                             //RecipeHeader
+
+                            //RecipeBody
+                            //RecipeBody
                                 const div8 = $("<div>").addClass("recipeBody_body");
+                            //for Loop for ingredients
+                            //for Loop for ingredients
                                 const div8_1 = $("<div>").addClass("ingredientList_head");
                                 const div8_1_h4 = $("<h4>").text("- 재료");
                                 div8_1.append(div8_1_h4);
                                 const div8_2 = $("<div>").addClass("recipeBody_body-ingredientList");
                                 const div8_2_1 = $("<div>").addClass("ingredientList_body");
+                                const div8_2_1_h6_1 = $("<h6>").text("[ 기본재료 ]");
+                                const div8_2_1_h6_2 = $("<h6>").text("[ 양념재료 ]");
+                                const div8_2_1_ul = $("<ul>");
+                                const div8_2_1_li = $("<li>");
+                                const div8_2_1_span = $("<span>").text("");
+                                div8_2_1_li.append(div8_2_1_span);
+                                div8_2_1_ul.append(div8_2_1_li);
+                                div8_2_1.append(div8_2_1_h6_1);
+                                div8_2_1.append(div8_2_1_ul);
+                                div8_2.append(div8_2_1);
+                            //for Loop for ingredients
+                            //for Loop for ingredients
+
+                            //Cooking tools
+                            //Cooking tools
+                                const div8_3 = $("<div>").addClass("ingredientList_head");
+                                const div8_3_h4 = $("<h4>").text("- 재료");
+                                div8_3.append(div8_3_h4);
+                                const div8_4 = $("<div>").addClass("recipeBody_body-cookingToolList");
+                                const div8_4_1 = $("<div>").addClass("cookingToolList_body");
+                                const div8_4_1_ul = $("<ul>");
+                                const div8_4_1_li = $("<li>").text("");
+                                div8_4_1_ul.append(div8_4_1_li);
+                                div8_4_1.append(div8_4_1_ul);
+                                div8_4.append(div8_4_1);
+                            //Cooking tools
+                            //Cooking tools
+                                div8.append(div8_1);
+                                div8.append(div8_2);
+                                div8.append(div8_3);
+                                div8.append(div8_4);
                             //RecipeBody
                             //RecipeBody
 
+                            //RecipeFooter
+                             const div9 = $("<div>").addClass("recipeBody_footer");
+                             const div9_1 = $("<div>").addClass("urlBtn");
+                             const div9_1_button = $("<button>",{
+                                 type : "button",
+                                 class: "btn btn-dark btn-lg",
+                                 text : "레시피 보기",
+                                 onclick: function() {
+                                     // Redirect to the specified URL when the button is clicked
+                                     window.location.href = "https://www.naver.com";
+                                 }
+                             });
 
-                            //RecipeBody
-                            //RecipeBody
+                             div9_1.append(div9_1_button);
+                             div9.append(div9_1);
+                            //RecipeFooter1
+
+                            div4.append(div5);//header
+                            div4.append(div8);//body
+                            div4.append(div9);//footer
+                            div3.append(div4);//footer
+                            div2.append(div3);//footer
+                            div1.append(div1_h2);
+                            div1.append(div2);
+
+
 
 
 
