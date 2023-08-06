@@ -13,7 +13,7 @@
         <%--검색 부분--%>
         <%--검색 부분--%>
         <div class="srch_box">
-            <form name-="search">
+            <form name="search">
                 <input type="text" style="line-height: 0;  font-family: 'EF_cucumbersalad';" name="shKey" class="question" id="nme" required autocomplete="off" />
                 <label for="nme"><span style="font-family: 'EF_cucumbersalad';">Are You Hungry?</span></label>
             </form>
@@ -42,20 +42,20 @@
                         <%--아이템 1--%>
                         <%--아이템 1--%>
                         <%--아이템 1--%>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseO1ne"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseOn1e">
-                                        부대찌개
-                                    </button>
-                                </h2>
+                         <div class="accordion-item">
+<%--                                <h2 class="accordion-header" id="1">--%>
+<%--                                    <button class="accordion-button collapsed"--%>
+<%--                                            type="button"--%>
+<%--                                            data-bs-toggle="collapse"--%>
+<%--                                            data-bs-target="#flush-collapseOne"--%>
+<%--                                            aria-expanded="false"--%>
+<%--                                            aria-controls="flush-collapseOne">--%>
+<%--                                        부대찌개--%>
+<%--                                    </button>--%>
+<%--                                </h2>--%>
 
 
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div id="0a" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <%--레시피 내용 시작--%>
                                 <%--레시피 내용 시작--%>
                                     <div class="accordion-body">
