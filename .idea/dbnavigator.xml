@@ -18,9 +18,15 @@ recipe AS a
 left join `uploadList` AS c ON c.pseq = a.seq AND c.path LIKE CONCAT('%recipedto%')
 where 1=1 AND (recipeName LIKE CONCAT('%부%') OR recipeTitle LIKE CONCAT('%부%'))
 
-SELECT * from
+SELECT 
+ b.recipe_seq,
+ b.ingredient_seq,
+ c.name,
+ b.ingredientAmount
+ from
 recipe as a
 LEFT JOIN `recipeIngredient`AS b ON b.recipe_seq = a.seq
+Left join `ingredient` as c on c.seq = b.ingredient_seq 
 where 1=1 AND (recipeName LIKE CONCAT('%부%') OR recipeTitle LIKE CONCAT('%부%'))]]></console>
     </connection>
   </component>

@@ -228,7 +228,8 @@
 <!--FOR USER JSP-->
 <!--FOR USER JSP-->
     <select id="user_selectRecIng" resultType="recipe">
-        SELECT *
+        SELECT
+            *
         FROM
             recipe as a
         LEFT JOIN recipeIngredient AS b ON b.recipe_seq = a.seq

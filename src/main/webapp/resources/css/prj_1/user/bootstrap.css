@@ -8,7 +8,7 @@
     border-radius: 5px!important;
     transition: all .3s ease-in-out!important;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-    margin: 10px;
+    margin: 10px 0;
 }
 .accordion-item{
     border: none;

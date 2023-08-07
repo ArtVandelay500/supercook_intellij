@@ -32,9 +32,12 @@
 
             <div class="resultBox">
                 <div class="resultCnt">
+                    <h2>WELCOME TO YUMMY!</h2>
                 </div>
                 <div class="result">
-
+                <%--LOADING SPINNER--%>
+                    <div class="loader"></div>
+                <%--LOADING SPINNER--%>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                     <%--ACCORDIAN--%>
                     <%--ACCORDIAN--%>

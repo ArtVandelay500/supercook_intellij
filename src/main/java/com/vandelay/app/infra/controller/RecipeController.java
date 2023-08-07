@@ -205,13 +205,12 @@ public class RecipeController {
 
 @ResponseBody
 @RequestMapping(value = "/searchRecipe", method = RequestMethod.POST)
-public Map<String, Object> selectListShKey(RecipeDTO dto,RecipeVo vo){
-
+public Map<String, Object> selectListShKey(RecipeVo vo){
+    System.out.println("hey im walkin here");
     Map<String,Object> returnMap = new HashMap<String,Object>();
     vo.setResultCnt(recipeService.selectOneCount(vo));
     List<RecipeDTO> listShKey = recipeService.userSelectRecUpload(vo);
     List<RecipeDTO> listShKeyIng = recipeService.userSelectRecIng(vo);
-//    List<IngDTO> ingListShKey = recipeService.selectIngList(vo);
 
     if(listShKey != null){
 
