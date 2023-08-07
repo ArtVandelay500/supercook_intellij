@@ -219,4 +219,51 @@
 <!--deleting from recipe table and recipeList table-->
 <!--deleting from recipe table and recipeList table-->
 
+
+
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+    <select id="user_selectRecIng" resultType="recipe">
+        SELECT *
+        FROM
+            recipe as a
+        LEFT JOIN recipeIngredient AS b ON b.recipe_seq = a.seq
+        WHERE 1=1
+            <if test="shKey != null and !shKey.equals('')">
+                AND (recipeName LIKE CONCAT('%',#{shKey},'%')
+                OR recipeTitle LIKE CONCAT('%',#{shKey},'%'))
+            </if>
+
+    </select>
+
+    <select id="user_selectRecUpload" resultType="recipe">
+        SELECT*
+        FROM
+            recipe AS a
+        LEFT JOIN uploadList
+            AS c
+                ON c.pseq = a.seq
+                AND c.path LIKE CONCAT('%recipedto%')
+        WHERE 1=1
+            <if test="shKey != null and !shKey.equals('')">
+                AND (recipeName LIKE CONCAT('%',#{shKey},'%')
+                OR recipeTitle LIKE CONCAT('%',#{shKey},'%'))
+            </if>
+    </select>
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+
+
+
+
+
+
 </mapper>

@@ -13,10 +13,15 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="bb64d47c-098f-42f6-8592-f9a678c2014b">
-      <console name="Connection" type="STANDARD" schema="vandelay_db" session="Main"><![CDATA[select 
-    count(*)
-from 
-codeGroup]]></console>
+      <console name="Connection" type="STANDARD" schema="vandelay_db" session="Main"><![CDATA[SELECT*from 
+recipe AS a
+left join `uploadList` AS c ON c.pseq = a.seq AND c.path LIKE CONCAT('%recipedto%')
+where 1=1 AND (recipeName LIKE CONCAT('%부%') OR recipeTitle LIKE CONCAT('%부%'))
+
+SELECT * from
+recipe as a
+LEFT JOIN `recipeIngredient`AS b ON b.recipe_seq = a.seq
+where 1=1 AND (recipeName LIKE CONCAT('%부%') OR recipeTitle LIKE CONCAT('%부%'))]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

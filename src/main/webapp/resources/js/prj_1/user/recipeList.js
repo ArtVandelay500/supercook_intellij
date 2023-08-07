@@ -15,6 +15,8 @@ $(function(){
                 success: function (response) {
                     //결과창 리셋
                     $(".resultCnt").empty();
+                    //결과 레시피 리셋
+                    $("#accordionFlushExample").empty();
                     if (response.rt == "success") {
                         //결과 몇개나왔는지
                         const resultCnt = $("<h2>").html(response.resultCnt + " Recipes Found :");
@@ -28,8 +30,13 @@ $(function(){
                             console.log(i);
                             recipeName = list[i].recipeName;
                             recipeTitle =  list[i].recipeTitle;
+                            src =  list[i].path + list[i].uuid;
+                            recipeServing = list[i].recipeServing;
+                            recipePrepTime = list[i].recipePrepTime;
+                            recipeLevel = list[i].recipeLevel;
                             //BOOTSTRAP ACCORDION ASSEMBLY STARTS
                             //BOOTSTRAP ACCORDION ASSEMBLY STARTS
+                            div0 = $("<div>").attr("id","accordionFlushExample");
                             div1 = $("<div>").addClass("accordion-item");
                             div1_h2 = $("<h2>").addClass("accordion-header");
                             div1_h2 = $("<h2>").attr("id","flush-heading");
@@ -62,7 +69,7 @@ $(function(){
                             //RecipeHeader
                                 const div5 = $("<div>").addClass("recipeBody_header");
                                 const div6 = $("<div>").addClass("recipeHeader_imgBox");
-                                const div6_img = $("<img>").attr("src","");
+                                const div6_img = $("<img>").attr("src",src);
                                 div6.append(div6_img);
                                 const div5_h4 = $("<h4>").html();
                                 const div7 = $("<div>").addClass("recipeHeader_misc");
@@ -119,7 +126,7 @@ $(function(){
                             //Cooking tools
                             //Cooking tools
                                 const div8_3 = $("<div>").addClass("ingredientList_head");
-                                const div8_3_h4 = $("<h4>").text("- 재료");
+                                const div8_3_h4 = $("<h4>").text("- 조리도구");
                                 div8_3.append(div8_3_h4);
                                 const div8_4 = $("<div>").addClass("recipeBody_body-cookingToolList");
                                 const div8_4_1 = $("<div>").addClass("cookingToolList_body");
@@ -144,10 +151,10 @@ $(function(){
                                  type : "button",
                                  class: "btn btn-dark btn-lg",
                                  text : "레시피 보기",
-                                 onclick: function() {
+                                 // onclick:
                                      // Redirect to the specified URL when the button is clicked
-                                     window.location.href = "https://www.naver.com";
-                                 }
+                                     // location.href = "https://www.naver.com"
+
                              });
 
                              div9_1.append(div9_1_button);
@@ -161,6 +168,7 @@ $(function(){
                             div2.append(div3);//footer
                             div1.append(div1_h2);
                             div1.append(div2);
+                            $("#accordionFlushExample").append(div1);
 
 
 

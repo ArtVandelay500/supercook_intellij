@@ -20,6 +20,7 @@ public class RecipeDTO {
     private String recipeView;
     private String recipeSource;
     private String recipeServing;
+    private String recipeLevel;
     private String useNy;
     private String ingredient_seq;
     private String[] ingredient_seqArray;

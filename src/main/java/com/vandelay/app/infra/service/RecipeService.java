@@ -204,8 +204,20 @@ public class RecipeService {
 
 
 
-
-
+//USER
+//USER
+//USER
+//USER
+public List<RecipeDTO> userSelectRecIng(RecipeVo vo) {
+    return recipeRepository.userSelectRecIng(vo);
+}
+public List<RecipeDTO> userSelectRecUpload(RecipeVo vo) {
+    return recipeRepository.userSelectRecUpload(vo);
+}
+//USER
+//USER
+//USER
+//USER
 
 
 
