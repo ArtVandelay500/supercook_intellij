@@ -113,9 +113,9 @@ addEventListenerCustom = function (objName, type, i, file, filePreview, maxNumbe
 
 
 delImgDiv = function(objName, type, sort, deleteSeq, pathFile) {
-
     $("#imgDiv_"+type+"_"+sort).remove();
 
+    $("#hasFileChanged").val("1");
     var objDeleteSeq = $('input[name='+ objName +'DeleteSeq]');
     var objDeletePathFile = $('input[name='+ objName +'DeletePathFile]');
 
@@ -173,4 +173,8 @@ openViewer = function (type, sort) {
     var str = '<c:set var="tmp" value="'+ type +'"/>';
     $("#modalImgViewer").append(str);
     $("#modalImgViewer").modal("show");
+}
+
+clickForChange = function(){
+    $("#hasFileChangedProfile").val("1");
 }

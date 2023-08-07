@@ -107,6 +107,7 @@
                                         <div class="col-sm-6 mt-3 mt-sm-0">
                                             <c:set var="type" value="2"/>		<!-- #-> -->
                                             <c:set var="name" value="uploadImg"/>		<!-- #-> -->
+                                            <input id="hasFileChanged" type="hidden" name="hasFileChanged" value="false"/>
                                             <input type="hidden" id="<c:out value="${name }"/>Type" name="<c:out value="${name }"/>Type" value="<c:out value="${type }"/>"/>
                                             <input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeleteSeq" name="<c:out value="${name }"/>DeleteSeq"/>
@@ -262,7 +263,8 @@
                                     <%--Recipe Thumbnail --%>
                                         <div class="col-sm-6 mt-3 mt-sm-0">
                                             <c:set var="type" value="2"/>		<!-- #-> -->
-                                            <c:set var="name" value="uploadImg"/>		<!-- #-> -->
+                                            <c:set var="name" value="uploadImg"/>
+                                            <input id="hasFileChanged" type="hidden" name="hasFileChanged" value="0"/><!-- #-> -->
                                             <input type="hidden" id="<c:out value="${name }"/>Type" name="<c:out value="${name }"/>Type" value="<c:out value="${type }"/>"/>
                                             <input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeleteSeq" name="<c:out value="${name }"/>DeleteSeq"/>

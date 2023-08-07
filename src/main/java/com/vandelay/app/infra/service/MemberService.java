@@ -34,8 +34,10 @@ public class MemberService {
 
     public int update(MemberDTO dto) throws Exception {
         memberRepository.update(dto);
-        memberRepository.deleteUpload(dto);
-        uploadFiles(dto.getUploadImgProfile(), dto, "uploadList", dto.getUploadImgProfileType(), dto.getUploadImgProfileMaxNumber());
+        if(dto.getHasFileChangedProfile().equals("1")){
+            memberRepository.deleteUpload(dto);
+            uploadFiles(dto.getUploadImgProfile(), dto, "uploadList", dto.getUploadImgProfileType(), dto.getUploadImgProfileMaxNumber());
+        }
         return 1;
     }
 

@@ -13,6 +13,7 @@ public class MemberDTO {
     private String email;
     private String pwd;
     private String delNy;
+    private String hasFileChangedProfile;
     private MultipartFile[] uploadImg;
     private MultipartFile[] uploadImgProfile;
     private Integer uploadImgType;

@@ -30,6 +30,7 @@ public class RecipeDTO {
     private String ingredientAmount;
     private String ingredientType;
     private String catName;
+    private String hasFileChanged;
 
     private String recipeTheme;
     private String recipeTool;

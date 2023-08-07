@@ -92,11 +92,14 @@ public class RecipeService {
 
         //Deleting pre-existing list of IngredientArray to overwrite with new Insert
         recipeRepository.deleteUpdate(dto);
-
+        System.out.println("this is the uuidName manananananananananan" + dto.getHasFileChanged());
         //Deleting pre-existing list of uploadLOst to overwrite with new Insert
-        recipeRepository.deleteUpload(dto);
-        //Inserting data into 'uploadList'
-        uploadFiles(dto.getUploadImg(), dto, "uploadList", dto.getUploadImgType(), dto.getUploadImgMaxNumber());
+        //DELETE ONLY WHEN close button had been clicked, which triggers 'hasFileChanged' to become "1"
+        if(dto.getHasFileChanged().equals("1")){
+            recipeRepository.deleteUpload(dto);
+            //Inserting data into 'uploadList'
+            uploadFiles(dto.getUploadImg(), dto, "uploadList", dto.getUploadImgType(), dto.getUploadImgMaxNumber());
+        }
 
         String[] ingredientSeqArray = dto.getIngredient_seqArray();
         String[] ingredientAmountArray = dto.getIngredientAmountArray(); // Assuming you have a method to get this array

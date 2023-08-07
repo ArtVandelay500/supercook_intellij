@@ -144,7 +144,9 @@
                                 <div class="row mb-3">
                                     <div style="position: relative" class="col-sm-12 text-center">
                                         <c:set var="type" value="1"/>		<!-- #-> -->
-                                        <c:set var="name" value="uploadImgProfile"/>		<!-- #-> -->
+                                        <c:set var="name" value="uploadImgProfile"/><!-- #-> -->
+                                        <%--if this is 0, won't update(delete and insert) profile, otherwise maintain status quo--%>
+                                        <input id="hasFileChangedProfile" type="hidden" name="hasFileChangedProfile" value="0"/><!-- #-> -->
 
                                         <c:choose>
                                             <c:when test="${fn:length(listUploaded) eq 0 }">
@@ -169,7 +171,7 @@
                                         <input type="hidden" id="<c:out value="${name}"/>MaxNumber" name="<c:out value="${name}"/>MaxNumber" value="0"/>
                                         <label for="<c:out value="${name}"/>" class="form-label input-file-button">
                                             <b>
-                                                <span style="font-weight: 900; font-size: 20px; cursor: pointer; padding: 5px; border-radius: 50%; color: white; background-color: coral; position: absolute; transform: translateX(-50%); bottom:10px;" class="material-symbols-outlined">settings</span>
+                                                <span onclick="clickForChange()" style="font-weight: 900; font-size: 20px; cursor: pointer; padding: 5px; border-radius: 50%; color: white; background-color: coral; position: absolute; transform: translateX(-50%); bottom:10px;" class="material-symbols-outlined">settings</span>
                                             </b>
                                         </label>
                                         <input class="form-control form-control-sm" id="<c:out value="${name}"/>" name="<c:out value="${name}"/>" type="file" multiple="multiple" style="display: none;" onChange="upload('<c:out value="${name}"/>', <c:out value="${type}"/>, 1, 1, 0, 0, 3);">
