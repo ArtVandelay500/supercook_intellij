@@ -49,7 +49,10 @@
 
                     <div class="dropdown">
                         <a id="headerProfile" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img style="object-fit: cover; align-self: center" id="uploadImgProfilePreview" src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>" class="rounded-circle d-block" width="68" height="68">
+                            <img style="object-fit: cover; align-self: center"
+                                 id="uploadImgProfilePreview"
+                                 src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
+                                 class="rounded-circle d-block" width="68" height="68">
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" onclick="logOut()">로그아웃</a></li>

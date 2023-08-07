@@ -135,9 +135,11 @@ $(function(){
                             const div8_2_2 = $("<div>").addClass("ingredientList_body");
                             const div8_2_1_h6_1 = $("<h6>").text("[ 기본재료 ]");
                             const div8_2_1_h6_2 = $("<h6>").text("[ 양념재료 ]");
+                            //재료 넣기
+                            //재료 넣기
+                            //재료 넣기
+                            //재료 넣기
                             for(ii in listIng){
-                                console.log(list[i].seq);
-
                                 //여기다 ⬇︎⬇︎⬇︎⬇︎ 이걸 선언해야 들어감/ 아니면 한 li에 계속 들어감
                                 const div8_2_1_ul = $("<ul>");
                                 const div8_2_1_ul2 = $("<ul>");
@@ -166,37 +168,55 @@ $(function(){
                                         div8_2_1_ul.append(div8_2_1_li);
                                         div8_2_1.append(div8_2_1_h6_1);
                                         div8_2_1.append(div8_2_1_ul);
-                                    }
+                                    }//else
 
                                 }else{
                                     break
-                                }
-                            }
-
+                                }//else
+                            }//재료 넣는 for문
+                            //재료 넣기
+                            //재료 넣기
+                            //재료 넣기
+                            //재료 넣기
 
                             div8_2.append(div8_2_1);
                             div8_2.append(div8_2_2);
                             //for Loop for ingredients
                             //for Loop for ingredients
 
-                            //Cooking tools
-                            //Cooking tools
+
+
                             const div8_3 = $("<div>").addClass("ingredientList_head");
                             const div8_3_h4 = $("<h4>").text("- 조리도구");
                             div8_3.append(div8_3_h4);
                             const div8_4 = $("<div>").addClass("recipeBody_body-cookingToolList");
                             const div8_4_1 = $("<div>").addClass("cookingToolList_body");
                             const div8_4_1_ul = $("<ul>");
-                            const div8_4_1_li = $("<li>").text("");
-                            div8_4_1_ul.append(div8_4_1_li);
-                            div8_4_1.append(div8_4_1_ul);
-                            div8_4.append(div8_4_1);
-                            //Cooking tools
-                            //Cooking tools
+
+                            //Cooking tools appends
+                            //Cooking tools appends
+
+                            //조리도구 문자열 -> 배열
+                            const strTools = list[i].recipeTool;
+                            const arrTools =  strTools.split(",");
+
+                            $.each(arrTools, function(index,item){
+
+                                const div8_2_1_span_tool = $("<span>").text(item);
+                                const div8_4_1_li = $("<li>");
+                                div8_4_1_li.append(div8_2_1_span_tool);
+                                div8_4_1_ul.append(div8_4_1_li);
+                                div8_4_1.append(div8_4_1_ul);
+                                div8_4.append(div8_4_1);
+                            });//end of cookingTools each function
+
+                            //Final appends to recipeBody
+                            //Final appends to recipeBody
                             div8.append(div8_1);
                             div8.append(div8_2);
                             div8.append(div8_3);
                             div8.append(div8_4);
+
                             //RecipeBody
                             //RecipeBody
 

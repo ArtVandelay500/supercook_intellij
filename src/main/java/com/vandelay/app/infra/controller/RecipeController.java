@@ -71,6 +71,7 @@ public class RecipeController {
 
     @RequestMapping("/recipeForm/update")
     public String update(RecipeDTO dto) throws Exception {
+        //문자열로 들어온 재료 ',' separator로 나누어서 배열로 저장
         dto.setIngredient_seqArray(dto.getIngredient_seq().split(","));
         dto.setIngredientAmountArray(dto.getIngredientAmount().split(","));
         recipeService.update(dto);
