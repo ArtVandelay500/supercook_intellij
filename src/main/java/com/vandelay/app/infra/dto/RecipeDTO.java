@@ -29,6 +29,8 @@ public class RecipeDTO {
     private String name;
     private String ingredientAmount;
     private String ingredientType;
+    private String catName;
+
     private String recipeTheme;
     private String recipeTool;
     private String recipeMethod;

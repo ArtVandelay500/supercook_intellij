@@ -22,11 +22,15 @@ SELECT
  b.recipe_seq,
  b.ingredient_seq,
  c.name,
- b.ingredientAmount
+ b.ingredientAmount,
+ c.ingredient_seq as bigcat,
+ d.catName
+ 
  from
 recipe as a
 LEFT JOIN `recipeIngredient`AS b ON b.recipe_seq = a.seq
 Left join `ingredient` as c on c.seq = b.ingredient_seq 
+left join `ingredientGroup` as d on d.seq = c.ingredient_seq
 where 1=1 AND (recipeName LIKE CONCAT('%부%') OR recipeTitle LIKE CONCAT('%부%'))]]></console>
     </connection>
   </component>

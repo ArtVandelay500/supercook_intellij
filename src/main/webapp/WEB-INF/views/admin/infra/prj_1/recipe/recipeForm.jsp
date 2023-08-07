@@ -97,6 +97,10 @@
                                         <label for="recipePrepTime" class="form-label">레시피 소요시간</label>
                                         <input type="text" class="form-control" id="recipePrepTime" name="recipePrepTime">
                                     </div>
+                                    <div class="col-md-2">
+                                        <label for="recipeLevel" class="form-label">레시피 난이도</label>
+                                        <input type="text" class="form-control" id="recipeLevel" name="recipeLevel">
+                                    </div>
                                     <div class="col-md-5 mb-3">
                                             <%--Recipe Thumbnail --%>
                                             <%--Recipe Thumbnail --%>
@@ -217,11 +221,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="recipeUrl" class="form-label">레시피 URL</label>
-                                        <input type="text" class="form-control" id="recipeUrl" name="recipeUrl">
+                                        <input type="text" class="form-control" id="recipeUrl" name="recipeUrl" value="<c:out value="${item.recipeUrl}"/>">
                                     </div>
                                     <div class="col-md-2">
                                         <label for="recipeSource" class="form-label">레시피 출처명</label>
-                                        <input type="text" class="form-control" id="recipeSource" name="recipeSource">
+                                        <input type="text" class="form-control" id="recipeSource" name="recipeSource" value="<c:out value="${item.recipeSource}"/>">
                                     </div>
                                 </div>
                                 <%--레시피 테마&조리도구 태그--%>
@@ -243,11 +247,15 @@
                                 <div class="row mb-3">
                                     <div class="col-md-2">
                                         <label for="recipeServing" class="form-label">레시피 제공량</label>
-                                        <input type="text" class="form-control" id="recipeServing" name="recipeServing">
+                                        <input type="text" class="form-control" id="recipeServing" name="recipeServing" value="<c:out value="${item.recipeServing}"/>">
                                     </div>
                                     <div class="col-md-2">
                                         <label for="recipePrepTime" class="form-label">레시피 소요시간</label>
                                         <input type="text" class="form-control" id="recipePrepTime" name="recipePrepTime" value="<c:out value="${item.recipePrepTime}"/>">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="recipeLevel" class="form-label">레시피 난이도</label>
+                                        <input type="text" class="form-control" id="recipeLevel" name="recipeLevel" value="<c:out value="${item.recipeLevel}"/>">
                                     </div>
                                     <div class="col-md-5">
                                     <%--Recipe Thumbnail --%>

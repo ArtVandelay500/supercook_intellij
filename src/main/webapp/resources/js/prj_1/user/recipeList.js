@@ -45,6 +45,7 @@ $(function(){
                         //레시피 이름
 
                         list = response.listShKey;
+                        listIng = response.listShKeyIng;
                         console.log(list.length);
                         for(let i in list){
                             console.log(i);
@@ -131,16 +132,50 @@ $(function(){
                             div8_1.append(div8_1_h4);
                             const div8_2 = $("<div>").addClass("recipeBody_body-ingredientList");
                             const div8_2_1 = $("<div>").addClass("ingredientList_body");
+                            const div8_2_2 = $("<div>").addClass("ingredientList_body");
                             const div8_2_1_h6_1 = $("<h6>").text("[ 기본재료 ]");
                             const div8_2_1_h6_2 = $("<h6>").text("[ 양념재료 ]");
-                            const div8_2_1_ul = $("<ul>");
-                            const div8_2_1_li = $("<li>");
-                            const div8_2_1_span = $("<span>").text("");
-                            div8_2_1_li.append(div8_2_1_span);
-                            div8_2_1_ul.append(div8_2_1_li);
-                            div8_2_1.append(div8_2_1_h6_1);
-                            div8_2_1.append(div8_2_1_ul);
+                            for(ii in listIng){
+                                console.log(list[i].seq);
+
+                                //여기다 ⬇︎⬇︎⬇︎⬇︎ 이걸 선언해야 들어감/ 아니면 한 li에 계속 들어감
+                                const div8_2_1_ul = $("<ul>");
+                                const div8_2_1_ul2 = $("<ul>");
+                                const div8_2_1_li = $("<li>");
+                                const div8_2_1_li2 = $("<li>");
+
+                                if(listIng[ii].recipe_seq == list[i].seq){
+                                    console.log(listIng[ii].catName);
+                                    //양념재료만 따로 append
+                                    if(listIng[ii].catName == '양념/오일'){
+                                        const div8_2_3_span = $("<span>").text(listIng[ii].name);
+                                        const div8_2_4_span = $("<span>").text(listIng[ii].ingredientAmount);
+                                        div8_2_1_li2.append(div8_2_3_span);
+                                        div8_2_1_li2.append(div8_2_4_span);
+                                        div8_2_1_ul2.append(div8_2_1_li2);
+                                        div8_2_2.append(div8_2_1_h6_2);
+                                        div8_2_2.append(div8_2_1_ul2);
+
+                                    }else{
+                                        //나머지 재료 append
+                                        console.log("ii의 값은: " + listIng[ii].recipe_seq);
+                                        const div8_2_1_span = $("<span>").text(listIng[ii].name);
+                                        const div8_2_2_span = $("<span>").text(listIng[ii].ingredientAmount);
+                                        div8_2_1_li.append(div8_2_1_span);
+                                        div8_2_1_li.append(div8_2_2_span);
+                                        div8_2_1_ul.append(div8_2_1_li);
+                                        div8_2_1.append(div8_2_1_h6_1);
+                                        div8_2_1.append(div8_2_1_ul);
+                                    }
+
+                                }else{
+                                    break
+                                }
+                            }
+
+
                             div8_2.append(div8_2_1);
+                            div8_2.append(div8_2_2);
                             //for Loop for ingredients
                             //for Loop for ingredients
 
@@ -202,6 +237,7 @@ $(function(){
                     } else {
                         const resultCnt = $("<h2>").html("CONTROLLER SENT 'FAIL'");
                         $(".resultCnt").append(resultCnt);
+                        $(".loader").hide();
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
