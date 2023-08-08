@@ -255,7 +255,10 @@ $(function(){
                         }
 
                     } else {
-                        const resultCnt = $("<h2>").html("CONTROLLER SENT 'FAIL'");
+                        const resultCnt = $("<h2>").html("먼저 로그인을 해주세요!");
+                        resultCnt.css({
+                            animation : "horizontal-shaking .2s 2 ease",
+                        });
                         $(".resultCnt").append(resultCnt);
                         $(".loader").hide();
                     }
