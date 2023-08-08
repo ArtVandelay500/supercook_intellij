@@ -68,14 +68,64 @@ body{
 
 /*SEARCH BOX*/
 /*SEARCH BOX*/
+.dropDown{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userMenu{
+    width: 125px;
+    height:50px;
+    position: absolute;
+    display: flex;
+    top: -70%;
+    border-radius: 15px;
+    transition: none;
+}
+.userMenu>div>span{transition: all .3s ease-in-out; cursor: pointer}
+.userMenu>div>span:hover{
+    text-shadow: 0 0 10px rgba(255, 255, 255); /* Adjust color and size of glow */
+    transform: scale(1.1); /* Adjust scale factor for the glowing effect */
+}
+.userMenu>div:hover{
+    opacity: 1!important;
+}
+.logOut{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    color: white;
+    background-color: indianred;
+    transition: all .3s ease-in-out;
+}
+.goTo{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkseagreen;
+    border-top-left-radius: inherit;
+    color: white;
+    border-bottom-left-radius: inherit;
+    transition: all .3s ease-in-out;
+}
 .srch_box{
     width: 30%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-top-left-radius:10px ;
     border-bottom-left-radius: 10px;
     height:100vh;
 }
+
 form{
     width: 100%;
     padding: 20px;
@@ -190,7 +240,7 @@ input[type="submit"]:active {
 
 input.question:valid ~ input[type="submit"]{
     -webkit-animation: appear 1s forwards;
-    animation: appear 1s forwards;
+    animation: appear 1.5s forwards;
 }
 
 input.question:invalid ~ input[type="submit"]{

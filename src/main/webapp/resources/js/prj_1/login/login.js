@@ -50,6 +50,27 @@ $(function(){
             }
         });
     }
+
+    logOutUser = function(){
+        $.ajax({
+            async: true
+            ,cache: false
+            ,type: "post"
+            /* ,dataType:"json" */
+            ,url: "/member/logout"
+            /* ,data : $("#formLogin").serialize() */
+            ,success: function(response) {
+                if(response.rt == "success") {
+                    location.href = "/indexUserView";
+                } else {
+                }
+            }
+
+            ,error : function(jqXHR, textStatus, errorThrown){
+                alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+            }
+        });
+    }
     // LOGOUT
     // LOGOUT
 

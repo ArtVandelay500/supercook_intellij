@@ -13,6 +13,35 @@
         <%--검색 부분--%>
         <%--검색 부분--%>
         <div class="srch_box">
+            <c:choose>
+                <c:when test="${not empty sessionId }">
+                    <%--Profile Picture--%>
+                    <%--Profile Picture--%>
+                    <div class="dropDown">
+                        <a id="headerProfile" href="#">
+                            <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
+                                 id="uploadImgProfilePreview"
+                                 src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
+                                 class="rounded-circle d-block" width="80" height="80"
+                            />
+                        </a>
+                        <div class="userMenu">
+                            <div class="goTo"><span class="material-symbols-outlined">settings</span></div>
+                            <div onclick="logOutUser()" class="logOut"><span class="material-symbols-outlined">logout</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </c:when>
+                <c:otherwise>
+                    <div onclick="location.href='/login'" class="outBtn">
+                        <span class="material-symbols-outlined">login</span>
+                    </div>
+
+                </c:otherwise>
+            </c:choose>
+
             <form name="search">
                 <input type="text" style="line-height: 0;  font-family: 'EF_cucumbersalad';" name="shKey" class="question" id="nme" required autocomplete="off" />
                 <label for="nme"><span style="font-family: 'EF_cucumbersalad';">Are You Hungry?</span></label>
