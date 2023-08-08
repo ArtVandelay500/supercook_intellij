@@ -28,7 +28,7 @@ $(function(){
         $("#uploadImgProfilePreview").css({
             width: "70px",
             height: "70px",
-            opacity: .8
+            opacity: .5
         })
         $(".userMenu").css({
             transition:"all .3s ease-in-out",

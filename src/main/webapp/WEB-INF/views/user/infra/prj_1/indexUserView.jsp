@@ -35,7 +35,7 @@
 
                 </c:when>
                 <c:otherwise>
-                    <div onclick="location.href='/login'" class="outBtn">
+                    <div style="cursor: pointer;" onclick="location.href='/login'" class="outBtn">
                         <span class="material-symbols-outlined">login</span>
                     </div>
 
