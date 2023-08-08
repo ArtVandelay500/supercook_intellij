@@ -18,6 +18,7 @@ public class IngVo {
     private String big_cat_ing;
     private String level;
     private String catName;
+    private String name;
 
 
 

@@ -223,7 +223,7 @@ validationNull = function(form) {
 //Ingredient Duplicate Check
 // DUPLICATE CHECK
 checkIng = function(e) {
-    var newIng = $("input[name=name]").val().trim();
+    const newIng = $("input[name=name]").val().trim();
 
     if (newIng === "") {
         $('.id_ok').css("display", 'none');
