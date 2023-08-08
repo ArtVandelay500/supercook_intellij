@@ -382,6 +382,21 @@ select[name='delNy']{
 /*@@@@@@@@@@@@@@ CodeGroupList Table  CSS @@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@ CodeGroupList Table  CSS @@@@@@@@@@@@@@*/
 
+.id_already,.id_ok{
+    display: none;
+    font-size: 13px;
+    position: relative;
+    left: 60px;
+}
+
+.id_ok{
+    color: rgba(50, 205, 50, 0.7);
+}
+.id_already{
+    color: red;
+}
+
+
 .tableBox{
     display: flex;
     justify-content: center;

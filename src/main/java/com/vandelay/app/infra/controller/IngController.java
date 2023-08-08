@@ -115,7 +115,18 @@ public class IngController {
         return "redirect:/ingList/list";
     }
 
-
+    @ResponseBody
+    @RequestMapping(value = "/ingCheck", method = RequestMethod.POST)
+    public Map<String,Object> ingCheck(IngVo vo){
+        Map<String,Object> returnMap = new HashMap<String,Object>();
+        int rtNum = ingService.selectOneCheckIng(vo);
+        if(rtNum == 0){
+            returnMap.put("rt","available");
+        }else{
+            returnMap.put("rt","unavailable");
+        }
+        return returnMap;
+    }
 
 
 

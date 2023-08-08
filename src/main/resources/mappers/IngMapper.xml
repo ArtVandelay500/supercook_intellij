@@ -117,4 +117,17 @@
 <!--Recipe page searching for Ing with ShKeyword-->
 <!--Recipe page searching for Ing with ShKeyword-->
 
+<!--new Ingredient duplication check-->
+<!--new Ingredient duplication check-->
+    <select id="ingCheck" resultType="integer">
+        SELECT
+            COUNT(seq)
+        FROM
+            ingredient
+        WHERE 1=1
+            AND name = #{name}
+    </select>
+<!--new Ingredient duplication check-->
+<!--new Ingredient duplication check-->
+
 </mapper>

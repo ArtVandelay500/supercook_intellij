@@ -38,4 +38,8 @@ public class IngRepository {
 
 
     public List<IngDTO> selectOneShKey(RecipeVo vo) {return sqlSession.selectList("Ing.selectOneShKey",vo);}
+
+    public int selectOneCheckIng(IngVo vo) {
+        return sqlSession.selectOne("Ing.ingCheck",vo);
+    }
 }//END OF REPOSITORY

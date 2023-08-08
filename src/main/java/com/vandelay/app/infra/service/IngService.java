@@ -40,4 +40,8 @@ public class IngService {
     }
 
     public List<IngDTO> selectOneShKey(RecipeVo vo) {return ingRepository.selectOneShKey(vo);}
+
+    public int selectOneCheckIng(IngVo vo) {
+        return ingRepository.selectOneCheckIng(vo);
+    }
 }

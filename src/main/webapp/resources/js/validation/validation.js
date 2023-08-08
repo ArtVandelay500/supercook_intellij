@@ -219,10 +219,42 @@ validationNull = function(form) {
     // INPUT NULLCHECK
     // INPUT NULLCHECK
 
+//Ingredient Duplicate Check
+//Ingredient Duplicate Check
+// DUPLICATE CHECK
+checkIng = function(e) {
+    var newIng = $("input[name=name]").val().trim();
+
+    if (newIng === "") {
+        $('.id_ok').css("display", 'none');
+        $('.id_already').css("display", 'none');
+        return;
+    }
+
+    $.ajax({
+        async: true,
+        cache: false,
+        url: "/ingCheck",
+        type: 'post',
+        data: {"name": newIng},
+        success: function(response) {
+            if(response.rt == "available") {
+                $('.id_ok').css("display", 'inline-block');
+                $('.id_already').css("display", "none");
+            } else {
+                $('.id_ok').css("display", 'none');
+                $('.id_already').css("display", "inline-block");
+            }
+        }, error: function() { $(newIng).focus(); }
+    });
+}
+//Ingredient Duplicate Check
+//Ingredient Duplicate Check
 
 
 
-    // DUPLICATE CHECK
+
+// DUPLICATE CHECK
     // DUPLICATE CHECK
         checkId = function(e) {
             var userId = $("#user-id").val().trim();
