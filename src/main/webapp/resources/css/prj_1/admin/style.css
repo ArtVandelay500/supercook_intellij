@@ -386,7 +386,8 @@ select[name='delNy']{
     display: none;
     font-size: 13px;
     position: relative;
-    left: 60px;
+    left: 145px;
+    bottom: -50px;
 }
 
 .id_ok{

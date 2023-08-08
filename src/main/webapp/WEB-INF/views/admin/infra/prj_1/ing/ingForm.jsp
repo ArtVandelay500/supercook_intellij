@@ -44,9 +44,10 @@
                                 <tr>
                                     <form name="insertForm">
 
-                                        <td><input onkeyup="checkIng()" name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>"></td>
-                                        <span class="id_ok" >사용가능한 아이디입니다</span>
-                                        <span class="id_already">중복된 아이디입니다</span>
+                                        <td><input onkeyup="checkIng()" name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>">
+                                        </td>
+                                        <span class="id_ok" >입력된 재료는 새 재료입니다</span>
+                                        <span class="id_already">이미 존재하는 재료입니다</span>
                                         <td>
                                             <select id="insertSel" name="big_cat_ing">
                                                 <option value="">::선택해주세요</option>
