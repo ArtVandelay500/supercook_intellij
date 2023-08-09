@@ -35,7 +35,8 @@
                 </div>
                 <div class="section_projects">
                     <div class="project_1">
-                        <h3>Project 1</h3>
+<%--                        <h3>Yummy!</h3>--%>
+                        <div style="width: 20%"><img style="object-fit: cover; width: 100%;" src="/resources/img/prj_1/user/newYummy.png"></div>
                         <ul>
                             <li><a href="/login">User</a></li>
                             <li><a href="/loginAdmin">Admin</a></li>
