@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="eb3196ea-0287-402c-8f22-ff1c5a683b15" name="vandelay">
+        <fileTransfer accessType="SFTP" host="43.201.70.133" port="22" sshConfigId="a8e71e4d-cd65-4c2a-8b6c-24469c808744" sshConfig="root@43.201.70.133:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
