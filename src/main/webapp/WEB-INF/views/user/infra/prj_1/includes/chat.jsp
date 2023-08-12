@@ -30,7 +30,7 @@
         </div>
     </script>
     <div class="inputMsg">
-        <input id="txtMessage" placeholder="메시지를 입력한 후에 엔터키를 누르세요."/>
+        <input id="txtMessage" placeholder="✏️ + ↵"/>
         <i class="fa-regular fa-paper-plane"></i>
     </div>
 </div>
@@ -97,6 +97,7 @@
     $("#txtMessage").on("keypress", function(e) {
         if (e.keyCode == 13 && !e.shiftKey) {
             e.preventDefault();
+
             var message = $("#txtMessage").val();
             if (message == "") {
                 alert("메시지를 입력하세요.");
@@ -158,6 +159,11 @@
         }
         var temp = Handlebars.compile($("#temp1").html());
         $(".chatRecord").append(temp(data));
+        var chatRecord = $(".chatRecord")[0];
+        chatRecord.scrollTo({
+            top: chatRecord.scrollHeight,
+            behavior: 'smooth' // Set behavior to 'smooth' for smooth scrolling
+        });
     }
 
 </script>
