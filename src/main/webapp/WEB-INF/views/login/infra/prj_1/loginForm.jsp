@@ -53,78 +53,26 @@
         </form>
     </div>
 </div>
+
 <script>
+    $("#b1").on("click",function(e){
+        e.preventDefault();
+        if($("#user-pwd").val() != $("#user-repwd").val()){
 
-
-        $("#b1").on("click", function() {
-
-
-        if($("#user-pwd").val() != $("#user-repwd").val()) {
-
-                $("#repwd-label").css({
-                    color: "red",
-                });
-                $("#user-repwd").css({
-                    color: "red",
-                    animation: "horizontal-shaking .2s 2 ease"
-                });
-                $("#user-repwd").focus();
-
-                // PASSWORD AND RE-PASSWORD VALIDATION
-                // PASSWORD AND RE-PASSWORD VALIDATION
-            }else{
-
-                $.ajax({
-                    async: true
-                    ,cache: false
-                    ,type: "post"
-                    /* ,dataType:"json" */
-                    ,url: "/idCheck"
-                    /* ,data : $("#formLogin").serialize() */
-                    ,data : {
-                        "email" : $("input[name=email]").val()
-                    }
-                    ,success: function(response) {
-                        alert("success");
-                        if(response.rt == "available") {
-                            alert("사용가능한 이이디입니다");
-                            location.href = "/login";
-                        } else {
-                            alert("중복된 아이디입니다");
-                        }
-                    }
-
-            ,error : function(jqXHR, textStatus, errorThrown){
-                    alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-                }
+            $("#repwd-label").css({
+                color: "red",
             });
+            $("#user-repwd").css({
+                color: "red",
+                animation : "horizontal-shaking .2s 2 ease"
+            });
+            $("#user-repwd").focus();
+        }else{
+            $("form[name=saveForm]").attr("action","/member/save").submit();
 
-            } //else tag
-            // PASSWORD AND RE-PASSWORD VALIDATION
-            // PASSWORD AND RE-PASSWORD VALIDATION
+        }
+    });
 
-    }); //click button tag
-
-
-        //
-        // $("#b1").on("click",function(e){
-        //     e.preventDefault();
-        //     if($("#user-pwd").val() != $("#user-repwd").val()){
-        //
-        //         $("#repwd-label").css({
-        //             color: "red",
-        //         });
-        //         $("#user-repwd").css({
-        //             color: "red",
-        //             animation : "horizontal-shaking .2s 2 ease"
-        //         });
-        //         $("#user-repwd").focus();
-        //     }else{
-        //         $("form[name=saveForm]").attr("action","/member/save").submit();
-        //
-        //     }
-        // });
-        //
 
 
 </script>

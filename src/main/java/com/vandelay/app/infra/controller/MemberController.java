@@ -32,7 +32,7 @@ public class MemberController {
     @RequestMapping("/member/save")
     public String memberSave(MemberDTO dto){
         memberService.save(dto);
-        return "redirect:/login";
+        return "login/infra/prj_1/login";
     }
 
     @RequestMapping("/memberForm")
