@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  전체 매퍼 중 유일한 값을 사용하여야 한다.
+ 해서 관계적으로 해당 파일의 path와 file_name(확장자 제외)
+ 그리고 dao 에서 namespace와 일치하여야 된다. -->
+
+<mapper namespace="Recipe">
+    <sql id="selectField">
+        seq,
+        recipeName,
+        recipeTitle,
+        recipeRating,
+        recipeUrl,
+        recipePrepTime,
+        recipeView,
+        recipeSource,
+        recipeTheme,
+        recipeTool,
+        recipeMethod,
+        recipeType,
+        recipeIng,
+        recipeLevel,
+        recipeServing,
+        useNy
+    </sql>
+    <sql id="selectCommon">
+        FROM
+            recipe
+        WHERE 1+1
+        <if test="shKey != null and !shKey.equals('')">
+            AND (recipeName LIKE CONCAT('%',#{shKey},'%')
+            OR recipeTitle LIKE CONCAT('%',#{shKey},'%'))
+        </if>
+    </sql>
+
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
+    </select>
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+
+    <!--PAGING SELECT QUERY-->
+    <!--PAGING SELECT QUERY-->
+
+    <select id="selectList" resultType="recipe">
+
+        SELECT aa.* FROM (
+            SELECT
+                <include refid="selectField" />
+                <include refid="selectCommon" />
+            ) AS aa
+        LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+
+    <!--PAGING SELECT QUERY-->
+    <!--PAGING SELECT QUERY-->
+
+
+    <select id="selectOne" resultType="recipe">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            recipe
+        WHERE seq = #{seq}
+    </select>
+
+    <select id="selectIngList" resultType="recipe">
+        SELECT
+            a.ingredient_seq,
+            a.ingredientAmount,
+            b.name
+        FROM
+            recipeIngredient AS a
+        LEFT JOIN ingredient AS b ON b.seq = a.ingredient_seq
+        WHERE
+            recipe_seq = #{seq}
+
+    </select>
+
+    <!--SELECTING FROM recipe WHILE LEFTJOIN uploadList-->
+    <select id="selectListUpload" resultType="recipe">
+        SELECT
+            a.seq,
+            b.path,
+            b.uuidName,
+            b.sort,
+            b.type
+        FROM
+            recipe AS a
+        LEFT JOIN uploadList AS b ON b.pseq = a.seq
+        WHERE 1=1
+            AND a.seq = #{seq}
+            AND b.path LIKE CONCAT('%recipedto%')
+    </select>
+
+
+
+    <update id="update">
+        UPDATE recipe
+        SET
+            recipeName = #{recipeName},
+            recipeTitle = #{recipeTitle},
+            recipePrepTime = #{recipePrepTime},
+            recipeLevel = #{recipeLevel},
+            recipeServing = #{recipeServing},
+            recipeSource = #{recipeSource},
+            recipeUrl = #{recipeUrl},
+            recipeTheme = #{recipeTheme},
+            recipeTool = #{recipeTool},
+            recipeMethod = #{recipeMethod},
+            recipeType = #{recipeType},
+            recipeIng = #{recipeIng},
+            useNy = #{useNy}
+        WHERE
+            seq = #{seq}
+    </update>
+
+
+
+    <insert id="insert">
+        INSERT INTO recipe (
+            recipeName,
+            recipeTitle,
+            recipePrepTime,
+            recipeUrl,
+            recipeSource,
+            recipeTheme,
+            recipeTool,
+            recipeMethod,
+            recipeType,
+            recipeIng,
+            recipeLevel,
+            recipeServing,
+            useNy
+            )
+        VALUES(
+            #{recipeName},
+            #{recipeTitle},
+            #{recipePrepTime},
+            #{recipeUrl},
+            #{recipeSource},
+            #{recipeTheme},
+            #{recipeTool},
+            #{recipeMethod},
+            #{recipeType},
+            #{recipeIng},
+            #{recipeLevel},
+            #{recipeServing},
+            '1'
+            )
+
+        <selectKey resultType="String" keyProperty="seq" order="AFTER">
+            SELECT last_insert_id()
+        </selectKey>
+    </insert>
+
+    <insert id="insertIng">
+        INSERT INTO recipeIngredient(
+         recipe_seq,
+         ingredient_seq,
+         ingredientAmount
+         )VALUES(
+            #{seq},
+            #{ingredient_seq},
+            #{ingredientAmount}
+        )
+    </insert>
+
+    <!-- uploaded s -->
+    <insert id="insertUploaded">
+        INSERT INTO ${tableName} (
+            type
+            ,defaultNy
+            ,path
+            ,originalName
+            ,uuidName
+            ,ext
+            ,size
+            ,sort
+            ,delNy
+            ,pseq
+        ) values (
+            #{type}
+            ,#{defaultNy}
+            ,#{path}
+            ,#{originalName}
+            ,#{uuidName}
+            ,#{ext}
+            ,#{size}
+            ,#{sort}
+            ,0
+            ,#{pseq}
+        )
+    </insert>
+
+
+
+
+<!--deleting from recipe table and recipeList table-->
+<!--deleting from recipe table and recipeList table-->
+
+    <delete id="delete">
+        DELETE FROM recipe WHERE seq = #{seq}
+    </delete>
+
+<!--deleting from recipeIngredient List -->
+    <delete id="deleteList">
+        DELETE FROM recipeIngredient WHERE recipe_seq = #{seq}
+    </delete>
+<!--deleting from recipeIngredient List -->
+
+<!--deleting from uploadList-->
+    <delete id="deleteUpload">
+        DELETE FROM uploadList
+        WHERE 1=1
+        AND pseq = #{seq}
+        AND path LIKE CONCAT('%recipedto%')
+    </delete>
+<!--deleting from uploadList-->
+
+<!--deleting from recipe table and recipeList table-->
+<!--deleting from recipe table and recipeList table-->
+
+
+
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+    <select id="user_selectRecIng" resultType="recipe">
+        SELECT
+            *
+        FROM
+            recipe as a
+        LEFT JOIN recipeIngredient AS b ON b.recipe_seq = a.seq
+        LEFT JOIN ingredient AS c on c.seq = b.ingredient_seq
+        LEFT JOIN ingredientGroup AS d on d.seq = c.big_cat_ing
+        WHERE 1=1
+            <if test="shKey != null and !shKey.equals('')">
+                AND (recipeName LIKE CONCAT('%',#{shKey},'%')
+                OR recipeTitle LIKE CONCAT('%',#{shKey},'%'))
+            </if>
+
+    </select>
+
+    <select id="user_selectRecUpload" resultType="recipe">
+        SELECT*
+        FROM
+            recipe AS a
+        LEFT JOIN uploadList
+            AS c
+                ON c.pseq = a.seq
+                AND c.path LIKE CONCAT('%recipedto%')
+        WHERE 1=1
+            <if test="shKey != null and !shKey.equals('')">
+                AND (recipeName LIKE CONCAT('%',#{shKey},'%')
+                OR recipeTitle LIKE CONCAT('%',#{shKey},'%'))
+            </if>
+    </select>
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+<!--FOR USER JSP-->
+
+
+
+
+
+
+</mapper>

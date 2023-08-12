@@ -3,10 +3,10 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:context="http://www.springframework.org/schema/context"
-             xmlns:mvc="http://www.springframework.org/schema/c"
+             xmlns:websocket="http://www.springframework.org/schema/websocket"
              xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
     <annotation-driven />
 
@@ -14,6 +14,8 @@
 
 
     <resources mapping="/resources/**" location="/resources/"/>
+
+
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -64,4 +66,11 @@
     </interceptors>
     <!-- session interceptor e 2023.07.18 for logincheck -->
 
-</beans:beans>
+    <!-- 웹소캣 등록 첫번째 -->
+    <!-- 웹소캣 등록 첫번째 -->
+    <beans:bean id="echoHandler" class="com.vandelay.app.infra.chat.ChatHandler"/>
+        <websocket:handlers>
+            <websocket:mapping handler="echoHandler" path="/echo"/>
+            <websocket:sockjs/>
+        </websocket:handlers>
+    </beans:beans>

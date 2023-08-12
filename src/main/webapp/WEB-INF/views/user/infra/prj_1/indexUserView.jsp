@@ -17,6 +17,16 @@
                 <c:when test="${not empty sessionId }">
                     <%--Profile Picture--%>
                     <%--Profile Picture--%>
+                        <%--임시 채팅 div--%>
+                        <%--임시 채팅 div--%>
+                        <div>
+                            <button id="chat">
+                                <span class="material-symbols-outlined">mode_comment</span>
+                            </button>
+                        </div>
+                        <%--임시 채팅 div--%>
+                        <%--임시 채팅 div--%>
+
                     <div class="dropDown">
                         <a id="headerProfile" href="#">
                             <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  전체 매퍼 중 유일한 값을 사용하여야 한다.
+ 해서 관계적으로 해당 파일의 path와 file_name(확장자 제외)
+ 그리고 dao 에서 namespace와 일치하여야 된다. -->
+
+<mapper namespace="CodeGroup">
+    <!--select 결과를 받을 객채-->
+    <!--mybatis-config에서 alias를 사용중-->
+
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+    <sql id="selectField">
+        seq,
+        codeName,
+        delNy
+    </sql>
+    <sql id="selectCommon">
+        FROM
+        codeGroup
+        WHERE 1+1
+        <if test="shKey != null and !shKey.equals('')">
+            AND codeName LIKE CONCAT('%',#{shKey},'%')
+        </if>
+        <if test="optDelNy != null and !optDelNy.equals('')">
+            AND delNy = #{optDelNy}
+        </if>
+    </sql>
+
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+    <select id="selectOneCount" resultType="Integer">
+        SELECT count(*)
+        <include refid="selectCommon" />
+    </select>
+    <!--PAGING TOTAL COUNT-->
+    <!--PAGING TOTAL COUNT-->
+
+
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+<!--SETTING -->
+
+    <select id="selectList" resultType="codegroup">
+        SELECT
+            aa.*
+        FROM (
+            SELECT
+                <include refid="selectField"/>
+                <include refid="selectCommon"/>
+             ) AS aa
+        LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--
+    <select id="selectList" resultType="codegroup">
+        SELECT
+            <include refid="selectField" />
+            <include refid="selectCommon"/>
+        FROM
+            codeGroup
+    </select>-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+<!--SELECT QUERY BEFORE PAGINATION-->
+
+    <select id="selectOne" resultType="codegroup">
+        SELECT
+            <include refid="selectField" />
+        FROM
+            codeGroup
+        WHERE seq = #{seq}
+    </select>
+
+    <update id="update">
+        UPDATE codeGroup
+        SET
+            codeName = #{codeName},
+            delNy = #{delNy}
+        WHERE
+            seq = #{seq}
+    </update>
+
+    <insert id="insert">
+        INSERT INTO codeGroup(
+            codeName,
+            delNy
+        )VALUES(
+            #{codeName},
+            #{delNy}
+        )
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM codeGroup WHERE seq = #{seq}
+    </delete>
+
+
+
+    <!--THIS FOR codeList select options    -->
+    <!--THIS FOR codeList select options    -->
+    <select id="selectOpt" resultType="codegroup">
+        SELECT
+            <include refid="selectField"/>
+        FROM
+            codeGroup
+    </select>
+
+
+
+
+
+</mapper>
