@@ -6,17 +6,17 @@
     </select>
 
 
-    <insert id="insert">
-        INSERT INTO
-            chat(
-                sender,
-                message
-            )
-        VALUES(
-                #{sender},
-                #{message}
-            )
-    </insert>
+<!--    <insert id="insert">-->
+<!--        INSERT INTO-->
+<!--            chat(-->
+<!--                sender,-->
+<!--                message-->
+<!--            )-->
+<!--        VALUES(-->
+<!--                #{sender},-->
+<!--                #{message}-->
+<!--            )-->
+<!--    </insert>-->
 
     <delete id="delete">
         DELETE FROM chat WHERE seq = #{seq}

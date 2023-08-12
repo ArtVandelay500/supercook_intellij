@@ -1,68 +1,79 @@
-@CHARSET "UTF-8";
-
-* {
-    margin: 0px;
-    padding: 0px;
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }
 
-.chat_wrap .header {
-    font-size: 14px;
-    padding: 15px 0px;
-    background: #F18C7E;
-    color: white;
-    text-align: center;
-}
-
-.chat_wrap #chat {
-    padding-bottom: 100px;
-    width: 100%;
-}
-
-.chat_wrap #chat .left {
-    text-align: left;
-}
-
-.chat_wrap #chat .right {
-    text-align: right;
-}
-
-.chat_wrap #chat {
-    font-size: 12px;
-}
-
-.chat_wrap #chat .sender {
-    margin: 10px 25px 0px 10px;
-    font-weight: bold;
-}
-
-.chat_wrap #chat .message {
-    display: inline-block;
-    margin: 5px 20px 0px 10px;
-    max-width: 75%;
-    border: 1px solid gray;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #FCFCFC;
-    text-align: left;
-}
-
-.chat_wrap #chat .date {
-    margin: 5px 20px 10px 10px;
-    font-size: 10px;
-}
-
-.chat_wrap .input-div {
+.chatCurtain{
+    background-color: rgba(0,0,0,0.5);
     position: fixed;
-    bottom: 0px;
-    width: 100%;
-    background-color: #FFF;
-    text-align: center;
-    border-top: 1px solid #F18C7E;
+    z-index: 1000;
+    width: 1000vw;
+    height: 1000vh;
+    overflow: hidden;
 }
-
-#txtMessage {
+.chatFrame{
+    position: absolute;
+    width: 1000vw;
+    height: 1000vh;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+}
+.inputMsg{
+    position: fixed;
+    width:100%;
+    bottom: 0;
+    left: 25%;
+    height: 150px;
+}
+.inputMsg>input::placeholder{
+    color: rgba(255,255,255,0.4);
+    font-size: 35px;
+}
+.inputMsg>input{
+    border-bottom: 1px solid white;
+    font-size: 50px;
+    width: 50%;
+    background-color: rgba(0,0,0,0);
+    font-family: 'TheJamsil5Bold';
+    color: white;
+}
+.inputMsg>i{
+    position: absolute;
+    left: 45%;
+    bottom: 75px;
+    font-size: 50px;
+    color: white;
+}
+.sender,.message,.date{
+    font-family: 'TheJamsil5Bold';
+    color: white;
+}
+.date{
+    color: rgba(255,255,255,.5);
+    font-size: 10px;
+    letter-spacing: 0;
+}
+.message{
+    font-size:50px ;
+    transition: all .3s ease-in-out;
+}
+.message:hover{
+}
+.sender{
+    letter-spacing: 0;
+    color: rgba(255,255,255,.5);
+}
+#chatEach,#chatEach2{
+    margin: 10px 0;
+}
+.chatRecord{
     width: 100%;
-    height: 80px;
-    border: none;
-    padding: 5px;
+    height: 650px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 0 30px;
+    box-sizing: border-box;
 }

@@ -46,7 +46,6 @@ public class ChatHandler extends TextWebSocketHandler {
         for(WebSocketSession webSocketSession:sessionList){
             webSocketSession.sendMessage(new TextMessage(strMessage));
         }
-        System.out.println(sessionList);
         super.handleTextMessage(session, message);
     }
 }//END OF ChatHandler

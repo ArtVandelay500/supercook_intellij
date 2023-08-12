@@ -9,6 +9,9 @@
 <%@include file="includes/headUser.jsp"%>
 <body>
 <div class="hugeContainer">
+    <div class="chatCurtain"></div>
+
+    <%@include file="includes/chat.jsp"%>
     <div class="border_box">
         <%--검색 부분--%>
         <%--검색 부분--%>
@@ -17,15 +20,7 @@
                 <c:when test="${not empty sessionId }">
                     <%--Profile Picture--%>
                     <%--Profile Picture--%>
-                        <%--임시 채팅 div--%>
-                        <%--임시 채팅 div--%>
-                        <div>
-                            <button id="chat">
-                                <span class="material-symbols-outlined">mode_comment</span>
-                            </button>
-                        </div>
-                        <%--임시 채팅 div--%>
-                        <%--임시 채팅 div--%>
+
 
                     <div class="dropDown">
                         <a id="headerProfile" href="#">
@@ -203,7 +198,15 @@
         <%--레시피 검색 결과 부분 끝--%>
         <%--레시피 검색 결과 부분 끝--%>
 
+
     </div> <%--BorderBox--%>
 </div> <%--hugeContainer--%>
+            <%--임시 채팅 div--%>
+            <%--임시 채팅 div--%>
+            <div style="font-weight: 900; color: white; font-family: 'neurimboGothicRegular'; display: flex; align-items: center; justify-content: center; position: fixed; z-index: 1001; bottom: 10px; right: 10px; width: 100px; height: 30px; background-color: coral; cursor: pointer; border-radius: 10px;" id="chat">
+                TALK
+            </div>
+            <%--임시 채팅 div--%>
+            <%--임시 채팅 div--%>
 </body>
 </html>
