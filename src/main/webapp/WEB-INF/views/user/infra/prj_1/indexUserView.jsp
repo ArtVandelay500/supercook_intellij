@@ -24,11 +24,23 @@
 
                     <div class="dropDown">
                         <a id="headerProfile" href="#">
-                            <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
-                                 id="uploadImgProfilePreview"
-                                 src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
-                                 class="rounded-circle d-block" width="80" height="80"
-                            />
+                            <c:choose>
+                                <c:when test="${not empty sessionProfilePath}">
+                                    <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
+                                         id="uploadImgProfilePreview"
+                                         src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
+                                         class="rounded-circle d-block" width="80" height="80"
+                                    />
+                                </c:when>
+                                <c:otherwise>
+                                    <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
+                                         id="uploadImgProfilePreview"
+                                         src="/resources/img/prj_1/admin/defaultProfile.png"
+                                         class="rounded-circle d-block" width="60" height="60"
+                                    />
+                                </c:otherwise>
+                            </c:choose>
+
                         </a>
                         <div class="userMenu">
                             <div class="goTo"><span class="material-symbols-outlined">settings</span></div>

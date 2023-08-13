@@ -49,10 +49,22 @@
 
                     <div class="dropdown">
                         <a id="headerProfile" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img style="object-fit: cover; align-self: center"
-                                 id="uploadImgProfilePreview"
-                                 src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
-                                 class="rounded-circle d-block" width="68" height="68">
+                            <c:choose>
+                                <c:when test="${not empty sessionProfilePath}">
+                                    <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
+                                         id="uploadImgProfilePreview"
+                                         src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
+                                         class="rounded-circle d-block" width="80" height="80"
+                                    />
+                                </c:when>
+                                <c:otherwise>
+                                    <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
+                                         id="uploadImgProfilePreview"
+                                         src="/resources/img/prj_1/admin/defaultProfile.png"
+                                         class="rounded-circle d-block" width="60" height="60"
+                                    />
+                                </c:otherwise>
+                            </c:choose>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" onclick="logOut()">로그아웃</a></li>
