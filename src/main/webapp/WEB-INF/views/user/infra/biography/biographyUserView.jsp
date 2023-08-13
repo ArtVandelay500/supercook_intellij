@@ -26,6 +26,7 @@
                         <li><a class="btn_contact" href="#">Contact</a></li>
                     </ul>
                 </div>
+
             </div>
             <div class="main_container">
                 <div class="section_index">
@@ -53,6 +54,10 @@
             </div>
         </div>
     </div>
+</div>
+<div class="mode">
+    <div id="light" class="light">LIGHT</div>
+    <div id="dark" class="darkout">DARK</div>
 </div>
 <script src="/resources/js/jquery-3.6.4.min.js"></script>
 <script src="/resources/js/biography/index.js"></script>

@@ -79,4 +79,46 @@ $(function(){
             }
         });
     });
+
+    // LIGHT / DARK MODE
+    // LIGHT / DARK MODE
+    const modes = $(".mode").children("div");
+    modes.children("div:first-child").hasClass("light");
+    modes.children("div:last-child").hasClass("darkout");
+    $(".animation_border").removeClass("white");
+    modes.on("click",function(){
+      $(this).siblings("div").css({
+          letterSpacing:"-2px",
+      });
+      $(this).css({
+          letterSpacing:"0",
+      });
+      if($(this).attr("id") == "light"){
+          $(".container").css({background:"white"});
+          $(".animation_border").removeClass("white");
+          $()
+          $("#light").removeClass("lightout");
+          $("#light").addClass("light");
+          $("#dark").removeClass("dark");
+          $("#dark").addClass("darkout");
+          $("*").css({color:"black"});
+      }else{
+          $(".container").css({background:"black"});
+          $(".animation_border").addClass("white");
+          $("#light").removeClass("light");
+          $("#light").addClass("lightout");
+          $("#dark").removeClass("darkout");
+          $("#dark").addClass("dark");
+          $("*").css({color:"white"});
+      }
+
+
+
+
+    });
+
+
+
+
+
 });
