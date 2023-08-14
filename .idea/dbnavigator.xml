@@ -24,14 +24,17 @@ SELECT
  c.name,
  b.ingredientAmount,
  c.ingredient_seq as bigcat,
- d.catName
+ d.catName,
+ e.path,
+ e.uuidName
  
  from
 recipe as a
 LEFT JOIN `recipeIngredient`AS b ON b.recipe_seq = a.seq
 Left join `ingredient` as c on c.seq = b.ingredient_seq 
 left join `ingredientGroup` as d on d.seq = c.ingredient_seq
-where 1=1 AND (recipeName LIKE CONCAT('%부%') OR recipeTitle LIKE CONCAT('%부%'))]]></console>
+left join `uploadList` as e on e.path LIKE CONCAT('%recipedto%')
+where 1=1 AND (recipeName LIKE CONCAT('%부대%') OR recipeTitle LIKE CONCAT('%부대%'))]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

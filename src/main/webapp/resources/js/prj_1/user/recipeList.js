@@ -48,7 +48,7 @@ $(function(){
                         listIng = response.listShKeyIng;
                         console.log(list.length);
                         for(let i in list){
-                            console.log(i);
+                            console.log("지금은 "+i+"번째 레시피 차례입니다!!");
                             recipeName = list[i].recipeName;
                             recipeTitle =  list[i].recipeTitle;
                             recipeSource =  list[i].recipeSource;
@@ -173,6 +173,8 @@ $(function(){
                             //재료 넣기
                             //재료 넣기
                             for(ii in listIng){
+                                console.log("이 구간은 " + list[i].seq + "의 "+ ii + "번째의 구간을 지나고 있습니다!");
+                                console.log(listIng[ii].recipe_seq);
                                 //여기다 ⬇︎⬇︎⬇︎⬇︎ 이걸 선언해야 들어감/ 아니면 한 li에 계속 들어감
                                 const div8_2_1_ul = $("<ul>");
                                 const div8_2_1_ul2 = $("<ul>");
@@ -180,7 +182,6 @@ $(function(){
                                 const div8_2_1_li2 = $("<li>");
 
                                 if(listIng[ii].recipe_seq == list[i].seq){
-                                    console.log(listIng[ii].catName);
                                     //양념재료만 따로 append
                                     if(listIng[ii].catName == '양념/오일'){
                                         const div8_2_3_span = $("<span>").text(listIng[ii].name);
@@ -201,10 +202,11 @@ $(function(){
                                         div8_2_1_ul.append(div8_2_1_li);
                                         div8_2_1.append(div8_2_1_h6_1);
                                         div8_2_1.append(div8_2_1_ul);
+
                                     }//else
 
                                 }else{
-                                    break
+                                    continue
                                 }//else
                             }//재료 넣는 for문
                             //재료 넣기
@@ -214,6 +216,7 @@ $(function(){
 
                             div8_2.append(div8_2_1);
                             div8_2.append(div8_2_2);
+
                             //for Loop for ingredients
                             //for Loop for ingredients
 
