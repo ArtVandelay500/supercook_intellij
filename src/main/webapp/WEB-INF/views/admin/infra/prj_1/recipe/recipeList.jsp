@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeService" class="com.vandelay.app.infra.service.CodeService"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +75,14 @@
                                         <td><c:out value="${list.recipeRating}"></c:out></td>
                                         <td><c:out value="${list.recipePrepTime}"></c:out></td>
                                         <td><c:out value="${list.recipeView}"></c:out></td>
-                                        <td><c:out value="${list.recipeSource}"></c:out></td>
+                                        <td>
+                                            <c:set var="codeService" value="${CodeService.selectListCachedCode('23')}"></c:set>
+                                            <c:forEach items="${codeService}" var="abc">
+                                                <c:if test="${list.recipeSource == abc.seq}">
+                                                    <c:out value="${abc.name}"></c:out>
+                                                </c:if>
+                                            </c:forEach>
+                                        </td>
                                         <td>
                                             <button class="detailBtn" onclick="location.href='/recipeForm?seq=<c:out value = '${list.seq}'/>'">
                                                 상세

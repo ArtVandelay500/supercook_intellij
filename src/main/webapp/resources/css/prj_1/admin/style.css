@@ -388,12 +388,21 @@ select[name='delNy']{
     position: relative;
     left: 145px;
     bottom: -50px;
+    white-space: nowrap;
+}
+.ing_already,.ing_ok{
+    display: none;
+    font-size: 13px;
+    position: absolute;
+    left: 10px;
+    bottom: 0px;
+    white-space: nowrap;
 }
 
-.id_ok{
+.id_ok,.ing_ok{
     color: rgba(50, 205, 50, 0.7);
 }
-.id_already{
+.id_already,.ing_already{
     color: red;
 }
 
@@ -586,6 +595,7 @@ pagination_ul>li{
 }
 .tableBox_form>table>tbody>tr>td{
     font-size: 15px;
+    position: relative;
 }
 
 .searchInput_formSeq{

@@ -178,3 +178,6 @@ openViewer = function (type, sort) {
 clickForChange = function(){
     $("#hasFileChangedProfile").val("1");
 }
+clickForChangeFile = function(){
+    $("#hasFileChanged").val("1");
+}

@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeService" class="com.vandelay.app.infra.service.CodeService"/>
 
 <!doctype html>
 <html lang="en">
@@ -70,7 +71,15 @@
                                     </div>
                                     <div class="col-md-2">
                                         <label for="recipeSource" class="form-label">레시피 출처명</label>
-                                        <input type="text" class="form-control" id="recipeSource" name="recipeSource">
+                                        <select class="form-select" aria-label="Default select example" name="recipeSource" id="recipeSource">
+                                            <option value="">:선택해주세요</option>
+                                        <c:set var="codeService" value="${CodeService.selectListCachedCode('23')}"></c:set>
+                                        <c:forEach items="${codeService}" var="abc">
+                                            <option value="<c:out value="${abc.seq}"/>">
+                                                <c:out value="${abc.name}"></c:out>
+                                            </option>
+                                        </c:forEach>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -112,7 +121,7 @@
                                             <input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeleteSeq" name="<c:out value="${name }"/>DeleteSeq"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeletePathFile" name="<c:out value="${name }"/>DeletePathFile"/>
-                                            <label for="uploadImg" class="form-label input-file-button">이미지첨부</label>
+                                            <label onclick="clickForChangeFile()" for="uploadImg" class="form-label input-file-button">이미지첨부</label>
                                             <input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" multiple="multiple" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">
                                             <div id="<c:out value="${name }"/>Preview" class="addScroll">
                                                 <c:forEach items="${listUploaded}" var="listUploaded" varStatus="statusUploaded">
@@ -226,7 +235,15 @@
                                     </div>
                                     <div class="col-md-2">
                                         <label for="recipeSource" class="form-label">레시피 출처명</label>
-                                        <input type="text" class="form-control" id="recipeSource" name="recipeSource" value="<c:out value="${item.recipeSource}"/>">
+                                        <select class="form-select" aria-label="Default select example" name="recipeSource" id="recipeSource">
+                                            <option value="">:선택해주세요</option>
+                                            <c:set var="codeService" value="${CodeService.selectListCachedCode('23')}"></c:set>
+                                            <c:forEach items="${codeService}" var="abc">
+                                                <option <c:if test="${item.recipeSource == abc.seq}">selected</c:if> value="<c:out value="${abc.seq}"/>">
+                                                    <c:out value="${abc.name}"></c:out>
+                                                </option>
+                                            </c:forEach>
+                                        </select>
                                     </div>
                                 </div>
                                 <%--레시피 테마&조리도구 태그--%>
@@ -269,7 +286,7 @@
                                             <input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeleteSeq" name="<c:out value="${name }"/>DeleteSeq"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeletePathFile" name="<c:out value="${name }"/>DeletePathFile"/>
-                                            <label for="uploadImg" class="form-label input-file-button">이미지첨부</label>
+                                            <label onclick="clickForChangeFile()" for="uploadImg" class="form-label input-file-button">이미지첨부</label>
                                             <input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" multiple="multiple" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">
                                             <div id="<c:out value="${name }"/>Preview" class="addScroll">
                                                 <c:forEach items="${listUploaded}" var="listUploaded" varStatus="statusUploaded">

@@ -44,10 +44,10 @@
                                 <tr>
                                     <form name="insertForm">
 
-                                        <td><input onkeyup="checkIng()" name="name" class="searchInput_form" value="<c:out value="${item.name}"></c:out>">
+                                        <td><input onchange="checkIng()" name="name" class="searchInput_form">
+                                            <span class="ing_ok" >입력된 재료는 새 재료입니다</span>
+                                            <span class="ing_already">이미 존재하는 재료입니다</span>
                                         </td>
-                                        <span class="id_ok" >입력된 재료는 새 재료입니다</span>
-                                        <span class="id_already">이미 존재하는 재료입니다</span>
                                         <td>
                                             <select id="insertSel" name="big_cat_ing">
                                                 <option value="">::선택해주세요</option>
@@ -230,7 +230,9 @@
     });
     /*생성버튼 이벤트*/
     $(".insertBtn").on("click",function(){
-        $("form[name=insertForm]").attr("action","/ingForm/insert").submit();
+        if(checkIngInsertFormNull()){
+            $("form[name=insertForm]").attr("action","/ingForm/insert").submit();
+        }
     });
     /*삭제버튼 이벤트*/
     $(".deleteBtn").on("click",function(){

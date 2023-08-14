@@ -109,7 +109,6 @@ h4,h5,h6{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 7px;
     white-space: nowrap;
 }
 .ingredientList_body>ul>li>span{

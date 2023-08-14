@@ -51,6 +51,7 @@ $(function(){
                             console.log(i);
                             recipeName = list[i].recipeName;
                             recipeTitle =  list[i].recipeTitle;
+                            recipeSource =  list[i].recipeSource;
                             src = list[i].path + list[i].uuidName;
                             recipeServing = list[i].recipeServing;
                             recipePrepTime = list[i].recipePrepTime;
@@ -62,6 +63,34 @@ $(function(){
                             div1 = $("<div>").addClass("accordion-item");
                             div1_h2 = $("<h2>").addClass("accordion-header");
                             div1_h2 = $("<h2>").attr("id","flush-heading");
+                            sourceLogoBox = $("<div>").css({
+                                width: "40px",
+                                height: "40px",
+                                borderRadius: "50%",
+                                border:"2px solid white",
+                                boxSizing:"border-box",
+                                overflow:"hidden",
+                                marginRight:"10px",
+                                display:"flex",
+                                alignItems:"center",
+                                justifyContent:"center"
+                            });
+                            sourceLogoImg = $("<img>");
+                            sourceLogoImg.css({
+                                width: "120%",
+                                objectFit: "cover"
+                            });
+                            if (recipeSource == 84){
+                                sourceLogoImg.attr("src","/resources/img/prj_1/sourceLogo/tstory.png");
+                            }else if(recipeSource == 85){
+                                sourceLogoImg.attr("src","/resources/img/prj_1/sourceLogo/naver.png");
+                            }else if(recipeSource == 86){
+                                sourceLogoImg.attr("src","/resources/img/prj_1/sourceLogo/daum.png");
+                            }else if(recipeSource == 87){
+                                sourceLogoImg.attr("src","/resources/img/prj_1/sourceLogo/10000recipe.png");
+                            }
+                            sourceLogoBox.append(sourceLogoImg);
+                            const recipeNameSpan = $("<span>").css({height:".75em", margin:"0",padding:"0"});
                             const div1_button = $("<button>", {
                                 class: "accordion-button collapsed",
                                 type: "button",
@@ -69,8 +98,12 @@ $(function(){
                                 "data-bs-target": "#" + i + "a",
                                 "aria-expanded": "false",
                                 "aria-controls": i + "a",
-                                text: recipeName
+                                // text: recipeName
                             });
+                            div1_button.append(sourceLogoBox);
+                            recipeNameSpan.text(recipeName);
+                            div1_button.append(recipeNameSpan);
+
                             //Assembling div1
                             div1_h2.append(div1_button);
                             //To the main div

@@ -20,7 +20,7 @@
     <script src="/resources/js/prj_1/admin/fileupload.js"></script>
     <script src="/resources/js/prj_1/admin/constantsXdm.js"></script>
     <script src="/resources/js/prj_1/admin/commonXdm.js"></script>
-    <!-- chart.js -->
-    <script src="/resources/js/prj_1/admin/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<%--    <!-- chart.js -->--%>
+<%--    <script src="/resources/js/prj_1/admin/chart.js"></script>--%>
+<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>--%>
 </head>

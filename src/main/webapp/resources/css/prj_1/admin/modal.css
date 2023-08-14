@@ -328,6 +328,7 @@ select[name='delNy']{
     padding: 20px 20px;
     display: flex;
     box-sizing: border-box;
+    flex-wrap: wrap;
     border-radius: 10px;
     background-color: rgba(255, 127, 80, 0.1);
 }

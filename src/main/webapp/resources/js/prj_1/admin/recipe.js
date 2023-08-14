@@ -21,45 +21,8 @@ $(function(){
 //Modal for Ingredient
 //Modal for Ingredient
 
-// Modal for Theme
-// Modal for Theme
-    $("#modalBtn2").on("click",function(){
-        $("#modal").fadeIn();
-        setTimeout(function() {
-            $(".modalTheme").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
-        }, 200);
-    });
 
-    $(".modalClose,.modalOk").on("click",function(e){
-        console.log(e);
-        setTimeout(function() {
-            $("#modal").fadeOut(); // FadeOut the #modal w/ .2 delay
-        }, 200);
-        $(".modalTheme").fadeOut();
-    });
 
-// Modal for Theme
-// Modal for Theme
-
-// Modal for Tool
-// Modal for Tool
-    $("#modalBtn3").on("click",function(){
-        $("#modal").fadeIn();
-        setTimeout(function() {
-            $(".modalTool").fadeIn(); // FadeIn the #modalWindow w/ .2 delay
-        }, 200);
-    });
-
-    $(".modalClose,.modalOk").on("click",function(e){
-        console.log(e);
-        setTimeout(function() {
-            $("#modal").fadeOut(); // FadeOut the #modal w/ .2 delay
-        }, 200);
-        $(".modalTool").fadeOut();
-    });
-
-// Modal for Tool
-// Modal for Tool
 
 
 
@@ -71,7 +34,10 @@ $(function(){
     $(".closeBox").click(function(e){
         $(e.target.parentNode.offsetParent).remove();
     });
-    $("input[name=shKey]").keyup(function() {
+    $("input[name=shKey]").keyup(function(e) {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+        }
         const shKey = $("input[name=shKey]").val();
 
         $.ajax({
@@ -95,7 +61,7 @@ $(function(){
                         name:"ingredientAmount",
                         type:"hidden"
                     });
-                    input.on("keyup", function() {
+                    input.on("input", function() {
                         span.text(response.listShKey[0].name + "  " + input.val());
                         qty.val(input.val());
                     });

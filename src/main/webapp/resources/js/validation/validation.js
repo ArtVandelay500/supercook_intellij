@@ -223,11 +223,12 @@ validationNull = function(form) {
 //Ingredient Duplicate Check
 // DUPLICATE CHECK
 checkIng = function(e) {
+        console.log("heyyyy");
     const newIng = $("input[name=name]").val().trim();
 
     if (newIng === "") {
-        $('.id_ok').css("display", 'none');
-        $('.id_already').css("display", 'none');
+        $('.ing_ok').css("display", 'none');
+        $('.ing_already').css("display", 'none');
         return;
     }
 
@@ -239,11 +240,11 @@ checkIng = function(e) {
         data: {"name": newIng},
         success: function(response) {
             if(response.rt == "available") {
-                $('.id_ok').css("display", 'inline-block');
-                $('.id_already').css("display", "none");
+                $('.ing_ok').css("display", 'inline-block');
+                $('.ing_already').css("display", "none");
             } else {
-                $('.id_ok').css("display", 'none');
-                $('.id_already').css("display", "inline-block");
+                $('.ing_ok').css("display", 'none');
+                $('.ing_already').css("display", "inline-block");
             }
         }, error: function() { $(newIng).focus(); }
     });
@@ -251,6 +252,31 @@ checkIng = function(e) {
 //Ingredient Duplicate Check
 //Ingredient Duplicate Check
 
+
+//Ingredient inserting form NULL CHECK
+//Ingredient inserting form NULL CHECK
+//Ingredient inserting form NULL CHECK
+function checkIngInsertFormNull() {
+    var form = document.forms["insertForm"];
+    var nameInput = form["name"];
+    var bigCatIngSelect = form["big_cat_ing"];
+    var ingredientSeqSelect = form["ingredient_seq"];
+    var useNySelect = form["useNy"];
+
+    // Check if any field is empty
+    if (nameInput.value.trim() === "" ||
+        bigCatIngSelect.value === "" ||
+        ingredientSeqSelect.value === "" ||
+        useNySelect.value === "") {
+        alert("모든 항목을 채워주세요");
+        return false; // Prevent form submission
+    }else{
+        return true;
+    }
+}
+//Ingredient inserting form NULL CHECK
+//Ingredient inserting form NULL CHECK
+//Ingredient inserting form NULL CHECK
 
 
 

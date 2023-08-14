@@ -9,7 +9,7 @@
     </div>
     <div class="modalBodyLong">
 
-        <form name="search">
+        <form name="search" onsubmit="return false">
             <div class="searchBox">
                 <div class="inputBox">
                     <input id="srcGo" placeholder="재료명" name="shKey" class="searchInput" type="text">

@@ -17,7 +17,7 @@
     <title>테스트</title>
 </head>
 <body>
-    <c:set var="codeService" value="${CodeService.selectListCachedCode('5')}"></c:set>
+    <c:set var="codeService" value="${CodeService.selectListCachedCode('23')}"></c:set>
     <c:forEach items="${codeService}" var="abc">
         <c:out value="${abc.name}"></c:out>
     </c:forEach>

@@ -36,7 +36,7 @@
                                     <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
                                          id="uploadImgProfilePreview"
                                          src="/resources/img/prj_1/admin/defaultProfile.png"
-                                         class="rounded-circle d-block" width="60" height="60"
+                                         class="rounded-circle d-block" width="75" height="75"
                                     />
                                 </c:otherwise>
                             </c:choose>

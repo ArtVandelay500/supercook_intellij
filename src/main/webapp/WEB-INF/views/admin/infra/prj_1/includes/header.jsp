@@ -54,7 +54,7 @@
                                     <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
                                          id="uploadImgProfilePreview"
                                          src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
-                                         class="rounded-circle d-block" width="80" height="80"
+                                         class="rounded-circle d-block" width="70" height="70"
                                     />
                                 </c:when>
                                 <c:otherwise>
