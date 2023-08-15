@@ -133,7 +133,22 @@ public class MemberController {
 
 //LOGIN ID AND PWD CHECK
 //LOGIN ID AND PWD CHECK
+/**
+ * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ */
+@RequestMapping("/memberForm")
+public String userMemberForm(MemberDTO dto, Model model){
+    MemberDTO memberDTO = memberService.selectOne(dto);
+    model.addAttribute("item",memberDTO);
 
-
-
+    List<UploadDTO> uploadList = memberService.selectListUpload(dto);
+    model.addAttribute("listUploaded",uploadList);
+    return "user/infra/prj_1/indexUserView";
 }
+
+
+
+}//END OF MEMBER CONTROLLER

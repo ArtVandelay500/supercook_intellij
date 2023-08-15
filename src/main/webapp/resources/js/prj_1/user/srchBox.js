@@ -74,13 +74,49 @@ $(function(){
     /*SETTING */
     /*SETTING */
     $(".userInfoBox").hide();
-    $("#userGear").on("click",function(){
-        console.log("this is working as i intended");
-        $(".result").fadeOut();
-        $(".userInfoBox").delay(500).fadeIn();
+    var isAnimating = false; // Flag to prevent double animation
+
+    $("#userGear").on("click", function() {
+        if (!isAnimating && !$(".userInfoBox").is(":visible")) {
+            isAnimating = true;
+
+            console.log("this is working as I intended");
+            $(".result").fadeOut();
+            $(".resultCnt").fadeOut();
+
+            setTimeout(function() {
+                $(".resultCnt").find("h2").text("프로필 설정");
+            }, 350);
+
+            $(".userInfoBox").delay(500).fadeIn(function() {
+                isAnimating = false; // Animation is complete, reset the flag
+            });
+            $(".resultCnt").fadeIn(function() {
+                isAnimating = false; // Animation is complete, reset the flag
+            });
+        }
     });
-    /*SETTING */
-    /*SETTING */
+
+    $(".logoBox, #userSrc").on("click", function() {
+        if (!isAnimating && !$(".result").is(":visible")) {
+            isAnimating = true;
+
+            $(".userInfoBox").fadeOut();
+            $(".resultCnt").fadeOut();
+
+            setTimeout(function() {
+                $(".resultCnt").find("h2").text("WELCOME TO YUMMY!");
+            }, 350);
+
+            $(".result").delay(500).fadeIn(function() {
+                isAnimating = false; // Animation is complete, reset the flag
+            });
+            $(".resultCnt").fadeIn(function() {
+                isAnimating = false; // Animation is complete, reset the flag
+            });
+        }
+    });
+
 
     //사용자 설정창과 레시피정보창 컨트롤 js
     //사용자 설정창과 레시피정보창 컨트롤 js

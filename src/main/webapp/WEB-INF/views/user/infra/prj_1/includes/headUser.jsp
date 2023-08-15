@@ -22,6 +22,9 @@
     <script src="/resources/js/prj_1/user/srchBox.js"></script>
     <script src="/resources/js/prj_1/login/login.js"></script>
     <script src="/resources/js/prj_1/user/chat.js"></script>
+    <script src="/resources/js/prj_1/admin/fileupload.js"></script>
+    <script src="/resources/js/prj_1/admin/constantsXdm.js"></script>
+    <script src="/resources/js/prj_1/admin/commonXdm.js"></script>
 
 
 </head>

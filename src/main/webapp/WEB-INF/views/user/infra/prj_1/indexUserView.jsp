@@ -27,7 +27,7 @@
                             <c:choose>
                                 <c:when test="${not empty sessionProfilePath}">
                                     <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
-                                         id="uploadImgProfilePreview"
+                                         id="uploadImgProfilePreview1"
                                          src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
                                          class="rounded-circle d-block" width="80" height="80"
                                     />
@@ -59,9 +59,9 @@
                 </c:otherwise>
             </c:choose>
 
-            <form name="search">
+            <form id="userSrc" name="search">
                 <input type="text" style="line-height: 0;  font-family: 'EF_cucumbersalad';" name="shKey" class="question" id="nme" required autocomplete="off" />
-                <label for="nme"><span style="font-family: 'EF_cucumbersalad';">재료/음식명을 검색해주세요</span></label>
+                <label for="nme"><span id="userSrcLabel" style="font-family: 'EF_cucumbersalad';">재료/음식명을 검색해주세요</span></label>
             </form>
         </div>
         <%--검색 부분--%>
@@ -78,7 +78,7 @@
 
             <div class="resultBox">
                 <div class="resultCnt">
-                    <h2>WELCOME TO YUMMY!</h2>
+                    <h2 style="cursor:default">WELCOME TO YUMMY!</h2>
                 </div>
                 <div class="result">
                 <%--LOADING SPINNER--%>
@@ -206,7 +206,54 @@
                 </div> <%--Result--%>
 
                 <div class="userInfoBox">
+                    <form class="row g-4" method="post" autocomplete="off" name="updateForm" enctype="multipart/form-data">
+                        <%--USER PROFILE STARTS--%>
+                        <%--USER PROFILE STARTS--%>
+                        <div class="justify-content-md-center row mb-3 row mb-3">
+                            <div style="position: relative" class="col-sm-12 text-center">
+                                <c:set var="type" value="1"/>		<!-- #-> -->
+                                <c:set var="name" value="uploadImgProfile"/><!-- #-> -->
+                                <%--if this is 0, won't update(delete and insert) profile, otherwise maintain status quo--%>
+                                <input id="hasFileChangedProfile" type="hidden" name="hasFileChangedProfile" value="0"/><!-- #-> -->
 
+                                <c:choose>
+                                    <c:when test="${fn:length(listUploaded) eq 0 }">
+                                        <img id="<c:out value="${name}"/>Preview" src="/resources/img/prj_1/admin/defaultProfile.png" class="rounded-circle mx-auto d-block" width="100" height="100">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="GetNy" value="0"/>
+                                        <c:forEach items="${listUploaded}" var="listUploaded" varStatus="statusUploaded">
+                                            <c:if test="${listUploaded.type eq type}">
+                                                <input type="hidden" id="<c:out value="${name}"/>DeleteSeq" name="<c:out value="${name}"/>DeleteSeq" value="<c:out value="${listUploaded.seq}"/>"/>
+                                                <input type="hidden" id="<c:out value="${name}"/>DeletePathFile" name="<c:out value="${name}"/>DeletePathFile" value="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName}"/>"/>
+                                                <img style="object-fit: cover" id="<c:out value="${name}"/>Preview" src="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName}"/>" class="rounded-circle mx-auto d-block" width="100" height="100">
+                                                <c:set var="GetNy" value="1"/>
+                                            </c:if>
+                                        </c:forEach>
+                                        <c:if test="${GetNy eq 0 }">
+                                            <img id="<c:out value="${name}"/>Preview" src="/resources/img/prj_1/admin/defaultProfile.png" class="rounded-circle mx-auto d-block" width="100" height="100">
+                                        </c:if>
+                                    </c:otherwise>
+                                </c:choose>
+                                <input type="hidden" id="<c:out value="${name}"/>Type" name="<c:out value="${name}"/>Type" value="<c:out value="${type}"/>"/>
+                                <input type="hidden" id="<c:out value="${name}"/>MaxNumber" name="<c:out value="${name}"/>MaxNumber" value="0"/>
+                                <label for="<c:out value="${name}"/>" class="form-label input-file-button">
+                                    <b>
+                                        <span onclick="clickForChange()" style="font-weight: 900; font-size: 20px; cursor: pointer; padding: 5px; border-radius: 50%; color: white; background-color: coral; position: absolute; transform: translateX(-80%); bottom:10px;" class="material-symbols-outlined">settings</span>
+                                    </b>
+                                </label>
+                                <input class="form-control form-control-sm" id="<c:out value="${name}"/>" name="<c:out value="${name}"/>" type="file" multiple="multiple" style="display: none;" onChange="upload('<c:out value="${name}"/>', <c:out value="${type}"/>, 1, 1, 0, 0, 3);">
+                            </div>
+                        </div>
+                        <%--USER PROFILE END--%>
+                        <%--USER PROFILE END--%>
+                            <div class="row mb-3 justify-content-md-center">
+                                <div class="profileBtnBox">
+                                    <button class="userUpdateBtn updateBtn btn btn-success btn-lg">★</button>
+
+                                </div>
+                            </div>
+                    </form>
                 </div><%--userInfoBox--%>
             </div> <%--RESULT Box  AND FENCE FOR 'Result' AND 'UserInfoBox'--%>
 
@@ -228,3 +275,9 @@
             <%--임시 채팅 div--%>
 </body>
 </html>
+<script>
+    /*수정 버튼 이벤트*/
+    $(".updateBtn").on("click",function(){
+        $("form[name=updateForm]").attr("action","/memberForm/update").submit();
+    });
+</script>
