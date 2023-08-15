@@ -91,107 +91,107 @@
                         <%--아이템 1--%>
                         <%--아이템 1--%>
                         <%--아이템 1--%>
-<%--                         <div class="accordion-item">--%>
-<%--                                <h2 class="accordion-header" id="1">--%>
-<%--                                    <button class="accordion-button collapsed"--%>
-<%--                                            type="button"--%>
-<%--                                            data-bs-toggle="collapse"--%>
-<%--                                            data-bs-target="#flush-collapseOne"--%>
-<%--                                            aria-expanded="false"--%>
-<%--                                            aria-controls="flush-collapseOne">--%>
-<%--                                        부대찌개--%>
-<%--                                    </button>--%>
-<%--                                </h2>--%>
-<%--                                <div id="0a" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">--%>
-<%--                                &lt;%&ndash;레시피 내용 시작&ndash;%&gt;--%>
-<%--                                &lt;%&ndash;레시피 내용 시작&ndash;%&gt;--%>
-<%--                                    <div class="accordion-body">--%>
-<%--                                        <div class="recipeBody">--%>
-<%--                                            &lt;%&ndash;recipeBody_header&ndash;%&gt;--%>
-<%--                                            &lt;%&ndash;recipeBody_header&ndash;%&gt;--%>
-<%--                                            <div class="recipeBody_header">--%>
-<%--                                                <div class="recipeHeader_imgBox"><img src="/resources/img/prj_1/user/부대찌개.jpeg"></div>--%>
-<%--                                                <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>--%>
+                         <div class="accordion-item">
+                                <h2 class="accordion-header" id="1">
+                                    <button class="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOne"
+                                            aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                        부대찌개
+                                    </button>
+                                </h2>
+                                <div id="0a" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <%--레시피 내용 시작--%>
+                                <%--레시피 내용 시작--%>
+                                    <div class="accordion-body">
+                                        <div class="recipeBody">
+                                            <%--recipeBody_header--%>
+                                            <%--recipeBody_header--%>
+                                            <div class="recipeBody_header">
+                                                <div class="recipeHeader_imgBox"><img src="/resources/img/prj_1/user/부대찌개.jpeg"></div>
+                                                <h4>밤 12시가 되면 이따금 생각나는 보글보글 매콤한 백종원의 부대찌개 레시피</h4>
 
-<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
-<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
-<%--                                                <div class="recipeHeader_misc">--%>
-<%--                                                    <div class="recipeHeader_misc-item recipeHeader_misc-serving">--%>
-<%--                                                        <span class="material-symbols-outlined">group</span>--%>
-<%--                                                        <span>3인분 이상</span>--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class="recipeHeader_misc-item recipeHeader_misc-prepTime">--%>
-<%--                                                        <span class="material-symbols-outlined">alarm</span>--%>
-<%--                                                        <span>60분 이내</span>--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class="recipeHeader_misc-item recipeHeader_misc-difficulty">--%>
-<%--                                                        <span class="material-symbols-outlined">hotel_class</span>--%>
-<%--                                                        <span>중급 이상</span>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
-<%--                                                &lt;%&ndash;recipeHeader_misc&ndash;%&gt;--%>
-<%--                                            </div>--%>
-<%--                                            &lt;%&ndash;recipeBody_header&ndash;%&gt;--%>
-<%--                                            &lt;%&ndash;recipeBody_header&ndash;%&gt;--%>
+                                                <%--recipeHeader_misc--%>
+                                                <%--recipeHeader_misc--%>
+                                                <div class="recipeHeader_misc">
+                                                    <div class="recipeHeader_misc-item recipeHeader_misc-serving">
+                                                        <span class="material-symbols-outlined">group</span>
+                                                        <span>3인분 이상</span>
+                                                    </div>
+                                                    <div class="recipeHeader_misc-item recipeHeader_misc-prepTime">
+                                                        <span class="material-symbols-outlined">alarm</span>
+                                                        <span>60분 이내</span>
+                                                    </div>
+                                                    <div class="recipeHeader_misc-item recipeHeader_misc-difficulty">
+                                                        <span class="material-symbols-outlined">hotel_class</span>
+                                                        <span>중급 이상</span>
+                                                    </div>
+                                                </div>
+                                                <%--recipeHeader_misc--%>
+                                                <%--recipeHeader_misc--%>
+                                            </div>
+                                            <%--recipeBody_header--%>
+                                            <%--recipeBody_header--%>
 
-<%--                                            &lt;%&ndash;recipeBody_body&ndash;%&gt;--%>
-<%--                                            &lt;%&ndash;recipeBody_body&ndash;%&gt;--%>
-<%--                                            <div class="recipeBody_body">--%>
-<%--                                                <div class="ingredientList_head">--%>
-<%--                                                    <h4>- 재료</h4>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="recipeBody_body-ingredientList">--%>
-<%--                                                    <div class="ingredientList_body">--%>
-<%--                                                        <h6>[ 기본재료 ]</h6>--%>
-<%--                                                        <ul>--%>
-<%--                                                            <li>--%>
-<%--                                                                <span>스팸</span>--%>
-<%--                                                                <span>1캔</span>--%>
-<%--                                                            </li>--%>
-<%--                                                            <li>라면사리</li>--%>
-<%--                                                            <li>두부</li>--%>
-<%--                                                        </ul>--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class="ingredientList_body">--%>
-<%--                                                        <h6>[ 양념재료 ]</h6>--%>
-<%--                                                        <ul>--%>
-<%--                                                            <li>고추장</li>--%>
-<%--                                                            <li>설탕</li>--%>
-<%--                                                            <li>다시다</li>--%>
-<%--                                                        </ul>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="ingredientList_head">--%>
-<%--                                                    <h4>- 조리도구</h4>--%>
-<%--                                                </div>--%>
-<%--                                                <div class="recipeBody_body-cookingToolList">--%>
-<%--                                                    <div class="cookingToolList_body">--%>
-<%--                                                        <ul>--%>
-<%--                                                            <li>냄비</li>--%>
-<%--                                                            <li>국자</li>--%>
-<%--                                                        </ul>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            &lt;%&ndash;recipeBody_body&ndash;%&gt;--%>
-<%--                                            &lt;%&ndash;recipeBody_body&ndash;%&gt;--%>
+                                            <%--recipeBody_body--%>
+                                            <%--recipeBody_body--%>
+                                            <div class="recipeBody_body">
+                                                <div class="ingredientList_head">
+                                                    <h4>- 재료</h4>
+                                                </div>
+                                                <div class="recipeBody_body-ingredientList">
+                                                    <div class="ingredientList_body">
+                                                        <h6>[ 기본재료 ]</h6>
+                                                        <ul>
+                                                            <li>
+                                                                <span>스팸</span>
+                                                                <span>1캔</span>
+                                                            </li>
+                                                            <li>라면사리</li>
+                                                            <li>두부</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ingredientList_body">
+                                                        <h6>[ 양념재료 ]</h6>
+                                                        <ul>
+                                                            <li>고추장</li>
+                                                            <li>설탕</li>
+                                                            <li>다시다</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="ingredientList_head">
+                                                    <h4>- 조리도구</h4>
+                                                </div>
+                                                <div class="recipeBody_body-cookingToolList">
+                                                    <div class="cookingToolList_body">
+                                                        <ul>
+                                                            <li>냄비</li>
+                                                            <li>국자</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <%--recipeBody_body--%>
+                                            <%--recipeBody_body--%>
 
-<%--                                            &lt;%&ndash;recipeBody_Footer&ndash;%&gt;--%>
-<%--                                            &lt;%&ndash;recipeBody_Footer&ndash;%&gt;--%>
-<%--                                            <div class="recipeBody_footer">--%>
-<%--                                                <div class="urlBtn">--%>
-<%--                                                    <button type="button" onclick=location.href="https://www.naver.com" class="btn btn-dark btn-lg">레시피 보기</button>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            &lt;%&ndash;recipeBody_Footer&ndash;%&gt;--%>
-<%--                                            &lt;%&ndash;recipeBody_Footer&ndash;%&gt;--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            &lt;%&ndash;레시피 내용 끝&ndash;%&gt;--%>
-<%--                            &lt;%&ndash;레시피 내용 끝&ndash;%&gt;--%>
-<%--                            </div>--%>
+                                            <%--recipeBody_Footer--%>
+                                            <%--recipeBody_Footer--%>
+                                            <div class="recipeBody_footer">
+                                                <div class="urlBtn">
+                                                    <button type="button" onclick=location.href="https://www.naver.com" class="btn btn-dark btn-lg">레시피 보기</button>
+                                                </div>
+                                            </div>
+                                            <%--recipeBody_Footer--%>
+                                            <%--recipeBody_Footer--%>
+                                        </div>
+                                    </div>
+                                </div>
+                            <%--레시피 내용 끝--%>
+                            <%--레시피 내용 끝--%>
+                            </div>
                         <%--아이템 1--%>
                         <%--아이템 1--%>
                         <%--아이템 1--%>
