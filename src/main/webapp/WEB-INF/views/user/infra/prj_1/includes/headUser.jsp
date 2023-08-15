@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/prj_1/user/bootstrap.css">
     <link rel="stylesheet" href="/resources/css/prj_1/user/chat.css">
+    <link rel="stylesheet" href="/resources/css/prj_1/user/userInfoBox.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/resources/js/jquery-3.6.4.min.js"></script>
     <script src="/resources/js/prj_1/user/recipeList.js"></script>

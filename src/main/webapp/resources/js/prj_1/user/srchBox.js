@@ -68,6 +68,24 @@ $(function(){
 
 
 
+    //사용자 설정창과 레시피정보창 컨트롤 js
+    //사용자 설정창과 레시피정보창 컨트롤 js
+
+    /*SETTING */
+    /*SETTING */
+    $(".userInfoBox").hide();
+    $(".goTo").on("click",function(){
+        $(".resultBox").fadeOut();
+        $(".userInfoBox").fadeIn();
+    });
+    /*SETTING */
+    /*SETTING */
+
+    //사용자 설정창과 레시피정보창 컨트롤 js
+    //사용자 설정창과 레시피정보창 컨트롤 js
+
+
+
 
 
 

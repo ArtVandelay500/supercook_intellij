@@ -205,7 +205,11 @@
                     </div> <%--end of accordion flush--%>
                 </div> <%--Result--%>
             </div> <%--ResultBox--%>
-        </div> <%--RecipeBox--%>
+            <div class="userInfoBox">
+
+            </div><%--userInfoBox--%>
+
+        </div> <%--RecipeBox AND FENCE FOR 'ResultBox' AND 'UserInfoBox'--%>
 
         <%--레시피 검색 결과 부분 끝--%>
         <%--레시피 검색 결과 부분 끝--%>
