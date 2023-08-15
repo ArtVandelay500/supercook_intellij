@@ -43,7 +43,7 @@
 
                         </a>
                         <div class="userMenu">
-                            <div class="goTo"><span id="userGear" class="material-symbols-outlined">settings</span></div>
+                            <div id="userGear" class="goTo"><span class="material-symbols-outlined">settings</span></div>
                             <div onclick="logOutUser()" class="logOut"><span class="material-symbols-outlined">logout</span>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
 
             <form name="search">
                 <input type="text" style="line-height: 0;  font-family: 'EF_cucumbersalad';" name="shKey" class="question" id="nme" required autocomplete="off" />
-                <label for="nme"><span style="font-family: 'EF_cucumbersalad';">Are You Hungry?</span></label>
+                <label for="nme"><span style="font-family: 'EF_cucumbersalad';">재료/음식명을 검색해주세요</span></label>
             </form>
         </div>
         <%--검색 부분--%>
