@@ -74,9 +74,10 @@ $(function(){
     /*SETTING */
     /*SETTING */
     $(".userInfoBox").hide();
-    $(".goTo").on("click",function(){
-        $(".resultBox").fadeOut();
-        $(".userInfoBox").fadeIn();
+    $("#userGear").on("click",function(){
+        console.log("this is working as i intended");
+        $(".result").fadeOut();
+        $(".userInfoBox").delay(500).fadeIn();
     });
     /*SETTING */
     /*SETTING */

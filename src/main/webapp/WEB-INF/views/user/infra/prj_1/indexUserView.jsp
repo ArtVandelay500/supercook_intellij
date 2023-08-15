@@ -43,7 +43,7 @@
 
                         </a>
                         <div class="userMenu">
-                            <div class="goTo"><span class="material-symbols-outlined">settings</span></div>
+                            <div class="goTo"><span id="userGear" class="material-symbols-outlined">settings</span></div>
                             <div onclick="logOutUser()" class="logOut"><span class="material-symbols-outlined">logout</span>
                             </div>
                         </div>
@@ -204,12 +204,14 @@
                     <%--ACCORDIAN--%>
                     </div> <%--end of accordion flush--%>
                 </div> <%--Result--%>
-            </div> <%--ResultBox--%>
-            <div class="userInfoBox">
 
-            </div><%--userInfoBox--%>
+                <div class="userInfoBox">
 
-        </div> <%--RecipeBox AND FENCE FOR 'ResultBox' AND 'UserInfoBox'--%>
+                </div><%--userInfoBox--%>
+            </div> <%--RESULT Box  AND FENCE FOR 'Result' AND 'UserInfoBox'--%>
+
+
+        </div> <%--RECIPE Box--%>
 
         <%--레시피 검색 결과 부분 끝--%>
         <%--레시피 검색 결과 부분 끝--%>
