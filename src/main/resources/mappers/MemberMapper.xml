@@ -99,8 +99,7 @@
     <update id="update">
         UPDATE member
         SET
-            email = #{email},
-            pwd = #{pwd}
+            email = #{email}
         WHERE
             seq = #{seq}
     </update>

@@ -207,6 +207,8 @@
 
                 <div class="userInfoBox">
                     <form class="row g-4" method="post" autocomplete="off" name="updateForm" enctype="multipart/form-data">
+                        <input name="seq" type="hidden" value="<c:out value="${sessionSeq}"/>">
+                        <input name="email" type="hidden" value="<c:out value="${sessionId}"/>">
                         <%--USER PROFILE STARTS--%>
                         <%--USER PROFILE STARTS--%>
                         <div class="justify-content-md-center row mb-3 row mb-3">
@@ -217,19 +219,15 @@
                                 <input id="hasFileChangedProfile" type="hidden" name="hasFileChangedProfile" value="0"/><!-- #-> -->
 
                                 <c:choose>
-                                    <c:when test="${fn:length(listUploaded) eq 0 }">
+                                    <c:when test="${empty sessionProfilePath}">
                                         <img id="<c:out value="${name}"/>Preview" src="/resources/img/prj_1/admin/defaultProfile.png" class="rounded-circle mx-auto d-block" width="100" height="100">
                                     </c:when>
                                     <c:otherwise>
                                         <c:set var="GetNy" value="0"/>
-                                        <c:forEach items="${listUploaded}" var="listUploaded" varStatus="statusUploaded">
-                                            <c:if test="${listUploaded.type eq type}">
-                                                <input type="hidden" id="<c:out value="${name}"/>DeleteSeq" name="<c:out value="${name}"/>DeleteSeq" value="<c:out value="${listUploaded.seq}"/>"/>
-                                                <input type="hidden" id="<c:out value="${name}"/>DeletePathFile" name="<c:out value="${name}"/>DeletePathFile" value="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName}"/>"/>
-                                                <img style="object-fit: cover" id="<c:out value="${name}"/>Preview" src="<c:out value="${listUploaded.path}"/><c:out value="${listUploaded.uuidName}"/>" class="rounded-circle mx-auto d-block" width="100" height="100">
+                                                <input type="hidden" id="<c:out value="${name}"/>DeleteSeq" name="<c:out value="${name}"/>DeleteSeq" value="<c:out value=""/>"/>
+                                                <input type="hidden" id="<c:out value="${name}"/>DeletePathFile" name="<c:out value="${name}"/>DeletePathFile" value="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"/>
+                                                <img style="object-fit: cover" id="<c:out value="${name}"/>Preview" src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>" class="rounded-circle mx-auto d-block" width="100" height="100">
                                                 <c:set var="GetNy" value="1"/>
-                                            </c:if>
-                                        </c:forEach>
                                         <c:if test="${GetNy eq 0 }">
                                             <img id="<c:out value="${name}"/>Preview" src="/resources/img/prj_1/admin/defaultProfile.png" class="rounded-circle mx-auto d-block" width="100" height="100">
                                         </c:if>
@@ -278,6 +276,7 @@
 <script>
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(){
-        $("form[name=updateForm]").attr("action","/memberForm/update").submit();
+        alert("변경 후 재로그인 해주세요!");
+        $("form[name=updateForm]").attr("action","/userMemberForm/update").submit();
     });
 </script>

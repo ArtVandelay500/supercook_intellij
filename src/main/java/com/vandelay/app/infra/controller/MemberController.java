@@ -139,16 +139,12 @@ public class MemberController {
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  */
-@RequestMapping("/memberForm")
-public String userMemberForm(MemberDTO dto, Model model){
-    MemberDTO memberDTO = memberService.selectOne(dto);
-    model.addAttribute("item",memberDTO);
 
-    List<UploadDTO> uploadList = memberService.selectListUpload(dto);
-    model.addAttribute("listUploaded",uploadList);
-    return "user/infra/prj_1/indexUserView";
+@RequestMapping("/userMemberForm/update")
+public String userMemberUpdate(MemberDTO dto) throws Exception {
+    memberService.update(dto);
+    return "redirect:/indexUserView";
 }
-
 
 
 }//END OF MEMBER CONTROLLER
