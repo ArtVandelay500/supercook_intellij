@@ -126,7 +126,7 @@ $(function(){
                             const div6 = $("<div>").addClass("recipeHeader_imgBox");
                             const div6_img = $("<img>").attr("src",src);
                             div6.append(div6_img);
-                            const div5_h4 = $("<h4>").html();
+                            const div5_h4 = $("<h4>").html(recipeTitle);
                             const div7 = $("<div>").addClass("recipeHeader_misc");
                             //몇인분?
                             const div7_1 = $("<div>").addClass("recipeHeader_misc-item recipeHeader_misc-serving");
@@ -259,12 +259,19 @@ $(function(){
                             //RecipeFooter
                             const div9 = $("<div>").addClass("recipeBody_footer");
                             const div9_1 = $("<div>").addClass("urlBtn");
+                            const varRecipeUrl = recipeUrl;
+
                             const div9_1_button = $("<button>",{
                                 type : "button",
                                 class: "btn btn-dark btn-lg",
                                 text : "레시피 보기",
-                                // onclick: location.href = recipeUrl
+                                id : i + "a",
+                                click: function() {
+                                    window.open(varRecipeUrl, "_blank");
+                                }
                             });
+                                console.log(div9_1_button.attr("id"));
+                                console.log(recipeUrl);
 
                             div9_1.append(div9_1_button);
                             div9.append(div9_1);
