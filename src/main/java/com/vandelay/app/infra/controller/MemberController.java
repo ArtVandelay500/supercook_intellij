@@ -101,7 +101,7 @@ public class MemberController {
 
     @ResponseBody
     @RequestMapping(value = "/member/login", method = RequestMethod.POST)
-    public Map<String, Object> login(MemberVo vo, HttpSession httpSession, WebSocketSession session){
+    public Map<String, Object> login(MemberVo vo, HttpSession httpSession){
         Map<String,Object> returnMap = new HashMap<String,Object>();
 
         MemberDTO rtMemberDTO = memberService.selectOneAJAX(vo);
