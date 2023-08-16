@@ -31,7 +31,7 @@
             <div class="main_container">
                 <div class="section_index">
                     <p>
-                        born in 1995 in Icheon
+                        안녕하세요
                     </p>
                 </div>
                 <div class="section_projects">
@@ -47,8 +47,8 @@
                 <div class="section_contact">
                     <h3>Contact Me</h3>
                     <ul>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Notion</a></li>
+                        <li><a href="https://github.com/ArtVandelay500">GitHub</a></li>
+                        <li><a href="glossy-echo-0f8.notion.site">Notion</a></li>
                     </ul>
                 </div>
             </div>
