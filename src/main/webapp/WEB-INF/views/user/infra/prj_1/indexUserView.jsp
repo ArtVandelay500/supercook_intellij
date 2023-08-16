@@ -3,9 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
 <!doctype html>
 <html lang="en">
+
 <%@include file="includes/headUser.jsp"%>
 <body>
 <div class="hugeContainer">
@@ -63,6 +63,15 @@
                 <input type="text" style="line-height: 0;  font-family: 'EF_cucumbersalad';" name="shKey" class="question" id="nme" required autocomplete="off" />
                 <label for="nme"><span id="userSrcLabel" style="font-family: 'EF_cucumbersalad';">재료/음식명을 검색해주세요</span></label>
             </form>
+
+            <%--임시 채팅 div--%>
+            <%--임시 채팅 div--%>
+            <div id="chat">
+                <i id="oBtn" class="fa-regular fa-paper-plane"></i>
+                <i id="xBtn" class="fa-solid fa-xmark"></i>
+            </div>
+            <%--임시 채팅 div--%>
+            <%--임시 채팅 div--%>
         </div>
         <%--검색 부분--%>
         <%--검색 부분--%>
@@ -264,13 +273,7 @@
 
     </div> <%--BorderBox--%>
 </div> <%--hugeContainer--%>
-            <%--임시 채팅 div--%>
-            <%--임시 채팅 div--%>
-            <div style="font-weight: 900; color: white; font-family: 'neurimboGothicRegular'; display: flex; align-items: center; justify-content: center; position: fixed; z-index: 1001; bottom: 10px; right: 10px; width: 100px; height: 30px; background-color: coral; cursor: pointer; border-radius: 10px;" id="chat">
-                TALK
-            </div>
-            <%--임시 채팅 div--%>
-            <%--임시 채팅 div--%>
+
 </body>
 </html>
 <script>

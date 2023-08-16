@@ -47,8 +47,8 @@
                 <div class="section_contact">
                     <h3>Contact Me</h3>
                     <ul>
-                        <li><a href="https://github.com/ArtVandelay500">GitHub</a></li>
-                        <li><a href="glossy-echo-0f8.notion.site">Notion</a></li>
+                        <li><a target="_blank" href="https://github.com/ArtVandelay500">GitHub</a></li>
+                        <li><a target="_blank" href="http://glossy-echo-0f8.notion.site">Notion</a></li>
                     </ul>
                 </div>
             </div>

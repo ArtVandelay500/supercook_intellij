@@ -29,7 +29,7 @@ $(function(){
                     if (response.rt == "success") {
 
                         if(response.resultCnt == 0){
-                            const resultCnt = $("<h2>").html("No Recipe Found ...     :(");
+                            const resultCnt = $("<h2>").html(shKey + "가 들어간 레시피는 없습니다");
                             $(".resultCnt").append(resultCnt);
                             $(".loader").hide();
                         }else if(response.resultCnt == 1) {
