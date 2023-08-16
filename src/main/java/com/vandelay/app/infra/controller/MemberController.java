@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.socket.WebSocketSession;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Member;
@@ -100,7 +101,7 @@ public class MemberController {
 
     @ResponseBody
     @RequestMapping(value = "/member/login", method = RequestMethod.POST)
-    public Map<String, Object> login(MemberVo vo, HttpSession httpSession){
+    public Map<String, Object> login(MemberVo vo, HttpSession httpSession, WebSocketSession session){
         Map<String,Object> returnMap = new HashMap<String,Object>();
 
         MemberDTO rtMemberDTO = memberService.selectOneAJAX(vo);

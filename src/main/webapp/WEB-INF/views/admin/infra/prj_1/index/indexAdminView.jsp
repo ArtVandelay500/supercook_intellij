@@ -15,11 +15,8 @@
             <div class="mainContainer">
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
                 <%--FORM CONTENT STARTS FROM HERE!!--%>
-                    <div class ="chartjs">
-                        <div class ="linechart"><canvas id="linechart" height="250" width="250"></canvas></div>
-                        <div class ="barchart"><canvas id="barchart" height="250" width="250"></canvas></div>
-                        <div class ="donutchart"><canvas id="donutchart" height="250" width="250"></canvas></div>
-                    </div>
+                <%@include file="../includes/chart.jsp"%>
+
                 <%--FORM CONTENT ENDS FROM HERE!!--%>
                 <%--FORM CONTENT ENDS FROM HERE!!--%>
             </div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page session="true"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://kit.fontawesome.com/594e2502af.js" crossorigin="anonymous"></script>

@@ -20,12 +20,17 @@ public class ChatHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         System.out.println("연결됨: " + session.getId());
         sessionList.add(session);
+
+        String msg =  session.getId() + "님이 입장하셨습니다";
+        session.sendMessage(new TextMessage(msg));
         super.afterConnectionEstablished(session);
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         System.out.println("연결끊김: " + session.getId());
+        String msg =  session.getId() + "님이 퇴장하셨습니다";
+        session.sendMessage(new TextMessage(msg));
         sessionList.remove(session);
         super.afterConnectionClosed(session, status);
     }
