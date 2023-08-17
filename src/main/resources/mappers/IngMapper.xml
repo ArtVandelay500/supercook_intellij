@@ -111,8 +111,8 @@
             big_cat_ing
         FROM
             ingredient
-        WHERE
-            name = #{shKey}
+        WHERE 1=1
+          AND name LIKE CONCAT('%',#{shKey},'%')
     </select>
 <!--Recipe page searching for Ing with ShKeyword-->
 <!--Recipe page searching for Ing with ShKeyword-->
@@ -125,7 +125,7 @@
         FROM
             ingredient
         WHERE 1=1
-          AND name LIKE CONCAT('%',#{name},'%')
+            AND name = #{name}
     </select>
 <!--new Ingredient duplication check-->
 <!--new Ingredient duplication check-->

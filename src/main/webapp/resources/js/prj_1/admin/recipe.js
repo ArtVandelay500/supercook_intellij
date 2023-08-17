@@ -52,58 +52,60 @@ $(function(){
                 if (response.rt == "success") {
 
                     const list = response.listShKey;
+                    $("#recipeIngRt").empty();
                     console.log("드디어 뭔가가 찍혀요!");
                     for(let i in list){
 
+                        const basketItem = $("<div>").addClass("basketItem");
+                        const input = $("<input class=\"searchInput_form\">");
+                        const span = $("<span>").text(list[i].name);
+                        const qty = $("<input>");
+                        qty.attr({
+                            name:"ingredientAmount",
+                            type:"hidden"
+                        });
+                        input.on("input", function() {
+                            span.text(list[i].name + "  " + input.val());
+                            qty.val(input.val());
+                        });
+                        const seq = $("<input>");
+                        seq.attr({
+                            name:"ingredient_seq",
+                            type:"hidden",
+                            value:list[i].seq
+                        });
+
+                        const closeBox = $("<div>").addClass("closeBox");
+                        const closeItem = $("<span>").addClass("material-symbols-outlined").text("close");
+                        const addButton = $("<button>").attr("id", "basketDunk").addClass("detailBtn").text("추가");
+                        closeBox.append(closeItem);
+                        basketItem.append(span);
+                        basketItem.append(seq);
+                        // basketItem.append(ingBigCat);
+                        basketItem.append(qty);
+                        basketItem.append(closeBox);
+
+
+                        // removing clicked div from the divs
+                        closeBox.click(function(e){
+                            $(e.target.parentNode.offsetParent).remove();
+                        });
+                        // append clicked div to the divs
+                        addButton.click(function(e){
+                            $(".basket ,.recipeBox").append(basketItem);
+                        });
+
+
+                        $("#recipeIngRt").append(
+                            $("<tr>").append(
+                                $("<td id=hasName>").text(list[i].name),
+                                $("<td id=hasAmount>").append(input),
+                                $("<td>").append(addButton)
+                            )
+                        );
                     }
 
-                    const basketItem = $("<div>").addClass("basketItem");
-                    const input = $("<input class=\"searchInput_form\">");
-                    const span = $("<span>").text(response.listShKey[0].name);
-                    const qty = $("<input>");
-                    qty.attr({
-                        name:"ingredientAmount",
-                        type:"hidden"
-                    });
-                    input.on("input", function() {
-                        span.text(response.listShKey[0].name + "  " + input.val());
-                        qty.val(input.val());
-                    });
-                    const seq = $("<input>");
-                    seq.attr({
-                        name:"ingredient_seq",
-                        type:"hidden",
-                        value:response.listShKey[0].seq
-                    });
 
-                    const closeBox = $("<div>").addClass("closeBox");
-                    const closeItem = $("<span>").addClass("material-symbols-outlined").text("close");
-                    const addButton = $("<button>").attr("id", "basketDunk").addClass("detailBtn").text("추가");
-                    closeBox.append(closeItem);
-                    basketItem.append(span);
-                    basketItem.append(seq);
-                    // basketItem.append(ingBigCat);
-                    basketItem.append(qty);
-                    basketItem.append(closeBox);
-
-
-                    // removing clicked div from the divs
-                    closeBox.click(function(e){
-                        $(e.target.parentNode.offsetParent).remove();
-                    });
-                    // append clicked div to the divs
-                    addButton.click(function(e){
-                        $(".basket ,.recipeBox").append(basketItem);
-                    });
-
-                    $("#recipeIngRt").empty();
-                    $("#recipeIngRt").empty().append(
-                        $("<tr>").append(
-                            $("<td id=hasName>").text(response.listShKey[0].name),
-                            $("<td id=hasAmount>").append(input),
-                            $("<td>").append(addButton)
-                        )
-                    );
 
                 } else {
                     $('.login_no').css("opacity", "1");
