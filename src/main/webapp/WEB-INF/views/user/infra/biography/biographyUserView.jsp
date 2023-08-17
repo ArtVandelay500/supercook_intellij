@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/biography/index_style.css">
-    <title>Document</title>
+    <title>홍현욱</title>
 </head>
 <body>
 <div class="container">
