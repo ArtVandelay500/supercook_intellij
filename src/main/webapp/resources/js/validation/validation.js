@@ -312,3 +312,55 @@ function checkIngInsertFormNull() {
     // DUPLICATE CHECK
     // DUPLICATE CHECK
 
+
+//recipeForm validation check
+//recipeForm validation check
+
+$(document).ready(function() {
+    // Validation function for form
+    function validateForm() {
+        var recipeName = $("#recipeName").val();
+        var recipeTitle = $("#recipeTitle").val();
+        var recipeType = $("#recipeType").val();
+        var recipeMethod = $("#recipeMethod").val();
+        var recipeUrl = $("#recipeUrl").val();
+        var recipeSource = $("#recipeSource").val();
+        var recipeIng = $("#recipeRecipeTag").val();
+        var recipeTheme = $("#recipeThemeTag").val();
+        var recipeTool = $("#recipeToolTag").val();
+        var recipeLevel = $("#recipeLevel").val();
+        var recipePrepTime = $("#recipePrepTime").val();
+        var recipeServing = $("#recipeServing").val();
+        var recipeBox = $(".recipeBox");
+
+        if (recipeName === "" || recipeTitle === "" || recipeType === "" || recipeMethod === "" ||
+            recipeUrl === "" || recipeSource === "" || recipeIng === "" || recipeTheme === "" || recipeTool === "" || recipeLevel === "" || recipePrepTime === "" || recipeServing === "") {
+            alert("Please fill out all required fields.");
+            return false;
+        }
+        // Check if file input has a selected file
+        if ($("#uploadImg")[0].files.length === 0) {
+            alert("Please select an image file.");
+            return false;
+        }
+
+        // Check if recipeBox div is empty
+        if(recipeBox.is(':empty')||!recipeBox.children().length) {
+            alert("Please add ingredients to the recipe box.");
+            return false;
+        }
+        return true; // Return true if all validations pass
+    }
+
+    // Bind validation function to form submit button
+    $(".insertBtn").on("click", function(e) {
+        if (!validateForm()) {
+            e.preventDefault(); // Prevent form submission if validation fails
+        }else{
+            $("form[name=insertForm]").attr("action", "/recipeForm/insert").submit();
+        }
+        // Form submission will continue if validation passes
+    });
+});
+//recipeForm validation check
+//recipeForm validation check

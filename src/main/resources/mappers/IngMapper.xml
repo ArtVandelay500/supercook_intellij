@@ -125,7 +125,7 @@
         FROM
             ingredient
         WHERE 1=1
-            AND name = #{name}
+          AND name LIKE CONCAT('%',#{name},'%')
     </select>
 <!--new Ingredient duplication check-->
 <!--new Ingredient duplication check-->

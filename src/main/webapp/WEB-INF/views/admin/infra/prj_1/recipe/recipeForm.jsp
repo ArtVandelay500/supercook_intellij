@@ -121,7 +121,7 @@
                                             <input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeleteSeq" name="<c:out value="${name }"/>DeleteSeq"/>
                                             <input type="hidden" id="<c:out value="${name }"/>DeletePathFile" name="<c:out value="${name }"/>DeletePathFile"/>
-                                            <label onclick="clickForChangeFile()" for="uploadImg" class="form-label input-file-button">이미지첨부</label>
+                                            <label onclick="clickForChangeFile()" for="<c:out value="${name }"/>" class="form-label input-file-button">이미지첨부</label>
                                             <input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" multiple="multiple" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">
                                             <div id="<c:out value="${name }"/>Preview" class="addScroll">
                                                 <c:forEach items="${listUploaded}" var="listUploaded" varStatus="statusUploaded">
@@ -170,7 +170,7 @@
                                 <%--SUBMIT BUTTON--%>
                                 <%--SUBMIT BUTTON--%>
                                 <div class="col-12 justify-content-md-center">
-                                    <button class="insertBtn btn btn-success btn-lg" >생성</button>
+                                    <button class="insertBtn btn btn-success btn-lg">생성</button>
                                 </div>
                             </form>
                         </div>
@@ -370,28 +370,19 @@
 
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(e){
-        var form = $("form[name=updateForm]");
 
-            $("form[name=updateForm]").attr("action", "/recipeForm/update").submit();
+        $("form[name=updateForm]").attr("action", "/recipeForm/update").submit();
 
 
     });
     /*생성버튼 이벤트*/
-    $(".insertBtn").on("click",function(e){
-        $("form[name=insertForm]").attr("action", "/recipeForm/insert").submit();
 
-    });
     /*삭제버튼 이벤트*/
     $(".deleteBtn").on("click",function(){
         $("form[name=updateForm]").attr("action","/recipeForm/delete").submit();
     });
-
-
-
-
-
-
 </script>
+
 <%--script code--%>
 </body>
 </html>

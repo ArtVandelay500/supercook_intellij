@@ -34,7 +34,7 @@ $(function(){
     $(".closeBox").click(function(e){
         $(e.target.parentNode.offsetParent).remove();
     });
-    $("input[name=shKey]").keyup(function(e) {
+    $("input[name=shKey]").change(function(e) {
         if (e.keyCode === 13) {
             e.preventDefault();
         }
@@ -51,8 +51,12 @@ $(function(){
             success: function (response) {
                 if (response.rt == "success") {
 
-
+                    const list = response.listShKey;
                     console.log("드디어 뭔가가 찍혀요!");
+                    for(let i in list){
+
+                    }
+
                     const basketItem = $("<div>").addClass("basketItem");
                     const input = $("<input class=\"searchInput_form\">");
                     const span = $("<span>").text(response.listShKey[0].name);
@@ -71,12 +75,6 @@ $(function(){
                         type:"hidden",
                         value:response.listShKey[0].seq
                     });
-                    // const ingBigCat = $("<input>");
-                    // ingBigCat.attr({
-                    //     name:"ingredientBigCat",
-                    //     type:"hidden",
-                    //     value:response.listShKey[0].big_cat_ing
-                    // });
 
                     const closeBox = $("<div>").addClass("closeBox");
                     const closeItem = $("<span>").addClass("material-symbols-outlined").text("close");
