@@ -5,6 +5,9 @@ import com.vandelay.app.infra.dto.UploadDTO;
 import com.vandelay.app.infra.service.MemberService;
 import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -98,7 +101,6 @@ public class MemberController {
 
 //LOGIN ID AND PWD CHECK
 //LOGIN ID AND PWD CHECK
-
     @ResponseBody
     @RequestMapping(value = "/member/login", method = RequestMethod.POST)
     public Map<String, Object> login(MemberVo vo, HttpSession httpSession){
@@ -120,6 +122,8 @@ public class MemberController {
         }
         System.out.println(vo.getEmail());
         return returnMap;
+
+
     }
     @ResponseBody
     @RequestMapping("/member/logout")
@@ -146,6 +150,20 @@ public String userMemberUpdate(MemberDTO dto) throws Exception {
     memberService.update(dto);
     return "redirect:/indexUserView";
 }
+
+
+//@GetMapping("/login")
+//    public String preventLogin(Model model){
+//
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+//            return "login/infra/prj_1/login";
+//        }
+//
+//        return "redirect:/indexUserView";
+//    }
+
+
 
 
 }//END OF MEMBER CONTROLLER

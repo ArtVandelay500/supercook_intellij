@@ -48,7 +48,7 @@
                     <h3>Contact Me</h3>
                     <ul>
                         <li><a target="_blank" href="https://github.com/ArtVandelay500">GitHub</a></li>
-                        <li><a target="_blank" href="http://glossy-echo-0f8.notion.site">Notion</a></li>
+                        <li><a target="_blank" href="https://glossy-echo-0f8.notion.site/NOTION-7082a2f5e9024074895b6873ffa49c95?pvs=4">Notion</a></li>
                     </ul>
                 </div>
             </div>
