@@ -13,7 +13,7 @@
     <div class="chatRecord"></div>
 
     <script id="temp" type="text/x-handlebars-template">
-<%--        {{#each .}}--%>
+        {{#each .}}
         <div id="chatEach" class="{{printLeftRight sender}}">
             <div class="sender">{{sender}}</div>
             <div class="date">{{regdate}}</div>
@@ -21,7 +21,7 @@
                 <a href="{{seq}}" style="display:{{printNone sender}}">X</a>
             </div>
         </div>
-<%--        {{/each}}--%>
+        {{/each}}
     </script>
     <script id="temp1" type="text/x-handlebars-template">
         <div id="chatEach2" class="{{printLeftRight sender}}">
@@ -61,19 +61,7 @@
     var uid = "${sessionId}"
     getList();
 
-    // 웹소캣 생성
-    var sock = new SockJS("http://43.201.70.133/echo/");
-    sock.onmessage = onMessage;
-    console.log(sock);
-    sock.onopen = function(event) {
-        console.log("WebSocket connected");
-    };
-    sock.onclose = function(event) {
-        console.log("WebSocket closed");
-    };
-    sock.onerror = function(event) {
-        console.log("WebSocket error");
-    };
+
 
     //채팅삭제
     //채팅삭제
@@ -141,8 +129,19 @@
             }
         });
     }
-
-
+    // 웹소캣 생성
+    var sock = new SockJS("http://localhost:82/echo/");
+    sock.onmessage = onMessage;
+    console.log(sock);
+    sock.onopen = function(event) {
+        console.log("WebSocket connected");
+    };
+    sock.onclose = function(event) {
+        console.log("WebSocket closed");
+    };
+    sock.onerror = function(event) {
+        console.log("WebSocket error");
+    };
 
 
 
