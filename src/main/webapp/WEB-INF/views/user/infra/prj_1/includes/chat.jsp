@@ -62,7 +62,7 @@
     getList();
 
     // 웹소캣 생성
-    var sock = new SockJS("http://localhost:82/echo/");
+    var sock = new SockJS("http://43.201.70.133/echo/");
     sock.onmessage = onMessage;
     console.log(sock);
     sock.onopen = function(event) {
