@@ -26,21 +26,33 @@
                     <div class="dropDown">
                         <a id="headerProfile" href="#">
                             <c:choose>
-                                <c:when test="${not empty sessionProfilePath}">
+                                <c:when test="${not empty userId}">
                                     <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
                                          id="uploadImgProfilePreview1"
-                                         src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
+                                         src="${userProfile}"
                                          class="rounded-circle d-block" width="80" height="80"
                                     />
                                 </c:when>
                                 <c:otherwise>
-                                    <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
-                                         id="uploadImgProfilePreview"
-                                         src="/resources/img/prj_1/admin/defaultProfile.png"
-                                         class="rounded-circle d-block" width="75" height="75"
-                                    />
+                                    <c:choose>
+                                        <c:when test="${not empty sessionProfilePath}">
+                                            <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
+                                                 id="uploadImgProfilePreview1"
+                                                 src="<c:out value="${sessionProfilePath}"/><c:out value="${sessionProfileName}"/>"
+                                                 class="rounded-circle d-block" width="80" height="80"
+                                            />
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
+                                                 id="uploadImgProfilePreview"
+                                                 src="/resources/img/prj_1/admin/defaultProfile.png"
+                                                 class="rounded-circle d-block" width="75" height="75"
+                                            />
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:otherwise>
                             </c:choose>
+
 
                         </a>
                         <div class="userMenu">

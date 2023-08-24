@@ -2,9 +2,11 @@ package com.vandelay.app.infra.controller;
 
 import com.vandelay.app.infra.dto.MemberDTO;
 import com.vandelay.app.infra.dto.UploadDTO;
+import com.vandelay.app.infra.service.KakaoAPI;
 import com.vandelay.app.infra.service.MemberService;
 import com.vandelay.app.infra.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +25,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
+    @Autowired
+    KakaoAPI kakaoAPI;
 
     @RequestMapping("/member/list")
     public String memberList(Model model){
@@ -163,7 +167,27 @@ public String userMemberUpdate(MemberDTO dto) throws Exception {
 //        return "redirect:/indexUserView";
 //    }
 
+//
+@RequestMapping(value="/login/kakao")
+public String login(@RequestParam("code") String code, HttpSession session) {
+    System.out.println("code : " + code);
 
+    String access_Token = kakaoAPI.getAccessToken(code);
+    System.out.println("access_Token : " + access_Token);
+
+    HashMap<String, Object> userInfo = kakaoAPI.getUserInfo(access_Token);
+    System.out.println("login Controller : " + userInfo);
+
+    //    클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
+    if (userInfo.get("nickname") != null) {
+        session.setAttribute("userId", userInfo.get("nickname"));
+        session.setAttribute("access_Token", access_Token);
+        session.setAttribute("userProfile",  userInfo.get("profile_image"));
+        session.setAttribute("sessionId",  userInfo.get("nickname"));
+    }
+
+    return "/user/infra/prj_1/indexUserView";
+}
 
 
 }//END OF MEMBER CONTROLLER

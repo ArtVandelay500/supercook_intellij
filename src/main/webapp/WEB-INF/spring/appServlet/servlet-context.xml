@@ -54,6 +54,7 @@
             <exclude-mapping path="/indexUsrView" />
             <exclude-mapping path="/loginForm" />
             <exclude-mapping path="/login" />
+            <exclude-mapping path="/login/**" />
             <exclude-mapping path="/loginAdmin" />
             <exclude-mapping path="/idCheck" />
             <exclude-mapping path="/member/login" />
