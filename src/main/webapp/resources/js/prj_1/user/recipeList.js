@@ -63,6 +63,35 @@ $(function(){
                             div1 = $("<div>").addClass("accordion-item");
                             div1_h2 = $("<h2>").addClass("accordion-header");
                             div1_h2 = $("<h2>").attr("id","flush-heading");
+                            //좋아요 하트 시작
+                            //좋아요 하트 시작
+                            likeBtnBox = $("<div>").addClass("likeBtnBox");
+                            likeBtn = $("<button>").attr("type", "button").addClass("btn_like likeBtn").click(function() {
+                                click4Luv(this);
+                                function click4Luv(button) {
+                                    if ($(button).hasClass('btn_unlike')) {
+                                        $(button).removeClass('btn_unlike');
+                                        $(button).find('.ani_heart_m').removeClass('hi');
+                                        $(button).find('.ani_heart_m').addClass('bye');
+                                    } else {
+                                        $(button).addClass('btn_unlike');
+                                        $(button).find('.ani_heart_m').addClass('hi');
+                                        $(button).find('.ani_heart_m').removeClass('bye');
+                                    }
+                                }// Pass the clicked button as an argument
+
+                            });
+                            var spanEmoti = $("<span>").addClass("img_emoti").text("좋아요");
+                            var spanHeart = $("<span>").addClass("ani_heart_m");
+
+                            likeBtn.append(spanEmoti, spanHeart);
+                            likeBtnBox.append(likeBtn);
+                            //좋아요 하트 끝
+                            //좋아요 하트 끝
+
+
+                            //레시피 사이트 로고 시작
+                            //레시피 사이트 로고 시작
                             sourceLogoBox = $("<div>").css({
                                 width: "40px",
                                 height: "40px",
@@ -80,6 +109,8 @@ $(function(){
                                 width: "120%",
                                 objectFit: "cover"
                             });
+                            //레시피 사이트 로고 끝
+                            //레시피 사이트 로고 끝
                             if (recipeSource == 84){
                                 sourceLogoImg.attr("src","/resources/img/prj_1/sourceLogo/tstory.png");
                             }else if(recipeSource == 85){
@@ -106,6 +137,7 @@ $(function(){
 
                             //Assembling div1
                             div1_h2.append(div1_button);
+                            div1_h2.append(likeBtnBox);
                             //To the main div
 
                             // $(".accordion-item").append(div1_h2);

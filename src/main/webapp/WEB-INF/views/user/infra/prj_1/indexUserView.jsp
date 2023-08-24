@@ -112,6 +112,10 @@
             <div class="resultBox">
                 <div class="resultCnt">
                     <h2 style="cursor:default">WELCOME TO YUMMY!</h2>
+                    <button onclick="click4Luv(this)" type="button" class="btn_like">
+                        <span class="img_emoti">좋아요</span>
+                        <span class="ani_heart_m"></span>
+                    </button>
                 </div>
                 <div class="result">
                 <%--LOADING SPINNER--%>
@@ -302,6 +306,12 @@
 </html>
 
 <script>
+    //좋아요 버튼 js
+    //좋아요 버튼 js
+
+
+    //좋아요 버튼 js
+    //좋아요 버튼 js
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(){
         alert("변경 후 재로그인 해주세요!");

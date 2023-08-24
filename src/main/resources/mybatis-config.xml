@@ -11,5 +11,6 @@
         <typeAlias type="com.vandelay.app.infra.dto.RecipeDTO" alias="recipe"></typeAlias>
         <typeAlias type="com.vandelay.app.infra.dto.UploadDTO" alias="upload"></typeAlias>
         <typeAlias type="com.vandelay.app.infra.chat.ChatDTO" alias="chat"></typeAlias>
+        <typeAlias type="com.vandelay.app.infra.vo.LikeVo" alias="like"></typeAlias>
     </typeAliases>
 </configuration>
