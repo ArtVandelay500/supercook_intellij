@@ -83,9 +83,10 @@ public void uploadFiles(MultipartFile[] multipartFiles, MemberDTO dto, String ta
             String pathModule = className;
             String nowString = UtilDateTime.nowString();
             String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
-            String path = "/factory/was/apache-tomcat-9.0.78/webapps/project01_war_centOS/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+            String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
+//            String path = "/factory/was/apache-tomcat-9.0.78/webapps/project01_war_centOS/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 //          String path = Constants.UPLOAD_PATH_PREFIX  + "/";
-            String pathForView = "/resources/uploaded/" + "/" + pathModule + "/" + pathDate + "/";
+            String pathForView = Constants.UPLOAD_PATH_PREFIX_FOR_VIEW + "/" + pathModule + "/" + pathDate + "/";
 
             File uploadPath = new File(path);
 

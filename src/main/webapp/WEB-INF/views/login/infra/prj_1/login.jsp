@@ -48,10 +48,11 @@
                     <button id="login" type="button" class="login btn">로그인</button>
                     <button id="b1" type="button" onclick="location.href='/loginForm'" class="signup btn">회원가입</button>
                 </div>
+                <a style="align-self: center; margin-top: 10px" href="https://kauth.kakao.com/oauth/authorize?client_id=adca34fb40e1d2e79631a91ac4c1b21f&redirect_uri=http://localhost:82/login/kakao&response_type=code">
+                    <img src="/resources/img/prj_1/user/kakao_login_medium_narrow.png">
+                </a>
             </form>
-            <a href="https://kauth.kakao.com/oauth/authorize?client_id=adca34fb40e1d2e79631a91ac4c1b21f&redirect_uri=http://localhost:82/login/kakao&response_type=code">
-                <img src="/resources/img/prj_1/user/kakao_login_medium_narrow.png">
-            </a>
+
         </div>
     </div>
 </body>
