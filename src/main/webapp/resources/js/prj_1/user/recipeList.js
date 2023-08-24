@@ -68,6 +68,7 @@ $(function(){
                             likeBtnBox = $("<div>").addClass("likeBtnBox");
                             likeBtn = $("<button>").attr("type", "button").addClass("btn_like likeBtn").click(function() {
                                 click4Luv(this);
+                                likeUp();
                                 function click4Luv(button) {
                                     if ($(button).hasClass('btn_unlike')) {
                                         $(button).removeClass('btn_unlike');
@@ -79,6 +80,29 @@ $(function(){
                                         $(button).find('.ani_heart_m').removeClass('bye');
                                     }
                                 }// Pass the clicked button as an argument
+
+                                function likeUp(e){
+                                    $.ajax({
+                                        async: true,
+                                        cache: false,
+                                        type: "post",
+                                        url: "/likeUp",
+                                        data: {
+                                            "recipe_seq": list[i].seq,
+                                        },
+                                        success: function(response) {
+                                           if(response.likeNum == 0){
+                                                console.log();
+                                           }else{
+                                                console.log();
+
+                                           }
+                                        },
+                                        error: function(jqXHR, textStatus, errorThrown) {
+                                            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                                        }
+                                    });
+                                }
 
                             });
                             var spanEmoti = $("<span>").addClass("img_emoti").text("좋아요");

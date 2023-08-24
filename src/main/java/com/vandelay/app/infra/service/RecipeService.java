@@ -7,6 +7,7 @@ import com.vandelay.app.infra.dto.MemberDTO;
 import com.vandelay.app.infra.dto.RecipeDTO;
 import com.vandelay.app.infra.dto.UploadDTO;
 import com.vandelay.app.infra.repository.RecipeRepository;
+import com.vandelay.app.infra.vo.LikeVo;
 import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class RecipeService {
     private final RecipeRepository recipeRepository;
+
+
+    public int insertLike(LikeVo vo){
+        return recipeRepository.insertLike(vo);
+    }
+
 
     /**
      * @param vo: pagination data
@@ -217,6 +224,10 @@ public List<RecipeDTO> userSelectRecIng(RecipeVo vo) {
 public List<RecipeDTO> userSelectRecUpload(RecipeVo vo) {
     return recipeRepository.userSelectRecUpload(vo);
 }
+
+    public int deleteLike(LikeVo vo) {
+        return recipeRepository.deleteLike(vo);
+    }
 //USER
 //USER
 //USER

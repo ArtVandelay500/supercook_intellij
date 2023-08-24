@@ -3,6 +3,7 @@ package com.vandelay.app.infra.repository;
 import com.vandelay.app.infra.dto.CodeDTO;
 import com.vandelay.app.infra.dto.RecipeDTO;
 import com.vandelay.app.infra.dto.UploadDTO;
+import com.vandelay.app.infra.vo.LikeVo;
 import com.vandelay.app.infra.vo.RecipeVo;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -116,6 +117,13 @@ public class RecipeRepository {
         return sqlSession.selectList("Recipe.user_selectRecUpload", vo);
     }
 
+    public int insertLike(LikeVo vo) {
+        return sqlSession.update("Recipe.likeUp",vo);
+    }
+
+    public int deleteLike(LikeVo vo) {
+        return sqlSession.update("Recipe.likeDown",vo);
+    }
 
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@d

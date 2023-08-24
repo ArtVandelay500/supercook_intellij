@@ -8,5 +8,23 @@
  그리고 dao 에서 namespace와 일치하여야 된다. -->
 
 <mapper namespace="Like">
+    <!-- 좋아요 눌럿는지 안눌럿는지 -->
+    <select id="findLike" resultType="int">
+        SELECT COUNT(*)
+        FROM memberLikesRecipe
+        WHERE recipe_seq = #{recipe_seq} AND member_seq = #{member_seq}
+    </select>
+
+    <insert id="likeUp">
+        INSERT INTO memberLikesReecipe (recipe_seq ,member_seq)
+        values(
+            {recipe_seq},
+            #{member_seq}
+            )
+    </insert>
+
+    <delete id="likeDown">
+        DELETE FROM memberLikesRecipe WHERE recipe_seq = #{recipe_seq} AND member_seq = #{member_seq}
+    </delete>
 
 </mapper>

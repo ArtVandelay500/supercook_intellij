@@ -101,7 +101,21 @@
             AND b.path LIKE CONCAT('%recipedto%')
     </select>
 
+    <update id="likeUp">
+        UPDATE recipe
+        SET
+            recipeRating = recipeRating + 1
+        WHERE
+            seq = #{recipe_seq}
+    </update>
 
+    <update id="likeDown">
+        UPDATE recipe
+        SET
+            recipeRating = recipeRating - 1
+        WHERE
+            seq = #{recipe_seq}
+    </update>
 
     <update id="update">
         UPDATE recipe
