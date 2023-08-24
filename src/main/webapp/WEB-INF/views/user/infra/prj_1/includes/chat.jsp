@@ -18,7 +18,7 @@
             <div class="sender">{{sender}}</div>
             <div class="date">{{regdate}}</div>
             <div class="message">{{message}}
-                <a href="{{seq}}" style="display:{{printNone sender}}">X</a>
+                <a id="delMsg" href="{{seq}}" style="display:{{printNone sender}}"><i class="fa-regular fa-trash-can"></i></a>
             </div>
         </div>
         {{/each}}
@@ -32,7 +32,7 @@
     </script>
     <div class="inputMsg">
         <input id="txtMessage" placeholder="입력 후 엔터!"/>
-        <i class="fa-regular fa-paper-plane"></i>
+        <i style="cursor: pointer;" id="paperPlane" class="fa-regular fa-paper-plane"></i>
     </div>
 </div>
 
@@ -82,35 +82,42 @@
         })
     })
 
+    function sendMessage(){
+        var message = $("#txtMessage").val();
+        if (message == "") {
+            alert("메시지를 입력하세요.");
+            $("#txtMessage").focus();
+            return;
+        }
+        // 서버로 메시지 보내기
+        sock.send(uid + "|" + message);
+        $("#txtMessage").val("");
+
+        // DB로 데이터 보내기
+        $.ajax({
+            async:"true",
+            cache:"false",
+            type:'post',
+            url:'/chat/insert',
+            data:{
+                sender:uid,
+                message:message,
+            },
+            success:function(data){
+                sock.send(uid + "|" + message+"|"+data);
+            }
+        })//ajax
+    }
+
+    $("#paperPlane").on("click",function(){
+        sendMessage();
+    })
 
     $("#txtMessage").on("keypress", function(e) {
         if (e.keyCode == 13 && !e.shiftKey) {
             e.preventDefault();
+            sendMessage();
 
-            var message = $("#txtMessage").val();
-            if (message == "") {
-                alert("메시지를 입력하세요.");
-                $("#txtMessage").focus();
-                return;
-            }
-            // 서버로 메시지 보내기
-            sock.send(uid + "|" + message);
-            $("#txtMessage").val("");
-
-            // DB로 데이터 보내기
-            $.ajax({
-                async:"true",
-                cache:"false",
-                type:'post',
-                url:'/chat/insert',
-                data:{
-                    sender:uid,
-                    message:message,
-                },
-                success:function(data){
-                    sock.send(uid + "|" + message+"|"+data);
-                }
-            })//ajax
 
         }
     })
