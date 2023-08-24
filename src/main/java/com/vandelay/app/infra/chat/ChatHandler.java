@@ -31,7 +31,7 @@ public class ChatHandler extends TextWebSocketHandler {
         System.out.println("연결끊김: " + session.getId());
 //        String msg =  session.getId() + "님이 퇴장하셨습니다";
 //        session.sendMessage(new TextMessage(msg));
-        sessionList.remove(session);시
+        sessionList.remove(session);
         super.afterConnectionClosed(session, status);
     }
 

@@ -7,13 +7,14 @@
 
 /*chat 버튼*/
 /*chat 버튼*/
-#chat>i{
+#chat>i,#chat2>i{
     position: absolute;
 }
+
 .closeColor{
     background-color: indianred!important;
 }
-#chat{
+#chat,#chat2{
     font-size: 50px;
     color: white;
     display: flex;

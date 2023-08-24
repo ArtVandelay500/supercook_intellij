@@ -126,6 +126,12 @@
             success : function(data) {
                 var temp = Handlebars.compile($("#temp").html());
                 $(".chatRecord").append(temp(data));
+
+                var chatRecord = $(".chatRecord")[0];
+                chatRecord.scrollTo({
+                    top: chatRecord.scrollHeight,
+                    behavior: 'smooth' // Set behavior to 'smooth' for smooth scrolling
+                });
             }
         });
     }

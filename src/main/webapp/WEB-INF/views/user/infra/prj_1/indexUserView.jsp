@@ -8,6 +8,7 @@
 
 <%@include file="includes/headUser.jsp"%>
 <body>
+
 <div class="hugeContainer">
     <div class="chatCurtain"></div>
 
@@ -66,10 +67,21 @@
 
             <%--임시 채팅 div--%>
             <%--임시 채팅 div--%>
-            <div id="chat">
-                <i id="oBtn" class="fa-regular fa-paper-plane"></i>
-                <i id="xBtn" class="fa-solid fa-xmark"></i>
-            </div>
+            <c:choose>
+                <c:when test="${not empty sessionId}">
+                    <div id="chat">
+                        <i id="oBtn" class="fa-regular fa-paper-plane"></i>
+                        <i id="xBtn" class="fa-solid fa-xmark"></i>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div id="chat2">
+                        <i id="oBtn" class="fa-regular fa-paper-plane"></i>
+                        <i id="xBtn" class="fa-solid fa-xmark"></i>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
             <%--임시 채팅 div--%>
             <%--임시 채팅 div--%>
         </div>
@@ -276,10 +288,12 @@
 
 </body>
 </html>
+
 <script>
     /*수정 버튼 이벤트*/
     $(".updateBtn").on("click",function(){
         alert("변경 후 재로그인 해주세요!");
         $("form[name=updateForm]").attr("action","/userMemberForm/update").submit();
     });
+
 </script>
