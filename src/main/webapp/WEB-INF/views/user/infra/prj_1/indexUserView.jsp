@@ -112,10 +112,7 @@
             <div class="resultBox">
                 <div class="resultCnt">
                     <h2 style="cursor:default">WELCOME TO YUMMY!</h2>
-                    <button onclick="click4Luv(this)" type="button" class="btn_like">
-                        <span class="img_emoti">좋아요</span>
-                        <span class="ani_heart_m"></span>
-                    </button>
+
                 </div>
                 <div class="result">
                 <%--LOADING SPINNER--%>
