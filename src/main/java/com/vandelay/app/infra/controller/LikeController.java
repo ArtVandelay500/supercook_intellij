@@ -41,4 +41,21 @@ public class LikeController {
         return returnMap;
     }
 
+    @ResponseBody
+    @RequestMapping("/likeCheck")
+    public Map<String, Object> likeCheck(LikeVo vo, HttpServletRequest request) {
+        Map<String, Object> returnMap = new HashMap<String, Object>();
+        int likeNum =  likeService.findLike(vo);
+        System.out.println("여기가 바로 자바맛집이오??????????????");
+        System.out.println(vo.getMember_seq());
+        System.out.println(likeNum);
+        returnMap.put("rt", "success");
+        returnMap.put("likeNum", likeNum);
+        return returnMap;
+    }
+
+
+
+
+
 }

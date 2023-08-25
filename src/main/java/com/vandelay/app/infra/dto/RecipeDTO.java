@@ -31,6 +31,7 @@ public class RecipeDTO {
     private String ingredientType;
     private String catName;
     private String hasFileChanged;
+    private String likeCnt;
 
     private String recipeTheme;
     private String recipeTool;

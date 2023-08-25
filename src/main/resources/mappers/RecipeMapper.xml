@@ -270,13 +270,13 @@
     </select>
 
     <select id="user_selectRecUpload" resultType="recipe">
-        SELECT*
+        SELECT
+          *,
+        (select count(*)from memberLikesRecipe WHERE recipe_seq = a.seq AND member_seq = 22) AS likeCnt
         FROM
             recipe AS a
-        LEFT JOIN uploadList
-            AS c
-                ON c.pseq = a.seq
-                AND c.path LIKE CONCAT('%recipedto%')
+        LEFT JOIN uploadList AS c ON c.pseq = a.seq AND c.path LIKE CONCAT('%recipedto%')
+        LEFT JOIN memberLikesRecipe AS d ON d.recipe_seq = a.seq AND d.member_seq = #{member_seq}
         WHERE 1=1
             <if test="shKey != null and !shKey.equals('')">
                 AND (recipeName LIKE CONCAT('%',#{shKey},'%')

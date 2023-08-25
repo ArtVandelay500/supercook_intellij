@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -206,15 +207,17 @@ public class RecipeController {
 
 @ResponseBody
 @RequestMapping(value = "/searchRecipe", method = RequestMethod.POST)
-public Map<String, Object> selectListShKey(RecipeVo vo){
+public Map<String, Object> selectListShKey(HttpServletRequest request, RecipeVo vo){
     System.out.println("hey im walkin here");
     Map<String,Object> returnMap = new HashMap<String,Object>();
+    String sessionSeq = (String)request.getSession().getAttribute("sessionSeq");
+    vo.setMember_seq(sessionSeq);
+    System.out.println(vo.getMember_seq());
     vo.setResultCnt(recipeService.selectOneCount(vo));
     List<RecipeDTO> listShKey = recipeService.userSelectRecUpload(vo);
     List<RecipeDTO> listShKeyIng = recipeService.userSelectRecIng(vo);
 
     if(listShKey != null){
-
         returnMap.put("listShKey",listShKey);
         returnMap.put("listShKeyIng",listShKeyIng);
         returnMap.put("resultCnt",vo.getResultCnt());

@@ -49,9 +49,11 @@ $(function(){
                         console.log(list.length);
                         for(let i in list){
                             console.log("지금은 "+i+"번째 레시피 차례입니다!!");
+                            sessionSeq = response.sessionSeq;
                             recipeName = list[i].recipeName;
                             recipeTitle =  list[i].recipeTitle;
                             recipeSource =  list[i].recipeSource;
+                            likeCnt =  list[i].likeCnt;
                             src = list[i].path + list[i].uuidName;
                             recipeServing = list[i].recipeServing;
                             recipePrepTime = list[i].recipePrepTime;
@@ -65,8 +67,23 @@ $(function(){
                             div1_h2 = $("<h2>").attr("id","flush-heading");
                             //좋아요 하트 시작
                             //좋아요 하트 시작
+                            var spanEmoti = $("<span>").addClass("img_emoti").text("좋아요");
+                            var spanHeart = $("<span>").addClass("ani_heart_m");
+                            //안 채워진 하트일 시: class=btn_unlike spanClass: hi;
                             likeBtnBox = $("<div>").addClass("likeBtnBox");
-                            likeBtn = $("<button>").attr("type", "button").addClass("btn_like likeBtn").click(function() {
+                            likeBtn = $("<button>").attr("type", "button").addClass("btn_like");
+                            if(likeCnt == "1"){
+                                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                                console.log(likeCnt)
+                                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                                likeBtn.addClass("btn_unlike");
+                            }
+
+                            likeBtn.append(spanEmoti, spanHeart);
+                            likeBtnBox.append(likeBtn);
+                            likeBtn .click(function() {
                                 click4Luv(this);
                                 likeUp();
                                 function click4Luv(button) {
@@ -80,36 +97,27 @@ $(function(){
                                         $(button).find('.ani_heart_m').removeClass('bye');
                                     }
                                 }// Pass the clicked button as an argument
-
-                                function likeUp(e){
-                                    $.ajax({
-                                        async: true,
-                                        cache: false,
-                                        type: "post",
-                                        url: "/likeUp",
-                                        data: {
-                                            "recipe_seq": list[i].seq,
-                                        },
-                                        success: function(response) {
-                                           if(response.likeNum == 0){
-                                                console.log();
-                                           }else{
-                                                console.log();
-
-                                           }
-                                        },
-                                        error: function(jqXHR, textStatus, errorThrown) {
-                                            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-                                        }
-                                    });
-                                }
-
                             });
-                            var spanEmoti = $("<span>").addClass("img_emoti").text("좋아요");
-                            var spanHeart = $("<span>").addClass("ani_heart_m");
+                            function likeUp(e){
+                                $.ajax({
+                                    async: true,
+                                    cache: false,
+                                    type: "post",
+                                    url: "/likeUp",
+                                    data: {
+                                        "recipe_seq": list[i].seq,
+                                    },
+                                    success: function(response) {
+                                    },
+                                    error: function(jqXHR, textStatus, errorThrown) {
+                                        alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                                    }
+                                });
+                            }
 
-                            likeBtn.append(spanEmoti, spanHeart);
-                            likeBtnBox.append(likeBtn);
+
+
+
                             //좋아요 하트 끝
                             //좋아요 하트 끝
 
@@ -161,6 +169,7 @@ $(function(){
 
                             //Assembling div1
                             div1_h2.append(div1_button);
+
                             div1_h2.append(likeBtnBox);
                             //To the main div
 

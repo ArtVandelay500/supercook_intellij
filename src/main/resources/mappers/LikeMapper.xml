@@ -16,9 +16,9 @@
     </select>
 
     <insert id="likeUp">
-        INSERT INTO memberLikesReecipe (recipe_seq ,member_seq)
+        INSERT INTO memberLikesRecipe (recipe_seq ,member_seq)
         values(
-            {recipe_seq},
+            #{recipe_seq},
             #{member_seq}
             )
     </insert>

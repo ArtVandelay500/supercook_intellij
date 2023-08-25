@@ -12,6 +12,7 @@ public class RecipeVo {
     private String shKey;
     private String shKeyTheme;
     private String shKeyTool;
+    private String member_seq;
     private String optDelNy;
     private int resultCnt;
 
