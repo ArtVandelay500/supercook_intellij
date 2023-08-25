@@ -26,7 +26,7 @@
                     <div class="dropDown">
                         <a id="headerProfile" href="#">
                             <c:choose>
-                                <c:when test="${not empty userId}">
+                                <c:when test="${not empty userProfile}">
                                     <img style="object-fit: cover; align-self: center; transition: all .2s ease-in-out;"
                                          id="uploadImgProfilePreview1"
                                          src="${userProfile}"

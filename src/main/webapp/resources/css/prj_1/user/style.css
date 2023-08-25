@@ -75,6 +75,7 @@ body{
     color: white/* Adjust scale factor for the glowing effect */
 }
 .outBtn>span{
+    font-size: 3vw;
     transition: all .3s ease-in-out;
 }
 .dropDown{

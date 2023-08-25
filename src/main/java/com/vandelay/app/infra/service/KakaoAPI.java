@@ -3,7 +3,12 @@ package com.vandelay.app.infra.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.vandelay.app.infra.dto.KakaoDTO;
+import com.vandelay.app.infra.repository.KakaoRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -11,7 +16,12 @@ import java.net.URL;
 import java.util.HashMap;
 
 @Service
-public class KakaoAPI {public String getAccessToken (String authorize_code) {
+public class KakaoAPI {
+
+    public String getAccessToken (String authorize_code) {
+
+
+
     String access_Token = "";
     String refresh_Token = "";
     String reqURL = "https://kauth.kakao.com/oauth/token";
@@ -105,6 +115,9 @@ public class KakaoAPI {public String getAccessToken (String authorize_code) {
             userInfo.put("nickname", nickname);
             userInfo.put("profile_image", profile);
 
+
+
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -113,31 +126,5 @@ public class KakaoAPI {public String getAccessToken (String authorize_code) {
         return userInfo;
     }
 
-    public void kakaoLogout(String access_Token) {
-        String reqURL = "https://kapi.kakao.com/v1/user/logout";
-        try {
-            URL url = new URL(reqURL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Authorization", "Bearer " + access_Token);
 
-            int responseCode = conn.getResponseCode();
-            System.out.println("responseCode : " + responseCode);
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-            String result = "";
-            String line = "";
-
-            while ((line = br.readLine()) != null) {
-                result += line;
-            }
-            System.out.println(result);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
-
-}
+}//END OF KAKAO API CLASS

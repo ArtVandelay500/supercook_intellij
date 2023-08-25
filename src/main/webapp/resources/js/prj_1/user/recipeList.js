@@ -49,7 +49,6 @@ $(function(){
                         console.log(list.length);
                         for(let i in list){
                             console.log("지금은 "+i+"번째 레시피 차례입니다!!");
-                            sessionSeq = response.sessionSeq;
                             recipeName = list[i].recipeName;
                             recipeTitle =  list[i].recipeTitle;
                             recipeSource =  list[i].recipeSource;

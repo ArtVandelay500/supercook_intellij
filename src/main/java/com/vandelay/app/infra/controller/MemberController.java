@@ -1,7 +1,9 @@
 package com.vandelay.app.infra.controller;
 
+import com.vandelay.app.infra.dto.KakaoDTO;
 import com.vandelay.app.infra.dto.MemberDTO;
 import com.vandelay.app.infra.dto.UploadDTO;
+import com.vandelay.app.infra.repository.KakaoRepository;
 import com.vandelay.app.infra.service.KakaoAPI;
 import com.vandelay.app.infra.service.MemberService;
 import com.vandelay.app.infra.vo.MemberVo;
@@ -27,6 +29,8 @@ public class MemberController {
     private final MemberService memberService;
     @Autowired
     KakaoAPI kakaoAPI;
+    @Autowired
+    KakaoRepository kakaoRepository;
 
     @RequestMapping("/member/list")
     public String memberList(Model model){
@@ -169,7 +173,7 @@ public String userMemberUpdate(MemberDTO dto) throws Exception {
 
 //
 @RequestMapping(value="/login/kakao")
-public String login(@RequestParam("code") String code, HttpSession session) {
+public String login(@RequestParam("code")String code, HttpSession session,KakaoDTO dto) {
     System.out.println("code : " + code);
 
     String access_Token = kakaoAPI.getAccessToken(code);
@@ -177,17 +181,47 @@ public String login(@RequestParam("code") String code, HttpSession session) {
 
     HashMap<String, Object> userInfo = kakaoAPI.getUserInfo(access_Token);
     System.out.println("login Controller : " + userInfo);
+    dto.setNickname((String) userInfo.get("nickname"));
+    int kakaoCheck = kakaoRepository.kakaoCheck(dto);
+    System.out.println("몇개의 카카오 계정이 존재할까요? :" + kakaoCheck);
 
-    //    클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
-    if (userInfo.get("nickname") != null) {
+    if(kakaoCheck == 0){
+        session.setMaxInactiveInterval(60*60);
+        dto.setNickname((String) userInfo.get("nickname"));
+        kakaoRepository.insert(dto);
         session.setAttribute("userId", userInfo.get("nickname"));
         session.setAttribute("access_Token", access_Token);
         session.setAttribute("userProfile",  userInfo.get("profile_image"));
         session.setAttribute("sessionId",  userInfo.get("nickname"));
-    }
+        String kakaoSeq = dto.getSeq();
+        session.setAttribute("sessionSeq", kakaoSeq);
 
-    return "/user/infra/prj_1/indexUserView";
+    }else{
+        session.setMaxInactiveInterval(60*60);
+        session.setAttribute("userId", userInfo.get("nickname"));
+        session.setAttribute("access_Token", access_Token);
+        session.setAttribute("userProfile",  userInfo.get("profile_image"));
+        session.setAttribute("sessionId",  userInfo.get("nickname"));
+        KakaoDTO kakao = kakaoRepository.selectKakao(dto);
+        session.setAttribute("sessionSeq",  kakao.getSeq());
+        System.out.println(session.getAttribute("sessionSeq"));
+        System.out.println(session.getAttribute("sessionSeq"));
+        System.out.println(session.getAttribute("sessionSeq"));
+        System.out.println(session.getAttribute("sessionSeq"));
+        System.out.println(session.getAttribute("sessionSeq"));
+        System.out.println(session.getAttribute("sessionSeq"));
+        System.out.println(session.getAttribute("sessionSeq"));
+        System.out.println(session.getAttribute("sessionSeq"));
+    }
+        return "redirect:/indexUserView";
+
+    //    클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
+
+
 }
+
+
+
 
 
 }//END OF MEMBER CONTROLLER

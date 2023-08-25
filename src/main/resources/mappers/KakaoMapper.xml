@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Kakao">
+    <select id="checkKakao" resultType="integer">
+        SELECT
+            COUNT(seq)
+        FROM member
+        WHERE
+            email = #{nickname}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO member
+        (email)
+        VALUES (#{nickname})
+
+        <selectKey keyProperty="seq" resultType="String" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <select id="select" resultType="kakao">
+        SELECT
+            seq,
+            email
+        FROM
+            member
+        WHERE
+            email = #{nickname}
+    </select>
+
+</mapper>

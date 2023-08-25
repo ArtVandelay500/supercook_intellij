@@ -272,7 +272,7 @@
     <select id="user_selectRecUpload" resultType="recipe">
         SELECT
           *,
-        (select count(*)from memberLikesRecipe WHERE recipe_seq = a.seq AND member_seq = 22) AS likeCnt
+        (select count(*)from memberLikesRecipe WHERE recipe_seq = a.seq AND member_seq = #{member_seq}) AS likeCnt
         FROM
             recipe AS a
         LEFT JOIN uploadList AS c ON c.pseq = a.seq AND c.path LIKE CONCAT('%recipedto%')
