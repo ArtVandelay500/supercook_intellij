@@ -63,7 +63,7 @@
                     success: function(response) {
                         if (response.rt == "success") {
 
-                            location.href = "/indexAdminView";
+                            location.href = "/recipeList/list";
                         } else {
                             $('.login_no').css("opacity", "1");
                         }

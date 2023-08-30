@@ -301,7 +301,6 @@
 
 </body>
 </html>
-
 <script>
     //좋아요 버튼 js
     //좋아요 버튼 js
