@@ -165,20 +165,23 @@ $(function(){
                                 // text: recipeName
                             });
                             div1_button.click(function(){
-                                $.ajax({
-                                    async: true,
-                                    cache: false,
-                                    type: "post",
-                                    url: "/boostView",
-                                    data: {
-                                        "recipe_seq": list[i].seq
-                                    },
-                                    success: function(response) {
-                                    },
-                                    error: function(jqXHR, textStatus, errorThrown) {
-                                        alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-                                    }
-                                });
+                                if ($(this).attr('aria-expanded') === 'false') {
+                                    $.ajax({
+                                        async: true,
+                                        cache: false,
+                                        type: "post",
+                                        url: "/boostView",
+                                        data: {
+                                            "recipe_seq": list[i].seq
+                                        },
+                                        success: function (response) {
+                                            // Handle success response
+                                        },
+                                        error: function (jqXHR, textStatus, errorThrown) {
+                                            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                                        }
+                                    });
+                                }
                             });
                             div1_button.append(sourceLogoBox);
                             recipeNameSpan.text(recipeName);

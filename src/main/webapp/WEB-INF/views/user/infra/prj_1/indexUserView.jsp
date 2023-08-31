@@ -105,7 +105,7 @@
         <div class="recipe_box">
             <div class="resultInfo">
                 <div class="logoBox">
-                    <img src="/resources/img/prj_1/user/newYummy.png" />
+                    <img onclick=location.href="/indexUserView" src="/resources/img/prj_1/user/newYummy.png" />
                 </div>
             </div>
 
