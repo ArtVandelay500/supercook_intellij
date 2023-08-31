@@ -1,5 +1,6 @@
 $(function(){
     $("input[name=shKey]").keypress(function(e) {
+        $("#available").fadeOut();
         if(e.which == 13){
             e.preventDefault();
 
@@ -12,6 +13,7 @@ $(function(){
             const resultCnt = $("<h2>").html("SEARCHING");
             $(".resultCnt").append(resultCnt);
             $(".loader").show();
+
 
             $.ajax({
                 async: true,

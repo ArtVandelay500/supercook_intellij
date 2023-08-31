@@ -16,6 +16,8 @@ public class RecipeDTO {
     private String recipeTitle;
     private String recipeUrl;
     private String recipeRating;
+    private String recipeLike;
+
     private String recipePrepTime;
     private String recipeView;
     private String recipeSource;

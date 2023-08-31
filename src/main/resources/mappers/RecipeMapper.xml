@@ -24,11 +24,12 @@
         recipeIng,
         recipeLevel,
         recipeServing,
-        useNy
+        useNy,
+        (SELECT count(*) FROM memberLikesRecipe WHERE recipe_seq = a.seq) AS recipeLike
     </sql>
     <sql id="selectCommon">
         FROM
-            recipe
+            recipe AS a
         WHERE 1+1
         <if test="shKey != null and !shKey.equals('')">
             AND (recipeName LIKE CONCAT('%',#{shKey},'%')

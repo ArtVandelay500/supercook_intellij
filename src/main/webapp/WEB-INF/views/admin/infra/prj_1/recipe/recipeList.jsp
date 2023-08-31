@@ -44,7 +44,7 @@
                         <tr>
                             <th>#</th>
                             <th>레시피명</th>
-                            <th>레시피평점</th>
+                            <th>레시피 좋아요</th>
                             <th>소요시간</th>
                             <th>조회수</th>
                             <th>레시피사이트</th>
@@ -72,7 +72,7 @@
                                     <tr>
                                         <td><c:out value="${list.seq}"></c:out></td>
                                         <td><c:out value="${list.recipeName}"></c:out></td>
-                                        <td><c:out value="${list.recipeRating}"></c:out></td>
+                                        <td><c:out value="${list.recipeLike}"></c:out>개</td>
                                         <td><c:out value="${list.recipePrepTime}"></c:out></td>
                                         <td><c:out value="${list.recipeView}"></c:out></td>
                                         <td>

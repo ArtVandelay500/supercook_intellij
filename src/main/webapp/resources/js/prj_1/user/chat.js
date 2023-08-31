@@ -28,6 +28,23 @@ $(function(){
         alert("로그인을 하시면 채팅을 즐기실 수 있습니다!");
     });
 
+    function closeModal() {
+        curtain.fadeOut();
+        frame.fadeOut();
+        openBtn.fadeIn();
+        closeBtn.fadeOut();
+        chatBtn.removeClass("closeColor");
+    }
+
+
+    $(document).on("keydown", function(event) {
+
+            console.log("heyyy");
+            closeModal();
+
+    });
+    // Prevent the "Escape" key press from propagating to other elements
+
 
 });
 
