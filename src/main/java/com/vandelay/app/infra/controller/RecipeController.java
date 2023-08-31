@@ -212,13 +212,6 @@ public Map<String, Object> selectListShKey(HttpServletRequest request, RecipeVo 
     Map<String,Object> returnMap = new HashMap<String,Object>();
     String sessionSeq = (String)request.getSession().getAttribute("sessionSeq");
     vo.setMember_seq(sessionSeq);
-    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-    System.out.println("지금 로그인한 사람의 sessionSeq는");
-    System.out.println(vo.getMember_seq());
-    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     vo.setResultCnt(recipeService.selectOneCount(vo));
     List<RecipeDTO> listShKey = recipeService.userSelectRecUpload(vo);
     List<RecipeDTO> listShKeyIng = recipeService.userSelectRecIng(vo);
@@ -235,6 +228,21 @@ public Map<String, Object> selectListShKey(HttpServletRequest request, RecipeVo 
 
     return returnMap;
 }
+
+    /**
+     * 유저단 레시피 펼치고 닫을 시 조회수 증가
+     */
+    @ResponseBody
+@RequestMapping("/boostView")
+public Map<String,Object> boostView(RecipeVo vo){
+    Map<String,Object> map = new HashMap<String,Object>();
+    recipeService.boostView(vo);
+    map.put("rt","success");
+    return map;
+    }
+
+
+
 
 
 }//END OF THE CONTROLLER

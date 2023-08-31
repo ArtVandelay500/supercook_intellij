@@ -14,6 +14,7 @@ public class RecipeVo {
     private String shKeyTool;
     private String member_seq;
     private String optDelNy;
+    private String recipe_seq;
     private int resultCnt;
 
 

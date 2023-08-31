@@ -84,7 +84,7 @@ $(function(){
 
                             likeBtn.append(spanEmoti, spanHeart);
                             likeBtnBox.append(likeBtn);
-                            likeBtn .click(function() {
+                            likeBtn.click(function() {
                                 click4Luv(this);
                                 likeUp();
                                 function click4Luv(button) {
@@ -163,6 +163,22 @@ $(function(){
                                 "aria-expanded": "false",
                                 "aria-controls": i + "a",
                                 // text: recipeName
+                            });
+                            div1_button.click(function(){
+                                $.ajax({
+                                    async: true,
+                                    cache: false,
+                                    type: "post",
+                                    url: "/boostView",
+                                    data: {
+                                        "recipe_seq": list[i].seq
+                                    },
+                                    success: function(response) {
+                                    },
+                                    error: function(jqXHR, textStatus, errorThrown) {
+                                        alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+                                    }
+                                });
                             });
                             div1_button.append(sourceLogoBox);
                             recipeNameSpan.text(recipeName);

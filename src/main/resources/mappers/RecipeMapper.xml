@@ -110,6 +110,15 @@
             seq = #{recipe_seq}
     </update>
 
+
+    <update id="boostView">
+        UPDATE recipe
+        SET
+            recipeView = recipeView + 1
+        WHERE
+            seq = #{recipe_seq}
+    </update>
+
     <update id="likeDown">
         UPDATE recipe
         SET

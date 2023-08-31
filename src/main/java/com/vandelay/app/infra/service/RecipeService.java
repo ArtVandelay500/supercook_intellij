@@ -228,6 +228,10 @@ public List<RecipeDTO> userSelectRecUpload(RecipeVo vo) {
     public int deleteLike(LikeVo vo) {
         return recipeRepository.deleteLike(vo);
     }
+
+    public int boostView(RecipeVo vo){
+        return recipeRepository.boostView(vo);
+    }
 //USER
 //USER
 //USER
