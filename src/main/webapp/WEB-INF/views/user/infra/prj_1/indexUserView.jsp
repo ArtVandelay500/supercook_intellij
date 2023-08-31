@@ -115,7 +115,7 @@
 
                 </div>
                 <div class="result">
-                    <p style="transition: none; margin: 0" id="available">현재 검색 가능한 레시피: 부대찌개, 스파게티, 당근라페, 된장찌개<br>---각 레시피의 재료로도 검색이 가능합니다!---</p>
+                    <p style="transition: none; margin: 0" id="available">현재 검색 가능한 레시피: 부대찌개, 스파게티, 당근라페, 된장찌개<br><br>*각 레시피의 재료로도 검색이 가능합니다!</p>
 
                 <%--LOADING SPINNER--%>
                     <div class="loader"></div>

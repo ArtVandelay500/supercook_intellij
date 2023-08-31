@@ -61,7 +61,7 @@ $(function(){
             /* ,data : $("#formLogin").serialize() */
             ,success: function(response) {
                 if(response.rt == "success") {
-                    location.href = "/indexUserView";
+                    location.href = "/login";
                 } else {
                 }
             }
