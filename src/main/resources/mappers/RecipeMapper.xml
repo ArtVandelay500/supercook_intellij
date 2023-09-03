@@ -24,8 +24,8 @@
         recipeIng,
         recipeLevel,
         recipeServing,
-        useNy,
-        (SELECT count(*) FROM memberLikesRecipe WHERE recipe_seq = a.seq) AS recipeLike
+        useNy
+
     </sql>
     <sql id="selectCommon">
         FROM
@@ -56,6 +56,7 @@
         SELECT aa.* FROM (
             SELECT
                 <include refid="selectField" />
+        ,(SELECT count(*) FROM memberLikesRecipe WHERE recipe_seq = a.seq) AS recipeLike
                 <include refid="selectCommon" />
             ) AS aa
         LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
