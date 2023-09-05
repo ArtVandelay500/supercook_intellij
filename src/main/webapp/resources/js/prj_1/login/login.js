@@ -40,7 +40,7 @@ $(function(){
             /* ,data : $("#formLogin").serialize() */
             ,success: function(response) {
                 if(response.rt == "success") {
-                    location.href = "/indexAdminView";
+                    location.href = "/loginAdmin";
                 } else {
                 }
             }
