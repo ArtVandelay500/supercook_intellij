@@ -81,6 +81,13 @@
                             <li><a href="/login">User</a></li>
                             <li><a href="/loginAdmin">Admin</a></li>
                         </ul>
+                    <div>
+                        <h4>카카오 API 로그인</h4>
+                        <img width="100%" style="object-fit: fill" src="/resources/img/prj_1/user/addIng.gif"/>
+                    </div>
+                    <div>
+                        <img src="/resources/img/prj_1/user/">        
+                    </div>
                     </div>
                 </div>
                 <div class="section_contact">

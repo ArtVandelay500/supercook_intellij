@@ -144,7 +144,7 @@
     }
     // 웹소캣 생성
     // var sock = new SockJS("http://localhost:82/echo/");
-    var sock = new SockJS("http://43.201.9.43/echo/");
+    var sock = new SockJS("http:$//43.201.9.43/echo/");
     sock.onmessage = onMessage;
     console.log(sock);
     sock.onopen = function(event) {

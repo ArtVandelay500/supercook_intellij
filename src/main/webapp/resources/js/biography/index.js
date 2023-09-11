@@ -3,10 +3,10 @@ $(function(){
     // setting
     // setting
     // setting
-    $(".section_projects").hide("slow");
+    $(".section_index").hide("slow");
     $(".section_contact").hide("slow");
     // home li indented
-    $(".btn_home").css({
+    $(".btn_projects").css({
         marginLeft : "10px",
         letterSpacing : "-1px",
     });
